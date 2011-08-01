@@ -201,7 +201,8 @@ highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=
 highway=* & area!=yes [0x07 ]
 
 natural=coastline [0x15 resolution 12]
-power=line [0x29 resolution 21]
+#power=line [0x29 resolution 21]
+# removed 1/8/2011 beddhist
 
 railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
 railway=light_rail & !(tunnel=yes) [0x14 resolution 22]
@@ -228,9 +229,10 @@ man_made=cable|(man_made=* & man_made ~ '.*pipe.*')
 # are frequently tagged with both and we want the highway to take priority.
 boundary=administrative { name '${mkgmap:boundary_name}' }
 boundary=administrative & admin_level<3 [0x1e resolution 16]
-boundary=administrative & admin_level<5 [0x1d resolution 19]
-boundary=administrative & admin_level<7 [0x1c resolution 21]
-boundary=administrative & admin_level<9 [0x1c resolution 22]
-boundary=administrative [0x1c resolution 22]
+#boundary=administrative & admin_level<5 [0x1d resolution 19]
+#boundary=administrative & admin_level<7 [0x1c resolution 21]
+#boundary=administrative & admin_level<9 [0x1c resolution 22]
+#boundary=administrative [0x1c resolution 22]
 boundary=national [0x1e resolution 17]
-boundary=political [0x1c resolution 19]
+#boundary=political [0x1c resolution 19]
+# boundaries removed 1/8/2011 beddhist
