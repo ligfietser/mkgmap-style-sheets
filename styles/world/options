@@ -1,0 +1,26 @@
+
+#
+# Style options.
+#
+
+# The name-tag-list option determines what tag is used as the name of a
+# feature.  The value of the tag will overwrite the 'name' tag before
+# being used in the style.
+#
+# You can specify a list here, the first one that exists will be
+# used.
+# 
+# Example:
+# name-tag-list = name:en, int_name, name
+# if an element has the 'int_name' tag and the 'name' tag then name is
+# reset to be the value of the 'int_name' tag.
+
+# The levels specification for this style
+# 
+levels = 0:24, 1:22, 2:20, 3:18, 4:16
+# More levels may make zooming smoother, but it will generate larger map tiles.
+#levels = 0:24, 1:22, 2:21, 3:20, 4:19, 5:18, 6:16
+
+# this line commented out before testing:
+#extra-used-tags= name hello world
+
