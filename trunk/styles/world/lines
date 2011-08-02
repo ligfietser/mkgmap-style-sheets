@@ -204,13 +204,18 @@ natural=coastline [0x15 resolution 12]
 #power=line [0x29 resolution 21]
 # removed 1/8/2011 beddhist
 
+railway=rail & !(tunnel=yes) [0x10014 resolution 22-20 continue]
+railway=rail & !(tunnel=yes) [0x14 resolution 24]
+(railway=tram | railway=light_rail) & !(tunnel=yes) [0x10014 resolution 24]
+# issue 3 Beddhist 2/8/2011
+
 railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
-railway=light_rail & !(tunnel=yes) [0x14 resolution 22]
+#railway=light_rail & !(tunnel=yes) [0x14 resolution 22]
 railway=narrow_gauge & !(tunnel=yes) [0x14 resolution 22]
 railway=preserved & !(tunnel=yes) [0x14 resolution 22]
-railway=rail & !(tunnel=yes) [0x14 resolution 21]
+#railway=rail & !(tunnel=yes) [0x14 resolution 20]
 railway=subway & !(tunnel=yes) [0x14 resolution 21]
-railway=tram & !(tunnel=yes) [0x14 resolution 22]
+#railway=tram & !(tunnel=yes) [0x14 resolution 22]
 railway=platform {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
 
 route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19]
