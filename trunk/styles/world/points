@@ -231,7 +231,10 @@ leisure=stadium { name '${name} (${sport})' | '${name}' } [0x2c08 resolution 24]
 leisure=track { name '${name} (${sport})' | '${name}' } [0x2c08 resolution 24]
 leisure=water_park [0x2b04 resolution 24]
 
-man_made=tower|landmark=chimney [0x6411 resolution 24]
+#man_made=tower|landmark=chimney [0x6411 resolution 24]
+man_made=water_tower  [0x6411 resolution 24]
+(man_made=tower & tower:type!=communication) |man_made=chimney  [0x6411 resolution 24]
+# issue 8: remove comms towers (cluttering map), add water tower, fix chimney
 
 # Edge 705 displays 0x650a,0x6511,0x6512,0x6513,0x6603,0x6614 as hollow white circles, no menu
 natural=beach [0x6604 resolution 24]
