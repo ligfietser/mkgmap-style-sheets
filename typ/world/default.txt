@@ -1,7 +1,7 @@
-; default_b.typ
-; Longueur:  1 677 Bytes
-; Fichier TYP compilé     03-08-2011     17:30:23
-; Décompilé le 3-8-2011 à 18:24:52
+; default.typ
+; Longueur:  1 756 Bytes
+; Fichier TYP compilé     03-08-2011     22:00:37
+; Décompilé le 3-8-2011 à 22:01:38
 
 [_id]
 ProductCode=6
@@ -32,6 +32,58 @@ Xpm="0 0 1 0"
 String1=0x04,cycleway
 String2=0x03,Fietspad
 String3=0x02,Radweg
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x2a
+UseOrientation=N
+Xpm="32 10 2  1"
+"! c #000000"
+"  c none"
+"!!!!!!!!        !!!!!!!!        "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!        !!!!!!!!        "
+;12345678901234567890123456789012
+String1=0x04,tunnel
+String2=0x03,tunnel
+String3=0x02,Tunnel
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x2b
+UseOrientation=N
+Xpm="32 10 2  1"
+"! c #FFFFFF"
+"# c #000000"
+"################################"
+"################################"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+"################################"
+;12345678901234567890123456789012
+String1=0x04,bridge
+String2=0x03,brug
+String3=0x02,Brücke
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
