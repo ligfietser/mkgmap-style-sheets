@@ -75,17 +75,17 @@ aeroway=taxiway [0x27 resolution 24]
 
 # Contours take their name from the elevation setting.
 contour=elevation & contour_ext=elevation_minor
-	{ name '${ele|conv:m=>ft}'; }
-	[0x20 resolution 23]
+    { name '${ele|conv:m=>ft}'; }
+    [0x20 resolution 23]
 contour=elevation & contour_ext=elevation_medium
-	{ name '${ele|conv:m=>ft}'; }
-	[0x21 resolution 21]
+    { name '${ele|conv:m=>ft}'; }
+    [0x21 resolution 21]
 contour=elevation & contour_ext=elevation_major
-	{ name '${ele|conv:m=>ft}'; }
-	[0x22 resolution 20]
+    { name '${ele|conv:m=>ft}'; }
+    [0x22 resolution 20]
 contour=elevation | contour_ext=elevation
-	{ name '${ele|conv:m=>ft}'; }
-	[0x21 resolution 20]
+    { name '${ele|conv:m=>ft}'; }
+    [0x21 resolution 20]
 
 # Remove access=yes from highways.
 highway=* & access=yes { delete access }
@@ -155,10 +155,9 @@ junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
 
 # Ways that may or may not be useable
 
-# Treat ways under construction as highway=path
-highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x16 road_class=0 road_speed=1 resolution 23]
-# Treat disused ways as highway=service, but at lower road_speed.
-highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22]
+# ways under construction, disused
+highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
+highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 22]
 
 # Ways sorted roughly by descending order of class
 highway=motorway {add oneway = yes; add bicycle = no; add foot = no } [0x01 road_class=4 road_speed=7 resolution 16]
@@ -181,7 +180,7 @@ highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
 highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
-highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x07 road_class=0 road_speed=0 resolution 23]
+highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 default_name="bridleway" road_class=0 road_speed=0 resolution 23]
 highway=byway [0x16 road_class=0 road_speed=0 resolution 23]
 
 highway=service & service=parking_aisle
@@ -190,7 +189,7 @@ highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
 highway=service [0x07 road_class=0 road_speed=2 resolution 22]
 
-highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x07 road_class=0 road_speed=1 resolution 23]
+highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=0 road_speed=1 resolution 23]
 
 highway=footway|highway=path|highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
 highway=track [0x0a road_class=0 road_speed=1 resolution 22]
@@ -204,18 +203,16 @@ natural=coastline [0x15 resolution 12]
 #power=line [0x29 resolution 21]
 # removed 1/8/2011 beddhist
 
-railway=rail & !(tunnel=yes) [0x10014 resolution 22-20 continue]
-railway=rail & !(tunnel=yes) [0x14 resolution 24]
-(railway=tram | railway=light_rail) & !(tunnel=yes) [0x10014 resolution 24]
+railway=rail & !(tunnel=yes) [0x10114 resolution 22-20 continue]
+railway=rail & !(tunnel=yes) [0x10014 resolution 24]
 # issue 3 Beddhist 2/8/2011
 
 railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
-#railway=light_rail & !(tunnel=yes) [0x14 resolution 22]
-railway=narrow_gauge & !(tunnel=yes) [0x14 resolution 22]
-railway=preserved & !(tunnel=yes) [0x14 resolution 22]
-#railway=rail & !(tunnel=yes) [0x14 resolution 20]
-railway=subway & !(tunnel=yes) [0x14 resolution 21]
-#railway=tram & !(tunnel=yes) [0x14 resolution 22]
+railway=light_rail & !(tunnel=yes) [0x10114 default_name="light rail" resolution 22]
+railway=narrow_gauge & !(tunnel=yes) [0x10014 resolution 22]
+railway=preserved & !(tunnel=yes) [0x10014 resolution 22]
+railway=subway & !(tunnel=yes) [0x10014 resolution 21]
+railway=tram & !(tunnel=yes) [0x10114 default_name="tram" resolution 24]
 railway=platform {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
 
 route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19]
@@ -241,3 +238,4 @@ boundary=administrative & admin_level<5 [0x1d resolution 19]
 boundary=national [0x1e resolution 17]
 #boundary=political [0x1c resolution 19]
 # Issue 6: boundaries removed 1/8/2011 beddhist
+
