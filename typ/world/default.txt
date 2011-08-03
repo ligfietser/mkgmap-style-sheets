@@ -1,7 +1,7 @@
-; default.typ
-; Longueur:  1 369 Bytes
-; Fichier TYP compilÈ     03/08/2011     22:35:19
-; DÈcompilÈ le 3/08/2011 ‡ 22:50:21
+; default_b.typ
+; Longueur:  1 677 Bytes
+; Fichier TYP compil√©     03-08-2011     17:30:23
+; D√©compil√© le 3-8-2011 √† 18:24:52
 
 [_id]
 ProductCode=6
@@ -23,6 +23,80 @@ CodePage=1252
 ;====================== LINES ===========================
 
 
+[_line]
+Type=0x10
+UseOrientation=N
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #BD0000"
+String1=0x04,cycleway
+String2=0x03,Fietspad
+String3=0x02,Radweg
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10007
+UseOrientation=N
+Xpm="32 3 2  1"
+"! c #838383"
+"# c #FFFFFF"
+"!!!!!#####!!!!!#####!!!!!#####!!"
+"################################"
+"!!!!!#####!!!!!#####!!!!!#####!!"
+;12345678901234567890123456789012
+String1=0x04,road in construction
+String2=0x03,weg in aanleg
+String3=0x02,Stra√üe im Bau
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10014
+UseOrientation=N
+Xpm="32 7 2  1"
+"! c #000000"
+"# c #FFFFFF"
+"################################"
+"################################"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"####!!!!!!!!#########!!!!!!!!###"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+"################################"
+;12345678901234567890123456789012
+String1=0x04,railway
+String2=0x03,spoorweg
+String3=0x02,Eisenbahn
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10114
+UseOrientation=N
+LineWidth=1
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #000000"
+"2 c #FFFFFF"
+String1=0x04,railway
+String2=0x03,spoorweg
+String3=0x02,Eisenbahn
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
 ;====================== POINTS ==========================
 
 
@@ -32,87 +106,87 @@ SubType=0x06
 String1=0x04,Shelter
 ExtendedLabels=N
 DayXpm="24 24 81 2"   Colormode=16
-"!!	c #000000"
-"!#	c #0095D5"
-"!%	c #0095D5"
-"!?	c #0095D5"
-"!$	c #0095D5"
-"!*	c #0095D5"
-"!=	c #0095D5"
-"!1	c #0095D5"
-"!2	c #0095D5"
-"!3	c #0095D5"
-"!4	c #0095D5"
-"!5	c #0095D5"
-"!6	c #0095D5"
-"!7	c #0095D5"
-"!8	c #0095D5"
-"!9	c #0095D5"
-"#!	c #0095D5"
-"##	c #0095D5"
-"#%	c #3995D5"
-"#?	c #3995D5"
-"#$	c #3995D5"
-"#*	c #3995D5"
-"#=	c #3995D5"
-"#1	c #3995D5"
-"#2	c #3995D5"
-"#3	c #3995D5"
-"#4	c #3995D5"
-"#5	c #3995D5"
-"#6	c #3995D5"
-"#7	c #3995D5"
-"#8	c #3995D5"
-"#9	c #39CAD5"
-"%!	c #39CAD5"
-"%#	c #39CAD5"
-"%%	c #39CAD5"
-"%?	c #39CAD5"
-"%$	c #39CAD5"
-"%*	c #7BCAD5"
-"%=	c #7BCAD5"
-"%1	c #7BCAD5"
-"%2	c #7BCAD5"
-"%3	c #7BCAD5"
-"%4	c #7BCAD5"
-"%5	c #7BCAFF"
-"%6	c #7BCAFF"
-"%7	c #7BCAFF"
-"%8	c #7BCAFF"
-"%9	c #7BCAFF"
-"?!	c #7BCAFF"
-"?#	c #7BCAFF"
-"?%	c #7BCAFF"
-"??	c #7BCAFF"
-"?$	c #7BCAFF"
-"?*	c #7BCAFF"
-"?=	c #7BCAFF"
-"?1	c #7BCAFF"
-"?2	c #7BCAFF"
-"?3	c #BDCAFF"
-"?4	c #BDCAFF"
-"?5	c #BDCAFF"
-"?6	c #BDCAFF"
-"?7	c #BDCAFF"
-"?8	c #BDCAFF"
-"?9	c #BDCAFF"
-"$!	c #BDCAFF"
-"$#	c #BDCAFF"
-"$%	c #BDCAFF"
-"$?	c #BDCAFF"
-"$$	c #BDCAFF"
-"$*	c #BDCAFF"
-"$=	c #BDFFFF"
-"$1	c #BDFFFF"
-"$2	c #BDFFFF"
-"$3	c #BDFFFF"
-"$4	c #E6E6E6"
-"$5	c #E6E6E6"
-"$6	c #E6E6E6"
-"$7	c #E6E6E6"
-"$8	c #E6E6E6"
-"$9	c #7B6500"
-"  	c none"
+"!!    c #000000"
+"!#    c #0095D5"
+"!%    c #0095D5"
+"!?    c #0095D5"
+"!$    c #0095D5"
+"!*    c #0095D5"
+"!=    c #0095D5"
+"!1    c #0095D5"
+"!2    c #0095D5"
+"!3    c #0095D5"
+"!4    c #0095D5"
+"!5    c #0095D5"
+"!6    c #0095D5"
+"!7    c #0095D5"
+"!8    c #0095D5"
+"!9    c #0095D5"
+"#!    c #0095D5"
+"##    c #0095D5"
+"#%    c #3995D5"
+"#?    c #3995D5"
+"#$    c #3995D5"
+"#*    c #3995D5"
+"#=    c #3995D5"
+"#1    c #3995D5"
+"#2    c #3995D5"
+"#3    c #3995D5"
+"#4    c #3995D5"
+"#5    c #3995D5"
+"#6    c #3995D5"
+"#7    c #3995D5"
+"#8    c #3995D5"
+"#9    c #39CAD5"
+"%!    c #39CAD5"
+"%#    c #39CAD5"
+"%%    c #39CAD5"
+"%?    c #39CAD5"
+"%$    c #39CAD5"
+"%*    c #7BCAD5"
+"%=    c #7BCAD5"
+"%1    c #7BCAD5"
+"%2    c #7BCAD5"
+"%3    c #7BCAD5"
+"%4    c #7BCAD5"
+"%5    c #7BCAFF"
+"%6    c #7BCAFF"
+"%7    c #7BCAFF"
+"%8    c #7BCAFF"
+"%9    c #7BCAFF"
+"?!    c #7BCAFF"
+"?#    c #7BCAFF"
+"?%    c #7BCAFF"
+"??    c #7BCAFF"
+"?$    c #7BCAFF"
+"?*    c #7BCAFF"
+"?=    c #7BCAFF"
+"?1    c #7BCAFF"
+"?2    c #7BCAFF"
+"?3    c #BDCAFF"
+"?4    c #BDCAFF"
+"?5    c #BDCAFF"
+"?6    c #BDCAFF"
+"?7    c #BDCAFF"
+"?8    c #BDCAFF"
+"?9    c #BDCAFF"
+"$!    c #BDCAFF"
+"$#    c #BDCAFF"
+"$%    c #BDCAFF"
+"$?    c #BDCAFF"
+"$$    c #BDCAFF"
+"$*    c #BDCAFF"
+"$=    c #BDFFFF"
+"$1    c #BDFFFF"
+"$2    c #BDFFFF"
+"$3    c #BDFFFF"
+"$4    c #E6E6E6"
+"$5    c #E6E6E6"
+"$6    c #E6E6E6"
+"$7    c #E6E6E6"
+"$8    c #E6E6E6"
+"$9    c #7B6500"
+"      c none"
 "                                                "
 "                  $*$6      ?4%7                "
 "          $5    $%#5      ?8#8                  "
@@ -147,9 +221,9 @@ SubType=0x0c
 String1=0x04,Tourist Information
 ExtendedLabels=N
 DayXpm="24 24 3 1"   Colormode=16
-"!	c #FFFFFF"
-"#	c #0000FF"
-"  	c none"
+"!    c #FFFFFF"
+"#    c #0000FF"
+"      c none"
 "   ##################   "
 "  #########!!#########  "
 "  ########!!!!########  "
@@ -184,14 +258,14 @@ SubType=0x1c
 String1=0x04,Toilet
 ExtendedLabels=N
 DayXpm="22 20 8 1"   Colormode=16
-"!	c #000000"
-"#	c #0000B4"
-"%	c #0030B4"
-"?	c #0000D5"
-"$	c #0030D5"
-"*	c #0065D5"
-"=	c #0030FF"
-"1	c #FFFFFF"
+"!    c #000000"
+"#    c #0000B4"
+"%    c #0030B4"
+"?    c #0000D5"
+"$    c #0030D5"
+"*    c #0065D5"
+"=    c #0030FF"
+"1    c #FFFFFF"
 "11!!!!!!!!!!!!!!!!!!11"
 "1!$$*****$$$$$$$$$$$!1"
 "!$********$$$$$$$$$$#!"
