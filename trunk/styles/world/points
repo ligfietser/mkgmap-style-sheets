@@ -161,8 +161,10 @@ amenity=supermarket [0x2e02 resolution 24]
 amenity=taxi [0x2f17 resolution 24]
 amenity=telephone [0x2f12 resolution 24 default_name 'Telephone']
 amenity=theatre [0x2d01 resolution 24]
-amenity=toilets & tourism=information [0x2f0c resolution 24]
-amenity=toilets [0x4e00 resolution 24 default_name 'Toilets' ]
+#amenity=toilets & tourism=information [0x2f0c resolution 24]
+amenity=toilets [0x2f1c resolution 24 default_name 'Toilets' ]
+# issue 9: change code for toilets
+
 amenity=townhall [0x3003 resolution 24]
 amenity=university [0x2c05 resolution 24]
 # amenity=zoo is superceded by tourism=zoo
@@ -314,9 +316,11 @@ tourism=chalet { name '${name}' | '${ref}' } [0x2b02 resolution 24]
 tourism=guest_house [0x2b02 resolution 24]
 tourism=hostel [0x2b02 resolution 24]
 tourism=hotel | tourism=motel { name '${name|def:}(${stars}*)${operator|def:}' | '${name} ${operator}' | '${name}' | '${operator}' } [0x2b01 resolution 24]
-tourism=information {name '${name} - ${description} (${operator})'|
+tourism=information & information != guidepost {name '${name} - ${description} (${operator})'|
 '${name} - (${description})' | '${name}' | '${description}' |
 '${operator}' | '${ref}'} [0x2f0c resolution 24]
+# Issue 9: filter out guide posts, change toilet symbol to round "i"
+
 # tourism=lean_to replaces some uses of amenity=shelter
 tourism=lean_to [0x2b05 resolution 24 default_name 'lean-to']
 tourism=wilderness_hut [0x2b07 resolution 24 default_name 'wilderness hut']
