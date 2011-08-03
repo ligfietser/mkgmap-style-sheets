@@ -159,6 +159,10 @@ junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
 highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
 highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 22]
 
+# bridges & tunnels
+(bridge=yes | bridge=true | bridge=viaduct) & highway!=proposed & railway!=proposed   [0x2b resolution 24 continue with_actions]
+(tunnel=yes | tunnel=true | tunnel=1) & highway!=proposed & railway!=* & waterway!=* [0x2a resolution 24 continue with_actions]
+
 # Ways sorted roughly by descending order of class
 highway=motorway {add oneway = yes; add bicycle = no; add foot = no } [0x01 road_class=4 road_speed=7 resolution 16]
 highway=motorway_link {add oneway = yes; add bicycle = no; add foot = no } [0x09 road_class=3 road_speed=2 resolution 20]
