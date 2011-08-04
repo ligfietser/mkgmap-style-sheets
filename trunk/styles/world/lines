@@ -157,7 +157,7 @@ junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
 
 # ways under construction, disused
 highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
-highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 22]
+highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 24]
 
 # bridges & tunnels
 (bridge=yes | bridge=true | bridge=viaduct) & highway!=proposed & railway!=proposed   [0x2b resolution 24 continue with_actions]
@@ -184,8 +184,8 @@ highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
 highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
-highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 default_name="bridleway" road_class=0 road_speed=0 resolution 23]
-highway=byway [0x16 road_class=0 road_speed=0 resolution 23]
+highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 default_name="bridleway" road_class=0 road_speed=0 resolution 24]
+highway=byway [0x16 road_class=0 road_speed=0 resolution 24]
 
 highway=service & service=parking_aisle
 [0x07 road_class=0 road_speed=1 resolution 24]
@@ -193,7 +193,7 @@ highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
 highway=service [0x07 road_class=0 road_speed=2 resolution 22]
 
-highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=0 road_speed=1 resolution 23]
+highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=0 road_speed=1 resolution 22]
 
 highway=footway|highway=path|highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
 highway=track [0x0a road_class=0 road_speed=1 resolution 22]
