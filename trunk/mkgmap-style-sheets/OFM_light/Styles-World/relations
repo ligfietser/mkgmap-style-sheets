@@ -1,0 +1,121 @@
+# -------------------------------------------------------------------
+# This is the default mkgmap style file for applying rules on
+# OSM relations.  Usually you will set tags on the
+# elements that make up the relation, and the tags will be
+# processed by the rules defined in the "points" or "lines" files.
+#
+# Any line prefaced with # is a comment and will not be applied.
+# Each line is a rule, of the generalised format:
+#  OSM_tag(s)_to_match  [Garmin_type_code resolution]
+# See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
+# and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
+# for more information.
+
+# Names of administrative boundaries.
+# We could want to sort the relations in ascending order of admin_level
+# and alphabetically by name first.
+# Currently, the matching relations will be processed and the names
+# appended to the boundary lines in an arbitrary order.
+
+(type=boundary | type=multipolygon) & boundary=administrative & name=*
+{ apply
+  {
+    set mkgmap:boundary_name='$(mkgmap:boundary_name)/${name}' | '${name}';
+  }
+}
+
+type=multipolygon & landuse=forest
+	{
+		apply {
+		set forest_from_relation=yes;
+		set fname='${name}';
+	}
+	}  
+	
+(type=boundary | type=multipolygon) & boundary=administrative & admin_level=2
+{ apply
+  {
+   set boundary2=yes;
+   set mkgmap:boundary2_name='$(mkgmap:boundary2_name)/${name}' | '${name}';
+  }
+}
+
+(type=boundary | type=multipolygon) & boundary=administrative & admin_level=4
+{ apply
+  {
+   set boundary4=yes;
+   set mkgmap:boundary4_name='$(mkgmap:boundary4_name)/${name}' | '${name}';
+  }
+}
+
+
+(type=boundary | type=multipolygon) & boundary=administrative & admin_level=8
+{ apply
+  {
+   set mkgmap:boundary8_name='$(mkgmap:boundary8_name)/${name}' | '${name}';
+   set boundary8=yes;
+  }
+}
+
+# map the cycle routes to the lcn, rcn and ncn tags
+
+type=route & route=bicycle & network=ncn
+	{
+		apply { 
+		set ncn_from_relation=yes;
+		set nname='${name}';
+		set nref='$(nref)/${ref}' | '${ref}';
+	} 
+	}	
+
+type=route & route=bicycle & network=icn
+	{
+		apply { 
+		set icn_from_relation=yes;
+		set iname='${name}';
+	} 
+	}	
+	
+type=route & route=bicycle & network=rcn & note ~ '[^a-zA-Z].*'
+	{
+		apply { 
+		set rcn_from_relation=yes;
+		set rnote='${note}';
+		set rref='${note}';
+	} 
+	}	
+	
+type=route & route=bicycle & network=rcn
+	{
+		apply { 
+		set rcn_from_relation=yes;
+		set rname='${name}';
+		add rref='${ref}';
+	} 
+	}	
+
+type=route & route=bicycle & network=lcn
+	{
+		apply { 
+		set lcn_from_relation=yes;
+		set lname='${name}';
+		set lref='$(lref)/${ref}' | '${ref}';
+	}
+	} 	
+
+
+type=route & route=bicycle & network=tcn
+	{
+		apply { set tcn_from_relation=yes;
+		set tname='${name}';
+	}
+	} 	
+	
+
+type=route & route=mtb
+	{
+		apply {
+		set mtb_from_relation=yes;
+		set mname='${name}';
+	}
+	} 
