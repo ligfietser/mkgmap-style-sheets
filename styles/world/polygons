@@ -86,9 +86,11 @@ amenity=school [0x0a resolution 22]
 amenity=supermarket [0x08 resolution 22]
 amenity=university [0x0a resolution 21]
 
+amenity=fuel [0x21 resolution 24]
+# Issue 7: invisible polygon from which a searchable POI is created. 6/8/2011 Beddhist
+
 healthcare=hospital | amenity=hospital [0x0b resolution 22]
-healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home
-[0x0b resolution 23]
+healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home [0x0b resolution 23]
 
 landuse=allotments [0x4e resolution 21]
 landuse=basin [0x3f resolution 20]
