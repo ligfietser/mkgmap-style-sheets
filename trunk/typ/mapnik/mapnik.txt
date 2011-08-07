@@ -2821,7 +2821,7 @@ DayXpm="16 16 5 1"   Colormode=32
 
 [_point]
 Type=0x02b
-SubType=0x00
+SubType=0x01
 String1=0x04,Hotel
 String2=0x01,Hôtel
 String3=0x03,Hotel
@@ -2872,69 +2872,9 @@ DayXpm="20 20 19 2"   Colormode=32
 
 [_point]
 Type=0x02b
-SubType=0x01
-String1=0x04,Hostel
-String2=0x01,Hôtel
-String3=0x03,Hostel
-ExtendedLabels=N
-DayXpm="20 20 28 2"   Colormode=32
-"!!	c #000000"  canalalpha=15
-"!#	c #0080FF"  canalalpha=13
-"!%	c #56C7FF"  canalalpha=0
-"!?	c #00FFFF"  canalalpha=14
-"!$	c #0092DA"  canalalpha=0
-"!*	c #008BE8"  canalalpha=13
-"!=	c #0093DA"  canalalpha=8
-"!1	c #008FD7"  canalalpha=14
-"!2	c #0091D9"  canalalpha=14
-"!3	c #0092D9"  canalalpha=13
-"!4	c #0090DA"  canalalpha=13
-"!5	c #0099CC"  canalalpha=11
-"!6	c #0095DA"  canalalpha=11
-"!7	c #0093D7"  canalalpha=14
-"!8	c #0093DD"  canalalpha=14
-"!9	c #0093D7"  canalalpha=13
-"#!	c #0094D9"  canalalpha=14
-"##	c #0093D7"  canalalpha=9
-"#%	c #0093D7"  canalalpha=12
-"#?	c #008FDF"  canalalpha=9
-"#$	c #0092DA"  canalalpha=2
-"#*	c #0092D8"  canalalpha=10
-"#=	c #0090DB"  canalalpha=11
-"#1	c #0091D9"  canalalpha=13
-"#2	c #0093D7"  canalalpha=10
-"#3	c #0093D7"  canalalpha=11
-"#4	c #0091DB"  canalalpha=14
-"#5	c #0095DF"  canalalpha=14
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!#!%!%!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!?!%!%!%!%!!!!!!!!!!"
-"!!!!!!!!!$!$!!!!!!!?!%!%!%!%!%!%!!!!!!!!"
-"!!!!!!!*!$!$!!!!!!!%!%!%!%!%!%!%!%!!!!!!"
-"!!!!!!!=!$!$!1!!!%!%!%!%!%!%!%!%!%!%!!!!"
-"!!!!!#!$!$!$!$!%!%!%!%!%!%!%!%!%!%!%!%!!"
-"!!!!!2!$!$!$!$!%!%!%!%!%!%!%!%!%!%!%!%!%"
-"!!!!!3!$!$!$!$!$!%!%!%!%!%!%!%!%!%!%!4!5"
-"!!!6!$!$!$!$!$!$!%!%!%!%!%!%!%!%!%!%!7!!"
-"!!!8!$!$!$!$!$!$!%!%!%!%!%!%!%!%!%!%!9!!"
-"!!#!!$!$!$!$!$!$!%!%!%!%!%!%!%!%!%!%##!!"
-"!!!$!$!$!$!$!$!$!$!%!%!%!!!!!%!%!%!%#%!!"
-"#?#$#*#=!$!$!!!!!%!%!%!%!!!!!%!%!%!%##!!"
-"!!!!!!!!!$!$!!#1!%!%!%!%!!!!!%!%!%!%#2!!"
-"!!!!!!!!!$!$!!!2!%!%!%!%!!!!!%!%!%!%#3!!"
-"!!!!!!!!!$!$!!#4!%!%!%!%!!!!!%!%!%!%#5!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890
-[end]
-
-
-[_point]
-Type=0x02b
 SubType=0x02
-String1=0x04,Guest house
-String2=0x01,Chambre d'hôtes
+String1=0x04,Guest house, hostel
+String2=0x01,Chambre d'hôtes, gîte
 ExtendedLabels=N
 DayXpm="16 16 23 2"   Colormode=32
 "!!	c #000000"  canalalpha=15
