@@ -1,7 +1,4 @@
-; mapnik.typ
-; Longueur:  29 581 Bytes
-; Fichier TYP compilé     30-07-2011     10:38:23
-; Décompilé le 7-8-2011 à 11:08:21
+
 
 [_id]
 ProductCode=3
@@ -1965,9 +1962,12 @@ CustomColor=No
 Type=0x07
 UseOrientation=Y
 LineWidth=2
-Xpm="0 0 1 0"
-"1 c #BD656A"
-String1=0x00,
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FFFFFF"
+"2 c #B4B4B4"
+String1=0x04,Service road
+String2=0x03,Toegangsweg
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
@@ -2052,6 +2052,24 @@ String1=0x04,Pedestrian
 String2=0x01,Voie piétonnière
 ExtendedLabels=Y
 FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #0000B4"
+"  c none"
+"!!! !!! !!! !!! !!! !!! !!! !!! "
+"!!! !!! !!! !!! !!! !!! !!! !!! "
+;12345678901234567890123456789012
+String1=0x04,cycleway
+String2=0x03,Fietspad
+String3=0x02,Radweg
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
 
@@ -2268,6 +2286,64 @@ ExtendedLabels=N
 
 
 [_line]
+Type=0x2a
+UseOrientation=N
+Xpm="32 12 4  1"
+"! c #000000"
+"  c none"
+"3 c #FFFF00"
+"4 c none"
+"!!!!!!!!        !!!!!!!!        "
+"!!!!!!!!        !!!!!!!!        "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!        !!!!!!!!        "
+"!!!!!!!!        !!!!!!!!        "
+;12345678901234567890123456789012
+String1=0x04,tunnel
+String2=0x03,tunnel
+String3=0x02,Tunnel
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x2b
+UseOrientation=N
+Xpm="32 10 4  1"
+"! c #000000"
+"# c #FFFFFF"
+"3 c #FFFFFF"
+"4 c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x04,bridge
+String2=0x03,brug
+String3=0x02,Brücke
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
 Type=0x2c
 UseOrientation=N
 Xpm="32 4 2  1"
@@ -2375,6 +2451,66 @@ Xpm="0 0 2 0"
 String1=0x04,Living street
 String2=0x01,Zone mixte
 ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x10007
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FF658B"
+"# c #FFFFFF"
+"!!!!####!!!!####!!!!####!!!!####"
+"!!!!####!!!!####!!!!####!!!!####"
+"!!!!####!!!!####!!!!####!!!!####"
+"!!!!####!!!!####!!!!####!!!!####"
+;12345678901234567890123456789012
+String1=0x04,Road (construction)
+String2=0x01,Route en construction
+String3=0x04,weg in aanleg
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10014
+UseOrientation=N
+Xpm="32 3 4  1"
+"! c #838383"
+"# c #FFFFFF"
+"3 c #D5D5D5"
+"4 c #FFFFFF"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"####!!!!!!!!#########!!!!!!!!###"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x04,railway
+String2=0x03,spoorweg
+String3=0x02,Eisenbahn
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10015
+UseOrientation=N
+Xpm="32 1 4  1"
+"! c #838383"
+"  c none"
+"3 c #D5D5D5"
+"4 c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x04,railway
+String2=0x03,spoorweg
+String3=0x02,Eisenbahn
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
 [end]
 
 
