@@ -1,0 +1,13 @@
+#
+# This file contains information about the style.
+# It is completely optional.
+# 
+
+
+# A short one line description of the style
+#
+Style for Lambertu's Garmin World Map, based on The default style of mkgmap v2008
+
+# Version of the style itself
+#
+version=1.0
