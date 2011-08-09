@@ -193,9 +193,9 @@ highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
 highway=service [0x07 road_class=0 road_speed=2 resolution 22]
 
-highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=0 road_speed=1 resolution 22]
+highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=0 road_speed=1 resolution 24]
 
-highway=footway|highway=path|highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
+highway=footway|highway=path|highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
 highway=track [0x0a road_class=0 road_speed=1 resolution 22]
 highway=unsurfaced [0x0a road_class=0 road_speed=1 resolution 22]
 highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=1 resolution 22]
@@ -217,15 +217,19 @@ railway=narrow_gauge & !(tunnel=yes) [0x10014 resolution 22]
 railway=preserved & !(tunnel=yes) [0x10014 resolution 22]
 railway=subway & !(tunnel=yes) [0x10014 resolution 21]
 railway=tram & !(tunnel=yes) [0x10015 default_name="tram" resolution 24]
-railway=platform {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
+railway=platform {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
 
 route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19]
 
-waterway=canal [0x1f resolution 21]
-waterway=drain [0x1f resolution 22]
-waterway=river [0x1f resolution 18]
+waterway=river & natural!=water [0x18 resolution 20-16 continue]
+waterway=river & natural!=water [0x1f resolution 21]
+waterway=canal & natural!=water [0x18 resolution 22-21 continue]
+waterway=canal & natural!=water [0x1f resolution 24]
+waterway=stream & natural!=water [0x18 resolution 24]
+waterway=drain & natural!=water [0x18 resolution 24]
+waterway=ditch | barrier=ditch  [0x18 resolution 24]
 waterway=rapids|waterway=waterfall [0x1f resolution 22]
-waterway=stream [0x18 resolution 22]
+
 
 man_made=cable|(man_made=* & man_made ~ '.*pipe.*')
 {name '${name} (${operator})' | '${name}' | '${operator}' }

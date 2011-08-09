@@ -72,7 +72,7 @@ mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcod
 
 aeroway=airport [0x07 resolution 20]
 aeroway=aerodrome [0x07 resolution 20]
-aeroway=helipad [0x0e resolution 22]
+aeroway=helipad [0x07 resolution 22]
 
 amenity=kindergarten [0x0a resolution 22]
 amenity=cafe | amenity=fast_food | amenity=restaurant | amenity=food_court [0x08 resolution 22]
@@ -90,7 +90,7 @@ amenity=fuel [0x21 resolution 24]
 # Issue 7: invisible polygon from which a searchable POI is created. 6/8/2011 Beddhist
 
 healthcare=hospital | amenity=hospital [0x0b resolution 22]
-healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home [0x0b resolution 23]
+healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home [0x0b resolution 24]
 
 landuse=allotments [0x4e resolution 21]
 landuse=basin [0x3f resolution 20]
@@ -107,9 +107,9 @@ landuse=quarry [0x0c resolution 19]
 landuse=recreation_ground [0x19 resolution 19]
 landuse=reservoir [0x3f resolution 19]
 # on resolution 24, display building=* instead of related landuse=*
-landuse=industrial [0x0c resolution 23-19]
-landuse=residential [0x10 resolution 23-19]
-landuse=retail [0x08 resolution 23-20]
+landuse=industrial [0x0c resolution 22-19]
+landuse=residential [0x10 resolution 22-19]
+landuse=retail | highway=services [0x08 resolution 22-20]
 landuse=village_green [0x17 resolution 20]
 landuse=vineyard [0x4e resolution 20]
 landuse=wood [0x50 resolution 18]
@@ -119,7 +119,7 @@ leisure=garden [0x17 resolution 21]
 leisure=golf_course [0x18 resolution 21]
 leisure=ice_rink [0x19 resolution 22]
 leisure=marina [0x09 resolution 20]
-leisure=nature_reserve [0x16 resolution 19]
+leisure=nature_reserve [0x16 resolution 19 continue]
 leisure=park [0x17 resolution 20]
 leisure=pitch { name '${name} (${sport})' | '${name}' } [0x19 resolution 21]
 leisure=playground [0x17 resolution 22]
@@ -130,10 +130,11 @@ leisure=track & area=yes { name '${name} (${sport})' | '${name}' } [0x19 resolut
 leisure=water_park [0x09 resolution 21]
 
 military=airfield [0x04 resolution 20]
-military=barracks [0x04 resolution 23]
+military=barracks [0x04 resolution 24]
 military=danger_area [0x04 resolution 20]
 military=range [0x04 resolution 20]
 
+natural=beach | natural=sand [0x2e resolution 20]
 natural=glacier [0x4d resolution 18]
 natural=marsh [0x51 resolution 20]
 natural=mud [0x51 resolution 20]
@@ -141,7 +142,6 @@ natural=wetland [0x51 resolution 20]
 natural=scrub [0x4f resolution 20]
 natural=water [0x3c resolution 18]
 natural=waterfall | waterway=waterfall [0x47 resolution 21]
-natural=sea [0x32 resolution 10]
 natural=wood [0x50 resolution 18]
 
 place=village [0x03 resolution 19]
@@ -151,7 +151,7 @@ place=islet & name=* [0x53 resolution 20]
 shop=* [0x08 resolution 22]
 
 # squares and plazas
-highway=pedestrian & area=yes [0x17 resolution 22]
+highway=pedestrian & area=yes [0x0e resolution 22]
 # other highways that have area=yes set must be parking lots
 highway=* & area=yes [0x05 resolution 22]
 
@@ -171,3 +171,8 @@ man_made=* & area!=no
 [0x13 resolution 24]
 man_made=* & area=yes
 [0x13 resolution 24]
+
+# tags for land & background
+natural=land [0x27 resolution 20]
+natural=background [0x010101 resolution 14]
+natural=sea [0x32 resolution 14]
