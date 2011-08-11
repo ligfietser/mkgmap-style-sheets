@@ -1,11 +1,11 @@
 ; default.typ
-; Longueur:  8 877 Bytes
-; Fichier TYP compilé     09-08-2011     23:13:05
-; Décompilé le 9-8-2011 à 23:47:47
+; Longueur:  9 365 Bytes
+; Fichier TYP compilé     11-08-2011     22:16:51
+; Décompilé le 11-8-2011 à 22:30:14
 
 [_id]
-ProductCode=3
-FID=2000
+ProductCode=1
+FID=20001
 CodePage=1252
 [End]
 
@@ -279,7 +279,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #B5D0D0"
+"1 c #7BCAD5"
 [end]
 
 
@@ -1232,7 +1232,7 @@ String2=0x01,Mer
 String3=0x03,Zee
 ExtendedLabels=N
 Xpm="32 32 2 1"
-"! c #B5D0D0"
+"! c #7BCAD5"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -1279,7 +1279,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #B5D0D0"
+"1 c #C5C5C5"
 [end]
 
 
@@ -1415,7 +1415,7 @@ FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#0065FF
 Xpm="32 32 2 1"
-"! c #B5D0D0"
+"! c #7BCAD5"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -1462,7 +1462,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #B5D0D0"
+"! c #7BCAD5"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -1509,7 +1509,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #B5D0D0"
+"! c #7BCAD5"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -1556,7 +1556,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #B5D0D0"
+"1 c #7BCAD5"
 [end]
 
 
@@ -1755,7 +1755,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #017FFF"
+"! c #7BCAD5"
 "  c none"
 "                                "
 "                                "
@@ -1827,10 +1827,63 @@ Xpm="0 0 1 0"
 
 
 [_line]
+Type=0x07
+UseOrientation=N
+LineWidth=3
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FFFFFF"
+"2 c #838383"
+String1=0x04,service road
+String2=0x03,toegangsweg
+String3=0x02,Zufahrtsstraße
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x0a
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #838383"
+"# c #FFFFFF"
+"!!!!!!##!!!!!!##!!!!!!##!!!!!!##"
+"################################"
+"################################"
+"!!!!!!##!!!!!!##!!!!!!##!!!!!!##"
+;12345678901234567890123456789012
+String1=0x04,unpaved road
+String2=0x03,onverharde weg
+String3=0x02,Unbefestigter Weg
+String4=0x01,Piste sans revêtement
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x0c
+UseOrientation=N
+Xpm="32 1 2  1"
+"! c #000000"
+"  c none"
+"                                "
+;12345678901234567890123456789012
+String1=0x04,roundabout
+String2=0x03,rotonde
+String3=0x02,Kreisverkehr
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
 Type=0x10
 UseOrientation=N
 Xpm="32 2 2  1"
-"! c #7B0000"
+"! c #BD0000"
 "  c none"
 "!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
 "!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
@@ -1845,11 +1898,42 @@ CustomColor=No
 
 
 [_line]
+Type=0x11
+UseOrientation=N
+LineWidth=3
+Xpm="0 0 1 0"
+"1 c #C5C5C5"
+String1=0x04,pedestrian zone
+String2=0x03,Voetgangerszone
+String3=0x02,Fußgängerzone
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x16
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #BD9500"
+"  c none"
+"!!  !!  !!  !!  !!  !!  !!  !!  "
+"!!  !!  !!  !!  !!  !!  !!  !!  "
+;12345678901234567890123456789012
+String1=0x04,path
+String2=0x03,pad
+String3=0x02,Pfad
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
 Type=0x18
 UseOrientation=N
 LineWidth=1
 Xpm="0 0 1 0"
-"1 c #B5D0D0"
+"1 c #7BCAD5"
 String1=0x04,stream
 String2=0x03,beek,sloot
 String3=0x02,Bach
@@ -1879,7 +1963,7 @@ CustomColor=No
 Type=0x1c
 UseOrientation=N
 Xpm="32 1 2  1"
-"! c #BD95D5"
+"! c #FF95D5"
 "  c none"
 "!!!!!!!!   !!   !!!!!!!!   !!   "
 ;12345678901234567890123456789012
@@ -1896,9 +1980,9 @@ CustomColor=No
 Type=0x1d
 UseOrientation=N
 Xpm="32 1 2  1"
-"! c #BD95D5"
+"! c #BD65FF"
 "  c none"
-"!!!!    !!!!    !!!!    !!!!    "
+"!!!!!!    !     !!!!!!          "
 ;12345678901234567890123456789012
 String1=0x04,Boundary
 String2=0x01,Frontière départementale
@@ -1936,7 +2020,7 @@ Type=0x1f
 UseOrientation=N
 LineWidth=3
 Xpm="0 0 1 0"
-"1 c #B5D0D0"
+"1 c #7BCAD5"
 String1=0x04,river
 String2=0x03,rivier
 String3=0x02,Fluß
@@ -1982,7 +2066,7 @@ Type=0x2b
 UseOrientation=N
 Xpm="32 10 4  1"
 "! c #626262"
-"# c #FFFFD5"
+"# c #FFFFFF"
 "3 c #FFFFFF"
 "4 c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -2008,14 +2092,13 @@ CustomColor=No
 [_line]
 Type=0x10007
 UseOrientation=N
-Xpm="32 3 4  1"
-"! c #BD656A"
-"# c #FFFFFF"
-"3 c #BD9500"
-"4 c #FFFFFF"
-"!!!!!#####!!!!!#####!!!!!#####!!"
-"!!!!!#####!!!!!#####!!!!!#####!!"
-"!!!!!#####!!!!!#####!!!!!#####!!"
+Xpm="32 4 2  1"
+"! c #BD9500"
+"# c #FFFFD5"
+"!!!!!!!#########!!!!!!!#########"
+"!!!!!!!#########!!!!!!!#########"
+"!!!!!!!#########!!!!!!!#########"
+"!!!!!!!#########!!!!!!!#########"
 ;12345678901234567890123456789012
 String1=0x04,road under construction
 String2=0x03,weg in aanleg
@@ -2383,6 +2466,69 @@ DayXpm="20 20 95 2"   Colormode=16
 "##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#%"
 "?4!9!?!!!!!!!!!!!!!!!!!!!!!!!!!!!!!?!8?3"
 ;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x066
+SubType=0x03
+String1=0x04,water
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#00CAFF
+DayXpm="16 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x066
+SubType=0x04
+String1=0x04,beach
+String2=0x03,strand
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#BD6500
+DayXpm="16 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
 [end]
 
 
