@@ -146,12 +146,12 @@ leisure=track & area!=yes
 {add highway=footway; name '${ref} ${name}' | '${ref}' | '${name}' }
 
 # Roundabouts
-junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 18]
-junction=roundabout & highway=primary [0x0c road_class=3 road_speed=2 resolution 19]
-junction=roundabout & highway=secondary [0x0c road_class=2 road_speed=2 resolution 20]
-junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolution 21]
-junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21]
-junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
+junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 18 continue with_actions]
+junction=roundabout & highway=primary [0x0c road_class=3 road_speed=2 resolution 19 continue with_actions] 
+junction=roundabout & highway=secondary [0x0c road_class=2 road_speed=2 resolution 20 continue with_actions]
+junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
+junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
+junction=roundabout & !(highway=unclassified|highway=tertiary|highway=secondary|highway=primary| highway=trunk) [0x0c road_class=0 road_speed=1 resolution 22 continue with_actions]
 
 # Ways that may or may not be useable
 
@@ -181,10 +181,10 @@ highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
 
 # Some countries allow, others disallow bicycling on pedestrian streets.
 # To allow bicycling, add 'add bicycle=yes'
-highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
+highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24]
 highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
-highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 default_name="bridleway" road_class=0 road_speed=0 resolution 24]
+highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
 highway=byway [0x16 road_class=0 road_speed=0 resolution 24]
 
 highway=service & service=parking_aisle
@@ -217,7 +217,7 @@ railway=narrow_gauge & !(tunnel=yes) [0x10014 resolution 22]
 railway=preserved & !(tunnel=yes) [0x10014 resolution 22]
 railway=subway & !(tunnel=yes) [0x10014 resolution 21]
 railway=tram & !(tunnel=yes) [0x10015 default_name="tram" resolution 24]
-railway=platform {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
+railway=platform {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24]
 
 route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19]
 
