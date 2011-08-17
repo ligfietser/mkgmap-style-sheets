@@ -155,6 +155,10 @@ junction=roundabout & !(highway=unclassified|highway=tertiary|highway=secondary|
 
 # Ways that may or may not be useable
 
+# display direction arrows
+oneway=yes | oneway=1 | oneway=true [0x10000 resolution 24 continue with_actions]
+oneway=-1 [0x10001 resolution 24 continue with_actions]
+
 # ways under construction, disused
 highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
 highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 24]
