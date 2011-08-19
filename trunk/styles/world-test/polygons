@@ -169,9 +169,9 @@ man_made=* & area!=no
 & (man_made!=door & man_made!=embankment & man_made!=breakwater
    & man_made!=cable_line & man_made!=cutline & man_made!=cutting
    & man_made!=levee & man_made!=trench)
-[0x13 resolution 24]
+[0x39 resolution 24]
 man_made=* & area=yes
-[0x13 resolution 24]
+[0x39 resolution 24]
 
 # tags for land & background
 natural=land [0x27 resolution 20]
