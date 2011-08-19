@@ -152,7 +152,7 @@ bicycle=lane { set cycleway=lane }
 (cycleway=right | cycleway=track_right | cycleway:right=path | cycleway:right=track | cycleway:right=yes | cycleway=lane_right | cycleway:right=lane) { set cycleway=right }
 (cycleway=path | cycleway=yes | cycleway=both | cycleway=segregated | bicycle=track) { set cycleway=track }
 
-highway=track & cycleway=* { set highway=cycleway; add track=yes; set mkgmap:unpaved=0; delete 'cycleway'}
+highway=track & (cycleway=track | cycleway=left | cycleway=right) { set highway=cycleway; add track=yes; set mkgmap:unpaved=0; delete 'cycleway'}
 highway=cycleway & cycleway=* & cycleway!=opposite { delete 'cycleway'; }
 
 # ways under construction
@@ -220,25 +220,25 @@ highway=cycleway & (mkgmap:unpaved!=1) & track!=yes [0x16 road_class=4 road_spee
 (highway=unclassified | highway=service) [0x10000 resolution 21-20 continue with_actions]
 (highway=unclassified | highway=service)  [0x10 resolution 22-22 continue with_actions]
 
-highway=service    [0x07 road_class=1 road_speed=2 resolution 23 continue]
-highway=unclassified   [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
-(highway=unclassified | highway=service) & bicycle=no {add foot=no} [0x01 road_class=0 road_speed=0 resolution 23 continue]
-
+highway=service  & bicycle!=no  [0x07 road_class=1 road_speed=2 resolution 23 continue]
+highway=unclassified & bicycle!=no  [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
+highway=unclassified & bicycle=no {add foot=no} [0x10018 resolution 23]
+highway=service & bicycle=no {add foot=no} [0x10018 resolution 23]
 
 highway=tertiary [0x10001 resolution 22-20 continue with_actions]
-highway=tertiary [0x050 road_class=3 road_speed=2 resolution 23 continue with_actions]
-highway=tertiary & bicycle=no {add foot=no} [0x01 road_class=0 road_speed=0 resolution 23 continue]
+highway=tertiary & bicycle!=no [0x050 road_class=3 road_speed=2 resolution 23 continue with_actions]
+highway=tertiary & bicycle=no {add foot=no} [0x10004 resolution 23]
 
  
 highway=secondary [0x12 resolution 21-20 continue with_actions]
-highway=secondary [0x040 road_class=2 road_speed=2 resolution 22 continue with_actions]
-highway=secondary & bicycle=no  {add foot=no} [0x01 road_class=0 road_speed=0 resolution 23 continue]
+highway=secondary & bicycle!=no [0x040 road_class=2 road_speed=2 resolution 22 continue with_actions]
+highway=secondary & bicycle=no  {add foot=no} [0x10003 resolution 22]
 
 
 highway=primary [0x10000 resolution 18-16 continue with_actions]
 highway=primary [0x10014 resolution 21-20 continue with_actions]
-highway=primary [0x030 road_class=1 road_speed=2 resolution 22 continue with_actions]
-highway=primary & bicycle=no {add foot=no} [0x01 road_class=0 road_speed=0 resolution 23 continue]
+highway=primary & bicycle!=no [0x030 road_class=1 road_speed=2 resolution 22 continue with_actions]
+highway=primary & bicycle=no {add foot=no} [0x10002 resolution 22]
  
  
 highway=pedestrian & bicycle=yes [0x08 road_class=1 road_speed=1 resolution 22 continue with_actions]
