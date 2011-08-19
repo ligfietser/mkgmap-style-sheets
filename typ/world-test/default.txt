@@ -1,7 +1,7 @@
 ; default.typ
-; Longueur:  12 815 Bytes
-; Fichier TYP compilé     16-08-2011     20:00:55
-; Décompilé le 17-8-2011 à 22:42:01
+; Longueur:  12 805 Bytes
+; Fichier TYP compilé     19-08-2011     14:17:18
+; Décompilé le 19-8-2011 à 18:56:11
 
 [_id]
 ProductCode=3
@@ -1596,14 +1596,12 @@ Xpm="0 0 1 0"
 
 [_polygon]
 Type=0x39
-String1=0x04,Pier
-String2=0x01,Ponton
-String3=0x03,Pier
+String1=0x04,man_made
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #F2EFE9"
+"1 c #E6E6E6"
 [end]
 
 
