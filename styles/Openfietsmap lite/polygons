@@ -138,6 +138,7 @@ natural=wetland [0x51 resolution 21]
 waterway=dam & area=yes [0x0e default_name="dam" resolution 23]
 highway=pedestrian & area=yes [0x0e resolution 23]
 man_made=pier & area=yes [0x0e resolution 23]
+man_made=reinforced_slope [0x27 resolution 23]
 railway=platform & area=yes [0x0e default_name="platform" resolution 23]
 # other highways that have area=yes set must be parking lots
 highway=* & area=yes [0x05 resolution 23]
