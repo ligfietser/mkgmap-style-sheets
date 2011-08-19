@@ -1,7 +1,7 @@
 ; ofm_lite.typ
-; Longueur:  30 523 Bytes
-; Fichier TYP compilé     29-07-2011     23:50:51
-; Décompilé le 7-8-2011 à 13:57:50
+; Longueur:  30 933 Bytes
+; Fichier TYP compilé     18-08-2011     13:42:40
+; Décompilé le 19-8-2011 à 19:32:04
 
 [_id]
 ProductCode=1
@@ -29,7 +29,6 @@ Type=0x016,4
 Type=0x017,4
 Type=0x019,4
 Type=0x01b,4
-Type=0x01e,4
 Type=0x01f,4
 Type=0x020,4
 Type=0x022,4
@@ -40,12 +39,13 @@ Type=0x009,5
 Type=0x018,5
 Type=0x01a,5
 Type=0x021,5
+Type=0x03c,5
 Type=0x03f,5
 Type=0x051,5
 Type=0x052,5
 Type=0x053,5
 Type=0x005,6
-Type=0x03c,6
+Type=0x01e,6
 Type=0x03d,6
 Type=0x04e,6
 Type=0x04f,6
@@ -1394,7 +1394,7 @@ Xpm="32 1 2  1"
 ;12345678901234567890123456789012
 String1=0x04,no cycling
 String2=0x03,fietsverbod
-String3=0x02,Fahrräder verboten
+String3=0x02,Radverbot
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
@@ -2122,6 +2122,73 @@ CustomColor=No
 
 
 [_line]
+Type=0x10002
+UseOrientation=N
+Xpm="32 7 2  1"
+"! c #B4B4B4"
+"# c #525252"
+"################################"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!######!!!!!!!!!!######!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+;12345678901234567890123456789012
+String1=0x04,principal highway (no cycling)
+String2=0x03,N-weg (fietsverbod)
+String3=0x02,Hauptverbindungsstraße (Radverbot)
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10003
+UseOrientation=N
+Xpm="32 7 2  1"
+"! c #FFCA00"
+"# c #7B6500"
+"################################"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!######!!!!!!!!!!######!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+;12345678901234567890123456789012
+String1=0x04,secondary highway (no cycling)
+String2=0x03,Provinciale weg (fietsverbod)
+String3=0x02,Landesstraße (Radverbot)
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10004
+UseOrientation=N
+Xpm="32 5 2  1"
+"! c #FFFF6A"
+"# c #7B6500"
+"################################"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!######!!!!!!!!!!######!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+;12345678901234567890123456789012
+String1=0x04,tertiary road (no cycling)
+String2=0x03,Regionale weg (fietsverbod)
+String3=0x02,Kreisstraße (Radverbot)
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
 Type=0x10005
 UseOrientation=N
 Xpm="32 10 2  1"
@@ -2176,19 +2243,12 @@ CustomColor=No
 [_line]
 Type=0x10007
 UseOrientation=N
-Xpm="32 17 2  1"
+Xpm="32 10 2  1"
 "! c #0000B4"
 "  c none"
 "      !                         "
 "  !!!!!!                        "
 "      !                         "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
 "                                "
 "                                "
 "                                "
@@ -2265,16 +2325,9 @@ CustomColor=No
 [_line]
 Type=0x10010
 UseOrientation=N
-Xpm="32 17 2  1"
+Xpm="32 10 2  1"
 "! c #0000B4"
 "  c none"
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
 "                                "
 "                                "
 "                                "
@@ -2441,6 +2494,27 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#0000B4
+[end]
+
+
+[_line]
+Type=0x10018
+UseOrientation=N
+Xpm="32 5 2  1"
+"! c #FFFFFF"
+"# c #393000"
+"################################"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!######!!!!!!!!!!######!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+;12345678901234567890123456789012
+String1=0x04,street (no cycling)
+String2=0x03,straat (fietsverbod)
+String3=0x02,Straße (Radverbot)
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 [end]
 
 
