@@ -8,6 +8,7 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
+# first set the country code
 mkgmap:country!=* & mkgmap:admin_level2=* { set mkgmap:country='${mkgmap:admin_level2}' }
 mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
 mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' } 
