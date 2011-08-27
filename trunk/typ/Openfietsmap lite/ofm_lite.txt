@@ -1,7 +1,7 @@
 ; ofm_lite.typ
-; Longueur:  30 933 Bytes
-; Fichier TYP compilé     18-08-2011     13:42:40
-; Décompilé le 19-8-2011 à 19:32:04
+; Longueur:  30 879 Bytes
+; Fichier TYP compilé     27-08-2011     13:37:51
+; Décompilé le 27-8-2011 à 18:44:59
 
 [_id]
 ProductCode=1
@@ -118,9 +118,11 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#7B3000
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #FFCA8B"
 "  c none"
+"3 c #FFFFD5"
+"4 c none"
 "!   !   !   !   !   !   !   !   "
 "                                "
 "  !   !   !   !   !   !   !   ! "
@@ -165,8 +167,9 @@ String3=0x02,Stadtgebiet
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #FFCA8B"
+"2 c #FFFFD5"
 [end]
 
 
@@ -178,9 +181,11 @@ String3=0x02,Militärgebiet
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #7B9500"
 "  c none"
+"3 c #FFFFD5"
+"4 c none"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
@@ -225,8 +230,9 @@ String3=0x02,Parkplatz
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #D5D5D5"
+"2 c #FFFFD5"
 [end]
 
 
@@ -252,9 +258,11 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#FF3000
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #FF3000"
 "  c none"
+"3 c #FFFFD5"
+"4 c none"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 " ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
@@ -348,8 +356,9 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#BD0000
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #FFCAFF"
+"2 c #FFFFD5"
 [end]
 
 
@@ -375,8 +384,9 @@ String3=0x02,Industriegebiet
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #E6E6E6"
+"2 c #FFFFD5"
 [end]
 
 
@@ -448,8 +458,9 @@ String3=0x02,Bebauung
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #FFCA8B"
+"2 c #FFFFD5"
 [end]
 
 
@@ -465,8 +476,8 @@ DaycustomColor:#7B956A
 Xpm="32 32 4 1"
 "! c #7BCA6A"
 "# c #7B956A"
-"3 c #7B956A"
-"4 c #7B956A"
+"3 c #BDCA8B"
+"4 c #BDCA8B"
 "!!!!!!!!!!!!###!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!#!!##!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!#!!##!!!!!!!!!##!!!!!"
@@ -512,42 +523,9 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#7B956A
-Xpm="32 32 2 1"
-"! c #7BCA6A"
-"# c #7B956A"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
+Xpm="0 0 2 0"
+"1 c #7BCA6A"
+"2 c #BDCA8B"
 [end]
 
 
@@ -560,8 +538,9 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#7B956A
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #BDFFB4"
+"2 c #BDCA8B"
 [end]
 
 
@@ -577,8 +556,8 @@ DaycustomColor:#7B956A
 Xpm="32 32 4 1"
 "! c #7BCA8B"
 "# c #009500"
-"3 c #7B956A"
-"4 c #7B956A"
+"3 c #BDCA8B"
+"4 c #BDCA8B"
 "!!!##!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!####!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!######!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -624,9 +603,11 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#BDFF6A
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #BDFF20"
 "  c none"
+"3 c #FFFFD5"
+"4 c none"
 "                                "
 "                                "
 "                                "
@@ -811,8 +792,9 @@ String3=0x02,Weideland
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #BDFFB4"
+"2 c #FFFFD5"
 [end]
 
 
@@ -838,9 +820,11 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#7B956A
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #FFCAFF"
 "# c #7B956A"
+"3 c #FFCAFF"
+"4 c #FFCAFF"
 "!!!!!!!!!!!!###!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!#!!##!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!#!!##!!!!!!!!!##!!!!!"
@@ -942,14 +926,15 @@ Xpm="0 0 1 0"
 
 [_polygon]
 Type=0x27
-String1=0x04,area
-String2=0x03,gebied
-String3=0x02,Gebiet
+String1=0x04,land
+String2=0x03,land
+String3=0x02,Land
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
+Xpm="0 0 2 0"
 "1 c #D8F7BA"
+"2 c #FFFFD5"
 [end]
 
 
@@ -1065,9 +1050,11 @@ String3=0x02,Obstplantage
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #FFFFFF"
 "# c #009500"
+"3 c #FFFFD5"
+"4 c #009500"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!#!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -1113,9 +1100,11 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#33FF33
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #BDFF6A"
 "# c #009500"
+"3 c #FFFFD5"
+"4 c #009500"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!##!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!#!!#!!!!!!!!!!!!!!!!!!!!!!!"
@@ -1157,9 +1146,11 @@ Type=0x50
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="32 32 2 1"
+Xpm="32 32 4 1"
 "! c #00CA00"
 "  c none"
+"3 c #BDFF8B"
+"4 c none"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 " ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
@@ -1476,9 +1467,11 @@ Type=0x06
 UseOrientation=N
 LineWidth=3
 BorderWidth=1
-Xpm="0 0 2 0"
+Xpm="0 0 4 0"
 "1 c #FFFFFF"
 "2 c #393000"
+"3 c #FFCA6A"
+"4 c #FFFFD5"
 String1=0x04,street
 String2=0x03,straat
 String3=0x02,Straße
@@ -1671,9 +1664,11 @@ Type=0x10
 UseOrientation=N
 LineWidth=1
 BorderWidth=1
-Xpm="0 0 2 0"
+Xpm="0 0 4 0"
 "1 c #FFFFFF"
 "2 c #7B6500"
+"3 c #FFCA6A"
+"4 c #FFCA8B"
 String1=0x04,paved road
 String2=0x03,verharde weg
 String3=0x02,Befestigte Straße
@@ -1757,9 +1752,11 @@ Type=0x16
 UseOrientation=N
 LineWidth=2
 BorderWidth=1
-Xpm="0 0 2 0"
+Xpm="0 0 4 0"
 "1 c #FF0000"
 "2 c #7B0000"
+"3 c #FF0000"
+"4 c #FFFFFF"
 String1=0x04,bike path
 String2=0x03,fietspad
 String3=0x02,Radweg
@@ -2580,9 +2577,11 @@ CustomColor=No
 [_line]
 Type=0x10106
 UseOrientation=N
-Xpm="32 3 2  1"
+Xpm="32 3 4  1"
 "! c #FFFFFF"
 "  c none"
+"3 c #FFCA6A"
+"4 c none"
 "!!      !!!!!!!!!!      !!!!!!!!"
 "!!      !!!!!!!!!!      !!!!!!!!"
 "!!      !!!!!!!!!!      !!!!!!!!"
