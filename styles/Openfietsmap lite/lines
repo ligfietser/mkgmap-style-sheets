@@ -242,7 +242,7 @@ highway=primary & bicycle=no {add foot=no} [0x10002 resolution 22]
  
  
 highway=pedestrian & bicycle=yes [0x08 road_class=1 road_speed=1 resolution 22 continue with_actions]
-highway=pedestrian & bicycle!=yes {add access = no; add foot = yes} [0x08 road_class=0 road_speed=0 resolution 22 continue]
+highway=pedestrian & bicycle!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x08 road_class=0 road_speed=0 resolution 22 continue]
 
 
 (highway=track | highway=path | highway=footway | highway=pedestrian) & bicycleroute=yes [0x1502 resolution 21-20 continue with_actions]
@@ -256,11 +256,11 @@ highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicyclero
 
 (highway=path | highway=footway | highway=bridleway) & bicycleroute=yes [0x0d02 road_class=1 road_speed=1 resolution 22 continue]
 (highway=path | highway=footway | highway=bridleway) & bicycleroute!=yes & (bicycle=yes  | mtb_from_relation=yes | cycleway=*) [0x0d road_class=1 road_speed=1 resolution 22]
-(highway=path | highway=footway) & bicycleroute!=yes {add access = no; add foot = yes} [0x0a road_class=0 road_speed=0 resolution 22]
+(highway=path | highway=footway) & bicycleroute!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x0a road_class=0 road_speed=0 resolution 22]
 highway=bridleway & (bicycle!=yes | bicycle!=designated | bicycleroute!=yes | mtb_from_relation!=yes) 	{add access = no; add foot = yes} [0x29 road_class=0 road_speed=0 resolution 22]
 
-highway=steps & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) {add access = no; add bicycle = yes; add foot = yes} [0x1300 road_class=0 road_speed=0 resolution 24]
-highway=steps {add access = no; add foot = yes} [0x13 road_class=0 road_speed=0 resolution 24]
+highway=steps & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) {set mkgmap:unpaved=1; add access = no; add bicycle = yes; add foot = yes} [0x1300 road_class=0 road_speed=0 resolution 24]
+highway=steps {set mkgmap:unpaved=1; add access = no; add foot = yes} [0x13 road_class=0 road_speed=0 resolution 24]
 
 # cycleroutes
 ncn_from_relation=yes | icn_from_relation=yes  [0x10118 resolution 16-16 continue]
