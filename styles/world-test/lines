@@ -143,7 +143,8 @@ highway=path
 leisure=track & area!=yes
 {add highway=footway; name '${name} (${sport})' | '${name}'}
 (man_made=pier | man_made=piste:halfpipe) & area!=yes
-{add highway=footway; name '${ref} ${name}' | '${ref}' | '${name}' }
+{add highway=pedestrian; name '${ref} ${name}' | '${ref}' | '${name}' }
+railway=platform {add highway=pedestrian}
 
 # Roundabouts
 junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 18 continue with_actions]
@@ -185,7 +186,7 @@ highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
 
 # Some countries allow, others disallow bicycling on pedestrian streets.
 # To allow bicycling, add 'add bicycle=yes'
-highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24]
+highway=pedestrian {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24 continue]
 highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
 highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
@@ -197,23 +198,24 @@ highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
 highway=service [0x07 road_class=0 road_speed=2 resolution 22]
 
-highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=0 road_speed=1 resolution 24]
+highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=1 road_speed=1 resolution 24]
 
-highway=footway|highway=path|highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
+highway=footway|highway=path {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
+highway=steps {add access = no; add foot = yes} [0x13 road_class=0 road_speed=0 resolution 24]
 highway=track [0x0a road_class=0 road_speed=1 resolution 22]
 highway=unsurfaced [0x0a road_class=0 road_speed=1 resolution 22]
 highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=1 resolution 22]
 
 # Mop up any unrecognised highway types
-highway=* & area!=yes [0x07 ]
+highway=* & highway!=pedestrian & area!=yes [0x07 road_class=0 road_speed=1 resolution 24]
 
 natural=coastline [0x15 resolution 12]
 #power=line [0x29 resolution 21]
-# removed 1/8/2011 beddhist
+
 
 railway=rail & !(tunnel=yes) [0x10015 resolution 22-20 continue]
 railway=rail & !(tunnel=yes) [0x10014 resolution 24]
-# issue 3 Beddhist 2/8/2011
+
 
 railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
 railway=light_rail & !(tunnel=yes) [0x10015 default_name="light rail" resolution 22]
@@ -221,9 +223,10 @@ railway=narrow_gauge & !(tunnel=yes) [0x10014 resolution 22]
 railway=preserved & !(tunnel=yes) [0x10014 resolution 22]
 railway=subway & !(tunnel=yes) [0x10014 resolution 21]
 railway=tram & !(tunnel=yes) [0x10015 default_name="tram" resolution 24]
-railway=platform {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24]
+highway=platform {add access = no; add foot = yes} [0x07 road_class=0 road_speed=0 resolution 24]
 
-route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19]
+route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 24 continue with_actions]
+route=ferry {name '${name} (${opening_hours})' | '${opening_hours}' | '${name}' | '${note}' } [0x10017  resolution 18]
 
 waterway=river & natural!=water [0x18 resolution 20-16 continue]
 waterway=river & natural!=water [0x1f resolution 21]
@@ -249,5 +252,5 @@ boundary=administrative & admin_level<5 [0x1d resolution 19]
 #boundary=administrative [0x1c resolution 22]
 boundary=national [0x1e resolution 17]
 #boundary=political [0x1c resolution 19]
-# Issue 6: boundaries removed 1/8/2011 beddhist
+
 

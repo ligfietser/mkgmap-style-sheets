@@ -153,6 +153,7 @@ shop=* [0x08 resolution 22]
 
 # squares and plazas
 highway=pedestrian & area=yes [0x0e resolution 22]
+railway=platform & area=yes [0x0e default_name="platform" resolution 22]
 # other highways that have area=yes set must be parking lots
 highway=* & area=yes [0x05 resolution 22]
 
