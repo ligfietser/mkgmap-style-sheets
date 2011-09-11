@@ -139,11 +139,11 @@ highway=footway & (bicycle=designated | cycleway=*) { set highway=cycleway }
 (highway=path | highway=track) & (bicycle=designated) { set highway=cycleway }
 (highway=footway | highway=path)  & (bicycle=yes) & (surface=paved | surface=asphalt | smoothness=excellent) { set highway=cycleway }
 
-highway=path & horse=designated { set highway=bridleway }
+highway=path & horse=designated & bicycle!=yes  { set highway=bridleway }
 highway=path & foot=designated { set highway=footway }
 leisure=track & sport=cycling { set highway=cycleway }
 leisure=track & sport!=cycling { set highway=service }
-
+railway=platform {add highway=pedestrian}
 bicycle=lane { set cycleway=lane }
 (oneway:bicycle=yes | oneway:bicycle=1 | bicycle:oneway=1 | oneway:bicycle=true | bicycle:oneway=true | bicycle:oneway=1) {set bicycle:oneway=yes; delete 'oneway:bicycle'}
 
@@ -298,8 +298,8 @@ railway=funicular | aerialway=* | railway=narrow_gauge | railway=monorail [0x101
 
 highway=platform | (railway=platform & area!=yes) {add access = no; add foot = yes} [0x07 road_class=0 road_speed=0 resolution 24]
 
-route=ferry [0x10017  resolution 21-18 continue]
-route=ferry [0x1b road_class=3 road_speed=0 resolution 22]
+route=ferry [0x1b road_class=3 road_speed=0 resolution 24  continue with_actions]
+route=ferry {name '${name} (${opening_hours})' | '${opening_hours}' | '${name}' | '${note}' } [0x10017  resolution 18]
 
 waterway=river & natural!=water [0x18 resolution 20-16 continue]
 waterway=river & natural!=water [0x1f resolution 21]
@@ -319,7 +319,7 @@ boundary8=yes { name '${mkgmap:boundary8_name}' } [0x1c resolution 24]
 
 #other line elements
 man_made=wildlife_crossing [0x0a default_name="ecoduct" resolution 22]
-natural=coastline [0x1f resolution 16]
+natural=coastline [0x10218 resolution 16]
 natural=cliff [0x10115  resolution 23]
 barrier=city_wall | barrier=wall [0x10012 resolution 23]
 
