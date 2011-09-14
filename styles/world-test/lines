@@ -160,6 +160,12 @@ junction=roundabout & !(highway=unclassified|highway=tertiary|highway=secondary|
 oneway=yes | oneway=1 | oneway=true [0x10000 resolution 24 continue with_actions]
 oneway=-1 [0x10001 resolution 24 continue with_actions]
 
+# make opposite cycleways
+highway=* & ( oneway=yes | oneway=1 | oneway=true ) & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set oneway=no; set access=no; set bicycle=yes; set 2cycleway=1} [0x10 road_speed=1 road_class=1 continue with_actions]
+highway=* & oneway=-1 & 2cycleway!=1 & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set oneway=no; set access=no; set bicycle=yes; set 2cycleway=-1} [0x10 road_speed=1 road_class=1 continue with_actions]
+highway=* & 2cycleway=1 {set access=yes; set oneway=1; set bicycle=no}
+highway=* & 2cycleway=-1 {set access=yes; set oneway=-1; set bicycle=no}
+
 # ways under construction, disused
 highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
 highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 24]
@@ -207,7 +213,7 @@ highway=unsurfaced [0x0a road_class=0 road_speed=1 resolution 22]
 highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=1 resolution 22]
 
 # Mop up any unrecognised highway types
-highway=* & highway!=pedestrian & area!=yes [0x07 road_class=0 road_speed=1 resolution 24]
+highway=* & highway!=pedestrian & highway!=proposed [0x07 road_class=0 road_speed=1 resolution 24]
 
 natural=coastline [0x15 resolution 12]
 #power=line [0x29 resolution 21]
