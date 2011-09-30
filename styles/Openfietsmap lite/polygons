@@ -62,9 +62,21 @@ mkgmap:city!=* & addr:city=* { set mkgmap:city='${addr:city}' }
 mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
 mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
 
+mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street}' }
+mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
+
+mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
+
+mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
+
+mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
+
 toponym=* & area=yes & name=* {name '${name}'} [0x1b resolution 24 continue]
 
 
+
+
+natural=water & (name=Haringvliet | name=Grevelingenmeer | name=Deltageul | name="Vuile Gat" | name="Hollandsch Diep" | name=Amer | name="Nieuwe Merwede" | name=Slaak | name=Krammer | name="Noorder Krammer" | name="Zuid Vlije" | name=Volkerak | name="Zuider Voorhaven" | name=Krabbenkreek | name=Schelde) [0x3d resolution 16-16 continue]
 natural=water [0x3d resolution 21-18 continue]
 natural=water [0x3c resolution 24-22 continue]
 
@@ -75,11 +87,11 @@ aeroway=airport [0x07 resolution 18]
 aeroway=aerodrome [0x07 resolution 20]
 aeroway=terminal [0x13 resolution 20]
 
-
+tourism=caravan_site & tents=no [0x05 default_name="RV-park" resolution 22]
 tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
-tourism=chalet  [0x03 default_name="bungalowpark" resolution 22]
+tourism=chalet  [0x50 default_name="bungalowpark" resolution 22]
 tourism=hotel [0x13 resolution 22]
-tourism=zoo [0x17 default_name="zoo" resolution 22]
+tourism=zoo [0x17 resolution 22]
 historic=* [0x13 resolution 24]
 
 amenity=hospital [0x0b resolution 22]
@@ -106,11 +118,17 @@ landuse=reservoir | landuse=basin [0x3c resolution 24-22]
 
 
 
+
+
+
 (landuse=forest | natural=wood | leisure=park | leisure=nature_reserve | natural=scrub) [0x16 resolution 20 continue]
 
-
+landuse=cemetary | landuse=cemetery | amenity=grave_yard [0x1a resolution 22]
 landuse=retail [0x08 resolution 21]
 landuse=industrial [0x0c resolution 18]
+
+
+
 
 
 
@@ -129,9 +147,9 @@ natural=heath [0x22 resolution 21]
 
 natural=marsh [0x51 resolution 21]
 natural=mud [0x51 resolution 21]
-natural=wetland [0x51 resolution 21]
+natural=wetland [0x51 resolution 22]
 
-
+(shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
 
 
 # squares and plazas
