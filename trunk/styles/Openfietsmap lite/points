@@ -62,36 +62,53 @@ mkgmap:city!=* & addr:city=* { set mkgmap:city='${addr:city}' }
 mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
 mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
 
+mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street}' }
+mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
+
+mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
+
+mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
+
+mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
+
 ele=* & ele ~ '^[+-]?(?:\d+\,?\d*|\d*\.?\d+)[\r\n]*$' {add altitude=number}
 ele=* & altitude!=number  {add altitude=no_number}
 
 place=* & rcn_ref=* 
 	{
 		name '${name}';
-		add addr:housenumber='knooppunt ${rcn_ref|def:}' ;
-		add addr:street='${rname|def:}' ;
+		add mkgmap:housenumber='knooppunt ${rcn_ref|def:}' ;
+		add mkgmap:street='${rname|def:}' ;
     }
 
 rcn_ref=* {name '${rcn_ref}' } [0x2f11 resolution 21-18 continue]
 rcn_ref=* {name '${rcn_ref}' } [0x4c01 resolution 22 continue]
 rcn_ref=* {name '${rcn_ref}' } [0x0700 resolution 22 continue]
 
-place=city & capital=yes  [0x0400 resolution 18-16 continue]
-place=city & capital!=yes & population>=200000  [0x0400 resolution 18-16 continue]
-place=city & capital!=yes & population<200000 [0x0800 resolution 18-16 continue]
+place=city & capital=yes  [0x0400 resolution 16]
+place=city & population>=200000  [0x0600 resolution 16-16 continue]
+place=city & population<200000 [0x0b00 resolution 16-16 continue]
+place=city & population>=200000  [0x0400 resolution 18-18 continue]
+place=city & population<200000 [0x0600 resolution 18-18 continue]
+place=city [0x0400 resolution 20]
 
 place=town & population>=50000  [0x0b00 resolution 16-16 continue]
-
-place=city [0x0400 resolution 20]
-place=town & population>=50000 [0x0800 resolution 20-18 continue]
+place=town & population>=50000 [0x0600 resolution 20-18 continue]
 place=town & population<50000 [0x0b00 resolution 20-18 continue]
+place=town & population>=50000 [0x0400 resolution 21]
+place=town & population<50000 [0x0600 resolution 21-21 continue]
+place=town [0x0400 resolution 22]
 
-place=town [0x0400 resolution 21]
+place=village [0x0b00 resolution 21-20 continue]
+place=village [0x0600 resolution 22-22 continue]
+place=village [0x0400 resolution 23]
 
-place=village [0x0b00 resolution 22-20 continue]
-place=village [0x0800 resolution 23]
-place=suburb [0x0a00 resolution 23]
-place=hamlet [0x0b00 resolution 23]
+place=suburb [0x0a00 resolution 22-22 continue]
+place=suburb [0x0800 resolution 23]
+
+place=hamlet [0x0b00 resolution 22-22 continue]
+place=hamlet [0x0800 resolution 23]
+
 place=island  [0x1e00 resolution 24-21]
 place=islet [0x1e04 resolution 21]
 
@@ -101,33 +118,33 @@ tourism=attraction & historic=* [0x2802 resolution 24]
 tourism=attraction [0x2802 resolution 24]
 tourism=artwork [0x2c04 resolution 24]
 tourism=aquarium [0x2c07 resolution 24]
-tourism=camp_site [0x2b05 resolution 23]
+tourism=camp_site | (tourism=caravan_site & tents=yes) [0x2b05 resolution 23]
 tourism=chalet [0x2b04 default_name 'bungalowpark' resolution 23]
 tourism=caravan_site [0x2b03 resolution 23]
-tourism=guest_house [0x2b02 default_name 'B&B' resolution 24]
+tourism=guest_house | tourism=bed_and_breakfast [0x2b01 default_name 'B&B' resolution 24]
 tourism=hostel [0x2b02 default_name 'hostel' resolution 24]
 tourism=hotel { name '${name} ${operator}' | '${name}' | '${operator}' } [0x2b01 resolution 24]
 tourism=information & information=guidepost [0x5a00 resolution 24]
 tourism=information [0x4c00 resolution 24]
 tourism=motel { name '${name} ${operator}' | '${name}' | '${operator}' } [0x2b01 resolution 24]
 tourism=museum [0x2c02 resolution 24]
-tourism=picnic_site [0x2816 resolution 24]
+tourism=picnic_site [0x4a00 resolution 24]
 
 tourism=resort [0x2b04 resolution 24]
 tourism=theme_park { name '${name} ${description}' | '${name}' | '${description}' } [0x2c01 resolution 23]
 tourism=viewpoint [0x2814 resolution 23 continue]
 tourism=wine_cellar [0x2c0a resolution 24]
-tourism=zoo [0x2c07 default_name 'zoo' resolution 24]
+tourism=zoo [0x2c07 resolution 24]
 
-aeroway=airport [0x2f04 resolution 23]
-aeroway=aerodrome [0x2f04 resolution 23]
-aeroway=terminal [0x2f04 resolution 23]
+aeroway=airport [0x2f04 resolution 22]
+aeroway=aerodrome [0x2f04 resolution 22]
+aeroway=terminal [0x2f04 resolution 24]
 
 amenity=atm  { name '${name}' | '${operator}' } [0x2f06 resolution 24]
 amenity="bank;atm" { name '${name}' | '${operator}' } [0x2f06 resolution 24]
 amenity=bank { name '${name}' | '${operator}' }  [0x2f06 resolution 24]
 amenity=bar [0x2d02 resolution 24]
-amenity=bench [0x2817 resolution 24]
+amenity=bench [0x2f0c resolution 24]
 amenity=biergarten [0x2d02 resolution 24]
 amenity=border_control | barrier=border_control [0x3006 resolution 24]
 amenity=bus_station [0x1101 resolution 24]
@@ -150,7 +167,8 @@ amenity=community_centre [0x3005 resolution 24]
 amenity=community_center [0x3005 resolution 24]
 amenity=courthouse [0x3004 resolution 24]
 amenity=customs [0x3006 resolution 22]
-amenity=doctors [0x3002 resolution 24]
+healthcare=hospital | amenity=hospital [0x3002 resolution 22]
+healthcare=* | amenity=dentist | amenity=doctors [0x3002 resolution 24]
 amenity=drinking_water [0x5000 default_name 'water' resolution 24]
 amenity=embassy & country=* { name '${country} ${name|def:}' } [0x3003 resolution 24]
 amenity=embassy & country!=* [0x3003 default_name 'embassy' resolution 24]
@@ -163,7 +181,6 @@ amenity=fire_station [0x3008 resolution 24]
 amenity=food_court [0x2a13 resolution 24]
 #amenity=fuel { name '${operator}: ${name}' | '${name}' | '${operator}' } [0x2f01 resolution 24]
 amenity=grave_yard | landuse=cemetary | landuse=cemetery [0x6403 resolution 24]
-amenity=hospital [0x3002 resolution 24]
 #amenity=kindergarten [0x2c05 resolution 24]
 
 amenity=library & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2c03 default_name 'bibliotheek' resolution 24]
@@ -172,8 +189,8 @@ amenity=library & (mkgmap:country=FRA | mkgmap:region="Région wallone" | mkgmap:
 amenity=library  [0x2c03 default_name 'library' resolution 24]
 
 amenity=nightclub [0x2d02 resolution 24]
-amenity=parking [0x2809 resolution 24]
-amenity=bicycle_parking [0x2810 resolution 24]
+amenity=parking [0x2f0a resolution 24]
+amenity=bicycle_parking [0x2f0b resolution 24]
 amenity=bicycle_rental [0x2808 resolution 24]
 amenity=pharmacy [0x2e05 resolution 24]
 
@@ -227,8 +244,8 @@ amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
 incline=up |incline=down | incline=yes | incline=steep
 	{ 
 		name  '${name}' ;
-		add addr:housenumber='${note|def:}' ;
-		add addr:street='${source|def:}' ;
+		add mkgmap:housenumber='${note|def:}' ;
+		add mkgmap:street='${source|def:}' ;
 	} [0x2f13 resolution 21]
 	
 
@@ -236,8 +253,8 @@ incline=up |incline=down | incline=yes | incline=steep
 highway=incline | highway=incline_steep | incline=*
 	{ 
 		name  '${name} (${incline})' |  '${name}' | '${incline}' ;
-		add addr:housenumber='${note|def:}' ;
-		add addr:street='${source|def:}' ;
+		add mkgmap:housenumber='${note|def:}' ;
+		add mkgmap:street='${source|def:}' ;
 	} [0x2f13 resolution 21]
 	
 
@@ -253,13 +270,14 @@ historic=castle & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2c02 defa
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 24]
 historic=castle & (mkgmap:country=FRA | mkgmap:region="Région wallone" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 24]
 historic=castle [0x2c02 default_name 'Castle' resolution 24]
-
+historic=ruins [0x2c02 resolution 24]
 historic=archaeological_site & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2802 default_name 'archeologische opgravingen' resolution 24]
 historic=archaeological_site & mkgmap:country=DEU [0x2802 default_name 'archäologischen Ausgrabungen' resolution 24]
 historic=archaeological_site & (mkgmap:country=FRA | mkgmap:region="Région wallone" | mkgmap:country=LUX) [0x2802 default_name 'fouilles archéologiques' resolution 24]
 historic=archaeological_site  [0x2802 default_name 'archaeological site ' resolution 24]
 
 historic=memorial | historic=monument [0x2802 default_name 'monument' resolution 24]
+historic=* [0x2802 resolution 24]
 
 
 leisure=golf_course [0x2d05 resolution 24]
@@ -296,7 +314,7 @@ natural=peak & ele!=* {name '${name|def:}' } [0x6616 resolution 21]
 natural=rock [0x6614 resolution 24]
 natural=spring [0x6511 resolution 24]
 natural=stream [0x6512 resolution 24]
-natural=tree [0x6618 resolution 24]
+#natural=tree [0x6618 resolution 24]
 natural=volcano [0x2c0c resolution 21]
 #natural=water [0x6603 resolution 24]
 natural=wetland [0x1e03 resolution 24]
@@ -361,13 +379,13 @@ sport=swimming { name '${name} ${description}' | '${name}' | '${description}' } 
 
 
 barrier=lift_gate [0x281b resolution 24]
-barrier=gate { add addr:housenumber='bicycle:${bicycle}' ; add addr:street='${opening_hours|def:}' ; add addr:postcode='${note|def:}' ;  } [0x2f00 resolution 24]
+barrier=gate { add mkgmap:housenumber='bicycle:${bicycle}' ; add mkgmap:street='${opening_hours|def:}' ; add mkgmap:postcode='${note|def:}' ;  } [0x2f00 resolution 24]
 
 
 barrier=cattle_grid [0x281a resolution 24]
 barrier=bollard | barrier=bus_trap  {add access = no; add bicycle = yes; add foot = yes} [0x1108 resolution 24]
 barrier=block | barrier=cycle_barrier | barrier=stile | barrier=kissing_gate {add motor_vehicle = no} [0x1107 resolution 24]
 					 
-power_source=wind | man_made=power_wind [0x2819 resolution 24]
+power_source=wind | man_made=power_wind | generator:source=wind [0x2819 resolution 24]
 
 toponym=* [0x1b00 resolution 24]
