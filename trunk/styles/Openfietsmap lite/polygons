@@ -85,7 +85,7 @@ waterway=riverbank [0x3c resolution 24-22]
 
 aeroway=airport [0x07 resolution 18]
 aeroway=aerodrome [0x07 resolution 20]
-aeroway=terminal [0x13 resolution 20]
+aeroway=terminal [0x08 default_name="Terminal" resolution 20]
 
 tourism=caravan_site & tents=no [0x05 default_name="RV-park" resolution 22]
 tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
@@ -106,9 +106,9 @@ amenity=university [0x0a resolution 20]
 landuse=residential [0x03 resolution 16]
 
 place=city | boundary=city [0x01 resolution 21]
-place=town | boundary=town [0x02 resolution 22]
-place=village | boundary=village [0x02 resolution 23]
-place=hamlet | boundary=hamlet [0x02 resolution 23]
+place=town | boundary=town [0x01 resolution 22]
+place=village | boundary=village [0x01 resolution 23]
+place=hamlet | boundary=hamlet [0x01 resolution 23]
 place=island | place=islet [0x010101 resolution 18 continue]
 
 
@@ -137,7 +137,7 @@ leisure=marina [0x09 resolution 23]
 leisure=sports_center | leisure=sports_centre [0x19 resolution 24]
 leisure=stadium [0x19 resolution 24]
 
-man_made = water_tower [0x13 resolution 24]
+man_made = water_tower | man_made=tower [0x13 resolution 24]
 
 natural=sand | surface=sand [0x53 resolution 21 continue]
 natural=beach [0x53 resolution 20]

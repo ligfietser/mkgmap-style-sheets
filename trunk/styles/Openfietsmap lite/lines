@@ -76,7 +76,7 @@ route=ferry {add mkgmap:ferry=1}
 (ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes | ncn=yes | rcn=yes | lcn=yes | ncn_ref=* | rcn_ref=* | lcn_ref=* ) 
 	{ add bicycleroute=yes; set toll=no; add bicycle = yes; add foot = yes ; } 
 
- 
+(access=no | access=private) & bicycle!=* & bicycleroute!=yes & cycleway!=* & mtb!=yes {set bicycle=no}
 (oneway=1 | oneway=true) { set oneway=yes }
 (oneway=no) { delete 'oneway' }
 			 
@@ -167,6 +167,7 @@ highway=cycleway & cycleway=* & cycleway!=opposite { delete 'cycleway'; }
 
 # ways under construction
 highway=construction | (highway=* & construction=*) {add access = no} [0x0b road_class=0 road_speed=1 resolution 22 continue]
+highway=proposed {delete 'highway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'}
 
 # Treat disused ways as highway=service, but at lower road_speed.
 highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22 continue]
@@ -176,8 +177,8 @@ highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22 continue]
 waterway=dam & highway=* [0x2b default_name="dam" resolution 23 continue with_actions]
 waterway=dam & highway!=* [0x08 default_name="dam" resolution 23 continue with_actions]
 
-(bridge=yes | bridge=true | bridge=viaduct) & highway!=proposed & railway!=proposed   [0x2b resolution 23 continue with_actions]
-(tunnel=yes | tunnel=true | tunnel=1) & highway!=proposed & railway!=* & waterway!=* [0x10109 resolution 23 continue with_actions]
+(bridge=yes | bridge=true | bridge=viaduct) & railway!=proposed   [0x2b resolution 23 continue with_actions]
+highway=* & (tunnel=yes | tunnel=true | tunnel=1)  [0x10109 resolution 23 continue with_actions]
 waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes) {delete 'waterway'}
 
 #roads not allowed for cycling
@@ -290,16 +291,15 @@ bicycleroute=yes [0x02 road_class=4 road_speed=3 resolution 22 continue]
 
 railway=abandoned [0x0a road_class=0 road_speed=1 resolution 24]
 railway=disused [0x2a resolution 23]
-railway=light_rail & !(layer<0) [0x10114 resolution 23]
 
-railway=rail & tunnel=yes  [0x10113 default_name="tunnel" resolution 21-18 continue with_actions]
+railway=rail & tunnel=yes  [0x10113 resolution 20 continue with_actions]
 railway=rail & tunnel!=yes [0x2a resolution 21-18 continue with_actions]
-railway=rail & tunnel=yes  [0x10109 resolution 22]
 railway=rail & tunnel!=yes [0x10114 resolution 22]
 
-railway=subway & (layer>0) [0x10114 resolution 22]
-railway=subway & (layer<0) [0x10113 resolution 22]
+(railway=subway | railway=light_rail) & (layer>0) [0x10114 resolution 22]
+(railway=subway | railway=light_rail) & (layer<0) [0x10113 resolution 22]
 railway=subway [0x10113 resolution 22]
+railway=light_rail [0x10114 resolution 22]
 
 railway=construction & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x10113 default_name="in aanleg" resolution 22]
 railway=construction [0x10113 default_name="construction" resolution 22]
