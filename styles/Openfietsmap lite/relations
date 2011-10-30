@@ -119,3 +119,10 @@ type=route & route=mtb
 		set mname='${name}';
 	}
 	} 
+#train routes
+type=route & route=train
+	{
+		apply { 
+		set trainroute=yes;
+	} 
+	}

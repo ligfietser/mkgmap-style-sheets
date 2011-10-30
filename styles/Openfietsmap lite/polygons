@@ -77,10 +77,10 @@ toponym=* & area=yes & name=* {name '${name}'} [0x1b resolution 24 continue]
 
 
 natural=water & (name=Haringvliet | name=Grevelingenmeer | name=Deltageul | name="Vuile Gat" | name="Hollandsch Diep" | name=Amer | name="Nieuwe Merwede" | name=Slaak | name=Krammer | name="Noorder Krammer" | name="Zuid Vlije" | name=Volkerak | name="Zuider Voorhaven" | name=Krabbenkreek | name=Schelde) [0x3d resolution 16-16 continue]
-natural=water [0x3d resolution 21-18 continue]
+natural=water [0x3d resolution 20-18 continue]
 natural=water [0x3c resolution 24-22 continue]
 
-waterway=riverbank [0x3d resolution 21-16 continue]
+waterway=riverbank [0x3d resolution 20-16 continue]
 waterway=riverbank [0x3c resolution 24-22]
 
 aeroway=airport [0x07 resolution 18]
@@ -95,7 +95,7 @@ tourism=zoo [0x17 resolution 22]
 historic=* [0x13 resolution 24]
 
 amenity=hospital [0x0b resolution 22]
-amenity=parking [0x05 resolution 23]
+amenity=parking [0x05 resolution 24]
 amenity=place_of_worship [0x13 resolution 22]
 amenity=restaurant [0x13 resolution 24]
 
@@ -105,16 +105,16 @@ amenity=university [0x0a resolution 20]
 
 landuse=residential [0x03 resolution 16]
 
-place=city | boundary=city [0x01 resolution 21]
+place=city | boundary=city [0x01 resolution 20]
 place=town | boundary=town [0x01 resolution 22]
-place=village | boundary=village [0x01 resolution 23]
-place=hamlet | boundary=hamlet [0x01 resolution 23]
+place=village | boundary=village [0x01 resolution 24]
+place=hamlet | boundary=hamlet [0x01 resolution 24]
 place=island | place=islet [0x010101 resolution 18 continue]
 
 
-landuse=reservoir | landuse=basin [0x3d resolution 21-18 continue]
+landuse=reservoir | landuse=basin [0x3d resolution 20-18 continue]
 landuse=reservoir | landuse=basin [0x3c resolution 24-22]
-
+landuse=construction [0x0d resolution 21]
 
 
 
@@ -124,7 +124,7 @@ landuse=reservoir | landuse=basin [0x3c resolution 24-22]
 (landuse=forest | natural=wood | leisure=park | leisure=nature_reserve | natural=scrub) [0x16 resolution 20 continue]
 
 landuse=cemetary | landuse=cemetery | amenity=grave_yard [0x1a resolution 22]
-landuse=retail [0x08 resolution 21]
+landuse=retail [0x08 resolution 22]
 landuse=industrial [0x0c resolution 18]
 
 
@@ -133,33 +133,33 @@ landuse=industrial [0x0c resolution 18]
 
 
 
-leisure=marina [0x09 resolution 23]
+leisure=marina [0x09 resolution 24]
 leisure=sports_center | leisure=sports_centre [0x19 resolution 24]
 leisure=stadium [0x19 resolution 24]
 
 man_made = water_tower | man_made=tower [0x13 resolution 24]
 
-natural=sand | surface=sand [0x53 resolution 21 continue]
+natural=sand | surface=sand [0x53 resolution 22 continue]
 natural=beach [0x53 resolution 20]
 natural=glacier [0x4d resolution 16]
-natural=heath [0x22 resolution 21]
+natural=heath [0x22 resolution 22]
 
 
-natural=marsh [0x51 resolution 21]
-natural=mud [0x51 resolution 21]
+natural=marsh [0x51 resolution 22]
+natural=mud [0x51 resolution 22]
 natural=wetland [0x51 resolution 22]
 
 (shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
 
 
 # squares and plazas
-waterway=dam & area=yes [0x0e default_name="dam" resolution 23]
-highway=pedestrian & area=yes [0x0e resolution 23]
-man_made=pier & area=yes [0x0e resolution 23]
-man_made=reinforced_slope [0x27 resolution 23]
-railway=platform & area=yes [0x0e default_name="platform" resolution 23]
+waterway=dam & area=yes [0x0e default_name="dam" resolution 24]
+highway=pedestrian & area=yes [0x0e resolution 24]
+man_made=pier & area=yes [0x0e resolution 24]
+man_made=reinforced_slope | man_made=groyne [0x27 resolution 24]
+railway=platform & area=yes [0x0e default_name="platform" resolution 24]
 # other highways that have area=yes set must be parking lots
-highway=* & area=yes [0x05 resolution 23]
+highway=* & area=yes [0x05 resolution 24]
 
 
 

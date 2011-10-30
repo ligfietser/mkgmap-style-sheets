@@ -86,11 +86,12 @@ place=city & mkgmap:area2poi!=true & population<200000 [0x0600 resolution 18-18 
 place=city & mkgmap:area2poi!=true [0x0400 resolution 20]
 
 place=town & mkgmap:area2poi!=true & population>=50000  [0x0b00 resolution 16-16 continue]
-place=town & mkgmap:area2poi!=true & population>=50000 [0x0600 resolution 20-18 continue]
-place=town & mkgmap:area2poi!=true & population<50000 [0x0b00 resolution 20-18 continue]
-place=town & mkgmap:area2poi!=true & population>=50000 [0x0400 resolution 21]
-place=town & mkgmap:area2poi!=true & population<50000 [0x0600 resolution 21-21 continue]
+place=town & mkgmap:area2poi!=true & population>=50000 [0x0600 resolution 18-18 continue]
+place=town & mkgmap:area2poi!=true & population<50000 [0x0b00 resolution 18-18 continue]
+place=town & mkgmap:area2poi!=true & population>=50000 [0x0400 resolution 20]
+place=town & mkgmap:area2poi!=true & population<50000 [0x0600 resolution 21-20 continue]
 place=town & mkgmap:area2poi!=true [0x0400 resolution 22]
+
 
 place=village & mkgmap:area2poi!=true [0x0b00 resolution 21-20 continue]
 place=village & mkgmap:area2poi!=true [0x0600 resolution 22-22 continue]
@@ -105,9 +106,11 @@ place=hamlet & mkgmap:area2poi!=true [0x0800 resolution 23]
 place=island & mkgmap:area2poi!=true [0x1e00 resolution 21]
 place=islet & mkgmap:area2poi!=true [0x1e04 resolution 21]
 
-landuse=residential & name=* [0x0800 resolution 23]
+landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
+landuse=industrial & name=* [0x0600 resolution 24]
 
 man_made=tower & tower:type!=communication  [0x6411 resolution 23 continue]
+leisure=bird_hide [0x2c06 resolution 23]
 
 tourism=alpine_hut [0x2b02 resolution 24]
 
@@ -169,8 +172,8 @@ healthcare=* | amenity=dentist | amenity=doctors [0x3002 resolution 24]
 amenity=drinking_water [0x5000 default_name 'water' resolution 24]
 amenity=embassy & country=* { name '${country} ${name|def:}' } [0x3003 resolution 24]
 amenity=embassy & country!=* [0x3003 default_name 'embassy' resolution 24]
-amenity=emergency_phone [0x2f12 default_name 'SOS' resolution 24]
-amenity=ferry_terminal { name '${name}' | '${operator}' } [0x2f09 resolution 24]
+#amenity=emergency_phone [0x2f12 default_name 'SOS' resolution 24]
+(amenity=ferry_terminal | amenity=ferry | amenity=cable_ferry) { name '${name} (${opening_hours})' | '${name}' |  '${opening_hours}' | '${operator}' | '${note}' } [0x2f09 resolution 23]
 #amenity=fast_food & cuisine=grill [0x2a03 resolution 24]
 #amenity=fast_food & cuisine ~ '.*pizza.*' [0x2a0a resolution 24]
 amenity=fast_food [0x2a07 resolution 24]
@@ -196,7 +199,7 @@ amenity=post_office [0x2f05 resolution 24]
 amenity=pub [0x2d02 resolution 24]
 amenity=public_building [0x3007 resolution 24]
 amenity=recycling { name '${name} (${operator})' | '${name}' | '${operator}' } [0x2f15 resolution 24]
-amenity=restaurant [0x2a00 resolution 24]
+amenity=* & amenity ~ '.*restaurant.*' [0x2a00 resolution 24]
 #amenity=school [0x2c05 resolution 24]
 amenity=shelter [0x6402 resolution 24]
 amenity=supermarket [0x2e02 resolution 24]
@@ -241,7 +244,7 @@ incline=up |incline=down | incline=yes | incline=steep
 		name  '${name}' ;
 		add mkgmap:housenumber='${note|def:}' ;
 		add mkgmap:street='${source|def:}' ;
-	} [0x2f13 resolution 21]
+	} [0x2f13 resolution 22]
 	
 
 
@@ -250,7 +253,7 @@ highway=incline | highway=incline_steep | incline=*
 		name  '${name} (${incline})' |  '${name}' | '${incline}' ;
 		add mkgmap:housenumber='${note|def:}' ;
 		add mkgmap:street='${source|def:}' ;
-	} [0x2f13 resolution 21]
+	} [0x2f13 resolution 22]
 	
 
 #highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' }
@@ -267,11 +270,16 @@ historic=castle & (mkgmap:country=FRA | mkgmap:region="Région wallone" | mkgmap:
 historic=castle [0x2c02 default_name 'Castle' resolution 23]
 historic=ruins | historic=fort [0x2c02 resolution 23]
 
-historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x2c04  resolution 24 continue]
+historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x2c04  resolution 23 continue]
+historic=archaeological_site & name ~ '.*(unebed|Großsteingrab|Dolmen|Hünen).*' { add site_type=megalith }
+historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 23] 
 historic=archaeological_site & name=* { name '${historic}' } [0x2801 resolution 23]
-historic=monument & name=* { name '${historic}' } [0x2802  resolution 24]
-historic=*  { name '${historic}' } [0x2803  resolution 24 continue]
-
+historic=monument & name=* { name '${historic}' } [0x2802  resolution 23]
+historic=wayside_cross & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2803 default_name 'Wegkruis' resolution 23]
+historic=wayside_cross & mkgmap:country=DEU [0x2803 default_name 'Kreuz' resolution 23]
+historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 23]
+historic=wayside_shrine & mkgmap:country=DEU [0x2803 default_name 'Bildstock' resolution 23]
+historic=*  { name '${historic}' } [0x2803  resolution 23]
 
 leisure=golf_course [0x2d05 resolution 24]
 leisure=ice_rink [0x2d08 resolution 24]
@@ -289,9 +297,9 @@ leisure=water_park [0x2d09 resolution 24]
 man_made=windmill  [0x2c00 resolution 23]
 man_made=lighthouse [0x2812 resolution 23]
 
-mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 21]
-mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 21]
-mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 21]
+mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 20]
+mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 20]
+mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 20]
 
 natural=beach & name=* [0x1e01 resolution 24]
 natural=cave_entrance [0x6601 resolution 24]
@@ -302,10 +310,10 @@ natural=peak & altitude=number    {name '${name|def:} (${ele|def:}m)'} [0x6616 r
 natural=peak & altitude=no_number {name '${name|def:} (${ele|def:})'} [0x6616 resolution 21]
 natural=peak & ele!=* {name '${name|def:}' } [0x6616 resolution 21]
 
-natural=rock [0x6614 resolution 24]
+natural=rock | natural=stone | geological=*  {name '${name}' | 'natural=${natural}'| 'geological=${geological}'} [0x6614 resolution 24]
 natural=spring [0x6511 resolution 24]
 natural=stream [0x6512 resolution 24]
-#natural=tree [0x6618 resolution 24]
+natural=tree & name=* [0x6618 resolution 24]
 natural=volcano [0x2c0c resolution 21]
 #natural=water [0x6603 resolution 24]
 natural=wetland & name=* [0x1e03 resolution 24]
@@ -314,14 +322,14 @@ natural=wetland & name=* [0x1e03 resolution 24]
 
 
 railway=halt [0x1102 resolution 23]
-railway=station [0x2f17 resolution 23]
+railway=station [0x2f17 resolution 22]
 railway=tram_stop [0x1103 default_name 'tram' resolution 24]
 railway=level_crossing [0x1e02 resolution 24]
 
 shop=bakers [0x2e02 resolution 24]
 shop=bakery [0x2e02 resolution 24]
 
-shop=bicycle [0x2f03 resolution 23]
+shop=bicycle [0x2f03 resolution 22]
 #shop=boat [0x2f09 resolution 24]
 #shop=butcher [0x2e0c resolution 24]
 #shop=car [0x2f07 resolution 24]
@@ -381,3 +389,4 @@ barrier=block | barrier=cycle_barrier | barrier=stile | barrier=kissing_gate {ad
 power_source=wind | man_made=power_wind | generator:source=wind [0x2819 resolution 24]
 
 toponym=* [0x1b00 resolution 24]
+
