@@ -1,7 +1,7 @@
 ; ofm_lite.typ
-; Longueur:  27 052 Bytes
-; Fichier TYP compilé     16-10-2011     14:30:32
-; Décompilé le 17-10-2011 à 14:53:45
+; Longueur:  27 768 Bytes
+; Fichier TYP compilé     30-10-2011     13:11:37
+; Décompilé le 30-10-2011 à 21:31:19
 
 [_id]
 ProductCode=1
@@ -19,6 +19,7 @@ Type=0x002,3
 Type=0x003,3
 Type=0x00a,3
 Type=0x004,4
+Type=0x005,4
 Type=0x007,4
 Type=0x00b,4
 Type=0x00c,4
@@ -44,7 +45,6 @@ Type=0x009,5
 Type=0x021,5
 Type=0x03c,5
 Type=0x03f,5
-Type=0x005,6
 Type=0x03d,6
 Type=0x04e,6
 Type=0x04f,6
@@ -115,9 +115,8 @@ String1=0x04,residential area
 String2=0x03,bebouwde kom
 String3=0x02,Stadtgebiet
 ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=Day
-DaycustomColor:#7B3000
+FontStyle=NoLabel (invisible)
+CustomColor=No
 Xpm="32 32 4 1"
 "! c #FFCA8B"
 "  c none"
@@ -520,7 +519,7 @@ String1=0x04,forest
 String2=0x03,bos
 String3=0x02,Wald
 ExtendedLabels=Y
-FontStyle=SmallFont
+FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#7B956A
 Xpm="0 0 2 0"
@@ -1006,6 +1005,14 @@ Xpm="0 0 1 0"
 
 
 [_polygon]
+Type=0x4b
+ExtendedLabels=N
+Xpm="0 0 1 0"
+"1 c #E5E5E5"
+[end]
+
+
+[_polygon]
 Type=0x4e
 String1=0x04,orchard
 String2=0x03,boomgaard/kwekerij
@@ -1482,18 +1489,18 @@ CustomColor=No
 Type=0x09
 UseOrientation=N
 Xpm="32 10 2  1"
-"! c #000000"
+"! c #393000"
 "  c none"
-"!!!!!!!!        !!!!!!!!        "
+"                                "
+"                                "
+" !!!!!   !!!!!   !!!!!   !!!!!  "
 "                                "
 "                                "
 "                                "
 "                                "
+" !!!!!   !!!!!   !!!!!   !!!!!  "
 "                                "
 "                                "
-"                                "
-"                                "
-"!!!!!!!!        !!!!!!!!        "
 ;12345678901234567890123456789012
 String1=0x04,tunnel
 String2=0x03,tunnel
@@ -1507,13 +1514,12 @@ CustomColor=No
 [_line]
 Type=0x0a
 UseOrientation=N
-Xpm="32 2 4  1"
+Xpm="32 3 2  1"
 "! c #573132"
-"  c none"
-"3 c #000000"
-"4 c #FFFFFF"
-"!!  !!  !!  !!  !!  !!  !!  !!  "
-"!!  !!  !!  !!  !!  !!  !!  !!  "
+"# c #E6E6E6"
+"################################"
+"!!!!!###!!!!!###!!!!!###!!!!!###"
+"################################"
 ;12345678901234567890123456789012
 String1=0x04,path
 String2=0x03,pad
@@ -1527,16 +1533,17 @@ CustomColor=No
 [_line]
 Type=0x0b
 UseOrientation=N
-Xpm="32 3 2  1"
-"! c #FFFFFF"
-"# c #BD9500"
-"#######!!!!!!!!!#######!!!!!!!!!"
-"#######!!!!!!!!!#######!!!!!!!!!"
-"#######!!!!!!!!!#######!!!!!!!!!"
+Xpm="32 4 2  1"
+"! c #FF0000"
+"# c #B4B4B4"
+"################################"
+"!!!!!###!!!!!###!!!!!###!!!!!###"
+"!!!!!###!!!!!###!!!!!###!!!!!###"
+"################################"
 ;12345678901234567890123456789012
-String1=0x04,road under construction
-String2=0x03,weg in aanleg
-String3=0x02,Straße im Bau
+String1=0x04,unpaved bikepath
+String2=0x03,fietspad (onverhard)
+String3=0x02,Unbefestigter Radweg
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
@@ -1546,14 +1553,10 @@ CustomColor=No
 [_line]
 Type=0x0c
 UseOrientation=N
-Xpm="32 5 2  1"
+Xpm="32 1 2  1"
 "! c #000000"
 "  c none"
-"          !                     "
-"          !!                    "
-"          !!!                   "
-"          !!                    "
-"          !                     "
+"                                "
 ;12345678901234567890123456789012
 String1=0x04,roundabout
 String2=0x03,rotonde
@@ -1568,11 +1571,11 @@ CustomColor=No
 Type=0x0d
 UseOrientation=N
 Xpm="32 3 2  1"
-"! c #FF3000"
-"  c none"
-"!!  !!  !!  !!  !!  !!  !!  !!  "
-"!!  !!  !!  !!  !!  !!  !!  !!  "
-"!!  !!  !!  !!  !!  !!  !!  !!  "
+"! c #FF0000"
+"# c #D5D5D5"
+"################################"
+"!!!!!###!!!!!###!!!!!###!!!!!###"
+"################################"
 ;12345678901234567890123456789012
 String1=0x04,path (cycling allowed)
 String2=0x03,pad (fietsen toegestaan)
@@ -1594,9 +1597,9 @@ Xpm="32 4 2  1"
 "!!!!!###!!!!!###!!!!!###!!!!!###"
 "################################"
 ;12345678901234567890123456789012
-String1=0x04,unpaved bikepath
+String1=0x04,bikepath (compacted)
 String2=0x03,fietspad (halfverhard)
-String3=0x02,Unbefestigter Radweg
+String3=0x02,Halbbefestigter Radweg
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
@@ -1701,9 +1704,9 @@ Xpm="32 1 2  1"
 "  c none"
 "!!!!!   !!!!!   !!!!!   !!!!!   "
 ;12345678901234567890123456789012
-String1=0x04,track road
-String2=0x03,onverharde weg
-String3=0x02,Unbefestigter Weg
+String1=0x04,track or path
+String2=0x03,onverharde weg of pad
+String3=0x02,Unbefestigter Weg, Pfad
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -1767,14 +1770,15 @@ DaycustomColor:#0000D5
 [_line]
 Type=0x1a
 UseOrientation=N
-Xpm="32 8 2  1"
+Xpm="32 9 2  1"
 "! c #39FF00"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -2505,7 +2509,7 @@ Xpm="32 5 4  1"
 "! c #FFFFFF"
 "# c #393000"
 "3 c #FFCA6A"
-"4 c #393000"
+"4 c #7B6500"
 "################################"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!######!!!!!!!!!!######!!!!!!!!!"
@@ -2517,6 +2521,25 @@ String2=0x03,straat (fietsverbod)
 String3=0x02,Straße (Radverbot)
 ExtendedLabels=Y
 FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10019
+UseOrientation=N
+Xpm="32 3 2  1"
+"! c #FFFFFF"
+"# c #BD9500"
+"#######!!!!!!!!!#######!!!!!!!!!"
+"#######!!!!!!!!!#######!!!!!!!!!"
+"#######!!!!!!!!!#######!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x04,road under construction
+String2=0x03,weg in aanleg
+String3=0x02,Straße im Bau
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
 
@@ -2628,6 +2651,24 @@ CustomColor=No
 
 
 [_line]
+Type=0x10112
+UseOrientation=N
+Xpm="32 3 2  1"
+"! c #7B656A"
+"  c none"
+"       !               !        "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"       !               !        "
+;12345678901234567890123456789012
+String1=0x04,service, industrial
+String2=0x03,goederenspoorlijn
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
 Type=0x10113
 UseOrientation=N
 Xpm="32 2 2  1"
@@ -2636,9 +2677,9 @@ Xpm="32 2 2  1"
 "!!!!    !!!!    !!!!    !!!!    "
 "!!!!    !!!!    !!!!    !!!!    "
 ;12345678901234567890123456789012
-String1=0x04,subway
-String2=0x03,metro
-String3=0x02,U-Bahn
+String1=0x04,subway, tunnel
+String2=0x03,metro, tunnel
+String3=0x02,U-Bahn, tunnel
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2865,7 +2906,10 @@ Type=0x008
 SubType=0x00
 String1=0x04,place
 String2=0x03,plaats
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=NormalFont
+CustomColor=Day
+DaycustomColor:#BD6500
 DayXpm="20 20 2 1"   Colormode=16
 "!	c #000000"
 "  	c none"
@@ -3488,6 +3532,43 @@ DayXpm="20 20 3 1"   Colormode=16
 "      #!!!!!!!#     "
 "      #!!!!!!!#     "
 "      #########     "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x028
+SubType=0x07
+String1=0x04,Megalithic monument
+String2=0x03,Megalithisch monument
+String3=0x02,Megalithisch Monument
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #414141"
+"#	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"  ##############    "
+"  #!!!!!!!!!!!!##   "
+" #!!!!!!!!!!!!!!#   "
+" ##!!!!!!!!!!!!#    "
+"  ##!!##!!###!!#    "
+"  #!!!##!!###!!#    "
+"  #!!!##!!!##!!!#   "
+"  #!!!#!!!!!#!!!#   "
+"                    "
+"                    "
 "                    "
 "                    "
 "                    "
@@ -4254,9 +4335,8 @@ String4=0x01,Repère
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="20 20 3 1"   Colormode=16
-"!	c #7B6500"
-"#	c #FFFFFF"
+DayXpm="20 20 2 1"   Colormode=16
+"!	c #FFFFFF"
 "  	c none"
 "                    "
 "                    "
@@ -4266,9 +4346,9 @@ DayXpm="20 20 3 1"   Colormode=16
 "                    "
 "                    "
 "                    "
-"         !          "
 "        !!!         "
-"         !          "
+"        !!!         "
+"        !!!         "
 "                    "
 "                    "
 "                    "
@@ -4320,41 +4400,33 @@ DayXpm="15 15 6 1"   Colormode=32
 [_point]
 Type=0x02c
 SubType=0x06
-String1=0x04,park, forest
-String2=0x03,park, bos
-String3=0x02,Park, Wald
+String1=0x04,bird watch spot
+String2=0x03,vogelkijkpunt
+String3=0x02,Vogel-Beobachtungspunkt
 ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=Day
-DaycustomColor:#003000
-DayXpm="25 25 1 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-;1234567890123456789012345
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 15 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #7B308B"
+"%	c #390000"
+"  	c none"
+"                  % "
+"                 %% "
+"               %%%  "
+"              %%%%  "
+"%%           %%%%%  "
+"%%          %%%%%%  "
+" %%        %%%%%%   "
+"  %%      %%%%%%%   "
+"  %%%%   %%%%%%%    "
+"    %%%%%%%%%%%%    "
+"     %%%%%%%%%%     "
+"     %%%%%%%%%%     "
+"     %%%%%%%%%%%%   "
+"     %          %%% "
+"                 %%%"
+;12345678901234567890
 [end]
 
 
@@ -6344,6 +6416,43 @@ DayXpm="25 25 1 1"   Colormode=32
 "!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;1234567890123456789012345
+[end]
+
+
+[_point]
+Type=0x066
+SubType=0x14
+String1=0x04,natural/geological poi
+String2=0x03,natuur/geologie
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #393000"
+"%	c #7B6500"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"       ####         "
+"       #!%##        "
+"      #!!!%##       "
+"      #!!!%##       "
+"      #!!%%##       "
+"       #%%###       "
+"        ####        "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
 [end]
 
 
