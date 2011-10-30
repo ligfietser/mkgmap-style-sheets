@@ -83,8 +83,8 @@ route=ferry {add mkgmap:ferry=1}
 aeroway=runway [0x00  resolution 20 continue with_actions]
 aeroway=taxiway [0x00 resolution 23 continue with_actions]
 
-man_made=dyke | man_made=dike | embankment=yes | man_made=embankment | man_made=groyne [0x10015 resolution 23 continue with_actions]
-cutting=yes  [0x10215 resolution 23 continue with_actions]
+man_made=dyke | man_made=dike | embankment=yes | man_made=embankment [0x10015 resolution 24 continue with_actions]
+cutting=yes  [0x10215 resolution 24 continue with_actions]
 
 # Contours take their name from the elevation setting.
 contour=elevation & contour_ext=elevation_minor
@@ -102,19 +102,17 @@ contour=elevation | contour_ext=elevation
 	
 
 # Roundabouts
-junction=roundabout [0x0c road_class=1 road_speed=1 resolution 23 continue with_actions]
+junction=roundabout [0x0c road_class=1 road_speed=1 resolution 24 continue with_actions]
 
 
 # Flag unpaved roads
 
-highway=*
-& (surface=cobblestone | surface=compacted | surface=dirt |
-   surface=earth | surface=grass | surface=grass_paver |
-   surface=gravel | surface=grit | surface=ground | surface=mud |
-   surface=pebblestone | surface=sand | surface=unpaved |
-   mtb:scale=* |
+highway=* &  surface ~ '.*(ash|bad|clay|cob|compact|dirt|earth|erde|gr|loam|mud|peb|sand|shell|shotter|rock|turf|unpaved).*' { add mkgmap:unpaved=1 }
+highway=* &  surface ~ '.*(cob|compact|gravel|shell).*' { add unpaved=2 }
+highway=* &  smoothness ~ '.*(bad|horrible|impassable).*' { add mkgmap:unpaved=1 }
+highway=* & 
+   (mtb:scale=* |
    tracktype ~ 'grade[3-6]' |
-   smoothness ~ '.*(bad|horrible|impassable)' |
    sac_scale ~ '.*(mountain|alpine)_hiking' |
    sport=via_ferrata)
 { add mkgmap:unpaved=1 }
@@ -132,13 +130,13 @@ highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
 highway=trunk_link { set highway=trunk }
 (highway=trunk | highway=motorway)  & cycleway=* { set highway=primary }
 (highway=trunk | highway=motorway)  & bicycle=yes { set highway=primary }
-(mkgmap:country=NLD | mkgmap:country=BEL |  mkgmap:country=LUX |  mkgmap:country=DEU | mkgmap:country=FRA | mkgmap:country=AUT | mkgmap:country=CHE | mkgmap:country=DNK | mkgmap:country=HUN | mkgmap:country=ROU ) & highway=trunk { set highway=motorway }
+highway=trunk & mkgmap:country ~ '(NLD|BEL|LUX|FRA|DEU|AUT|CHE|DNK|HUN|ROU)' { set highway=motorway }
 highway=trunk { set highway=primary }
 highway=primary_link { set highway=primary }
 highway=secondary_link { set highway=secondary }
 highway=tertiary_link { set highway=tertiary }
 highway=byway | highway=minor | highway=living_street | highway=residential | highway=road { set highway=unclassified }
-(highway=unclassified | highway=tertiary | highway=secondary | highway=service) & (mkgmap:unpaved=1) { set highway=track; add tracktype=grade2 }
+(highway=unclassified | highway=tertiary | highway=secondary | highway=service) & (mkgmap:unpaved=1) & service!=parking_aisle & !(cycleway=* | cycleway:right=* | cycleway:left=*) { set highway=track; add tracktype=grade2 }
 highway=unsurfaced { set highway=track }
 highway=track & tracktype=grade1 { set highway=unclassified }
 highway=cycleroad  { set highway=cycleway }
@@ -162,11 +160,13 @@ bicycle=lane { set cycleway=lane }
 (cycleway=right | cycleway=track_right | cycleway:right=path | cycleway:right=track | cycleway:right=yes | cycleway=lane_right | cycleway:right=lane) { set cycleway=right }
 (cycleway=path | cycleway=yes | cycleway=both | cycleway=segregated | bicycle=track) { set cycleway=track }
 
-highway=track & (cycleway=track | cycleway=left | cycleway=right) { set highway=cycleway; add track=yes; set mkgmap:unpaved=0; delete 'cycleway'}
+(cycleway=track | cycleway=left | cycleway=right) & highway=track { set highway=cycleway; add track=yes; set mkgmap:unpaved=0; delete 'cycleway'}
 highway=cycleway & cycleway=* & cycleway!=opposite { delete 'cycleway'; }
+highway=cycleway & railway=* {delete 'railway'}
+highway=cycleway & unpaved=2 {set mkgmap:unpaved=0}
 
 # ways under construction
-highway=construction | (highway=* & construction=*) {add access = no} [0x0b road_class=0 road_speed=1 resolution 22 continue]
+highway=construction | (highway=* & construction=*) {add access = no} [0x10019 resolution 22 continue]
 highway=proposed {delete 'highway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'}
 
 # Treat disused ways as highway=service, but at lower road_speed.
@@ -178,7 +178,7 @@ waterway=dam & highway=* [0x2b default_name="dam" resolution 23 continue with_ac
 waterway=dam & highway!=* [0x08 default_name="dam" resolution 23 continue with_actions]
 
 (bridge=yes | bridge=true | bridge=viaduct) & railway!=proposed   [0x2b resolution 23 continue with_actions]
-highway=* & (tunnel=yes | tunnel=true | tunnel=1)  [0x10109 resolution 23 continue with_actions]
+highway=* & (tunnel=yes | tunnel=true | tunnel=1)  [0x09 road_class=2 road_speed=2 resolution 23]
 waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes) {delete 'waterway'}
 
 #roads not allowed for cycling
@@ -201,7 +201,7 @@ cycleway=track & highway!=track & oneway!=yes [0x10009 resolution 23 continue wi
 
 
 # Oneways street with cycleway=opposite flagged are not oneway for us
-(oneway=yes | oneway=-1) & (cycleway=opposite | cycleway=opposite_lane  | bicycle:oneway=no | oneway:bicycle=no) {set cycling=twoway}
+(oneway=yes | oneway=-1) & (cycleway=opposite | cycleway=opposite_lane  | bicycle:oneway=no | oneway:bicycle=no | bicycle:backward=*) {set cycling=twoway}
 
 # display direction arrows
 highway=* & (oneway=yes | oneway:bicycle=yes | bicycle:oneway=yes ) & (cycling!=twoway) & bicycle!=no [0x10007 resolution 24 continue with_actions]
@@ -224,12 +224,13 @@ mtb_from_relation=yes & bicycleroute!=yes {name '${mname}'} [0x1a resolution 22 
 highway=cycleway & access!=no {add access = no; add bicycle = yes; add foot = yes}
 highway=cycleway [0x11 resolution 22-20 continue with_actions]
 highway=cycleway & track=yes  [0x1602 road_class=2 road_speed=2 resolution 23 continue]
-highway=cycleway & (mkgmap:unpaved=1) {set mkgmap:unpaved=0} [0x0e road_class=2 road_speed=2 resolution 23 continue]
-highway=cycleway & (mkgmap:unpaved!=1) & track!=yes [0x16 road_class=4 road_speed=3 resolution 23 continue]
+highway=cycleway & mkgmap:unpaved=1  [0x0b road_class=1 road_speed=1 resolution 23 continue]
+highway=cycleway & unpaved=2  [0x0e road_class=2 road_speed=2 resolution 23 continue]
+highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=3 road_speed=3 resolution 23 continue]
 
 
-(highway=unclassified | highway=service) [0x10000 resolution 21-20 continue with_actions]
-(highway=unclassified | highway=service)  [0x10 resolution 22-22 continue with_actions]
+(highway=unclassified | highway=service) & service!=* [0x10000 resolution 21-20 continue with_actions]
+(highway=unclassified | highway=service) & service!=* [0x10 resolution 22-22 continue with_actions]
 
 highway=service  & bicycle!=no  [0x07 road_class=1 road_speed=2 resolution 23 continue]
 highway=unclassified & bicycle!=no  [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
@@ -263,12 +264,17 @@ highway=track & (tracktype=grade3 | tracktype=grade4 | tracktype=grade5 | trackt
 highway=track & tracktype=grade3 & (bicycle=yes | mtb_from_relation=yes) & bicycleroute!=yes [0x0d road_class=1 road_speed=1 resolution 22]
 highway=track & tracktype=grade3 & bicycleroute!=yes [0x0f road_class=0 road_speed=0 resolution 22]
 highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicycleroute!=yes & (bicycle=yes | mtb_from_relation=yes) [0x0d road_class=0 road_speed=0 resolution 22]
-highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicycleroute!=yes [0x0a road_class=0 road_speed=0 resolution 22]
+highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicycleroute!=yes [0x15 resolution 22-22 continue]
+highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicycleroute!=yes [0x0a road_class=0 road_speed=0 resolution 23]
+
 
 (highway=path | highway=footway | highway=bridleway) & bicycleroute=yes [0x0d02 road_class=1 road_speed=1 resolution 22 continue]
-(highway=path | highway=footway | highway=bridleway) & bicycleroute!=yes & (bicycle=yes  | mtb_from_relation=yes | cycleway=*) [0x0d road_class=1 road_speed=1 resolution 22]
-(highway=path | highway=footway) & bicycleroute!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x0a road_class=0 road_speed=0 resolution 22]
-highway=bridleway & (bicycle!=yes | bicycle!=designated | bicycleroute!=yes | mtb_from_relation!=yes) 	{add access = no; add foot = yes} [0x29 road_class=0 road_speed=0 resolution 22]
+(highway=path | highway=footway | highway=bridleway) & bicycleroute!=yes & (bicycle=yes  | mtb=yes | mtb_from_relation=yes | cycleway=*) [0x0d road_class=1 road_speed=1 resolution 22]
+
+(highway=path | highway=footway) & bicycleroute!=yes  [0x15 resolution 22-22 continue with_actions]
+(highway=path | highway=footway) & bicycleroute!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x0a road_class=0 road_speed=0 resolution 23]
+
+highway=bridleway & (bicycle!=yes | bicycle!=designated | bicycleroute!=yes | mtb_from_relation!=yes) {add access = no; add foot = yes} [0x29 road_class=0 road_speed=0 resolution 22]
 
 highway=steps  & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") {add name="trap (met fietsgoot)"}
 highway=steps  & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) {add bicycle = yes} [0x10005 default_name="steps (with ramp)" resolution 24 continue with_actions]
@@ -289,12 +295,15 @@ bicycleroute=yes [0x02 road_class=4 road_speed=3 resolution 22 continue]
 # Mop up any unrecognised highway types
 #highway=* & area!=yes [0x06 road_class=0 road_speed=0 resolution 23]
 
-railway=abandoned [0x0a road_class=0 road_speed=1 resolution 24]
-railway=disused [0x2a resolution 23]
+railway=abandoned & tunnel!=yes [0x0a road_class=0 road_speed=1 resolution 24]
+railway=disused | (railway=* & disused=yes) & tunnel!=yes [0x10112 resolution 24]
+railway=rail & (service=* | usage=industrial) & tunnel!=yes [0x10112 resolution 23]
 
 railway=rail & tunnel=yes  [0x10113 resolution 20 continue with_actions]
-railway=rail & tunnel!=yes [0x2a resolution 21-18 continue with_actions]
-railway=rail & tunnel!=yes [0x10114 resolution 22]
+railway=rail & tunnel!=yes & (trainroute=yes | highspeed=yes | usage=main) [0x2a resolution 18-16 continue with_actions]
+railway=rail & tunnel!=yes & (trainroute=yes | highspeed=yes | usage=main) [0x10114 resolution 20]
+railway=rail & tunnel!=yes & !(trainroute=yes | highspeed=yes | usage=main) [0x2a resolution 22-21 continue with_actions]
+railway=rail & tunnel!=yes & !(trainroute=yes | highspeed=yes | usage=main) [0x10114 resolution 23]
 
 (railway=subway | railway=light_rail) & (layer>0) [0x10114 resolution 22]
 (railway=subway | railway=light_rail) & (layer<0) [0x10113 resolution 22]
@@ -305,15 +314,16 @@ railway=construction & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x1011
 railway=construction [0x10113 default_name="construction" resolution 22]
 
 railway=tram  [0x2a default_name="tram" resolution 24]
-railway=funicular | aerialway=* | railway=narrow_gauge | railway=monorail [0x2a resolution 22]
+railway=preserved [0x2a default_name="preserved railway" resolution 24]
+(railway=funicular | aerialway=* | railway=narrow_gauge | railway=monorail) {name '${name}' | '${note}' | '${description}' | '${railway}' | '${aerialway}'  } [0x2a resolution 22]
 
 highway=platform | (railway=platform & area!=yes) {add access = no; add foot = yes} [0x07 road_class=0 road_speed=0 resolution 24]
 
 route=ferry [0x1b road_class=3 road_speed=0 resolution 24  continue with_actions]
 route=ferry {name '${name} (${opening_hours})' | '${opening_hours}' | '${name}' | '${note}' } [0x10017  resolution 18]
 
-waterway=river & natural!=water [0x18 resolution 20-16 continue]
-waterway=river & natural!=water [0x1f resolution 21]
+waterway=river & natural!=water [0x18 resolution 18-16 continue]
+waterway=river & natural!=water [0x1f resolution 20]
 waterway=canal & natural!=water [0x18 resolution 22-21 continue]
 waterway=canal & natural!=water [0x1f resolution 23]
 waterway=stream & natural!=water [0x18 resolution 24]
@@ -329,7 +339,7 @@ boundary8=yes { name '${mkgmap:boundary8_name}' } [0x1c resolution 24]
 
 
 #other line elements
-man_made=wildlife_crossing [0x0a default_name="ecoduct" resolution 22]
+man_made=wildlife_crossing & natural!=* & landuse!=* & highway!=* [0x0a default_name="ecoduct" resolution 22]
 natural=coastline [0x10218 resolution 16]
 natural=cliff [0x10115  resolution 23]
 barrier=city_wall | barrier=wall [0x10012 resolution 23]
