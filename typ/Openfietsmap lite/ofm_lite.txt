@@ -1,25 +1,34 @@
 ; ofm_lite.typ
-; Longueur:  27 768 Bytes
-; Fichier TYP compilé     30-10-2011     13:11:37
-; Décompilé le 30-10-2011 à 21:31:19
+; Longueur:  30 269 Bytes
+; Fichier TYP compilé     18-04-2012     23:37:09
+; Décompilé le 19-4-2012 à 12:15:38
 
 [_id]
 ProductCode=1
 FID=20011
 CodePage=1252
+ [End]
+
+;=========== COMMENTAIRES ======
+[_comments]
 [End]
+
+
+
 
 ;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
 [_drawOrder]
+Type=0x01b,1
 Type=0x032,1
 Type=0x10100,2
-Type=0x10101,2
+Type=0x10200,2
 Type=0x001,3
 Type=0x002,3
 Type=0x003,3
 Type=0x00a,3
+Type=0x017,3
+Type=0x03f,3
 Type=0x004,4
-Type=0x005,4
 Type=0x007,4
 Type=0x00b,4
 Type=0x00c,4
@@ -27,16 +36,18 @@ Type=0x00d,4
 Type=0x014,4
 Type=0x015,4
 Type=0x016,4
-Type=0x017,4
 Type=0x018,4
 Type=0x019,4
 Type=0x01a,4
-Type=0x01b,4
 Type=0x01e,4
 Type=0x01f,4
 Type=0x020,4
 Type=0x022,4
+Type=0x03b,4
+Type=0x040,4
+Type=0x041,4
 Type=0x046,4
+Type=0x04d,4
 Type=0x050,4
 Type=0x052,4
 Type=0x053,4
@@ -44,13 +55,14 @@ Type=0x008,5
 Type=0x009,5
 Type=0x021,5
 Type=0x03c,5
-Type=0x03f,5
 Type=0x03d,6
 Type=0x04e,6
 Type=0x04f,6
 Type=0x051,6
 Type=0x027,7
+Type=0x005,8
 Type=0x00e,8
+Type=0x006,9
 Type=0x013,9
 [End]
 
@@ -236,6 +248,20 @@ Xpm="0 0 2 0"
 
 
 [_polygon]
+Type=0x06
+String1=0x04,church
+String2=0x03,kerk
+String3=0x02,Kirche
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#390000
+Xpm="0 0 1 0"
+"1 c #BD956A"
+[end]
+
+
+[_polygon]
 Type=0x07
 String1=0x04,airport
 String2=0x03,vliegveld
@@ -371,7 +397,7 @@ FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#FF0000
 Xpm="0 0 1 0"
-"1 c #BDCAB4"
+"1 c #FF956A"
 [end]
 
 
@@ -445,7 +471,7 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #B4B4B4"
+"1 c #BDCAB4"
 [end]
 
 
@@ -552,44 +578,9 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#7B956A
-Xpm="32 32 4 1"
-"! c #BDFF00"
-"  c none"
-"3 c #BDCA8B"
-"4 c #BDCA8B"
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-;12345678901234567890123456789012
+Xpm="0 0 2 0"
+"1 c #BDFFB4"
+"2 c #BDCA8B"
 [end]
 
 
@@ -656,37 +647,37 @@ Xpm="32 32 2 1"
 "! c #BDFF6A"
 "  c none"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
-"                                "
+" ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !"
 ;12345678901234567890123456789012
 [end]
 
@@ -745,39 +736,39 @@ FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#006500
 Xpm="32 32 2 1"
-"! c #006500"
+"! c #D8F7BA"
 "  c none"
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
 ;12345678901234567890123456789012
 [end]
@@ -792,7 +783,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 2 0"
-"1 c #BDFFB4"
+"1 c #D8F7BA"
 "2 c #FFFFD5"
 [end]
 
@@ -916,6 +907,54 @@ Xpm="0 0 1 0"
 
 
 [_polygon]
+Type=0x3b
+String1=0x04,water
+String2=0x03,water
+String3=0x02,Gewässer
+ExtendedLabels=Y
+FontStyle=NormalFont
+CustomColor=Day
+DaycustomColor:#0095B4
+Xpm="32 32 2 1"
+"! c #7BCAD5"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+[end]
+
+
+[_polygon]
 Type=0x3c
 String1=0x04,water
 String2=0x03,water
@@ -978,15 +1017,107 @@ Xpm="32 32 2 1"
 
 [_polygon]
 Type=0x3f
-String1=0x04,medium lake
-String2=0x03,meer
-String3=0x02,See
+String1=0x04,water
+String2=0x03,water
+String3=0x02,Gewässer
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#0095B4
 Xpm="0 0 1 0"
 "1 c #7BCAD5"
+[end]
+
+
+[_polygon]
+Type=0x40
+String1=0x04,rocks
+String2=0x03,rotsen
+String3=0x02,Felsen
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+Xpm="32 32 2 1"
+"! c #A4A4A4"
+"  c none"
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"    !       !       !       !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"    !       !       !       !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"    !       !       !       !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"    !       !       !       !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+;12345678901234567890123456789012
+[end]
+
+
+[_polygon]
+Type=0x41
+String1=0x04,fell
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+Xpm="32 32 2 1"
+"! c #BDCA6A"
+"  c none"
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"  !   !   !   !   !   !   !   ! "
+"                                "
+;12345678901234567890123456789012
 [end]
 
 
@@ -1005,10 +1136,48 @@ Xpm="0 0 1 0"
 
 
 [_polygon]
-Type=0x4b
-ExtendedLabels=N
-Xpm="0 0 1 0"
-"1 c #E5E5E5"
+Type=0x4d
+String1=0x04,glacier
+String2=0x03,gletsjer
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+Xpm="32 32 2 1"
+"! c #7BFFD5"
+"# c #F9F9F9"
+"################################"
+"#######!########################"
+"###########!###############!####"
+"##!###############!#############"
+"################################"
+"################################"
+"####!##########!####!###########"
+"#########!###############!######"
+"################################"
+"################################"
+"###########!###############!####"
+"##!###############!#############"
+"################################"
+"################################"
+"####!###############!###########"
+"#########!####!##########!######"
+"################################"
+"################################"
+"###########!###############!####"
+"##!###############!#############"
+"################################"
+"################################"
+"####!###############!###########"
+"#########!#####!#########!######"
+"################################"
+"################################"
+"###########!###############!####"
+"##!###############!#############"
+"################################"
+"################################"
+"####!#########!#####!###########"
+"#########!###############!######"
+;12345678901234567890123456789012
 [end]
 
 
@@ -1315,15 +1484,51 @@ Xpm="0 0 2 0"
 
 
 [_polygon]
-Type=0x10101
+Type=0x10200
 String1=0x04,area
 String2=0x03,gebied
 String3=0x02,Gebiet
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
-"1 c #FFFFD5"
+Xpm="32 32 4 1"
+"! c #FFFFD5"
+"  c none"
+"3 c #FFFFD5"
+"4 c #FFFFD5"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
 [end]
 
 
@@ -1351,11 +1556,8 @@ UseOrientation=N
 Xpm="32 1 2  1"
 "! c #000000"
 "  c none"
-" !!!!!!          !!!!!!         "
+"                                "
 ;12345678901234567890123456789012
-String1=0x04,no cycling
-String2=0x03,fietsverbod
-String3=0x02,Radverbot
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
@@ -1475,7 +1677,7 @@ Type=0x08
 UseOrientation=N
 LineWidth=3
 Xpm="0 0 1 0"
-"1 c #B4B4B4"
+"1 c #BDCAB4"
 String1=0x04,pedestrian
 String2=0x03,voetpad
 String3=0x02,Fußweg
@@ -1553,9 +1755,10 @@ CustomColor=No
 [_line]
 Type=0x0c
 UseOrientation=N
-Xpm="32 1 2  1"
+Xpm="32 2 2  1"
 "! c #000000"
 "  c none"
+"                                "
 "                                "
 ;12345678901234567890123456789012
 String1=0x04,roundabout
@@ -1922,7 +2125,7 @@ UseOrientation=N
 Xpm="32 1 2  1"
 "! c #996633"
 "  c none"
-"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
+"!  !  !  !  !  !  !  !  !  !  ! "
 ;12345678901234567890123456789012
 ExtendedLabels=Y
 FontStyle=SmallFont
@@ -2442,23 +2645,14 @@ CustomColor=No
 [_line]
 Type=0x10016
 UseOrientation=N
-Xpm="32 10 2  1"
-"! c #FF0000"
-"  c none"
-"!   !                           "
-" ! !                            "
-"  !                             "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-;12345678901234567890123456789012
-String1=0x04,access time restrictions
-String2=0x03,beperkt toegankelijk
-String3=0x02,Zeitabhängige Beschränkungen
+LineWidth=2
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #BDCAB4"
+"2 c #BD3020"
+String1=0x04,paved (cycling allowed)
+String2=0x03,verhard (fietsen toegestaan)
+String3=0x02,Befestigt (Radfahren erlaubt)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2468,21 +2662,11 @@ CustomColor=No
 [_line]
 Type=0x10017
 UseOrientation=N
-Xpm="32 20 2  1"
+Xpm="32 10 2  1"
 "! c #0000B4"
 "  c none"
 "                                "
-"                                "
-"                                "
-"    !!      !!      !!      !!  "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
+"!!      !!      !!      !!      "
 "                                "
 "                                "
 "                                "
@@ -2497,8 +2681,7 @@ String2=0x03,veerpont
 String3=0x02,Fähre
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-CustomColor=Day
-DaycustomColor:#0000B4
+CustomColor=No
 [end]
 
 
@@ -2507,7 +2690,7 @@ Type=0x10018
 UseOrientation=N
 Xpm="32 5 4  1"
 "! c #FFFFFF"
-"# c #393000"
+"# c #B4B4B4"
 "3 c #FFCA6A"
 "4 c #7B6500"
 "################################"
@@ -2538,6 +2721,25 @@ Xpm="32 3 2  1"
 String1=0x04,road under construction
 String2=0x03,weg in aanleg
 String3=0x02,Straße im Bau
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10101
+UseOrientation=N
+Xpm="32 3 2  1"
+"! c #7B6500"
+"# c #E6E6E6"
+"###!#######!#######!#######!####"
+"#!!######!!######!!######!!#####"
+"!#######!#######!#######!#######"
+;12345678901234567890123456789012
+String1=0x04,path (no access)
+String2=0x03,pad (niet toegankelijk)
+String3=0x02,Pfad (Benutzung nicht erlaubt)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2627,23 +2829,12 @@ CustomColor=No
 [_line]
 Type=0x10109
 UseOrientation=N
-Xpm="32 10 2  1"
+Xpm="32 2 2  1"
 "! c #000000"
 "  c none"
-"!!!!!!!!        !!!!!!!!        "
 "                                "
 "                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"!!!!!!!!        !!!!!!!!        "
 ;12345678901234567890123456789012
-String1=0x04,tunnel
-String2=0x03,tunnel
-String3=0x02,Tunnel
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
@@ -2674,8 +2865,8 @@ UseOrientation=N
 Xpm="32 2 2  1"
 "! c #737373"
 "  c none"
-"!!!!    !!!!    !!!!    !!!!    "
-"!!!!    !!!!    !!!!    !!!!    "
+"!!!!!           !!!!!           "
+"!!!!!           !!!!!           "
 ;12345678901234567890123456789012
 String1=0x04,subway, tunnel
 String2=0x03,metro, tunnel
@@ -2713,13 +2904,13 @@ CustomColor=No
 Type=0x10115
 UseOrientation=N
 Xpm="32 5 2  1"
-"! c #390000"
+"! c #B4B4B4"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-" !!!!!!!         !!!!!!!        "
 "  !!!!!           !!!!!         "
 "   !!!             !!!          "
 "    !               !           "
+"                                "
 ;12345678901234567890123456789012
 String1=0x04,cliff
 String2=0x03,klif
@@ -2828,7 +3019,104 @@ CustomColor=No
 [end]
 
 
+[_line]
+Type=0x10601
+UseOrientation=Y
+LineWidth=6
+Xpm="0 0 1 0"
+"1 c #00FF00"
+String1=0x00,iwn
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#00FF00
+[end]
+
+
+[_line]
+Type=0x10602
+UseOrientation=N
+LineWidth=3
+Xpm="0 0 1 0"
+"1 c #0000D5"
+String1=0x00,nwn
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#0000D5
+[end]
+
+
+[_line]
+Type=0x10603
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FF6500"
+"  c none"
+"    !!!!    !!!!    !!!!    !!!!"
+"    !!!!    !!!!    !!!!    !!!!"
+"    !!!!    !!!!    !!!!    !!!!"
+"    !!!!    !!!!    !!!!    !!!!"
+;12345678901234567890123456789012
+String1=0x00,rwn
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#FF6500
+[end]
+
+
+[_line]
+Type=0x10604
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #BD00B4"
+"  c none"
+"!!!!    !!!!    !!!!    !!!!    "
+"!!!!    !!!!    !!!!    !!!!    "
+"!!!!    !!!!    !!!!    !!!!    "
+"!!!!    !!!!    !!!!    !!!!    "
+;12345678901234567890123456789012
+String1=0x00,lwn
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#BD00B4
+[end]
+
+
 ;====================== POINTS ==========================
+
+
+[_point]
+Type=0x001
+SubType=0x00
+String1=0x04,sea
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#0000B4
+DayXpm="16 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
+[end]
 
 
 [_point]
@@ -2906,10 +3194,7 @@ Type=0x008
 SubType=0x00
 String1=0x04,place
 String2=0x03,plaats
-ExtendedLabels=Y
-FontStyle=NormalFont
-CustomColor=Day
-DaycustomColor:#BD6500
+ExtendedLabels=N
 DayXpm="20 20 2 1"   Colormode=16
 "!	c #000000"
 "  	c none"
@@ -3051,9 +3336,9 @@ String3=0x02,Taxi
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="5 5 2 1"   Colormode=32
-"!	c #FFFF04"  canalalpha=0
-"#	c #101010"  canalalpha=0
+DayXpm="5 5 2 1"   Colormode=0
+"!	c #FFFF04"
+"#	c #101010"
 "!!!!!"
 "!###!"
 "!!#!!"
@@ -3073,38 +3358,15 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#7B0000
-DayXpm="5 5 2 1"   Colormode=32
-"!	c #FFFF00"  canalalpha=0
-"#	c #000000"  canalalpha=0
+DayXpm="5 5 2 1"   Colormode=0
+"!	c #FFFF00"
+"#	c #000000"
 "!!!!!"
 "!#!#!"
 "!###!"
 "!#!#!"
 "!!!!!"
 ;12345
-[end]
-
-
-[_point]
-Type=0x011
-SubType=0x07
-String1=0x04,cycle_barrier, stile, kissing_gate
-String2=0x03,hekje
-String3=0x02,Tor, Schranke
-ExtendedLabels=N
-DayXpm="7 8 3 1"   Colormode=16
-"!	c #000000"
-"#	c #A4A4A4"
-"  	c none"
-"   !!! "
-"  !   !"
-"  #   !"
-" !!!  !"
-"!!  ! !"
-"!   !  "
-"!   !  "
-"!   !  "
-;1234567
 [end]
 
 
@@ -3146,6 +3408,67 @@ DayXpm="20 20 3 1"   Colormode=16
 
 
 [_point]
+Type=0x015
+SubType=0x00
+String1=0x00,small country
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x016
+SubType=0x10
+String1=0x03,LAW-route
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="16 16 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #BD0000"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"     !!!!!!     "
+"     !!!!!!     "
+"     ######     "
+"     ######     "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
 Type=0x01b
 SubType=0x00
 String1=0x04,toponym
@@ -3180,42 +3503,74 @@ DayXpm="16 16 2 1"   Colormode=16
 [_point]
 Type=0x01e
 SubType=0x00
-String1=0x04,island
-String2=0x03,eiland
-String3=0x02,Insel
+String1=0x04,region
+String2=0x03,regio
+String3=0x02,Regio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#626262
-DayXpm="5 5 1 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"!!!!!"
-"!!!!!"
-"!!!!!"
-"!!!!!"
-"!!!!!"
-;12345
+DayXpm="20 20 2 1"   Colormode=16
+"!	c #000000"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
 [end]
 
 
 [_point]
 Type=0x01e
 SubType=0x01
-String1=0x04,sand, dunes
-String2=0x03,zand, duinen
-String3=0x02,Sand, Dünen
+String1=0x04,region
+String2=0x03,regio
+String3=0x02,Regio
 ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
+FontStyle=SmallFont
 CustomColor=Day
-DaycustomColor:#FFCA20
-DayXpm="5 5 1 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"!!!!!"
-"!!!!!"
-"!!!!!"
-"!!!!!"
-"!!!!!"
-;12345
+DaycustomColor:#7B3000
+DayXpm="20 20 2 1"   Colormode=16
+"!	c #000000"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
 [end]
 
 
@@ -3580,6 +3935,104 @@ DayXpm="20 20 3 1"   Colormode=16
 
 [_point]
 Type=0x028
+SubType=0x08
+String1=0x04,access restricted
+String2=0x03,toegang beperkt
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="7 7 3 1"   Colormode=16
+"!	c #FF0000"
+"#	c #FFFFFF"
+"  	c none"
+" !!!!! "
+"!!###!!"
+"!#####!"
+"!#####!"
+"!#####!"
+"!!###!!"
+" !!!!! "
+;1234567
+[end]
+
+
+[_point]
+Type=0x028
+SubType=0x09
+String1=0x04,bad pavement
+String2=0x03,slecht wegdek
+String3=0x02,schlechte Oberfläche
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 5 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"%	c #FFFF20"
+"?	c #BD0000"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"         ?          "
+"        ???         "
+"       ??!??        "
+"      ??!#!??       "
+"     ??!!#!!??      "
+"     ?!!!#!!!?      "
+"    ??!!!!!!!??     "
+"   ??!!!!#!!!!??    "
+"   ?!!!!!!!!!!!?    "
+"   ?????????????    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x028
+SubType=0x10
+String1=0x04,cyclists dismount
+String2=0x03,fietsers afstappen
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"           !!!!!    "
+"           !###!    "
+"           !###!    "
+"           !!#!!    "
+"          !!###!!   "
+"         !!#####!   "
+"   !#!!!!!######!   "
+"   !#######!####!   "
+"   !!!!#!!!!####!   "
+"     !!!!! !####!   "
+"      !#!! !#!#!!   "
+"     #!#!! !#!#!    "
+"      !#!# !#!#!    "
+"      !#!  !#!#!    "
+"      !#!  !#!#!    "
+"      !!!  !!!!!    "
+"       !!  !!!!!    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x028
 SubType=0x12
 String1=0x04,lighthouse
 String2=0x03,vuurtoren
@@ -3700,25 +4153,25 @@ String3=0x02,Windmühle
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="10 15 3 1"   Colormode=32
-"!	c #000000"  canalalpha=0
-"#	c #000000"  canalalpha=15
-"%	c #666666"  canalalpha=0
-"!########!"
-"!!######!!"
-"#!!####!!#"
-"##!!##!!##"
-"###!!!!###"
-"###!!!!###"
-"##!!%%!!##"
-"#!!#%%#!!#"
-"!!#%%%%#!!"
-"!##%%%%##!"
-"###%%%%###"
-"##%%%%%%##"
-"##%%%%%%##"
-"#%%%%%%%%#"
-"#%%%%%%%%#"
+DayXpm="10 15 3 1"   Colormode=16
+"!	c #000000"
+"#	c #666666"
+"  	c none"
+"!        !"
+"!!      !!"
+" !!    !! "
+"  !!  !!  "
+"   !!!!   "
+"   !!!!   "
+"  !!##!!  "
+" !! ## !! "
+"!! #### !!"
+"!  ####  !"
+"   ####   "
+"  ######  "
+"  ######  "
+" ######## "
+" ######## "
 ;1234567890
 [end]
 
@@ -3792,46 +4245,6 @@ DayXpm="20 20 3 1"   Colormode=16
 "                    "
 "                    "
 ;12345678901234567890
-[end]
-
-
-[_point]
-Type=0x028
-SubType=0x1b
-String1=0x04,lift gate, boom barrier
-String2=0x03,hek
-String3=0x02,Schranke, Barriere
-ExtendedLabels=N
-DayXpm="25 25 3 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #FFFFFF"  canalalpha=0
-"%	c #000000"  canalalpha=0
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!#####!!!!!!!!!!!!!!!"
-"!!!!!###%##########!!!!!!"
-"!!!!!#%%%%%%%%%%%%#!!!!!!"
-"!!!!!###%##########!!!!!!"
-"!!!!!!!#%#!!!!!!!!!!!!!!!"
-"!!!!!!!#%#!!!!!!!!!!!!!!!"
-"!!!!!!!###!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-;1234567890123456789012345
 [end]
 
 
@@ -3917,30 +4330,68 @@ String3=0x02,Fast Food Restaurant
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="16 16 7 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #AA8B62"  canalalpha=0
-"%	c #FFC68C"  canalalpha=0
-"?	c #AF6204"  canalalpha=0
-"$	c #FFFF00"  canalalpha=0
-"*	c #00FF00"  canalalpha=0
-"=	c #FF0000"  canalalpha=0
-"!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!"
-"!!!!!######!!!!!"
-"!!!#%%%%%%%%#!!!"
-"!!!%%%%%%%%%%!!!"
-"!!????????????!!"
-"!!$$?*?==?=?$$!!"
-"!!????????????!!"
-"!!!%%%%%%%%%%!!!"
-"!!!#%%%%%%%%#!!!"
-"!!!!!######!!!!!"
-"!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!"
+DayXpm="16 16 7 1"   Colormode=16
+"!	c #AA8B62"
+"#	c #FFC68C"
+"%	c #AF6204"
+"?	c #FFFF00"
+"$	c #00FF00"
+"*	c #FF0000"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"     !!!!!!     "
+"   !########!   "
+"   ##########   "
+"  %%%%%%%%%%%%  "
+"  ??%$%**%*%??  "
+"  %%%%%%%%%%%%  "
+"   ##########   "
+"   !########!   "
+"     !!!!!!     "
+"                "
+"                "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x02a
+SubType=0x0e
+String1=0x04,cafe
+String2=0x03,cafe
+String3=0x02,Café, Bistro
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 16 8 1"   Colormode=16
+"!	c #FFF0B7"
+"#	c #FFF6C5"
+"%	c #FFF3BA"
+"?	c #000000"
+"$	c #FFFFFF"
+"*	c #FFF7C3"
+"=	c #FFFACD"
+"  	c none"
+"                "
+"                "
+"     ! # %      "
+"    ?$?$?       "
+"    ?$?$?       "
+"    $?$?$?      "
+"    $?$?$$      "
+"  ??????????    "
+"  ?$$$$$$$$???  "
+"  ?$$$$$$$$?$?  "
+"  ?$$$$$$$$?$?  "
+"  ?$$$$$$$$???  "
+"  ?*$$$$$$=?    "
+"  ??????????    "
+" ????????????   "
+"                "
 ;1234567890123456
 [end]
 
@@ -4179,35 +4630,35 @@ String3=0x02,Windmühle
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="25 25 3 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #000000"  canalalpha=0
-"%	c #666666"  canalalpha=0
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!#!!!!!!!!#!!!!!!!!"
-"!!!!!!!##!!!!!!##!!!!!!!!"
-"!!!!!!!!##!!!!##!!!!!!!!!"
-"!!!!!!!!!##!!##!!!!!!!!!!"
-"!!!!!!!!!!####!!!!!!!!!!!"
-"!!!!!!!!!!####!!!!!!!!!!!"
-"!!!!!!!!!##%%##!!!!!!!!!!"
-"!!!!!!!!##!%%!##!!!!!!!!!"
-"!!!!!!!##!%%%%!##!!!!!!!!"
-"!!!!!!!#!!%%%%!!#!!!!!!!!"
-"!!!!!!!!!!%%%%!!!!!!!!!!!"
-"!!!!!!!!!%%%%%%!!!!!!!!!!"
-"!!!!!!!!!%%%%%%!!!!!!!!!!"
-"!!!!!!!!%%%%%%%%!!!!!!!!!"
-"!!!!!!!!%%%%%%%%!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
+DayXpm="25 25 3 1"   Colormode=16
+"!	c #000000"
+"#	c #666666"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"       !        !        "
+"       !!      !!        "
+"        !!    !!         "
+"         !!  !!          "
+"          !!!!           "
+"          !!!!           "
+"         !!##!!          "
+"        !! ## !!         "
+"       !! #### !!        "
+"       !  ####  !        "
+"          ####           "
+"         ######          "
+"         ######          "
+"        ########         "
+"        ########         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
 ;1234567890123456789012345
 [end]
 
@@ -4371,28 +4822,28 @@ String3=0x02,Schule
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="15 15 6 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #C0C0C0"  canalalpha=0
-"%	c #414141"  canalalpha=0
-"?	c #000000"  canalalpha=0
-"$	c #818181"  canalalpha=0
-"*	c #FFFFFF"  canalalpha=0
-"!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!"
-"!!!!!#%%#!!!!!!"
-"!!!#%????%#!!!!"
-"!#%????????%#!!"
-"!#%????????%#!!"
-"!!!#%???$%#!!!!"
-"!!!%##%%**%!!!!"
-"!!!??%##%*?!!!!"
-"!!!#%????*#!!!!"
-"!!!!!#%%#!!!!!!"
-"!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!"
+DayXpm="15 15 6 1"   Colormode=16
+"!	c #C0C0C0"
+"#	c #414141"
+"%	c #000000"
+"?	c #818181"
+"$	c #FFFFFF"
+"  	c none"
+"               "
+"               "
+"               "
+"     !##!      "
+"   !#%%%%#!    "
+" !#%%%%%%%%#!  "
+" !#%%%%%%%%#!  "
+"   !#%%%?#!    "
+"   #!!##$$#    "
+"   %%#!!#$%    "
+"   !#%%%%$!    "
+"     !##!      "
+"               "
+"               "
+"               "
 ;123456789012345
 [end]
 
@@ -4589,24 +5040,24 @@ String3=0x02,Bar,Nachtclub
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="15 15 2 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #000000"  canalalpha=0
-"!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!"
-"!!!#########!!!"
-"!!!#!!!!!!!#!!!"
-"!!!!#!!!!!#!!!!"
-"!!!!!##!##!!!!!"
-"!!!!!!###!!!!!!"
-"!!!!!!!#!!!!!!!"
-"!!!!!!!#!!!!!!!"
-"!!!!!!!#!!!!!!!"
-"!!!!!!!#!!!!!!!"
-"!!!!!!###!!!!!!"
-"!!!!#######!!!!"
-"!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!"
+DayXpm="15 15 2 1"   Colormode=16
+"!	c #000000"
+"  	c none"
+"               "
+"               "
+"   !!!!!!!!!   "
+"   !       !   "
+"    !     !    "
+"     !! !!     "
+"      !!!      "
+"       !       "
+"       !       "
+"       !       "
+"       !       "
+"      !!!      "
+"    !!!!!!!    "
+"               "
+"               "
 ;123456789012345
 [end]
 
@@ -4620,10 +5071,10 @@ String3=0x02,Kino
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="12 15 3 1"   Colormode=32
-"!	c #FEFEFE"  canalalpha=0
-"#	c #060606"  canalalpha=0
-"%	c #FCFCFC"  canalalpha=0
+DayXpm="12 15 3 1"   Colormode=0
+"!	c #FEFEFE"
+"#	c #060606"
+"%	c #FCFCFC"
 "!!!!!!!!!!!!"
 "!##########!"
 "!###%%%%###!"
@@ -4692,22 +5143,22 @@ String3=0x02,Schwimmbecken
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="15 10 5 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #FFFFFF"  canalalpha=0
-"%	c #4B4BFE"  canalalpha=0
-"?	c #0000FF"  canalalpha=0
-"$	c #B5B5FF"  canalalpha=0
-"!!!!!#####!!!!!"
-"###!##%?%##!###"
-"#?$#$?????$#$?#"
-"#?????$#$?????#"
-"##%?%#####%?%##"
-"######%?%######"
-"#?$#$?????$#$?#"
-"#?????$#$?????#"
-"##%?%##!##%?%##"
-"!#####!!!#####!"
+DayXpm="15 10 5 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #4B4BFE"
+"%	c #0000FF"
+"?	c #B5B5FF"
+"  	c none"
+"     !!!!!     "
+"!!! !!#%#!! !!!"
+"!%?!?%%%%%?!?%!"
+"!%%%%%?!?%%%%%!"
+"!!#%#!!!!!#%#!!"
+"!!!!!!#%#!!!!!!"
+"!%?!?%%%%%?!?%!"
+"!%%%%%?!?%%%%%!"
+"!!#%#!! !!#%#!!"
+" !!!!!   !!!!! "
 ;123456789012345
 [end]
 
@@ -5081,62 +5532,21 @@ String3=0x02,Laden
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="10 10 3 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #000000"  canalalpha=0
-"%	c #060606"  canalalpha=0
-"!!!!!!!!!!"
-"!!!####!!!"
-"!!!#!!#!!!"
-"!!!#!!#!!!"
-"!%%%%%#%%!"
-"!%%%%%%%%!"
-"!%%%%%%%%!"
-"!%%%%%%%%!"
-"!%%%%%%%%!"
-"!!!!!!!!!!"
+DayXpm="10 10 3 1"   Colormode=16
+"!	c #000000"
+"#	c #060606"
+"  	c none"
+"          "
+"   !!!!   "
+"   !  !   "
+"   !  !   "
+" #####!## "
+" ######## "
+" ######## "
+" ######## "
+" ######## "
+"          "
 ;1234567890
-[end]
-
-
-[_point]
-Type=0x02f
-SubType=0x00
-String1=0x04,gate
-String2=0x03,hek
-String3=0x02,Tor, Schranke
-ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-DayXpm="25 25 2 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #000000"  canalalpha=0
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!#!!!!!!#!#!!!!!!!!"
-"!!!!!!!##########!!!!!!!!"
-"!!!!!!!#!!!!#!!!#!!!!!!!!"
-"!!!!!!!#!!!!#!!!#!!!!!!!!"
-"!!!!!!!##########!!!!!!!!"
-"!!!!!!!#!#!!!!!!#!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-;1234567890123456789012345
 [end]
 
 
@@ -5258,36 +5668,72 @@ String3=0x02,Bank/Bankomat
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="25 25 3 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #FFFFFF"  canalalpha=0
-"%	c #000000"  canalalpha=0
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!#####!!!!!!!!"
-"!!!!!!!!!!!#%%%%#!!!!!!!!"
-"!!!!!!!!!!#%#####!!!!!!!!"
-"!!!!!!!!!#%######!!!!!!!!"
-"!!!!!!!!!%%%%%%%#!!!!!!!!"
-"!!!!!!!!!#%######!!!!!!!!"
-"!!!!!!!!!%%%%%%%#!!!!!!!!"
-"!!!!!!!!!#%######!!!!!!!!"
-"!!!!!!!!!!#%#####!!!!!!!!"
-"!!!!!!!!!!!#%%%%#!!!!!!!!"
-"!!!!!!!!!!!!#####!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
+DayXpm="25 25 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"            !!!!!        "
+"           !####!        "
+"          !#!!!!!        "
+"         !#!!!!!!        "
+"         #######!        "
+"         !#!!!!!!        "
+"         #######!        "
+"         !#!!!!!!        "
+"          !#!!!!!        "
+"           !####!        "
+"            !!!!!        "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
 ;1234567890123456789012345
+[end]
+
+
+[_point]
+Type=0x02f
+SubType=0x07
+String1=0x04,bicycle tube vending machine
+String2=0x03,fietsbinnenbanden automaat
+String3=0x02,Schlauchomat
+ExtendedLabels=N
+DayXpm="20 20 4 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"%	c #737373"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"        !!!!        "
+"       !%##%!       "
+"       !####!       "
+"       !####!       "
+"       !%##%!       "
+"        !!!!        "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
 [end]
 
 
@@ -5298,22 +5744,22 @@ String1=0x04,ferry
 String2=0x03,veerpont
 String3=0x02,Fähre
 ExtendedLabels=N
-DayXpm="9 10 5 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #949494"  canalalpha=0
-"%	c #000000"  canalalpha=0
-"?	c #929292"  canalalpha=0
-"$	c #060606"  canalalpha=0
-"!!!#%?!!!"
-"!!!%!%!!!"
-"!!!!%!!!!"
-"!!!!%!!!!"
-"!!!!%!!!!"
-"!!!!%!!!!"
-"%%!!%!!%%"
-"%!!!%!!!%"
-"!%%%%$%%!"
-"!!!!%!!!!"
+DayXpm="9 10 5 1"   Colormode=16
+"!	c #949494"
+"#	c #000000"
+"%	c #929292"
+"?	c #060606"
+"  	c none"
+"   !#%   "
+"   # #   "
+"    #    "
+"    #    "
+"    #    "
+"    #    "
+"##  #  ##"
+"#   #   #"
+" ####?## "
+"    #    "
 ;123456789
 [end]
 
@@ -5365,28 +5811,26 @@ String3=0x02,Fahrrad-Parkplatz
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="20 20 5 1"   Colormode=16
+DayXpm="20 20 3 1"   Colormode=16
 "!	c #FFFFFF"
-"#	c #E6E6E6"
-"%	c #0000D5"
-"?	c #000000"
+"#	c #0095FF"
 "  	c none"
 "                    "
 "                    "
 "                    "
 "                    "
-"     !!!!!!!!!      "
-"     !!%%%%%%!!     "
-"     !%%%%%%%%!     "
-"     !%%!!!!%%!     "
-"     !%%!%%!%%!     "
-"     !%%!!!!%%!     "
-"     !%%!%%%%%!     "
-"     !%%!%%%%%!     "
-"     !%%%%%%%%!     "
-"     !!%%%%%%!!     "
-"     !!!!!!!!!!     "
-"                    "
+"    ############    "
+"   #########!!!##   "
+"   ##!!!!###!####   "
+"   ##!##!###!####   "
+"   ##!##!###!!!!!   "
+"   ##!!!!#!!!!###   "
+"   ##!###!##!!!##   "
+"   ##!###!#!#!#!#   "
+"   ##!###!###!##!   "
+"   ##!###!###!###   "
+"   #######!!!####   "
+"    ############    "
 "                    "
 "                    "
 "                    "
@@ -5398,30 +5842,32 @@ DayXpm="20 20 5 1"   Colormode=16
 [_point]
 Type=0x02f
 SubType=0x0c
-String1=0x04,bench
-String2=0x03,bankje
-String3=0x02,Sitzbank
+String1=0x04,picnic site
+String2=0x03,picknickplaats
+String3=0x02,Picknickplatz
+String4=0x01,Aire de pique-nique
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="20 20 3 1"   Colormode=16
-"!	c #000000"
-"#	c #FFFFFF"
+DayXpm="20 20 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"%	c #000000"
 "  	c none"
 "                    "
 "                    "
 "                    "
 "                    "
 "                    "
-"                    "
-"                    "
-"   ##############   "
-"   #!!!!!!!!!!!!#   "
-"   ###!######!###   "
-"     #!#    #!#     "
-"     #!#    #!#     "
-"     ###    ###     "
-"                    "
+"    !!!!!!!!!!!!    "
+"    !##########!    "
+"    !!!#!!!!#!!!!!  "
+"  !!!!#!!!!!!#!!!!  "
+"  !##############!  "
+"  !!!#!!!!!!!!#!!!  "
+"   !!#!!!!!!!!#!!   "
+"   !!!!      !!!!   "
+"   !!!!      !!!!   "
 "                    "
 "                    "
 "                    "
@@ -5689,37 +6135,37 @@ String3=0x02,Rathaus
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="15 15 15 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #545454"  canalalpha=0
-"%	c #0A0A0A"  canalalpha=0
-"?	c #4F4F4F"  canalalpha=0
-"$	c #000000"  canalalpha=0
-"*	c #040404"  canalalpha=0
-"=	c #191919"  canalalpha=0
-"1	c #050505"  canalalpha=0
-"2	c #6E6E6E"  canalalpha=0
-"3	c #292929"  canalalpha=0
-"4	c #737373"  canalalpha=0
-"5	c #505050"  canalalpha=0
-"6	c #141414"  canalalpha=0
-"7	c #8B8B8B"  canalalpha=0
-"8	c #3C3C3C"  canalalpha=0
-"!!!!!!!!!!!!!!!"
-"!!!!#%?!!!!!!!!"
-"!!!!$$$$*$!!!!!"
-"!!!!$=$$$$!!!!!"
-"!!!!1!!234!!!!!"
-"!!!!1!!!!!!!!!!"
-"!!!!*!565!!!!!!"
-"!!78*$$$$$*87!!"
-"!$$$$$$$$$$$$$!"
-"!!!$!$!$!$!$!!!"
-"!!!$!$!$!$!$!!!"
-"!!!$!$!$!$!$!!!"
-"!!!$!$!$!$!$!!!"
-"!!$$$$$$$$$$$!!"
-"!!!!!!!!!!!!!!!"
+DayXpm="15 15 15 1"   Colormode=16
+"!	c #545454"
+"#	c #0A0A0A"
+"%	c #4F4F4F"
+"?	c #000000"
+"$	c #040404"
+"*	c #191919"
+"=	c #050505"
+"1	c #6E6E6E"
+"2	c #292929"
+"3	c #737373"
+"4	c #505050"
+"5	c #141414"
+"6	c #8B8B8B"
+"7	c #3C3C3C"
+"  	c none"
+"               "
+"    !#%        "
+"    ????$?     "
+"    ?*????     "
+"    =  123     "
+"    =          "
+"    $ 454      "
+"  67$?????$76  "
+" ????????????? "
+"   ? ? ? ? ?   "
+"   ? ? ? ? ?   "
+"   ? ? ? ? ?   "
+"   ? ? ? ? ?   "
+"  ???????????  "
+"               "
 ;123456789012345
 [end]
 
@@ -5731,13 +6177,13 @@ String1=0x04,customs
 String2=0x03,douane
 String3=0x02,Zoll
 ExtendedLabels=N
-DayXpm="4 4 2 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #303030"  canalalpha=0
-"!##!"
-"####"
-"####"
-"!##!"
+DayXpm="4 4 2 1"   Colormode=16
+"!	c #303030"
+"  	c none"
+" !! "
+"!!!!"
+"!!!!"
+" !! "
 ;1234
 [end]
 
@@ -5749,7 +6195,7 @@ String1=0x04,Fire station
 String2=0x03,brandweer
 String3=0x02,Feuerwache
 ExtendedLabels=N
-DayXpm="16 16 2 1"   Colormode=16
+DayXpm="16 16 2 1"   Colormode=0
 "!	c #FFFF00"
 "#	c #FF0000"
 "################"
@@ -5773,6 +6219,145 @@ DayXpm="16 16 2 1"   Colormode=16
 
 
 [_point]
+Type=0x032
+SubType=0x00
+String1=0x04,gate
+String2=0x03,hek
+String3=0x02,Tor, Schranke
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"      ########      "
+"     #!####!#!#     "
+"     !!!!!!!!!!     "
+"     #!###!##!#     "
+"     #!##!###!#     "
+"     !!!!!!!!!!     "
+"     #!#!####!#     "
+"      ########      "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x01
+String1=0x04,lift gate, boom barrier
+String2=0x03,hek
+String3=0x02,Schranke, Barriere
+ExtendedLabels=N
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"     #############  "
+"   ###!###########  "
+"   #!!!!!!!!!!!!##  "
+"   ###!###########  "
+"     #!###########  "
+"     #!#            "
+"     ###            "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x02
+String1=0x04,stile
+String2=0x03,hek met trap
+ExtendedLabels=N
+DayXpm="16 16 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"   !  !#!  !    "
+"   #! !#! !#    "
+"   !#!!#!!#!    "
+"   !!#!#!#!!    "
+"   !!#!#!#!!    "
+"   !#!!#!!#!    "
+"   #! !#! !#    "
+"   !  !#!  !    "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x03
+String1=0x04,cycle_barrier, stile, kissing_gate
+String2=0x03,hekje
+String3=0x02,Tor, Schranke
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"        #####       "
+"       ##!!!##      "
+"       #!###!#      "
+"      ##!###!#      "
+"     ##!!!##!#      "
+"     #!###!#!#      "
+"     #!###!###      "
+"     #!# #!#        "
+"     #!# #!#        "
+"     ### ###        "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
 Type=0x043
 SubType=0x00
 String1=0x04,marina
@@ -5781,100 +6366,23 @@ String3=0x02,Yachthafen
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="9 10 5 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #949494"  canalalpha=0
-"%	c #000000"  canalalpha=0
-"?	c #929292"  canalalpha=0
-"$	c #060606"  canalalpha=0
-"!!!#%?!!!"
-"!!!%!%!!!"
-"!!!!%!!!!"
-"!!!!%!!!!"
-"!!!!%!!!!"
-"!!!!%!!!!"
-"%%!!%!!%%"
-"%!!!%!!!%"
-"!%%%%$%%!"
-"!!!!%!!!!"
-;123456789
-[end]
-
-
-[_point]
-Type=0x046
-SubType=0x00
-String1=0x04,cafe
-String2=0x03,cafe
-String3=0x02,Café, Bistro
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-DayXpm="16 16 8 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #FFF0B7"  canalalpha=0
-"%	c #FFF6C5"  canalalpha=0
-"?	c #FFF3BA"  canalalpha=0
-"$	c #000000"  canalalpha=0
-"*	c #FFFFFF"  canalalpha=0
-"=	c #FFF7C3"  canalalpha=0
-"1	c #FFFACD"  canalalpha=0
-"!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!"
-"!!!!!#!%!?!!!!!!"
-"!!!!$*$*$!!!!!!!"
-"!!!!$*$*$!!!!!!!"
-"!!!!*$*$*$!!!!!!"
-"!!!!*$*$**!!!!!!"
-"!!$$$$$$$$$$!!!!"
-"!!$********$$$!!"
-"!!$********$*$!!"
-"!!$********$*$!!"
-"!!$********$$$!!"
-"!!$=******1$!!!!"
-"!!$$$$$$$$$$!!!!"
-"!$$$$$$$$$$$$!!!"
-"!!!!!!!!!!!!!!!!"
-;1234567890123456
-[end]
-
-
-[_point]
-Type=0x04a
-SubType=0x00
-String1=0x04,picnic site
-String2=0x03,picknickplaats
-String3=0x02,Picknickplatz
-String4=0x01,Aire de pique-nique
-ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-DayXpm="20 20 4 1"   Colormode=16
-"!	c #FFFFFF"
+DayXpm="9 10 5 1"   Colormode=16
+"!	c #949494"
 "#	c #000000"
-"%	c #000000"
+"%	c #929292"
+"?	c #060606"
 "  	c none"
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-"    !!!!!!!!!!!!    "
-"    !##########!    "
-"    !!!#!!!!#!!!!!  "
-"  !!!!#!!!!!!#!!!!  "
-"  !##############!  "
-"  !!!#!!!!!!!!#!!!  "
-"   !!#!!!!!!!!#!!   "
-"   !!!!      !!!!   "
-"   !!!!      !!!!   "
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-;12345678901234567890
+"   !#%   "
+"   # #   "
+"    #    "
+"    #    "
+"    #    "
+"    #    "
+"##  #  ##"
+"#   #   #"
+" ####?## "
+"    #    "
+;123456789
 [end]
 
 
@@ -5993,6 +6501,117 @@ DayXpm="20 20 3 1"   Colormode=16
 
 
 [_point]
+Type=0x050
+SubType=0x01
+String1=0x04,bench
+String2=0x03,bankje
+String3=0x02,Sitzbank
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"   ##############   "
+"   #!!!!!!!!!!!!#   "
+"   ###!######!###   "
+"     #!#    #!#     "
+"     #!#    #!#     "
+"     ###    ###     "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x052
+SubType=0x00
+String1=0x04,scenic route
+String2=0x03,schilderachtige route
+String3=0x02,Landschaftlich schöne Strecke
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #070707"
+"#	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"       ######       "
+"   #####!!!!#       "
+"   ##!!#!##!####    "
+"   #!!!!!!!!!!!#    "
+"   #!!!!!##!!!!#    "
+"   #!!!!#!!#!!!#    "
+"   #!!!!#!!#!!!#    "
+"   #!!!!!##!!!!#    "
+"   #!!!!!!!!!!!#    "
+"   #############    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x056
+SubType=0x00
+String1=0x04,no access to cycleway
+String2=0x03,fietspad niet toegankelijk
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"%	c #FFFF20"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"     %%%   %%%      "
+"     %!!% %!!%      "
+"     %!#!%!#!%      "
+"      %!#!#!%       "
+"      %%!#!%        "
+"      %!#!#!%       "
+"     %!#!%!#!%      "
+"     %!!% %!!%      "
+"     %%%   %%%      "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
 Type=0x05a
 SubType=0x00
 String1=0x04,guidepost
@@ -6001,35 +6620,35 @@ String3=0x02,Wegweiser
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="25 25 3 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #FFFFFF"  canalalpha=0
-"%	c #FF0000"  canalalpha=0
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!###!!!!!!!!!!!"
-"!!!!!!!!!!##%##!!!!!!!!!!"
-"!!!!!!!!!##%%%##!!!!!!!!!"
-"!!!!!!!!!#%%%%%#!!!!!!!!!"
-"!!!!!!!!!#%%%%%#!!!!!!!!!"
-"!!!!!!!!!#%%%%%#!!!!!!!!!"
-"!!!!!!!!!#######!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
+DayXpm="25 25 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"           !!!           "
+"          !!#!!          "
+"         !!###!!         "
+"         !#####!         "
+"         !#####!         "
+"         !#####!         "
+"         !!!!!!!         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
 ;1234567890123456789012345
 [end]
 
@@ -6149,27 +6768,34 @@ SubType=0x06
 String1=0x04,Ferry
 String2=0x03,veerpont
 String3=0x02,Fähre
-ExtendedLabels=N
-DayXpm="16 16 2 1"   Colormode=0
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
 "!	c #FFFFFF"
-"#	c #0000FF"
-"################"
-"################"
-"################"
-"######!!!!######"
-"######!!!!######"
-"######!!!!######"
-"#!!!!!!!!!!!!!!#"
-"##!!!!!!!!!!!!##"
-"###!!!!!!!!!!###"
-"################"
-"################"
-"!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!"
-"################"
-"################"
-"################"
-;1234567890123456
+"#	c #0095FF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"   ##############   "
+"   ##############   "
+"   ##############   "
+"   ##############   "
+"   #!!!!!!!!!!!!#   "
+"   ##!!!!!!!!!!##   "
+"   ###!!!!!!!!###   "
+"   ##############   "
+"   #!!!!!!!!!!!!#   "
+"   ##############   "
+"   ##############   "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
 [end]
 
 
@@ -6269,6 +6895,38 @@ DayXpm="25 25 1 1"   Colormode=32
 "!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;1234567890123456789012345
+[end]
+
+
+[_point]
+Type=0x065
+SubType=0x0a
+String1=0x04,glacier
+String2=0x03,gletsjer
+ExtendedLabels=Y
+FontStyle=NormalFont
+CustomColor=Day
+DaycustomColor:#414141
+DayXpm="16 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
 [end]
 
 
@@ -6421,6 +7079,38 @@ DayXpm="25 25 1 1"   Colormode=32
 
 [_point]
 Type=0x066
+SubType=0x07
+String1=0x04,cliff, (bed)rock
+String2=0x03,klif, rotsen
+ExtendedLabels=Y
+FontStyle=NormalFont
+CustomColor=Day
+DaycustomColor:#393020
+DayXpm="16 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x066
 SubType=0x14
 String1=0x04,natural/geological poi
 String2=0x03,natuur/geologie
@@ -6466,12 +7156,12 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#0000D5
-DayXpm="7 3 2 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #000000"  canalalpha=0
-"!!!#!!!"
-"!!###!!"
-"!#####!"
+DayXpm="7 3 2 1"   Colormode=16
+"!	c #000000"
+"  	c none"
+"   !   "
+"  !!!  "
+" !!!!! "
 ;1234567
 [end]
 
@@ -6485,33 +7175,33 @@ String3=0x02,Baum
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="25 25 2 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"#	c #008000"  canalalpha=0
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!###!!!!!!!!!!!"
-"!!!!!!!!!!!###!!!!!!!!!!!"
-"!!!!!!!!!!!!#!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
+DayXpm="25 25 2 1"   Colormode=16
+"!	c #008000"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"           !!!           "
+"           !!!           "
+"            !            "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
 ;1234567890123456789012345
 [end]
