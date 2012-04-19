@@ -14,13 +14,16 @@ mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
 mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' } 
 
 mkgmap:country=DEU & mkgmap:region!=* & mkgmap:admin_level3=* { set mkgmap:region='${mkgmap:admin_level3}' }
+mkgmap:country=LUX & mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' }
+mkgmap:country=BEL & mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' }
 mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
 mkgmap:region!=* & mkgmap:admin_level5=* { set mkgmap:region='${mkgmap:admin_level5}' } 
 mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' } 
 mkgmap:region!=* & is_in:county=* { set mkgmap:region='${is_in:county}' }
 
 # Germany = DEU cities
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
+mkgmap:country=DEU & mkgmap:admin_level4=Hamburg {set mkgmap:city='${mkgmap:admin_level4}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde |subst:Stadt }' }
 mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
 mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' } 
 mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
@@ -28,7 +31,7 @@ mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='
 
 mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
 mkgmap:country=BEL & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde }' }
 mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
 mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
@@ -39,7 +42,6 @@ mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='$
 mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=ISL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=ITA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=LUX & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=NOR & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
 mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
 mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
@@ -53,7 +55,6 @@ mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='$
  
 # common rules for all the rest of countries
 mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
 mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
 mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
 mkgmap:city!=* & is_in:city=* { set mkgmap:city='${is_in:city}' }
@@ -71,13 +72,14 @@ mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
 
 mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 
+
+toponym=water & name=* {name '${name}'} [0x3b resolution 20]
 toponym=* & area=yes & name=* {name '${name}'} [0x1b resolution 24 continue]
-
-
-
+boundary = national_park [0x1b resolution 18 continue]
 
 natural=water & (name=Haringvliet | name=Grevelingenmeer | name=Deltageul | name="Vuile Gat" | name="Hollandsch Diep" | name=Amer | name="Nieuwe Merwede" | name=Slaak | name=Krammer | name="Noorder Krammer" | name="Zuid Vlije" | name=Volkerak | name="Zuider Voorhaven" | name=Krabbenkreek | name=Schelde) [0x3d resolution 16-16 continue]
 natural=water [0x3d resolution 20-18 continue]
+natural=water & roletag=outer [0x3f resolution 22]
 natural=water [0x3c resolution 24-22 continue]
 
 waterway=riverbank [0x3d resolution 20-16 continue]
@@ -89,14 +91,20 @@ aeroway=terminal [0x08 default_name="Terminal" resolution 20]
 
 tourism=caravan_site & tents=no [0x05 default_name="RV-park" resolution 22]
 tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
+tourism=picnic_site [0x1e resolution 24]
 tourism=chalet  [0x50 default_name="bungalowpark" resolution 22]
-tourism=hotel [0x13 resolution 22]
+tourism=* & tourism ~ '(hotel|hostel|motel|guest_house|bed_and_breakfast|alpine_hut)'  [0x13 resolution 22]
 tourism=zoo [0x17 resolution 22]
+building=church | amenity=place_of_worship [0x06 resolution 22]
+historic=archaeological_site & building!=* [0x17 resolution 22]
+historic=battlefield & name=* [0x1b resolution 22]
 historic=* [0x13 resolution 24]
 
 amenity=hospital [0x0b resolution 22]
-amenity=parking [0x05 resolution 24]
-amenity=place_of_worship [0x13 resolution 22]
+amenity=parking & building!=* [0x05 resolution 23]
+amenity=parking & building=* [0x13 resolution 24]
+amenity=bicycle_parking & building!=* [0x05 resolution 23]
+amenity=bicycle_parking & building=* [0x13 resolution 24]
 amenity=restaurant [0x13 resolution 24]
 
 amenity=university & building=yes [0x13 resolution 24]
@@ -121,11 +129,18 @@ landuse=construction [0x0d resolution 21]
 
 
 
+
+
+
+
+
 (landuse=forest | natural=wood | leisure=park | leisure=nature_reserve | natural=scrub) [0x16 resolution 20 continue]
 
 landuse=cemetary | landuse=cemetery | amenity=grave_yard [0x1a resolution 22]
 landuse=retail [0x08 resolution 22]
 landuse=industrial [0x0c resolution 18]
+
+
 
 
 
@@ -147,9 +162,11 @@ natural=heath [0x22 resolution 22]
 
 natural=marsh [0x51 resolution 22]
 natural=mud [0x51 resolution 22]
+natural=wetland & wetland=tidalflat [0x3d resolution 22]
 natural=wetland [0x51 resolution 22]
 
 (shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
+
 
 
 # squares and plazas
@@ -165,5 +182,5 @@ highway=* & area=yes [0x05 resolution 24]
 
 
 natural=land [0x27 resolution 20]
-natural=background [0x010101 resolution 14]
+natural=background [0x010200 resolution 14]
 natural=sea  [0x32 resolution 14]

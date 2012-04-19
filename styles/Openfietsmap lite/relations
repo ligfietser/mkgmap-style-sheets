@@ -17,10 +17,42 @@
 # Currently, the matching relations will be processed and the names
 # appended to the boundary lines in an arbitrary order.
 
-(type=boundary | type=multipolygon) & boundary=administrative & name=*
+type=multipolygon
+{ apply role=inner
+  {
+    set roletag=inner
+  }
+}
+
+type=multipolygon
+{ apply role=outer
+  {
+    set roletag=outer
+  }
+}
+
+
+(type=boundary | type=multipolygon) & boundary=administrative & name=* & admin_level=2
 { apply
   {
-    set mkgmap:boundary_name='$(mkgmap:boundary_name)/${name}' | '${name}';
+    set boundary2_name='$(boundary2_name)/${name}' | '${name}';
+	set boundary2=yes;
+  }
+}
+
+(type=boundary | type=multipolygon) & boundary=administrative & name=* & admin_level=4
+{ apply
+  {
+    set boundary4_name='$(boundary4_name)/${name}' | '${name}';
+	set boundary4=yes;
+  }
+}
+
+(type=boundary | type=multipolygon) & boundary=administrative & name=* & admin_level=8
+{ apply
+  {
+    set boundary8_name='$(boundary8_name)/${name}' | '${name}';
+	set boundary8=yes;
   }
 }
 
@@ -32,30 +64,8 @@ type=multipolygon & landuse=forest
 	}
 	}  
 	
-(type=boundary | type=multipolygon) & boundary=administrative & admin_level=2
-{ apply
-  {
-   set boundary2=yes;
-   set mkgmap:boundary2_name='$(mkgmap:boundary2_name)/${name}' | '${name}';
-  }
-}
-
-(type=boundary | type=multipolygon) & boundary=administrative & admin_level=4
-{ apply
-  {
-   set boundary4=yes;
-   set mkgmap:boundary4_name='$(mkgmap:boundary4_name)/${name}' | '${name}';
-  }
-}
 
 
-(type=boundary | type=multipolygon) & boundary=administrative & admin_level=8
-{ apply
-  {
-   set mkgmap:boundary8_name='$(mkgmap:boundary8_name)/${name}' | '${name}';
-   set boundary8=yes;
-  }
-}
 
 # map the cycle routes to the lcn, rcn and ncn tags
 
