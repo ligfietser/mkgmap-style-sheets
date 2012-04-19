@@ -14,13 +14,16 @@ mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
 mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' } 
 
 mkgmap:country=DEU & mkgmap:region!=* & mkgmap:admin_level3=* { set mkgmap:region='${mkgmap:admin_level3}' }
+mkgmap:country=LUX & mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' }
+mkgmap:country=BEL & mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' }
 mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
 mkgmap:region!=* & mkgmap:admin_level5=* { set mkgmap:region='${mkgmap:admin_level5}' } 
 mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' } 
 mkgmap:region!=* & is_in:county=* { set mkgmap:region='${is_in:county}' }
 
 # Germany = DEU cities
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
+mkgmap:country=DEU & mkgmap:admin_level4=Hamburg {set mkgmap:city='${mkgmap:admin_level4}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde |subst:Stadt }' }
 mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
 mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' } 
 mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
@@ -28,7 +31,7 @@ mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='
 
 mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
 mkgmap:country=BEL & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde }' }
 mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
 mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
@@ -39,7 +42,6 @@ mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='$
 mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=ISL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=ITA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=LUX & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=NOR & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
 mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
 mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
@@ -53,7 +55,6 @@ mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='$
  
 # common rules for all the rest of countries
 mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
 mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
 mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
 mkgmap:city!=* & is_in:city=* { set mkgmap:city='${is_in:city}' }
@@ -71,26 +72,44 @@ mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
 
 mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 
+# don't render not relevant mkgmap:line2poi tags
+amenity=* & mkgmap:line2poi=true {delete amenity}
+barrier=* & mkgmap:line2poi=true {delete barrier}
+historic=* & mkgmap:line2poi=true {delete historic}
+landuse=* & mkgmap:line2poi=true {delete landuse}
+leisure=* & mkgmap:line2poi=true {delete leisure}
+man_made=* & mkgmap:line2poi=true {delete man_made}
+natural=* & mkgmap:line2poi=true {delete natural}
+rcn_ref=* & mkgmap:line2poi=true {delete rcn_ref}
+place=* & mkgmap:line2poi=true {delete place}
+shop=* & mkgmap:line2poi=true {delete shop}
+sport=* & mkgmap:line2poi=true {delete sport}
+tourism=* & mkgmap:line2poi=true {delete tourism}
+
 ele=* & ele ~ '^[+-]?(?:\d+\,?\d*|\d*\.?\d+)[\r\n]*$' {add altitude=number}
 ele=* & altitude!=number  {add altitude=no_number}
 
-rcn_ref=* {name '${rcn_ref}' } [0x2f11 resolution 21-18 continue]
-rcn_ref=* {name '${rcn_ref} (${mkgmap:city})' } [0x2f12 resolution 22 continue]
-rcn_ref=* {name '${rcn_ref}' } [0x0700 resolution 22 continue]
+rcn_ref=* {name '${rcn_ref}' } [0x2f11 resolution 21-20 continue]
+rcn_ref=* {name '${rcn_ref} (${mkgmap:city})' | '${rcn_ref}' } [0x2f12 resolution 22 continue]
+rcn_ref=* & mkgmap:country=BEL {name '${rcn_ref}' } [0x2800 resolution 22 continue]
+rcn_ref=* & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resolution 22 continue]
+
+place=country & population>500000 [0x1400 resolution 14-18]
+place=country [0x1500 resolution 16-18]
 
 place=city & mkgmap:area2poi!=true & capital=yes  [0x0400 resolution 16]
 place=city & mkgmap:area2poi!=true & population>=200000  [0x0600 resolution 16-16 continue]
-place=city & mkgmap:area2poi!=true & population<200000 [0x0b00 resolution 16-16 continue]
-place=city & mkgmap:area2poi!=true & population>=200000  [0x0400 resolution 18-18 continue]
-place=city & mkgmap:area2poi!=true & population<200000 [0x0600 resolution 18-18 continue]
-place=city & mkgmap:area2poi!=true [0x0400 resolution 20]
+place=city & mkgmap:area2poi!=true & (population<200000 | population!=*) [0x0b00 resolution 16-16 continue]
+place=city & mkgmap:area2poi!=true & population>=200000  [0x0400 resolution 18]
+place=city & mkgmap:area2poi!=true & (population<200000 | population!=*) [0x0600 resolution 18-18 continue]
+place=city & mkgmap:area2poi!=true & (population<200000 | population!=*) [0x0400 resolution 20]
 
 place=town & mkgmap:area2poi!=true & population>=50000  [0x0b00 resolution 16-16 continue]
 place=town & mkgmap:area2poi!=true & population>=50000 [0x0600 resolution 18-18 continue]
-place=town & mkgmap:area2poi!=true & population<50000 [0x0b00 resolution 18-18 continue]
+place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0b00 resolution 18-18 continue]
 place=town & mkgmap:area2poi!=true & population>=50000 [0x0400 resolution 20]
-place=town & mkgmap:area2poi!=true & population<50000 [0x0600 resolution 21-20 continue]
-place=town & mkgmap:area2poi!=true [0x0400 resolution 22]
+place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0600 resolution 21-20 continue]
+place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0400 resolution 22]
 
 
 place=village & mkgmap:area2poi!=true [0x0b00 resolution 21-20 continue]
@@ -103,8 +122,14 @@ place=suburb & mkgmap:area2poi!=true [0x0800 resolution 23]
 place=hamlet & mkgmap:area2poi!=true [0x0b00 resolution 22-22 continue]
 place=hamlet & mkgmap:area2poi!=true [0x0800 resolution 23]
 
-place=island & mkgmap:area2poi!=true [0x1e00 resolution 21]
+place=island & mkgmap:area2poi!=true [0x1e00 resolution 20]
 place=islet & mkgmap:area2poi!=true [0x1e04 resolution 21]
+
+(place=sea | place=ocean) & mkgmap:area2poi!=true & name=* [0x0100 resolution 16]
+place=bay & mkgmap:area2poi!=true & name=*  [0x1e01 resolution 18]
+place=state [0x1e00 resolution 16-18]
+place=region [0x1e01 resolution 20-22]
+
 
 landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
 landuse=industrial & name=* [0x0600 resolution 24]
@@ -125,13 +150,15 @@ tourism=camp_site | (tourism=caravan_site & tents=yes) [0x2b05 resolution 23]
 tourism=chalet [0x2b04 default_name 'bungalowpark' resolution 23]
 tourism=caravan_site [0x2b03 resolution 23]
 tourism=guest_house | tourism=bed_and_breakfast [0x2b01 default_name 'B&B' resolution 24]
-tourism=hostel [0x2b02 default_name 'hostel' resolution 24]
+tourism=hostel  [0x2b02 default_name 'hostel' resolution 24]
 tourism=hotel { name '${name} ${operator}' | '${name}' | '${operator}' } [0x2b01 resolution 24]
 tourism=information & information=guidepost [0x5a00 resolution 24]
 tourism=information [0x4c00 resolution 24]
 tourism=motel { name '${name} ${operator}' | '${name}' | '${operator}' } [0x2b01 resolution 24]
 tourism=museum [0x2c02 resolution 24]
-tourism=picnic_site [0x4a00 resolution 24]
+tourism=picnic_site | leisure=picnic_table { add mkgmap:housenumber='fireplace:${fireplace}' ; add mkgmap:street='amenity:${amenity}' ; add mkgmap:postal_code='covered:${covered}' ;  } [0x2f0c resolution 24]
+amenity=bench [0x5001 resolution 24]
+#tourism=picnic_site [0x4a00 resolution 24]
 tourism=resort [0x2b04 resolution 24]
 tourism=theme_park { name '${name} ${description}' | '${name}' | '${description}' } [0x2c01 resolution 23]
 tourism=wine_cellar [0x2c0a resolution 24]
@@ -144,15 +171,15 @@ amenity=atm  { name '${name}' | '${operator}' } [0x2f06 resolution 24]
 amenity="bank;atm" { name '${name}' | '${operator}' } [0x2f06 resolution 24]
 amenity=bank { name '${name}' | '${operator}' }  [0x2f06 resolution 24]
 amenity=bar [0x2d02 resolution 24]
-amenity=bench [0x2f0c resolution 24]
+#amenity=bench [0x2f0c resolution 24]
 amenity=biergarten [0x2d02 resolution 24]
 amenity=border_control | barrier=border_control [0x3006 resolution 24]
 amenity=bus_station [0x1101 resolution 24]
 
 amenity=cafe & cuisine=ice_cream  [0x2a05 resolution 24]
 amenity=ice_cream | shop=ice_cream [0x2a05 resolution 24]
+amenity=cafe [0x2a0e resolution 24]
 
-amenity=cafe [0x4600 resolution 24]
 #amenity=car_club [0x2f0d resolution 24]
 #amenity=car_rental [0x2f02 resolution 24]
 #amenity=car_sharing [0x2f02 resolution 24]
@@ -184,15 +211,17 @@ amenity=grave_yard | landuse=cemetary | landuse=cemetery [0x6403 resolution 24]
 #amenity=kindergarten [0x2c05 resolution 24]
 amenity=library  [0x2c03 resolution 24]
 amenity=nightclub [0x2d02 resolution 24]
-amenity=parking [0x2f0a resolution 24]
-amenity=bicycle_parking [0x2f0b resolution 24]
+
+amenity=bicycle_parking & bicycle_parking!=stands [0x2f0b resolution 24]
 amenity=bicycle_rental [0x2f03 resolution 24]
+amenity=parking [0x2f0a resolution 24]
 amenity=pharmacy [0x2e05 resolution 24]
 
 amenity=place_of_worship { name '${name}' | '${note}' | '${description}'} [0x2c0b resolution 24 continue]
 amenity=place_of_worship & religion=christian { name '${religion} (${denomination})'| '${religion}'} [0x2804 resolution 24]
 amenity=place_of_worship & religion=muslim [0x2805 resolution 24]
 amenity=place_of_worship  { name '${religion} (${denomination})'| '${religion}'} [0x2806 resolution 24]
+building=church & amenity!=place_of_worship { name '${name}' | '${note}' | '${description}'} [0x2c0b resolution 24]
 
 amenity=police [0x3001 resolution 24]
 amenity=post_office [0x2f05 resolution 24]
@@ -209,6 +238,7 @@ amenity=theatre [0x2d01 resolution 24]
 amenity=toilets [0x4e00 default_name 'wc' resolution 24 ]
 amenity=townhall [0x3003 resolution 24]
 amenity=university [0x2c05 resolution 24]
+amenity=vending_machine & vending=bicycle_tube [0x2f07 resolution 24 continue]
 amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
 
 (highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
@@ -239,7 +269,7 @@ amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
 #highway=bus_stop [0x1103 resolution 24]
 
 
-incline=up |incline=down | incline=yes | incline=steep
+(incline=up |incline=down | incline=yes | incline=steep) & mkgmap:line2poi!=true
 	{ 
 		name  '${name}' ;
 		add mkgmap:housenumber='${note|def:}' ;
@@ -248,13 +278,14 @@ incline=up |incline=down | incline=yes | incline=steep
 	
 
 
-highway=incline | highway=incline_steep | incline=*
+(highway=incline | highway=incline_steep | incline=*) & mkgmap:line2poi!=true
 	{ 
-		name  '${name} (${incline})' |  '${name}' | '${incline}' ;
+		name  '${name} (${incline|subst:-=> })' |  '${name}' | '${incline|subst:-=> }' ;
 		add mkgmap:housenumber='${note|def:}' ;
 		add mkgmap:street='${source|def:}' ;
 	} [0x2f13 resolution 22]
 	
+highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|highway=track) & incline ~ '.*%' & mkgmap:line2poitype=mid  { name '${incline|subst:-=> }' }   [0x2f13 resolution 24]
 
 #highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' }
 #highway=motorway_junction [0x2000 resolution 24]
@@ -264,9 +295,9 @@ highway=incline | highway=incline_steep | incline=*
 
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 
-historic=castle & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
+historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
-historic=castle & (mkgmap:country=FRA | mkgmap:region="Région wallone" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 23]
+historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Région wallone" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 23]
 historic=castle [0x2c02 default_name 'Castle' resolution 23]
 historic=ruins | historic=fort [0x2c02 resolution 23]
 
@@ -275,9 +306,9 @@ historic=archaeological_site & name ~ '.*(unebed|Großsteingrab|Dolmen|Hünen).*' 
 historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 23] 
 historic=archaeological_site & name=* { name '${historic}' } [0x2801 resolution 23]
 historic=monument & name=* { name '${historic}' } [0x2802  resolution 23]
-historic=wayside_cross & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2803 default_name 'Wegkruis' resolution 23]
+historic=wayside_cross & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Wegkruis' resolution 23]
 historic=wayside_cross & mkgmap:country=DEU [0x2803 default_name 'Kreuz' resolution 23]
-historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 23]
+historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 23]
 historic=wayside_shrine & mkgmap:country=DEU [0x2803 default_name 'Bildstock' resolution 23]
 historic=*  { name '${historic}' } [0x2803  resolution 23]
 
@@ -297,9 +328,9 @@ leisure=water_park [0x2d09 resolution 24]
 man_made=windmill  [0x2c00 resolution 23]
 man_made=lighthouse [0x2812 resolution 23]
 
-mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 20]
-mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 20]
-mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 20]
+mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 22]
+mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 22]
+mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 22]
 
 natural=beach & name=* [0x1e01 resolution 24]
 natural=cave_entrance [0x6601 resolution 24]
@@ -315,7 +346,7 @@ natural=spring [0x6511 resolution 24]
 natural=stream [0x6512 resolution 24]
 natural=tree & name=* [0x6618 resolution 24]
 natural=volcano [0x2c0c resolution 21]
-#natural=water [0x6603 resolution 24]
+natural=sea | natural=bay [0x6603 resolution 18]
 natural=wetland & name=* [0x1e03 resolution 24]
 
 (landuse=forest | natural=wood | leisure=park ) &  name=* [0x1e03 resolution 24]
@@ -368,25 +399,35 @@ sport=multi { name '${name} ${description}' | '${name}' | '${description}' } [0x
 sport=skating [0x2d08 resolution 24]
 sport=skiing [0x2d06 resolution 24]
 
-
-sport=soccer & (mkgmap:country=NLD | mkgmap:region="Vlaanderen") { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'voetbal' resolution 24]
+sport=soccer & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'voetbal' resolution 24]
 sport=soccer & mkgmap:country=DEU { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Fussball' resolution 24]
-sport=soccer & (mkgmap:country=FRA | mkgmap:region="Région wallone" | mkgmap:country=LUX) { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Football' resolution 24]
+sport=soccer & (mkgmap:country=FRA | mkgmap:admin_level4="Région wallone" | mkgmap:country=LUX) { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Football' resolution 24]
 sport=soccer { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Soccer' resolution 24]
 
 sport=swimming { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
 
 tourism=attraction [0x2c01 resolution 24]
 
-barrier=lift_gate [0x281b resolution 24]
-barrier=gate { add mkgmap:housenumber='bicycle:${bicycle}' ; add mkgmap:street='${opening_hours|def:}' ; add mkgmap:postcode='${note|def:}' ;  } [0x2f00 resolution 24]
+# barriers
+barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
+(barrier=gate | barrier=entrance | barrier=turnstile) [0x3200 resolution 23]
+barrier=* & barrier ~ '(lift_gate | toll_booth | border_control)' [0x3201 resolution 23]
+barrier=stile [0x3202 resolution 23]
+barrier=* & barrier ~ '(block|cycle_barrier|kissing_gate)' [0x3203 resolution 23]
+(barrier=bollard | barrier=bus_trap) [0x1108 resolution 23]
+barrier=cattle_grid [0x281a resolution 23]
 
-
-barrier=cattle_grid [0x281a resolution 24]
-barrier=bollard | barrier=bus_trap  {add access = no; add bicycle = yes; add foot = yes} [0x1108 resolution 24]
-barrier=block | barrier=cycle_barrier | barrier=stile | barrier=kissing_gate {add motor_vehicle = no} [0x1107 resolution 24]
 					 
 power_source=wind | man_made=power_wind | generator:source=wind [0x2819 resolution 24]
 
 toponym=* [0x1b00 resolution 24]
+
+# pois from lines
+scenic=yes & mkgmap:line2poitype=mid {delete 'name'} [0x5200 resolution 23]
+(highway=cycleway | bicycle=yes | bicycle=permissive | bicycle=designated) & opening_hours=* & route!=ferry & mkgmap:line2poitype=mid { name 'open (${opening_hours})' } [0x2808 resolution 24]
+highway=cycleway & bicycle=no & mkgmap:line2poitype=inner [0x5600 resolution 24]
+highway=cycleway & bicycle!=* & access=no & mkgmap:line2poitype=inner [0x5600 resolution 24]
+route=ferry & opening_hours=* & mkgmap:line2poitype=mid {name '${name} (${opening_hours})' | 'operating ${opening_hours}' } [0x6406 resolution 24]
+smoothness=* & smoothness ~ '.*(bad|horrible|impassable)' & mkgmap:line2poitype=mid {delete 'name'} [0x2809 resolution 24]
+bicycle=dismount & highway!=footway & highway!=pedestrian & highway!=crossing & mkgmap:line2poitype=mid {delete 'name'} [0x2810 resolution 24]
 
