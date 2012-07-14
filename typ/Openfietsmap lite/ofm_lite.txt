@@ -1,7 +1,7 @@
-; ofm_lite.typ
-; Longueur:  30 269 Bytes
-; Fichier TYP compilé     18-04-2012     23:37:09
-; Décompilé le 19-4-2012 à 12:15:38
+; 20010.typ
+; Longueur:  30 491 Bytes
+; Fichier TYP compilé     14-07-2012     11:35:27
+; Décompilé le 14-7-2012 à 11:35:34
 
 [_id]
 ProductCode=1
@@ -6759,6 +6759,49 @@ DayXpm="20 20 3 1"   Colormode=16
 "                    "
 "                    "
 ;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x064
+SubType=0x05
+String1=0x04,building
+String2=0x03,gebouw
+String3=0x02,Gebäude
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#BD6500
+DayXpm="25 25 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"            #            "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+;1234567890123456789012345
 [end]
 
 
