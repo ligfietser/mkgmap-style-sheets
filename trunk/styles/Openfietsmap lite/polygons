@@ -167,6 +167,9 @@ natural=wetland [0x51 resolution 22]
 
 (shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
 
+# Buildings with names
+
+building=* & name=* [0x13 resolution 24]
 
 
 # squares and plazas
