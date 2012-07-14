@@ -431,3 +431,6 @@ route=ferry & opening_hours=* & mkgmap:line2poitype=mid {name '${name} (${openin
 smoothness=* & smoothness ~ '.*(bad|horrible|impassable)' & mkgmap:line2poitype=mid {delete 'name'} [0x2809 resolution 24]
 bicycle=dismount & highway!=footway & highway!=pedestrian & highway!=crossing & mkgmap:line2poitype=mid {delete 'name'} [0x2810 resolution 24]
 
+# Buildings tagged without anything but names
+
+building=* & name=* [0x6405 resolution 24]
