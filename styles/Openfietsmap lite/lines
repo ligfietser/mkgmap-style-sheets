@@ -76,21 +76,23 @@ mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
 motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
-access=destination {delete access; add car=no }
-access=no & (bicycle=yes | bicycle=designated | bicycle=official) {delete access}
 
+# access tags
+access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
+access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access}
+access=destination {delete access; add car=no }
+bicycle=no	{set motorcar=no; set motorcycle=no}
+bicycle=yes {set motorcar=yes; set motorcycle=yes; set foot=yes} 
+bicycle=destination | bicycle=official | bicycle=permissive | bicycle=designated {set motorcar=yes; set motorcycle=yes; set foot=yes; set bicycle=yes}
+foot=destination | foot=official | foot=permissive {set foot=yes}
 
 # set toll and ferry flags
 highway=* & bicycle!=no {add toll=yes}
 route=ferry {add mkgmap:ferry=1}
 (ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes | ncn=yes | rcn=yes | lcn=yes | ncn_ref=* | rcn_ref=* | lcn_ref=* ) 
 	{ add bicycleroute=yes; set toll=no; add bicycle = yes; add foot = yes } 
-
-
-bicycle=no	{set motorcar=no; set motorcycle=no}
-bicycle=yes | bicycle=designated {set motorcar=yes; set motorcycle=yes; set foot=yes} 
 (access=no | access=private) & bicycle!=* & bicycleroute!=yes & cycleway!=* & mtb!=yes {set bicycle=no; set motorcar=no; set motorcycle=no}
-bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set motorcycle=yes; set foot=yes; set bicycle=yes}
+
 		
 aeroway=runway [0x00  resolution 20 continue with_actions]
 aeroway=taxiway [0x00 resolution 23 continue with_actions]
@@ -148,6 +150,7 @@ leisure=track & sport=cycling { set highway=cycleway }
 leisure=track & sport!=cycling { set highway=service }
 railway=platform {add highway=pedestrian}
 bicycle=lane { set cycleway=lane }
+waterway=weir { add highway=footway; add surface=paved }
 
 # Flag unpaved roads
 highway=* &  tracktype ~ '.*;.*' {delete tracktype}
