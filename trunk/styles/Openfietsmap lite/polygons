@@ -174,12 +174,12 @@ building=* & name=* [0x13 resolution 24]
 
 # squares and plazas
 waterway=dam & area=yes [0x0e default_name="dam" resolution 24]
-highway=pedestrian & area=yes [0x0e resolution 24]
+highway=* & area=yes [0x0e resolution 24]
+area:highway=* [0x0e resolution 24]
 man_made=pier & area=yes [0x0e resolution 24]
 man_made=reinforced_slope | man_made=groyne [0x27 resolution 24]
 railway=platform & area=yes [0x0e default_name="platform" resolution 24]
-# other highways that have area=yes set must be parking lots
-highway=* & area=yes [0x05 resolution 24]
+
 
 
 

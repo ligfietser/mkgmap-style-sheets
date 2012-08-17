@@ -413,8 +413,8 @@ barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissin
 (barrier=gate | barrier=entrance | barrier=turnstile) [0x3200 resolution 23]
 barrier=* & barrier ~ '(lift_gate | toll_booth | border_control)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]
-barrier=* & barrier ~ '(block|cycle_barrier|kissing_gate)' [0x3203 resolution 23]
-(barrier=bollard | barrier=bus_trap) [0x1108 resolution 23]
+barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
+(barrier=bollard | barrier=bus_trap | barrier=block)  [0x1108 resolution 23]
 barrier=cattle_grid [0x281a resolution 23]
 
 					 
