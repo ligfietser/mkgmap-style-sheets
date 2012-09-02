@@ -351,6 +351,7 @@ highway=platform | (railway=platform & area!=yes) {add access = no; add foot = y
 route=ferry [0x1b road_class=3 road_speed=0 resolution 24  continue]
 route=ferry [0x10017  resolution 23-18]
 
+waterway=* & 3dshapes:ggmodelk = 23 { add natural=water }
 waterway=river & natural!=water [0x18 resolution 18-16 continue]
 waterway=river & natural!=water [0x1f resolution 20]
 waterway=canal & natural!=water [0x18 resolution 22-21 continue]
