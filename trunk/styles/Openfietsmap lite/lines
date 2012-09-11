@@ -83,7 +83,7 @@ access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permi
 access=destination {delete access; add car=no }
 bicycle=no	{set motorcar=no; set motorcycle=no}
 bicycle=yes {set motorcar=yes; set motorcycle=yes; set foot=yes} 
-bicycle=destination | bicycle=official | bicycle=permissive | bicycle=designated {set motorcar=yes; set motorcycle=yes; set foot=yes; set bicycle=yes}
+bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set motorcycle=yes; set foot=yes; set bicycle=yes}
 foot=destination | foot=official | foot=permissive {set foot=yes}
 
 # set toll and ferry flags
