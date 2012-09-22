@@ -94,7 +94,7 @@ rcn_ref=* {name '${rcn_ref} (${mkgmap:city})' | '${rcn_ref}' } [0x2f12 resolutio
 rcn_ref=* & mkgmap:country=BEL {name '${rcn_ref}' } [0x2800 resolution 22 continue]
 rcn_ref=* & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resolution 22 continue]
 
-place=country & population>=500000 [0x1400 resolution 14-18]
+place=country & population>250000 [0x1400 resolution 14-18]
 place=country [0x1500 resolution 16-18]
 
 place=city & mkgmap:area2poi!=true & capital=yes  [0x0400 resolution 16]
@@ -112,26 +112,28 @@ place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0600 
 place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0400 resolution 22]
 
 
-place=village & mkgmap:area2poi!=true [0x0b00 resolution 21-20 continue]
-place=village & mkgmap:area2poi!=true [0x0600 resolution 22-22 continue]
-place=village & mkgmap:area2poi!=true [0x0400 resolution 23]
+(place=locality | place=village) & mkgmap:area2poi!=true [0x0b00 resolution 21-20 continue]
+(place=locality | place=village) & mkgmap:area2poi!=true [0x0600 resolution 22-22 continue]
+(place=locality | place=village) & mkgmap:area2poi!=true [0x0400 resolution 23]
 
 place=suburb & mkgmap:area2poi!=true [0x0a00 resolution 22-22 continue]
 place=suburb & mkgmap:area2poi!=true [0x0800 resolution 23]
 
-place=hamlet & mkgmap:area2poi!=true [0x0b00 resolution 22-22 continue]
-place=hamlet & mkgmap:area2poi!=true [0x0800 resolution 23]
+(place=neighbourhood | place=hamlet) & mkgmap:area2poi!=true [0x0b00 resolution 22-22 continue]
+(place=neighbourhood | place=hamlet) & mkgmap:area2poi!=true [0x0800 resolution 23]
 
 place=island & mkgmap:area2poi!=true [0x1e00 resolution 20]
 place=islet & mkgmap:area2poi!=true [0x1e04 resolution 21]
 
-(place=sea | place=ocean) & mkgmap:area2poi!=true & name=* [0x0100 resolution 16]
-place=bay & mkgmap:area2poi!=true & name=*  [0x1e01 resolution 18]
+(place=sea | place=ocean) & mkgmap:area2poi!=true & name=* [0x01 resolution 16]
+place=bay & mkgmap:area2poi!=true & name=* [0x1e01 resolution 18]
 place=state [0x1e00 resolution 16-18]
 place=region [0x1e01 resolution 20-22]
 
 
 landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
+landuse=residential & name=* & AND_c=* [0x0900 resolution 23]
+(admin_level = 11 & boundary = administrative) [0x0900 resolution 23]
 landuse=industrial & name=* [0x0600 resolution 24]
 
 man_made=tower & tower:type!=communication  [0x6411 resolution 23 continue]
@@ -334,14 +336,14 @@ mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 22]
 
 natural=beach & name=* [0x1e01 resolution 24]
 natural=cave_entrance [0x6601 resolution 24]
-natural=cliff [0x6607 resolution 24]
-natural=glacier [0x650a resolution 24]
+natural=cliff & name=* [0x6607 resolution 24]
+natural=glacier [0x650a resolution 22]
 
 natural=peak & altitude=number    {name '${name|def:} (${ele|def:}m)'} [0x6616 resolution 21]
 natural=peak & altitude=no_number {name '${name|def:} (${ele|def:})'} [0x6616 resolution 21]
 natural=peak & ele!=* {name '${name|def:}' } [0x6616 resolution 21]
 
-natural=rock | natural=stone | geological=*  {name '${name}' | 'natural=${natural}'| 'geological=${geological}'} [0x6614 resolution 24]
+(natural=rock | natural=stone | geological=*) & mkgmap:area2poi!=true {name '${name}' | 'natural=${natural}'| 'geological=${geological}'} [0x6614 resolution 24]
 natural=spring [0x6511 resolution 24]
 natural=stream [0x6512 resolution 24]
 natural=tree & name=* [0x6618 resolution 24]
@@ -404,7 +406,7 @@ sport=soccer & mkgmap:country=DEU { name '${name} ${description}' | '${name}' | 
 sport=soccer & (mkgmap:country=FRA | mkgmap:admin_level4="Région wallone" | mkgmap:country=LUX) { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Football' resolution 24]
 sport=soccer { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Soccer' resolution 24]
 
-sport=swimming { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
+sport=swimming | leisure=swimming_pool | amenity=swimming_pool { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
 
 tourism=attraction [0x2c01 resolution 24]
 
@@ -414,7 +416,7 @@ barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissin
 barrier=* & barrier ~ '(lift_gate | toll_booth | border_control)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]
 barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
-(barrier=bollard | barrier=bus_trap | barrier=block)  [0x1108 resolution 23]
+(barrier=bollard | barrier=bus_trap | barrier=block) [0x1108 resolution 23]
 barrier=cattle_grid [0x281a resolution 23]
 
 					 
