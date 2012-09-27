@@ -119,6 +119,7 @@ junction=roundabout [0x0c road_class=1 road_speed=1 resolution 24 continue with_
 junction=roundabout {set access=no}
 
 # Convert highways to most specific
+(railway=abandoned | railway=disused) & highway!=* & (bicycle=yes | bicycle=designated) { add highway = cycleway }
 highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
 highway=trunk_link { set highway=trunk }
 (highway=trunk | highway=motorway)  & cycleway=* { set highway=primary }
@@ -150,7 +151,7 @@ leisure=track & sport=cycling { set highway=cycleway }
 leisure=track & sport!=cycling { set highway=service }
 railway=platform {add highway=pedestrian}
 bicycle=lane { set cycleway=lane }
-waterway=weir { add highway=footway; add surface=paved }
+
 
 # Flag unpaved roads
 highway=* &  tracktype ~ '.*;.*' {delete tracktype}
@@ -323,8 +324,11 @@ bicycleroute=yes [0x02 road_class=4 road_speed=3 resolution 22 continue]
 highway=crossing  [0x10 road_class=1 road_speed=1 resolution 23]
 #highway=* & area!=yes [0x06 road_class=0 road_speed=0 resolution 23]
 
-railway=abandoned & tunnel!=yes [0x0a road_class=0 road_speed=1 resolution 24]
-railway=disused | (railway=* & disused=yes) & tunnel!=yes [0x10112 resolution 24]
+railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="voormalige spoorlijn" resolution 24]
+railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=DEU | mkgmap:country=AUT) [0x15 default_name="stillgelegten Eisenbahnstrecke" resolution 24]
+railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x15 default_name="voie ferree abandonnee" resolution 24]
+railway=abandoned & tunnel!=yes & highway!=* [0x15 default_name="abandoned railway" resolution 23]
+railway=disused | (railway=* & disused=yes) & tunnel!=yes [0x10112 resolution 23]
 railway=rail & (service=* | usage=industrial) & tunnel!=yes [0x10112 resolution 23]
 
 railway=rail & tunnel=yes  [0x10113 resolution 20 continue with_actions]
@@ -342,7 +346,9 @@ railway=construction & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [
 railway=construction [0x10113 default_name="construction" resolution 22]
 
 railway=tram  [0x2a default_name="tram" resolution 24]
-railway=preserved [0x2a default_name="preserved railway" resolution 24]
+railway=preserved & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2a default_name="historische spoorlijn" resolution 23]
+railway=preserved [0x2a default_name="preserved railway" resolution 23]
+
 (railway=funicular | railway=narrow_gauge | railway=monorail) {name '${name}' | '${note}' | '${description}' | '${railway}' | '${aerialway}'  } [0x2a resolution 22]
 aerialway=cable_car | aerialway=gondola  {name '${name}' | '${note}' | '${description}' | '${aerialway}' } [0x2a resolution 24]
 
@@ -359,6 +365,8 @@ waterway=canal & natural!=water [0x1f resolution 23]
 waterway=stream & natural!=water [0x18 resolution 24]
 waterway=drain & natural!=water [0x18 resolution 24]
 (waterway=ditch | barrier=ditch) & natural!=water [0x18 resolution 24]
+waterway=weir & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="stuw" resolution 24]
+waterway=weir [0x15 default_name="weir" resolution 24]
 
 # The following boundary styles are after the highway rules because ways
 # are frequently tagged with both and we want the highway to take priority.
@@ -372,7 +380,7 @@ boundary8=yes { name '${boundary8_name}' } [0x1c resolution 24]
 
 
 #other line elements
-man_made=wildlife_crossing & natural!=* & landuse!=* & highway!=* [0x0a default_name="ecoduct" resolution 22]
+man_made=wildlife_crossing & natural!=* & landuse!=* & highway!=* & area!=yes [0x15 default_name="ecoduct" resolution 22]
 natural=coastline [0x10218 resolution 16]
 natural=cliff [0x10115  resolution 23]
 barrier=city_wall | barrier=wall  [0x10012 resolution 23]

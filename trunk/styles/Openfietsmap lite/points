@@ -299,7 +299,7 @@ historic=museum [0x2c02 default_name 'museum' resolution 23]
 
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
-historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Région wallone" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 23]
+historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 23]
 historic=castle [0x2c02 default_name 'Castle' resolution 23]
 historic=ruins | historic=fort [0x2c02 resolution 23]
 
@@ -403,7 +403,7 @@ sport=skiing [0x2d06 resolution 24]
 
 sport=soccer & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'voetbal' resolution 24]
 sport=soccer & mkgmap:country=DEU { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Fussball' resolution 24]
-sport=soccer & (mkgmap:country=FRA | mkgmap:admin_level4="Région wallone" | mkgmap:country=LUX) { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Football' resolution 24]
+sport=soccer & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Football' resolution 24]
 sport=soccer { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Soccer' resolution 24]
 
 sport=swimming | leisure=swimming_pool | amenity=swimming_pool { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
