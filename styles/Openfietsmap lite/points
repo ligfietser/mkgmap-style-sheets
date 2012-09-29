@@ -295,7 +295,7 @@ highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|high
 #highway=services { name '${ref} ${name}' | '${ref}' | '${name}' }
 #highway=services [0x210f resolution 24]
 
-historic=disused | historic=yes {delete historic}
+historic=* & building=bunker {delete historic}
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
