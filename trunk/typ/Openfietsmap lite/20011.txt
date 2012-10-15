@@ -1,4 +1,7 @@
-
+; 20010.typ
+; Longueur:  30 783 Bytes
+; Fichier TYP compilé     13-10-2012     13:54:56
+; Décompilé le 15-10-2012 à 10:09:17
 
 [_id]
 ProductCode=1
@@ -4279,6 +4282,38 @@ DayXpm="20 20 3 1"   Colormode=16
 "                    "
 "                    "
 ;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x029
+SubType=0x00
+String1=0x04,address
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="16 16 4 1"   Colormode=16
+"!	c #FFFF00"
+"#	c #E6E6E6"
+"%	c #C5C5C5"
+"  	c none"
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"       %        "
+"      %%%       "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+"                "
+;1234567890123456
 [end]
 
 
