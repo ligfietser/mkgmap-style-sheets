@@ -81,6 +81,7 @@ motorcycle=*    { delete motorcycle }
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access}
 access=destination {delete access; add car=no }
+bicycle=dismount {set bicycle=yes; add bicycle:dismount=yes}
 bicycle=no	{set motorcar=no; set motorcycle=no}
 bicycle=yes {set motorcar=yes; set motorcycle=yes; set foot=yes} 
 bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set motorcycle=yes; set foot=yes; set bicycle=yes}
@@ -170,7 +171,7 @@ highway=* &
 { add mkgmap:unpaved=1; set motorcar=no; set motorcycle=no }
 
 (highway=unclassified | highway=service) & (mkgmap:unpaved=1) & service!=parking_aisle & !(cycleway=* | cycleway:right=* | cycleway:left=*) { set highway=track; add tracktype=grade2; set motorcar=no; set motorcycle=no }
-
+bicycle:dismount=yes { add mkgmap:unpaved=1 }
 
 #oneway rules
 (oneway=1 | oneway=true) { set oneway=yes }
@@ -306,7 +307,6 @@ highway=bridleway & bicycle!=yes & bicycle!=designated & bicycleroute!=yes & mtb
 
 highway=steps  & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") {add name="trap (met fietsgoot)"}
 highway=steps  & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) {add bicycle = yes; add motorcar=yes; add motorcycle=yes} [0x10005 default_name="steps (with ramp)" resolution 24 continue with_actions]
-highway=steps & bicycle=dismount {set mkgmap:unpaved=1; add foot = yes} [0x13 road_class=0 road_speed=0 resolution 24]
 highway=steps {set mkgmap:unpaved=1; add access = no; add foot = yes} [0x13 road_class=0 road_speed=0 resolution 24]
 
 # cycleroutes
