@@ -1,7 +1,4 @@
-; 20010.typ
-; Longueur:  30 783 Bytes
-; Fichier TYP compilé     13-10-2012     13:54:56
-; Décompilé le 15-10-2012 à 10:09:17
+
 
 [_id]
 ProductCode=1
@@ -3410,37 +3407,41 @@ DayXpm="5 5 2 1"   Colormode=0
 [_point]
 Type=0x011
 SubType=0x08
-String1=0x04,bollard
-String2=0x03,paaltje
-String3=0x02,Poller
+String1=0x04,bollard, block
+String2=0x03,paal, blok
+String3=0x02,Poller, Block
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="20 20 3 1"   Colormode=16
+DayXpm="24 24 3 1"   Colormode=16
 "!	c #FFFFFF"
-"#	c #FF0000"
+"#	c #BD0000"
 "  	c none"
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-"         !!         "
-"        !!!!        "
-"       !!##!!       "
-"       !!##!!       "
-"        !!!!        "
-"         !!         "
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-"                    "
-;12345678901234567890
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"           ##           "
+"          #!!#          "
+"          #!!#          "
+"           ##           "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+;123456789012345678901234
 [end]
 
 
@@ -4292,28 +4293,36 @@ String1=0x04,address
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="16 16 4 1"   Colormode=16
-"!	c #FFFF00"
-"#	c #E6E6E6"
-"%	c #C5C5C5"
+DayXpm="24 24 4 1"   Colormode=16
+"!	c #C5C5C5"
+"#	c #FFFFFF"
+"%	c #FFCA8B"
 "  	c none"
-"                "
-"                "
-"                "
-"                "
-"                "
-"                "
-"                "
-"       %        "
-"      %%%       "
-"                "
-"                "
-"                "
-"                "
-"                "
-"                "
-"                "
-;1234567890123456
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"            !           "
+"           !%!          "
+"            !           "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+;123456789012345678901234
 [end]
 
 
@@ -5341,6 +5350,48 @@ DayXpm="20 20 3 1"   Colormode=16
 "                    "
 "                    "
 ;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x02e
+SubType=0x03
+String1=0x04,shop
+String2=0x03,winkel
+String3=0x01,commerce
+String4=0x02,Geschäft
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="24 24 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #626262"
+"  	c none"
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"          ###           "
+"         #!!!#          "
+"         #!!!#          "
+"         #!!!#          "
+"          ###           "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+;123456789012345678901234
 [end]
 
 
