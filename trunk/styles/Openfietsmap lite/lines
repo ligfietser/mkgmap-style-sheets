@@ -139,12 +139,14 @@ highway=track & (tracktype=grade1|surface=asphalt|surface=paved) { set highway=u
 highway=cycleroad  { set highway=cycleway }
 cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
 cycleway=no { delete 'cycleway' }
+(cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; add motorcycle=yes; delete 'cycleway' }
 highway=footway & (bicycle=designated | cycleway=*) { set highway=cycleway }
 highway=path & (bicycle=designated | cycleway=*)  { set highway=cycleway }
 highway=track & (bicycle=designated) { set highway=cycleway; add mkgmap:unpaved=1; set motorcar=no; set motorcycle=no }
 bicycle=designated { set bicycle=yes; add motorcar=yes; add motorcycle=yes }
 highway=path & surface ~ '(paved|paving_stones|concrete|asphalt).*' { set highway=pedestrian; add bicycle=yes; add motorcar=yes; add motorcycle=yes }
 highway=footway & surface ~ '(paved|paving_stones|concrete|asphalt).*'  { set highway=pedestrian; add bicycle=no; add motorcar=no; add motorcycle=no }
+highway=steps & area=yes { set highway=pedestrian; add bicycle=no; add motorcar=no; add motorcycle=no }
 highway=path & horse=designated & bicycle!=yes  { set highway=bridleway }
 highway=track & horse=designated & bicycle!=yes  { set highway=bridleway }
 highway=path & foot=designated & bicycle!=yes { set highway=footway }
@@ -152,7 +154,7 @@ leisure=track & sport=cycling { set highway=cycleway }
 leisure=track & sport!=cycling { set highway=service }
 railway=platform {add highway=pedestrian}
 bicycle=lane { set cycleway=lane }
-
+bicycleroute=yes & area=yes {set bicycleroute=no}
 
 # Flag unpaved roads
 highway=* &  tracktype ~ '.*;.*' {delete tracktype}

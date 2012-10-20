@@ -67,6 +67,7 @@ mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street}' }
 mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
 
 mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
+addr:housenumber=* { set name='${addr:street} ${addr:housenumber}' | '${addr:housenumber}' } [0x2900 resolution 24 continue]
 
 mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
 
@@ -75,6 +76,7 @@ mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 # don't render not relevant mkgmap:line2poi tags
 amenity=* & mkgmap:line2poi=true {delete amenity}
 barrier=* & mkgmap:line2poi=true {delete barrier}
+barrier=* & mkgmap:area2poi=true {delete barrier}
 historic=* & mkgmap:line2poi=true {delete historic}
 landuse=* & mkgmap:line2poi=true {delete landuse}
 leisure=* & mkgmap:line2poi=true {delete leisure}
@@ -129,7 +131,6 @@ place=islet & mkgmap:area2poi!=true [0x1e04 resolution 21]
 place=bay & mkgmap:area2poi!=true & name=* [0x1e01 resolution 18]
 place=state [0x1e00 resolution 16-18]
 place=region [0x1e01 resolution 20-22]
-
 
 landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
 landuse=residential & name=* & AND_c=* [0x0900 resolution 23]
@@ -312,7 +313,7 @@ historic=wayside_cross & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen")
 historic=wayside_cross & mkgmap:country=DEU [0x2803 default_name 'Kreuz' resolution 23]
 historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 23]
 historic=wayside_shrine & mkgmap:country=DEU [0x2803 default_name 'Bildstock' resolution 23]
-historic=*  { name '${historic}' } [0x2803  resolution 23]
+historic=* & historic!=yes { name '${historic}' } [0x2803  resolution 23]
 
 leisure=golf_course [0x2d05 resolution 24]
 leisure=ice_rink [0x2d08 resolution 24]
@@ -353,9 +354,9 @@ natural=wetland & name=* [0x1e03 resolution 24]
 
 (landuse=forest | natural=wood | leisure=park ) &  name=* [0x1e03 resolution 24]
 
-railway=station & disused=yes [0x1103 default_name 'disused station' resolution 24]
-railway=station [0x2f17 resolution 22]
+
 railway=halt [0x1102 resolution 23]
+railway=station [0x2f17 resolution 22]
 railway=tram_stop [0x1103 default_name 'tram' resolution 24]
 railway=level_crossing [0x1e02 resolution 24]
 
@@ -391,7 +392,7 @@ shop=outdoor [0x2e01 resolution 24]
 shop=supermarket [0x2e02 resolution 24]
 #shop=tires [0x2f07 resolution 24]
 #shop=tyres [0x2f07 resolution 24]
-#shop=* [0x2e0c resolution 24]
+shop=* { name '${name} (${shop})' | '${name}' | '${shop}' } [0x2e03 resolution 24]
 
 #sport=9pin [0x2d07 resolution 24]
 #sport=10pin [0x2d07 resolution 24]
