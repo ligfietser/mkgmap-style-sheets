@@ -53,8 +53,9 @@ type=multipolygon
   {
     set boundary8_name='$(boundary8_name)/${name}' | '${name}';
 	set boundary8=yes;
-  }
+	  }
 }
+
 
 type=multipolygon & landuse=forest
 	{
@@ -136,3 +137,8 @@ type=route & route=train
 		set trainroute=yes;
 	} 
 	}
+	
+type=associatedStreet { apply role=house { add addr:street='${name}' }}
+
+
+	
