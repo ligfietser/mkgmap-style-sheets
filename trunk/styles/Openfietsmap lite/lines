@@ -81,7 +81,8 @@ motorcycle=*    { delete motorcycle }
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access}
 access=destination {delete access; add car=no }
-bicycle=dismount {set bicycle=yes; add bicycle:dismount=yes}
+bicycle=dismount & highway!=footway & highway!=pedestrian {set bicycle=yes; add bicycle:dismount=yes}
+bicycle=dismount & (highway=footway | highway=pedestrian) {delete bicycle; add bicycle:dismount=yes}
 bicycle=no	{set motorcar=no; set motorcycle=no}
 bicycle=yes {set motorcar=yes; set motorcycle=yes; set foot=yes} 
 bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set motorcycle=yes; set foot=yes; set bicycle=yes}
@@ -356,8 +357,8 @@ aerialway=cable_car | aerialway=gondola  {name '${name}' | '${note}' | '${descri
 
 highway=platform | (railway=platform & area!=yes) {add access = no; add foot = yes} [0x07 road_class=0 road_speed=0 resolution 24]
 
-route=ferry [0x1b road_class=3 road_speed=0 resolution 24  continue]
-route=ferry [0x10017  resolution 23-18]
+route=ferry [0x10017  resolution 23-18 continue]
+route=ferry [0x1b road_class=3 road_speed=0 resolution 24 continue]
 
 waterway=* & 3dshapes:ggmodelk = 23 { add natural=water }
 waterway=river & natural!=water [0x18 resolution 18-16 continue]
