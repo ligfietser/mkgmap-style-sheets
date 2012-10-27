@@ -81,9 +81,9 @@ natural=water & (name=Haringvliet | name=Grevelingenmeer | name=Deltageul | name
 natural=water [0x3d resolution 20-18 continue]
 natural=water & roletag=outer [0x3f resolution 22]
 natural=water [0x3c resolution 24-22 continue]
-
+0
 waterway=riverbank [0x3d resolution 20-16 continue]
-waterway=riverbank [0x3c resolution 24-22]
+waterway=riverbank [0x3c resolution 22]
 
 aeroway=airport [0x07 resolution 18]
 aeroway=aerodrome [0x07 resolution 20]
