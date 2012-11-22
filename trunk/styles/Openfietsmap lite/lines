@@ -1,81 +1,12 @@
-# -------------------------------------------------------------------
-# This is the default mkgmap style file for converting OSM ways
-# into Garmin lines.
-# Any line prefaced with # is a comment and will not be applied.
-# Each line is a rule, of the generalised format:
-#  OSM_tag(s)_to_match  [Garmin_type_code resolution]
-# See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
-# and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
-# for more information.
+include 'inc/address';
 
-# first set the country code
-mkgmap:country!=* & mkgmap:admin_level2=* { set mkgmap:country='${mkgmap:admin_level2}' }
-mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
-mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' } 
-
-mkgmap:country=DEU & mkgmap:region!=* & mkgmap:admin_level3=* { set mkgmap:region='${mkgmap:admin_level3}' }
-mkgmap:country=LUX & mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' }
-mkgmap:country=BEL & mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' }
-mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
-mkgmap:region!=* & mkgmap:admin_level5=* { set mkgmap:region='${mkgmap:admin_level5}' } 
-mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' } 
-mkgmap:region!=* & is_in:county=* { set mkgmap:region='${is_in:county}' }
-
-# Germany = DEU cities
-mkgmap:country=DEU & mkgmap:admin_level4=Hamburg {set mkgmap:city='${mkgmap:admin_level4}' }
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde |subst:Stadt }' }
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-
-mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-mkgmap:country=BEL & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde }' }
-mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=ISL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=ITA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=NOR & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
-mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=SVN & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
-mkgmap:country=ESP & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
- 
-# common rules for all the rest of countries
-mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
-mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-mkgmap:city!=* & is_in:city=* { set mkgmap:city='${is_in:city}' }
-mkgmap:city!=* & addr:city=* { set mkgmap:city='${addr:city}' }
-
-mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
-mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
-
-mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street}' }
-mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
-
-mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
-
-mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
-
-mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
-
-# clear tags for motorcar/motorcycle
+# clear tags
 motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
 motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
+cycleway=no { delete 'cycleway' }
+cycleway=* & bicycle=no { delete 'bicycle' }
+
 
 # access tags
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
@@ -124,14 +55,17 @@ junction=roundabout {set access=no}
 (railway=abandoned | railway=disused) & highway!=* & (bicycle=yes | bicycle=designated) { add highway = cycleway }
 highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
 highway=trunk_link { set highway=trunk }
-(highway=trunk | highway=motorway)  & cycleway=* { set highway=primary }
-(highway=trunk | highway=motorway)  & bicycle=yes { set highway=primary }
+(highway=trunk | highway=motorway)  & cycleway=* { set highway=motorway_bike }
+(highway=trunk | highway=motorway)  & bicycle=yes { set highway=motorway_bike }
+(highway=trunk | highway=motorway)  & bicycleroute=yes { set highway=motorway_bike }
 highway=trunk & mkgmap:country ~ '(NLD|BEL|LUX|FRA|DEU|AUT|CHE|DNK|HUN|ROU)' { set highway=motorway }
+highway=trunk & bicycle=no { set highway=motorway }
 highway=trunk { set highway=primary }
 highway=primary_link { set highway=primary }
 highway=secondary_link { set highway=secondary }
 highway=tertiary_link { set highway=tertiary }
 highway=byway | highway=minor | highway=living_street | highway=residential | highway=road { set highway=unclassified }
+highway=bus_guideway  { set highway=service }
 highway=service & (bicycle=yes | bicycle=designated | bicycleroute=yes) { set highway=unclassified }
 highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & bicycleroute=yes { add highway=unclassified }
 highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & mtb_from_relation=yes { add highway=track }
@@ -141,6 +75,7 @@ highway=cycleroad  { set highway=cycleway }
 cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
 cycleway=no { delete 'cycleway' }
 (cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; add motorcycle=yes; delete 'cycleway' }
+cycleway=track & (highway=path | highway=footway | highway=bridleway) {add bicycle=yes; add motorcar=no; add motorcycle=no; delete 'cycleway' }
 highway=footway & (bicycle=designated | cycleway=*) { set highway=cycleway }
 highway=path & (bicycle=designated | cycleway=*)  { set highway=cycleway }
 highway=track & (bicycle=designated) { set highway=cycleway; add mkgmap:unpaved=1; set motorcar=no; set motorcycle=no }
@@ -179,9 +114,8 @@ bicycle:dismount=yes { add mkgmap:unpaved=1 }
 #oneway rules
 (oneway=1 | oneway=true) { set oneway=yes }
 (oneway=no) { delete 'oneway' }
-oneway=yes & (oneway:bicycle=no  | bicycle:oneway=no) {delete 'oneway'}
-oneway=-1 & (oneway:bicycle=no  | bicycle:oneway=no) {delete 'oneway'}
-(oneway=yes & bicycle:backward=yes) | (oneway=-1 & bicycle:forward=yes) {delete 'oneway'}
+(oneway=yes & bicycle:backward=yes) {set cycling=twoway}
+(oneway=-1 | vehicle:forward=no) & bicycle:forward=yes {set cycling=twoway}
 (oneway:bicycle=yes | oneway:bicycle=1 | bicycle:oneway=1 | oneway:bicycle=true | bicycle:oneway=true | bicycle:oneway=1) {set bicycle:oneway=yes; delete 'oneway:bicycle'}
 (bicycle=opposite_lane | cycleway=opposite_track) { set cycleway=opposite_lane }
 (cycleway=lane_left | cycleway:left=lane | cycleway=track_left | cycleway:left=path | cycleway:left=yes | cycleway:left=track) { set cycleway=left }
@@ -255,6 +189,9 @@ mtb_from_relation=yes & bicycleroute!=yes {name '${mname}'} [0x1a resolution 22 
 # Ways sorted roughly by descending order of class
 highway=cycleway & access!=no {add bicycle = yes; add foot = yes; set motorcar=yes; ; set motorcycle=yes}
 highway=cycleway [0x11 resolution 22-20 continue with_actions]
+highway=cycleway & (moped=yes | moped=designated) [0x10612 resolution 23 continue with_actions]
+highway=cycleway & (moped=yes | moped=designated) & bicycle=no [0x10018 resolution 23]
+highway=cycleway & mofa=no {set toll=no} [0x10613 resolution 23 continue with_actions]
 highway=cycleway & track=yes {set motorcar=no; set motorcycle=no} [0x1602 road_class=2 road_speed=2 resolution 23 continue with_actions]
 highway=cycleway & mkgmap:unpaved=1  {set motorcar=no; set motorcycle=no} [0x0b road_class=1 road_speed=1 resolution 23 continue with_actions]
 highway=cycleway & unpaved=2  {set motorcar=no; set motorcycle=no} [0x0e road_class=2 road_speed=2 resolution 23 continue with_actions]
@@ -278,11 +215,14 @@ highway=secondary [0x12 resolution 21-20 continue with_actions]
 highway=secondary & bicycle!=no [0x040 road_class=2 road_speed=2 resolution 22 continue with_actions]
 highway=secondary & bicycle=no  {add foot=no} [0x10003 resolution 22]
 
-
 highway=primary [0x10000 resolution 18-16 continue with_actions]
 highway=primary [0x10014 resolution 21-20 continue with_actions]
 highway=primary & bicycle!=no [0x030 road_class=1 road_speed=2 resolution 22 continue with_actions]
 highway=primary & bicycle=no {add foot=no} [0x10002 resolution 22]
+
+highway=motorway_bike  [0x10000  resolution 18-16 continue with_actions]
+highway=motorway_bike  [0x10014 resolution 21-20 continue with_actions]
+highway=motorway_bike  {name '${ref|highway-symbol:box}'} [0x01 road_class=1 road_speed=2 resolution 22]
  
 highway=pedestrian [0x10000 resolution 22-22 continue with_actions]
 highway=pedestrian & (bicycle=yes | bicycleroute=yes | cycleway=*) & area!=yes {set motorcar=yes; set motorcycle=yes} [0x0816 road_class=3 road_speed=2 resolution 23 continue with_actions]
@@ -362,11 +302,11 @@ route=ferry [0x1b road_class=3 road_speed=0 resolution 24 continue]
 
 waterway=* & 3dshapes:ggmodelk = 23 { add natural=water }
 waterway=river & natural!=water [0x18 resolution 18-16 continue]
-waterway=river & natural!=water [0x1f resolution 20]
+waterway=river & natural!=water [0x1f resolution 20 continue]
 waterway=canal & natural!=water [0x18 resolution 22-21 continue]
-waterway=canal & natural!=water [0x1f resolution 23]
-waterway=stream & natural!=water [0x18 resolution 24]
-waterway=drain & natural!=water [0x18 resolution 24]
+waterway=canal & natural!=water [0x1f resolution 23 continue]
+waterway=stream & natural!=water [0x18 resolution 24 continue]
+waterway=drain & natural!=water [0x18 resolution 24 continue]
 (waterway=ditch | barrier=ditch) & natural!=water [0x18 resolution 24]
 waterway=weir & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="stuw" resolution 24]
 waterway=weir [0x15 default_name="weir" resolution 24]
@@ -390,6 +330,5 @@ barrier=city_wall | barrier=wall  [0x10012 resolution 23]
 
 man_made=pier & area!=yes {name '${name}'} [0x08 default_name="pier" road_class=0 road_speed=0 resolution 24 continue with_actions]
 
-	
 
 	
