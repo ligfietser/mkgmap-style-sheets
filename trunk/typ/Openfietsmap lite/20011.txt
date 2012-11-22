@@ -1,8 +1,11 @@
-
+; 20011.typ
+; Longueur:  31 383 Bytes
+; Fichier TYP compilé     15-11-2012     15:12:03
+; Décompilé le 15-11-2012 à 15:12:18
 
 [_id]
 ProductCode=1
-FID=20011
+FID=20010
 CodePage=1252
  [End]
 
@@ -1550,11 +1553,14 @@ CustomColor=No
 [_line]
 Type=0x01
 UseOrientation=N
-Xpm="32 1 2  1"
-"! c #000000"
-"  c none"
-"                                "
-;12345678901234567890123456789012
+LineWidth=5
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #BDCAD5"
+"2 c #7B306A"
+String1=0x04,motorway, trunk (cycling allowed)
+String2=0x03,auto(snel)weg (fietsen toegestaan)
+String3=0x02,Autobahn (Radfahren erlaubt)
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
@@ -3079,6 +3085,49 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#BD00B4
+[end]
+
+
+[_line]
+Type=0x10612
+UseOrientation=N
+Xpm="32 6 2  1"
+"! c #202020"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x04,moped designated
+String2=0x03,bromfietspad
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10613
+UseOrientation=N
+Xpm="32 6 2  1"
+"! c #FFFFFF"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x04,non mandatory cycleway
+String2=0x03,onverplicht fietspad
+String3=0x02,Radweg (nicht benutzungspflichtig)
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
 [end]
 
 
