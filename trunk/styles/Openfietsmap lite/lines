@@ -1,4 +1,5 @@
 include 'inc/address';
+include 'inc/contours';
 
 # clear tags
 motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
@@ -6,7 +7,6 @@ motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
 cycleway=no { delete 'cycleway' }
 cycleway=* & bicycle=no { delete 'bicycle' }
-
 
 # access tags
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
@@ -26,26 +26,11 @@ route=ferry {add mkgmap:ferry=1}
 	{ add bicycleroute=yes; set toll=no; add bicycle = yes; add foot = yes } 
 (access=no | access=private) & bicycle!=* & bicycleroute!=yes & cycleway!=* & mtb!=yes {set bicycle=no; set motorcar=no; set motorcycle=no}
 
-		
 aeroway=runway [0x00  resolution 20 continue with_actions]
 aeroway=taxiway [0x00 resolution 23 continue with_actions]
 
 man_made=dyke | man_made=dike | embankment=yes | man_made=embankment [0x10015 resolution 24 continue with_actions]
 cutting=yes  [0x10215 resolution 24 continue with_actions]
-
-# Contours take their name from the elevation setting
-# Using ele>0 only avoids useless lines at the ocean, but
-# we will not get lines for deep canyons, too. So only ignore
-# the 0 contour line.
-
-contour=elevation & contour_ext=elevation_minor & (ele > 0 | ele < 0)
-        { name '${ele|conv:m=>ft}'; }           [0x20 resolution 22]
-contour=elevation & contour_ext=elevation_medium & (ele > 0 | ele < 0)
-        { name '${ele|conv:m=>ft}'; }           [0x21 resolution 21]
-contour=elevation & contour_ext=elevation_major & (ele > 0 | ele < 0)
-        { name '${ele|conv:m=>ft}'; }           [0x22 resolution 20]
-
-	
 
 # Roundabouts
 junction=roundabout [0x0c road_class=1 road_speed=1 resolution 24 continue with_actions]
@@ -116,7 +101,8 @@ bicycle:dismount=yes { add mkgmap:unpaved=1 }
 (oneway=no) { delete 'oneway' }
 (oneway=yes & bicycle:backward=yes) {set cycling=twoway}
 (oneway=-1 | vehicle:forward=no) & bicycle:forward=yes {set cycling=twoway}
-(oneway:bicycle=yes | oneway:bicycle=1 | bicycle:oneway=1 | oneway:bicycle=true | bicycle:oneway=true | bicycle:oneway=1) {set bicycle:oneway=yes; delete 'oneway:bicycle'}
+(oneway:bicycle=yes | oneway:bicycle=1 | bicycle:oneway=1 | oneway:bicycle=true | bicycle:oneway=true | bicycle:oneway=1) {set bicycle:oneway=yes; set oneway=yes; delete 'oneway:bicycle'}
+(oneway:bicycle=-1 | bicycle:oneway=-1) {set bicycle:oneway=-1; set oneway=-1; delete 'oneway:bicycle'}
 (bicycle=opposite_lane | cycleway=opposite_track) { set cycleway=opposite_lane }
 (cycleway=lane_left | cycleway:left=lane | cycleway=track_left | cycleway:left=path | cycleway:left=yes | cycleway:left=track) { set cycleway=left }
 (cycleway=right | cycleway=track_right | cycleway:right=path | cycleway:right=track | cycleway:right=yes | cycleway=lane_right | cycleway:right=lane) { set cycleway=right }
@@ -170,11 +156,11 @@ cycleway=track & highway!=track & oneway!=yes [0x10009 resolution 23 continue wi
 (oneway=yes | oneway=-1) & (cycleway=opposite | cycleway=opposite_lane  | bicycle:oneway=no | oneway:bicycle=no | bicycle:backward=*) {set cycling=twoway}
 
 # display direction arrows
-highway=* & (oneway=yes | oneway:bicycle=yes | bicycle:oneway=yes ) & (cycling!=twoway) & bicycle!=no [0x10007 resolution 24 continue with_actions]
-highway=* & (oneway=yes | oneway:bicycle=yes | bicycle:oneway=yes ) & (cycling=twoway)  [0x10008 resolution 24 continue with_actions]
+highway=* & (oneway=yes | bicycle:oneway=yes ) & (cycling!=twoway) & bicycle!=no [0x10007 resolution 24 continue with_actions]
+highway=* & (oneway=yes | bicycle:oneway=yes ) & (cycling=twoway)  [0x10008 resolution 24 continue with_actions]
 
-highway=* & (oneway=-1 | oneway:bicycle=-1 | bicycle:oneway=-1 ) & (cycling!=twoway) & bicycle!=no  [0x10010 resolution 24 continue with_actions]
-highway=* & (oneway=-1 | oneway:bicycle=-1 | bicycle:oneway=-1 ) & (cycling=twoway) [0x10011 resolution 24 continue with_actions]
+highway=* & (oneway=-1 | bicycle:oneway=-1 ) & (cycling!=twoway) & bicycle!=no  [0x10010 resolution 24 continue with_actions]
+highway=* & (oneway=-1 | bicycle:oneway=-1 ) & (cycling=twoway) [0x10011 resolution 24 continue with_actions]
 
 (cycling=twoway | bicycle:oneway=no | oneway:bicycle=no)   {delete 'oneway'}
 
@@ -311,17 +297,6 @@ waterway=drain & natural!=water [0x18 resolution 24 continue]
 waterway=weir & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="stuw" resolution 24]
 waterway=weir [0x15 default_name="weir" resolution 24]
 
-# The following boundary styles are after the highway rules because ways
-# are frequently tagged with both and we want the highway to take priority.
-
-boundary2=yes & (border_type ~ '.*(territorial).*' | boundary_type ~ '.*(territorial).*' | boundary ~ '.*(territorial).*' | boundary=maritime | border_type=maritime | boundary_type=maritime | maritime=yes)
-{ name '${boundary2_name}' } [0x1c resolution 18]
-
-boundary2=yes { name '${boundary2_name}' } [0x1e resolution 16]
-boundary4=yes { name '${boundary4_name}' } [0x1d resolution 18]
-boundary8=yes { name '${boundary8_name}' } [0x1c resolution 24]
-
-
 #other line elements
 man_made=wildlife_crossing & natural!=* & landuse!=* & highway!=* & area!=yes [0x15 default_name="ecoduct" resolution 22]
 natural=coastline [0x10218 resolution 16]
@@ -329,6 +304,15 @@ natural=cliff [0x10115  resolution 23]
 barrier=city_wall | barrier=wall  [0x10012 resolution 23]
 
 man_made=pier & area!=yes {name '${name}'} [0x08 default_name="pier" road_class=0 road_speed=0 resolution 24 continue with_actions]
+
+# The boundary styles are after the highway rules because ways
+# are frequently tagged with both and we want the highway to take priority.
+
+maritime=yes [0x1001f resolution 14]
+boundary2=yes { name '${boundary2_name}' }  [0x1001e resolution 14-18 continue]
+boundary2=yes  { name '${boundary2_name}' } [0x1e resolution 19]
+boundary4=yes { name '${boundary4_name}' } [0x1d resolution 18]
+boundary8=yes { name '${boundary8_name}' } [0x1c resolution 24]
 
 
 	

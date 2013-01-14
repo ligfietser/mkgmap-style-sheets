@@ -32,11 +32,19 @@ type=multipolygon
 }
 
 
-(type=boundary | type=multipolygon) & boundary=administrative & name=* & admin_level=2
+(type=boundary | type=multipolygon) & boundary=administrative & admin_level=2
 { apply
   {
     set boundary2_name='$(boundary2_name)/${name}' | '${name}';
 	set boundary2=yes;
+  }
+}
+
+border_type = territorial & (admin_level=2 | admin_level=3)
+{ apply
+  {
+    set boundary3_name='$(boundary3_name)/${name}' | '${name}';
+	set boundary3=yes;
   }
 }
 

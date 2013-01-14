@@ -26,40 +26,7 @@ rcn_ref=* {name '${rcn_ref} (${mkgmap:city})' | '${rcn_ref}' } [0x2f12 resolutio
 rcn_ref=* & mkgmap:country=BEL {name '${rcn_ref}' } [0x2800 resolution 22 continue]
 rcn_ref=* & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resolution 22 continue]
 
-place=country & population>250000 [0x1400 resolution 14-18]
-place=country [0x1500 resolution 16-18]
-
-place=city & mkgmap:area2poi!=true & capital=yes  [0x0400 resolution 16]
-place=city & mkgmap:area2poi!=true & population>=200000  [0x0600 resolution 16-16 continue]
-place=city & mkgmap:area2poi!=true & (population<200000 | population!=*) [0x0b00 resolution 16-16 continue]
-place=city & mkgmap:area2poi!=true & population>=200000  [0x0400 resolution 18]
-place=city & mkgmap:area2poi!=true & (population<200000 | population!=*) [0x0600 resolution 18-18 continue]
-place=city & mkgmap:area2poi!=true & (population<200000 | population!=*) [0x0400 resolution 20]
-
-place=town & mkgmap:area2poi!=true & population>=50000  [0x0b00 resolution 16-16 continue]
-place=town & mkgmap:area2poi!=true & population>=50000 [0x0600 resolution 18-18 continue]
-place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0b00 resolution 18-18 continue]
-place=town & mkgmap:area2poi!=true & population>=50000 [0x0400 resolution 20]
-place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0600 resolution 21-20 continue]
-place=town & mkgmap:area2poi!=true & (population<50000 | population!=*) [0x0400 resolution 22]
-
-place=village & mkgmap:area2poi!=true [0x0b00 resolution 21-20 continue]
-place=village & mkgmap:area2poi!=true [0x0600 resolution 22-22 continue]
-place=village & mkgmap:area2poi!=true [0x0400 resolution 23]
-
-place=suburb & mkgmap:area2poi!=true [0x0a00 resolution 22-22 continue]
-place=suburb & mkgmap:area2poi!=true [0x0800 resolution 23]
-
-(place=neighbourhood | place=hamlet) & mkgmap:area2poi!=true [0x0b00 resolution 22-22 continue]
-(place=neighbourhood | place=hamlet) & mkgmap:area2poi!=true [0x0800 resolution 23]
-
-place=island & mkgmap:area2poi!=true [0x1e00 resolution 20]
-place=islet & mkgmap:area2poi!=true [0x1e04 resolution 21]
-
-(place=sea | place=ocean) & mkgmap:area2poi!=true & name=* [0x01 resolution 16]
-place=bay & mkgmap:area2poi!=true & name=* [0x1e01 resolution 18]
-place=state [0x1e00 resolution 16-18]
-place=region [0x1e01 resolution 20-22]
+include 'inc/place';
 
 landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
 landuse=residential & name=* & AND_c=* [0x0900 resolution 23]
@@ -337,7 +304,8 @@ sport=soccer & mkgmap:country=DEU { name '${name} ${description}' | '${name}' | 
 sport=soccer & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Football' resolution 24]
 sport=soccer { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a default_name 'Soccer' resolution 24]
 
-sport=swimming | leisure=swimming_pool | amenity=swimming_pool { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
+(sport=swimming | leisure=swimming_pool | amenity=swimming_pool) & access!=private & mkgmap:area2poi=true & name=* { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
+(sport=swimming | leisure=swimming_pool | amenity=swimming_pool) & mkgmap:area2poi!=true & access!=private { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
 
 tourism=attraction [0x2c01 resolution 24]
 
@@ -359,8 +327,8 @@ place=locality  [0x1e00 resolution 23]
 # pois from lines
 scenic=yes & mkgmap:line2poitype=mid {delete 'name'} [0x5200 resolution 23]
 (highway=cycleway | bicycle=yes | bicycle=permissive | bicycle=designated) & opening_hours=* & route!=ferry & mkgmap:line2poitype=mid { name 'open (${opening_hours})' } [0x2808 resolution 24]
-highway=cycleway & bicycle=no & moped!=no & mkgmap:line2poitype=inner [0x5600 resolution 24]
-highway=cycleway & bicycle!=* & access=no & mkgmap:line2poitype=inner [0x5600 resolution 24]
+highway=cycleway & bicycle=no & moped!=no & mkgmap:line2poitype=inner { name '${note|def:}' } [0x5600 resolution 24]
+highway=cycleway & bicycle!=* & access=no & mkgmap:line2poitype=inner { name '${note|def:}' } [0x5600 resolution 24]
 route=ferry & opening_hours=* & mkgmap:line2poitype=mid {name '${name} (${opening_hours})' | 'operating ${opening_hours}' } [0x6406 resolution 24]
 smoothness=* & smoothness ~ '.*(bad|horrible|impassable)' & mkgmap:line2poitype=mid {delete 'name'} [0x2809 resolution 24]
 bicycle=dismount & highway!=footway & highway!=pedestrian & highway!=crossing & mkgmap:line2poitype=mid {delete 'name'} [0x2810 resolution 24]
