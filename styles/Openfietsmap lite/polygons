@@ -4,6 +4,8 @@ toponym=water & name=* {name '${name}'} [0x3b resolution 20]
 toponym=* & area=yes & name=* {name '${name}'} [0x1b resolution 24 continue]
 boundary = national_park [0x1b resolution 18 continue]
 
+natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
+natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
 natural=water & (name=Haringvliet | name=Grevelingenmeer | name=Deltageul | name="Vuile Gat" | name="Hollandsch Diep" | name=Amer | name="Nieuwe Merwede" | name=Slaak | name=Krammer | name="Noorder Krammer" | name="Zuid Vlije" | name=Volkerak | name="Zuider Voorhaven" | name=Krabbenkreek | name=Schelde) [0x3d resolution 16-16 continue]
 natural=water [0x3d resolution 20-18 continue]
 natural=water & roletag=outer [0x3f resolution 22]
@@ -95,8 +97,7 @@ natural=heath [0x22 resolution 22]
 
 natural=marsh [0x51 resolution 22]
 natural=mud [0x51 resolution 22]
-natural=wetland & wetland=tidalflat [0x3d resolution 22]
-natural=wetland [0x51 resolution 22]
+
 
 (shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
 
