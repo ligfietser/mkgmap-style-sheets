@@ -8,69 +8,32 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-# first set the country code
-mkgmap:country!=* & mkgmap:admin_level2=* { set mkgmap:country='${mkgmap:admin_level2}' }
-mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
-mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' }
-
-# country specific rules first
-
-# Netherlands = NLD
-mkgmap:country=NLD & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
-mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-
-# Germany = DEU cities
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-
-
-mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=BEL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=ISL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=ITA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=LUX & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=NOR & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
-mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=SVN & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
-mkgmap:country=ESP & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
- 
-# common rules for all the rest of countries
-mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' } 
-mkgmap:region!=* & mkgmap:admin_level5=* { set mkgmap:region='${mkgmap:admin_level5}' } 
-mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' } 
-mkgmap:region!=* & mkgmap:admin_level3=* { set mkgmap:region='${mkgmap:admin_level3}' } 
-mkgmap:region!=* & is_in:county=* { set mkgmap:region='${is_in:county}' } 
-
-mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
-mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
-mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-mkgmap:city!=* & is_in:city=* { set mkgmap:city='${is_in:city}' }
-mkgmap:city!=* & addr:city=* { set mkgmap:city='${addr:city}' }
-
-mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
-mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
+include 'inc/address';
 
 internet_access=yes { name 'Internet ${name}' | 'Internet' } [0x2f12 resolution 24 continue]
 internet_access=* & internet_access!=no & internet_access!=yes { name 'Internet(${internet_access}) ${name|def:}' } [0x2f12 resolution 24 continue]
+
+(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
+& (ref=* | route_ref=*) {
+  set ref='${ref|def:}(${route_ref})';
+}
+(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
+& lit=yes & (shelter=yes | covered=yes)
+{
+  set ref='${ref|def:}*';
+}
+(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
+& lit!=yes & (shelter=yes | covered=yes)
+{
+  set ref='${ref|def:}+';
+}
+(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
+& (shelter=no | covered=no)
+{
+  set ref='${ref|def:}-';
+}
+
+include 'inc/name';
 
 #aeroway=airport [0x5900 resolution 22]
 aeroway=airport [0x2f04 resolution 22]
@@ -100,7 +63,7 @@ amenity=community_centre [0x3005 resolution 24]
 amenity=community_center [0x3005 resolution 24]
 amenity=courthouse [0x3004 resolution 24]
 amenity=drinking_water [0x5000 resolution 24 default_name 'Water']
-amenity=embassy & country=* { name '${country} ${name|def:}' } [0x3003 resolution 24]
+amenity=embassy & country=* { set name='${country} ${name|def:}' } [0x3003 resolution 24]
 amenity=embassy & country!=* [0x3003 resolution 24 default_name 'Embassy']
 amenity=emergency_phone [0x2f12 resolution 24 default_name 'Emergency Phone']
 amenity=ferry_terminal [0x2f08 resolution 22]
@@ -172,7 +135,7 @@ amenity=zoo [0x2c07 resolution 24]
 
 landuse=forest & name=* [0x6618 resolution 24]
 landuse=basin [0x650f resolution 24]
-landuse=cemetery [0x6403 resolution 24]
+landuse=cemetery & name=* [0x6403 resolution 24]
 landuse=military [0x640b resolution 24]
 landuse=reservoir [0x650f resolution 24]
 landuse=village_green & name=* [0x2c06 resolution 24]
@@ -181,38 +144,12 @@ landuse=wood & name=* [0x6618 resolution 24]
 healthcare=hospital | amenity=hospital [0x3002 resolution 22]
 healthcare=* | amenity=dentist | amenity=doctors [0x3002 resolution 24]
 
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-& lit=yes & (shelter=yes | covered=yes)
-{
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:}*${operator|def:}';
-}
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-& (shelter=yes | covered=yes)
-{
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:}+${operator|def:}';
-}
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-& (shelter=no | covered=no)
-{
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:}-${operator|def:}';
-}
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-& (name=*|ref=*|operator=*|route_ref=*)
-{
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:} ${operator|def:}';
-}
-
 highway=bus_stop [0x2f17 resolution 24]
 
 highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' }
 highway=motorway_junction [0x2000 resolution 24]
 
-highway=services { name '${ref} ${name}' | '${ref}' | '${name}' }
-highway=services [0x210f resolution 24 default_name 'Services']
+highway=services & mkgmap:area2poi!=true [0x210f resolution 24 default_name 'Services']
 
 historic=museum [0x2c02 resolution 24]
 historic=archaeological_site | historic=ruins [0x2c02 resolution 24]
@@ -224,10 +161,10 @@ leisure=golf_course [0x2d05 resolution 24]
 leisure=ice_rink [0x2d08 resolution 24]
 leisure=marina [0x4300 resolution 24]
 leisure=nature_reserve & name=* [0x6612 resolution 24]
-leisure=park [0x2c06 resolution 24]
+leisure=park & name=* [0x2c06 resolution 24]
 leisure=pitch { name '${name} (${sport})' | '${name}' } [0x2c08 resolution 24]
 leisure=playground [0x2c06 resolution 24]
-leisure=recreation_ground [0x2c08 resolution 24]
+leisure=recreation_ground & name=* [0x2c08 resolution 24]
 leisure=sports_center | leisure=sports_centre { name '${name} (${sport})' | '${name}' } [0x2d0a resolution 24]
 leisure=stadium { name '${name} (${sport})' | '${name}' } [0x2c08 resolution 24]
 leisure=track { name '${name} (${sport})' | '${name}' } [0x2c08 resolution 24]
@@ -254,10 +191,10 @@ natural=wetland & name=* [0x6513 resolution 24]
 natural=wood & name=* [0x6618 resolution 24]
 
 place=city [0x0400 resolution 16]
-place=hamlet [0x0b00 resolution 24]
-place=suburb [0x0a00 resolution 22]
 place=town [0x0800 resolution 18]
-place=village [0x1100 resolution 22]
+place=village [0x0800 resolution 22]
+place=suburb [0x0a00 resolution 22]
+place=hamlet [0x0b00 resolution 24]
 place=island [0x650c resolution 20]
 
 railway=halt [0x2f08 resolution 23]

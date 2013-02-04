@@ -8,87 +8,24 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-# first set the country code
-mkgmap:country!=* & mkgmap:admin_level2=* { set mkgmap:country='${mkgmap:admin_level2}' }
-mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
-mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' }
-
-# country specific rules first
-
-# Netherlands = NLD
-mkgmap:country=NLD & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
-mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-
-# Germany = DEU cities
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-
-
-mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=BEL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=ISL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=ITA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=LUX & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=NOR & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
-mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=SVN & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
-mkgmap:country=ESP & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
-mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
-mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
-mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
- 
-# common rules for all the rest of countries
-mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' } 
-mkgmap:region!=* & mkgmap:admin_level5=* { set mkgmap:region='${mkgmap:admin_level5}' } 
-mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' } 
-mkgmap:region!=* & mkgmap:admin_level3=* { set mkgmap:region='${mkgmap:admin_level3}' } 
-mkgmap:region!=* & is_in:county=* { set mkgmap:region='${is_in:county}' } 
-
-mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
-mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
-mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
-mkgmap:city!=* & is_in:city=* { set mkgmap:city='${is_in:city}' }
-mkgmap:city!=* & addr:city=* { set mkgmap:city='${addr:city}' }
-
-mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
-mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
-
+include 'inc/address';
+include 'inc/contours';
 
 aeroway=runway [0x27 resolution 20]
 aeroway=taxiway [0x27 resolution 24]
 
-# Contours take their name from the elevation setting.
-contour=elevation & contour_ext=elevation_minor
-    { name '${ele|conv:m=>ft}'; }
-    [0x20 resolution 23]
-contour=elevation & contour_ext=elevation_medium
-    { name '${ele|conv:m=>ft}'; }
-    [0x21 resolution 21]
-contour=elevation & contour_ext=elevation_major
-    { name '${ele|conv:m=>ft}'; }
-    [0x22 resolution 20]
-contour=elevation | contour_ext=elevation
-    { name '${ele|conv:m=>ft}'; }
-    [0x21 resolution 20]
+# Set the routing direction
+(highway=motorway|highway=motorway_link) & destination=* { add
+mkgmap:display_name = '${ref} (${destination})' }
+(highway=trunk|highway=trunk_link)       & destination=* { add
+mkgmap:display_name = '${ref} (${destination})' }
 
 # Remove access=yes from highways.
-highway=* & access=yes { delete access }
+highway=* & (access=yes|access=permissive|access=designated|access=official) { delete access }
+# Translate motor_vehicle and vehicle access rules.
+highway=* & motor_vehicle=* { add motorcar='${motor_vehicle}' }
+highway=* & vehicle=* { add motorcar='${vehicle}'; add bicycle='${vehicle}' }
+
 # By default, ways are accessible by the highest allowed mode of
 # transportation, and thus access=yes should be redundant.
 # However, sometimes cycleways may be tagged access=destination or similar,
@@ -143,21 +80,37 @@ highway=path
 leisure=track & area!=yes
 {add highway=footway; name '${name} (${sport})' | '${name}'}
 (man_made=pier | man_made=piste:halfpipe) & area!=yes
-{add highway=footway; name '${ref} ${name}' | '${ref}' | '${name}' }
+{add highway=pedestrian; name '${ref} ${name}' | '${ref}' | '${name}' }
+railway=platform {add highway=pedestrian}
 
 # Roundabouts
-junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 18]
-junction=roundabout & highway=primary [0x0c road_class=3 road_speed=2 resolution 19]
-junction=roundabout & highway=secondary [0x0c road_class=2 road_speed=2 resolution 20]
-junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolution 21]
-junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21]
-junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
+junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 18 continue with_actions]
+junction=roundabout & highway=primary [0x0c road_class=3 road_speed=2 resolution 19 continue with_actions] 
+junction=roundabout & highway=secondary [0x0c road_class=2 road_speed=2 resolution 20 continue with_actions]
+junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
+junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
+junction=roundabout & !(highway=unclassified|highway=tertiary|highway=secondary|highway=primary| highway=trunk) [0x0c road_class=0 road_speed=1 resolution 22 continue with_actions]
 
 # Ways that may or may not be useable
+
+# display direction arrows
+oneway=yes | oneway=1 | oneway=true [0x10000 resolution 24 continue with_actions]
+oneway=-1 [0x10001 resolution 24 continue with_actions]
+
+# make opposite cycleways
+highway=* & ( oneway=yes | oneway=1 | oneway=true ) & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set oneway=no; set access=no; set bicycle=yes; set 2cycleway=1} [0x10 road_speed=1 road_class=1 continue with_actions]
+highway=* & oneway=-1 & 2cycleway!=1 & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set oneway=no; set access=no; set bicycle=yes; set 2cycleway=-1} [0x10 road_speed=1 road_class=1 continue with_actions]
+highway=* & 2cycleway=1 {set access=yes; set oneway=1; set bicycle=no}
+highway=* & 2cycleway=-1 {set access=yes; set oneway=-1; set bicycle=no}
 
 # ways under construction, disused
 highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
 highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 24]
+
+# Lower the road speed of ways under some construction.
+highway=* & construction=* & maxspeed!=* { add mkgmap:road-speed = '-1' }
+# Lower the road speed of disused ways.
+highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
 
 # bridges & tunnels
 (bridge=yes | bridge=true | bridge=viaduct) & highway!=proposed & railway!=proposed   [0x2b resolution 24 continue with_actions]
@@ -169,7 +122,7 @@ highway=motorway_link {add oneway = yes; add bicycle = no; add foot = no } [0x09
 highway=* & motorroad=yes {add bicycle = no; add foot = no}
 highway=trunk [0x02 road_class=4 road_speed=5 resolution 18]
 highway=trunk_link [0x09 road_class=3 road_speed=2 resolution 20]
-highway=* & motorroad=yes [0x02 road_class=4 road_speed=4 resolution 18]
+highway=* & highway!=proposed & motorroad=yes [0x02 road_class=4 road_speed=4 resolution 18]
 highway=primary [0x03 road_class=3 road_speed=4 resolution 19]
 highway=primary_link [0x08 road_class=3 road_speed=1 resolution 21]
 highway=secondary [0x04 road_class=2 road_speed=3 resolution 20]
@@ -181,10 +134,10 @@ highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
 
 # Some countries allow, others disallow bicycling on pedestrian streets.
 # To allow bicycling, add 'add bicycle=yes'
-highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
+highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24 continue]
 highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
-highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 default_name="bridleway" road_class=0 road_speed=0 resolution 24]
+highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
 highway=byway [0x16 road_class=0 road_speed=0 resolution 24]
 
 highway=service & service=parking_aisle
@@ -193,39 +146,44 @@ highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
 highway=service [0x07 road_class=0 road_speed=2 resolution 22]
 
-highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=0 road_speed=1 resolution 22]
+highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=1 road_speed=1 resolution 24]
 
-highway=footway|highway=path|highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
+highway=footway|highway=path {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
+highway=steps {add access = no; add foot = yes} [0x13 road_class=0 road_speed=0 resolution 24]
 highway=track [0x0a road_class=0 road_speed=1 resolution 22]
 highway=unsurfaced [0x0a road_class=0 road_speed=1 resolution 22]
 highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=1 resolution 22]
 
 # Mop up any unrecognised highway types
-highway=* & area!=yes [0x07 ]
+highway=* & highway!=pedestrian & highway!=proposed [0x07 road_class=0 road_speed=1 resolution 24]
 
 natural=coastline [0x15 resolution 12]
 #power=line [0x29 resolution 21]
-# removed 1/8/2011 beddhist
+
 
 railway=rail & !(tunnel=yes) [0x10015 resolution 22-20 continue]
 railway=rail & !(tunnel=yes) [0x10014 resolution 24]
-# issue 3 Beddhist 2/8/2011
 
-railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
+#railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
 railway=light_rail & !(tunnel=yes) [0x10015 default_name="light rail" resolution 22]
 railway=narrow_gauge & !(tunnel=yes) [0x10014 resolution 22]
 railway=preserved & !(tunnel=yes) [0x10014 resolution 22]
 railway=subway & !(tunnel=yes) [0x10014 resolution 21]
 railway=tram & !(tunnel=yes) [0x10015 default_name="tram" resolution 24]
-railway=platform {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 23]
+railway=platform {add access = no; add foot = yes} [0x07 road_class=0 road_speed=0 resolution 24]
 
-route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19]
+route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 24 continue with_actions]
+route=ferry {name '${name} (${opening_hours})' | '${opening_hours}' | '${name}' | '${note}' } [0x10017  resolution 18]
 
-waterway=canal [0x1f resolution 21]
-waterway=drain [0x1f resolution 22]
-waterway=river [0x1f resolution 18]
+waterway=river & natural!=water [0x18 resolution 20-16 continue]
+waterway=river & natural!=water [0x1f resolution 21]
+waterway=canal & natural!=water [0x18 resolution 22-21 continue]
+waterway=canal & natural!=water [0x1f resolution 24]
+waterway=stream & natural!=water [0x18 resolution 24]
+waterway=drain & natural!=water [0x18 resolution 24]
+waterway=ditch | barrier=ditch  [0x18 resolution 24]
 waterway=rapids|waterway=waterfall [0x1f resolution 22]
-waterway=stream [0x18 resolution 22]
+
 
 man_made=cable|(man_made=* & man_made ~ '.*pipe.*')
 {name '${name} (${operator})' | '${name}' | '${operator}' }
@@ -239,7 +197,6 @@ boundary=administrative & admin_level<5 [0x1d resolution 19]
 #boundary=administrative & admin_level<7 [0x1c resolution 21]
 #boundary=administrative & admin_level<9 [0x1c resolution 22]
 #boundary=administrative [0x1c resolution 22]
-boundary=national [0x1e resolution 17]
+#boundary=national [0x1e resolution 17]
 #boundary=political [0x1c resolution 19]
-# Issue 6: boundaries removed 1/8/2011 beddhist
 
