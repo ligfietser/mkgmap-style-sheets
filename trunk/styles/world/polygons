@@ -106,6 +106,8 @@ area:highway=* [0x0e resolution 24]
 
 waterway=dam  [0x0e default_name="dam" resolution 22]
 waterway=riverbank [0x46 resolution 20]
+(waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 22] 
+(waterway=drain | waterway=stream)  & natural!=water   [0x3c resolution 24]
 
 historic=museum | historic=memorial [0x1e resolution 21]
 historic=archaeological_site | historic=ruins [0x1e resolution 21]
