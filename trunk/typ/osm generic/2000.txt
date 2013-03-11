@@ -1,7 +1,7 @@
 ; 2000.typ
-; Longueur:  26 670 Bytes
-; Fichier TYP compilé     15-09-2012     11:54:12
-; Décompilé le 15-9-2012 à 11:54:18
+; Longueur: modified
+; Fichier TYP compilé     22-02-2013     15:43:40
+; Décompilé le 22-2-2013 à 15:43:43
 
 [_id]
 ProductCode=6
@@ -282,10 +282,45 @@ Xpm="0 0 1 0"
 Type=0x09
 String1=0x04,Marina
 ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-Xpm="0 0 1 0"
-"1 c #B5D0D0"
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#0000FF
+Xpm="32 32 2 1"
+"! c #0000FF"
+"  c none"
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
 [end]
 
 
