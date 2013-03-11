@@ -3,8 +3,8 @@ toponym=water & name=IJsselmeer [0x3b resolution 16]
 toponym=water & name=*  [0x3b resolution 20]
 #toponym=* & name=*  [0x3b resolution 24 continue]
 
-boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG).*' {set boundary=nature_reserve}
-boundary = national_park & protected_class > 2 {set boundary=nature_reserve}
+boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
+boundary = national_park & protect_class > 2 {set boundary=nature_reserve}
 boundary = national_park [0x1b resolution 16-19 continue]
 boundary = national_park [0x21 resolution 20-23 continue]
 leisure=nature_reserve | boundary=protected_area | boundary=nature_reserve [0x21 resolution 20-23 continue]
