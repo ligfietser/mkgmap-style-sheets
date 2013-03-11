@@ -77,6 +77,31 @@ type=multipolygon & landuse=forest
 
 
 # map the cycle routes to the lcn, rcn and ncn tags
+type=route & name ~ '(Euro Route|EuroVelo|Euro Velo).*' {set network=icn}
+type=route & name ~ '(Euro Route R1).*' {set name="Euro Route R1"}
+type=route & name ~ '(EuroVelo 1 - part).*' {set name="Atlantic Coast Route"}
+type=route & name ~ '(EuroVelo 2).*' {set name="Capitals Route"}
+type=route & name ~ '(EuroVelo 3).*' {set name="Pilgrims Route"}
+type=route & name ~ '(EuroVelo 4).*' {set name="Central Europe Route"}
+type=route & name ~ '(EuroVelo 5).*' {set name="Via Romea Francigena"}
+type=route & name ~ '(EuroVelo 6).*' {set name="Atlantic-Black Sea"}
+type=route & name ~ '(EuroVelo 7).*' {set name="Central Europe Route"}
+type=route & name ~ '(EuroVelo 8).*' {set name="Mediterranean Route"}
+type=route & name ~ '(EuroVelo 9).*' {set name="Baltic-Adriatic"}
+type=route & name ~ '(EuroVelo 10).*' {set name="Baltic Sea Route"}
+type=route & name ~ '(EuroVelo 11).*' {set name="East Europe Route"}
+type=route & name ~ '(EuroVelo 12).*' {set name="North Sea Cycle Route"}
+type=route & name ~ '(EuroVelo 13).*' {set name="Iron Curtain Trail"}
+type=route & name ~ '(EuroVelo 15).*' {set name="Rhine Route"}
+
+network=icn
+	{
+		apply { 
+		set icn_from_relation=yes;
+		set iname='${iname}/${name}'| '${name}';
+		set iref='${iref}/${ref}'| '${ref}';
+	} 
+	}
 
 type=route & route=bicycle & network=ncn
 	{
@@ -87,14 +112,6 @@ type=route & route=bicycle & network=ncn
 	} 
 	}	
 
-type=route & route=bicycle & network=icn
-	{
-		apply { 
-		set icn_from_relation=yes;
-		set iname='${name}';
-	} 
-	}	
-	
 type=route & route=bicycle & network=rcn & note ~ '[^a-zA-Z].*'
 	{
 		apply { 

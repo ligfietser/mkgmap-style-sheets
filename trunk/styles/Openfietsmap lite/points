@@ -1,7 +1,4 @@
-include 'inc/address';
-
-mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
-addr:housenumber=* { set name='${addr:street} ${addr:housenumber}' | '${addr:housenumber}' } [0x2900 resolution 24 continue]
+Ôªøinclude 'inc/address';
 
 # don't render not relevant mkgmap:line2poi tags
 amenity=* & mkgmap:line2poi=true {delete amenity}
@@ -21,10 +18,10 @@ tourism=* & mkgmap:line2poi=true {delete tourism}
 ele=* & ele ~ '^[+-]?(?:\d+\,?\d*|\d*\.?\d+)[\r\n]*$' {add altitude=number}
 ele=* & altitude!=number  {add altitude=no_number}
 
-rcn_ref=* {name '${rcn_ref}' } [0x2f11 resolution 21-20 continue]
+rcn_ref=* & name!=rvnsh {name '${rcn_ref}' } [0x2f11 resolution 21-20 continue]
 rcn_ref=* {name '${rcn_ref} (${mkgmap:city})' | '${rcn_ref}' } [0x2f12 resolution 22 continue]
 rcn_ref=* & mkgmap:country=BEL {name '${rcn_ref}' } [0x2800 resolution 22 continue]
-rcn_ref=* & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resolution 22 continue]
+rcn_ref=* & name!=rvnsh & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resolution 22 continue]
 
 include 'inc/place';
 
@@ -198,12 +195,12 @@ historic=* & building=bunker {delete historic}
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
-historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x2c02 default_name 'ch‚teau' resolution 23]
+historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x2c02 default_name 'ch√¢teau' resolution 23]
 historic=castle [0x2c02 default_name 'Castle' resolution 23]
 historic=ruins | historic=fort [0x2c02 resolution 23]
 
 historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x2c04  resolution 23 continue]
-historic=archaeological_site & name ~ '.*(unebed|Groﬂsteingrab|Dolmen|H¸nen).*' { add site_type=megalith }
+historic=archaeological_site & name ~ '.*(unebed|Gro√üsteingrab|Dolmen|H√ºnen).*' { add site_type=megalith }
 historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 23] 
 historic=archaeological_site & name=* { name '${historic}' } [0x2801 resolution 23]
 historic=monument & name=* { name '${historic}' } [0x2802  resolution 23]
@@ -216,7 +213,6 @@ historic=* & historic!=yes { name '${historic}' } [0x2803  resolution 23]
 leisure=golf_course [0x2d05 resolution 24]
 leisure=ice_rink [0x2d08 resolution 24]
 leisure=marina [0x4300 resolution 24]
-leisure=park [0x1e03 resolution 24]
 leisure=pitch [0x2d0a resolution 24]
 leisure=playground [0x2d0a resolution 24]
 
@@ -247,7 +243,8 @@ natural=spring [0x6511 resolution 24]
 natural=stream [0x6512 resolution 24]
 natural=tree & name=* [0x6618 resolution 24]
 natural=volcano [0x2c0c resolution 21]
-natural=sea | natural=bay [0x6603 resolution 18]
+natural=sea & name=* [0x6603 resolution 18] 
+natural=bay & name=* [0x6603 resolution 22]
 natural=wetland & name=* [0x1e03 resolution 24]
 
 (landuse=forest | natural=wood | leisure=park ) &  name=* [0x1e03 resolution 24]
@@ -321,7 +318,8 @@ barrier=cattle_grid [0x281a resolution 23]
 					 
 power_source=wind | man_made=power_wind | generator:source=wind [0x2819 resolution 24]
 
-toponym=* [0x1b00 resolution 24]
+toponym=water [0x6603 resolution 22] 
+toponym=* [0x1e03 resolution 22]
 place=locality  [0x1e00 resolution 23]
 
 # pois from lines
