@@ -104,7 +104,7 @@ highway=* & 2cycleway=1 {set access=yes; set oneway=1; set bicycle=no}
 highway=* & 2cycleway=-1 {set access=yes; set oneway=-1; set bicycle=no}
 
 # ways under construction, disused
-highway=construction | (highway=* & construction=* & construction!=minor) {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
+highway=construction  {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
 highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 24]
 
 # Lower the road speed of ways under some construction.
