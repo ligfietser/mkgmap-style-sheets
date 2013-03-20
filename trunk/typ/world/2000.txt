@@ -1,7 +1,7 @@
 ; 2000.typ
-; Longueur:  12 932 Bytes
-; Fichier TYP compilé     04-02-2013     21:49:21
-; Décompilé le 4-2-2013 à 21:49:24
+; Longueur:  13 272 Bytes
+; Fichier TYP compilé     20-03-2013     17:18:15
+; Décompilé le 20-3-2013 à 17:18:46
 
 [_id]
 ProductCode=6
@@ -23,7 +23,6 @@ Type=0x10101,2
 Type=0x002,3
 Type=0x003,3
 Type=0x007,3
-Type=0x009,3
 Type=0x00c,3
 Type=0x00e,3
 Type=0x010,3
@@ -62,6 +61,7 @@ Type=0x038,4
 Type=0x03c,4
 Type=0x04d,4
 Type=0x04e,4
+Type=0x009,5
 Type=0x00d,5
 Type=0x00f,5
 Type=0x013,5
@@ -328,10 +328,44 @@ Type=0x09
 String1=0x04,Marina
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-CustomColor=No
-Xpm="0 0 2 0"
-"1 c #7BCAD5"
-"2 c #00008B"
+CustomColor=Day
+DaycustomColor:#0000FF
+Xpm="32 32 2 1"
+"! c #0000FF"
+"  c none"
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+"!   !   !   !   !   !   !   !   "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
 [end]
 
 
@@ -2173,11 +2207,13 @@ CustomColor=No
 [_line]
 Type=0x16
 UseOrientation=N
-Xpm="32 2 2  1"
-"! c #BD9500"
-"  c none"
-"!!  !!  !!  !!  !!  !!  !!  !!  "
-"!!  !!  !!  !!  !!  !!  !!  !!  "
+Xpm="32 4 2  1"
+"! c #7B6541"
+"# c #FFFFFF"
+"################################"
+"!!!!####!!!!####!!!!####!!!!####"
+"!!!!####!!!!####!!!!####!!!!####"
+"################################"
 ;12345678901234567890123456789012
 String1=0x04,path
 String2=0x03,pad
@@ -2624,6 +2660,46 @@ DayXpm="24 24 2 1"   Colormode=16
 "                        "
 "                        "
 ;123456789012345678901234
+[end]
+
+
+[_point]
+Type=0x02f
+SubType=0x08
+String1=0x04,station
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="25 25 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #101010"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"        #########        "
+"        #########        "
+"        ##!!!!!##        "
+"        ##!!!!!##        "
+"        ##!!!!!##        "
+"        ##!!!!!##        "
+"        ##!!!!!##        "
+"        #########        "
+"        #########        "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+;1234567890123456789012345
 [end]
 
 
