@@ -1,7 +1,7 @@
 ; 2000.typ
-; Longueur:  13 272 Bytes
-; Fichier TYP compilé     20-03-2013     17:18:15
-; Décompilé le 20-3-2013 à 17:18:46
+; Longueur: modified
+; Fichier TYP compilé     20-03-2013     17:37:18
+; Décompilé le 20-3-2013 à 17:37:22
 
 [_id]
 ProductCode=6
@@ -2193,9 +2193,11 @@ CustomColor=No
 [_line]
 Type=0x15
 UseOrientation=N
-LineWidth=1
-Xpm="0 0 1 0"
-"1 c #7BCAD5"
+Xpm="32 1 2  1"
+"! c #FFFFFF"
+"  c none"
+"                                "
+;12345678901234567890123456789012
 String1=0x04,coastline
 String2=0x03,kustlijn
 ExtendedLabels=Y
