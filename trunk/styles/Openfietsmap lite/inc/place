@@ -1,6 +1,12 @@
 place=country & population>250000 [0x1400 resolution 14-18]
 place=country [0x1500 resolution 16-18]
 
+# Benelux metropolitan areas
+place=city & name ~ '.*(Amsterdam|Rotterdam|Den Haag|Antwerpen).*' {set population=1000000}
+place=city & (name:nl=Luik | name=Charleroi | name=Eindhoven) {set population=400000}
+place=city & name ~ '.*(Gent|Enschede|Groningen|Tilburg).*' {set population=300000}
+place=city & name=Luxembourg {delete capital}
+
 place=city & mkgmap:area2poi!=true & (capital=2 | capital=yes)  [0x0400 resolution 16]
 place=city & mkgmap:area2poi!=true & population>=200000  [0x0600 resolution 16-16 continue]
 place=city & mkgmap:area2poi!=true & (population<200000 | population!=*) [0x0b00 resolution 16-16 continue]
@@ -25,10 +31,13 @@ place=suburb & mkgmap:area2poi!=true [0x0800 resolution 23]
 (place=neighbourhood | place=hamlet) & mkgmap:area2poi!=true [0x0b00 resolution 22-22 continue]
 (place=neighbourhood | place=hamlet) & mkgmap:area2poi!=true [0x0800 resolution 23]
 
+place=island & name ~ '(Texel|Vlieland|Terschelling|Ameland|Schiermonnikoog|Borkum|Juist|Norderney)' [0x1e00 resolution 16]
 place=island & mkgmap:area2poi!=true [0x1e00 resolution 20]
 place=islet & mkgmap:area2poi!=true [0x1e04 resolution 21]
 
+place=sea & name="North Sea" {name '${name:nl}' } [0x01 resolution 16]
 (place=sea | place=ocean) & mkgmap:area2poi!=true & name=* [0x01 resolution 16]
 place=bay & mkgmap:area2poi!=true & name=* [0x1e01 resolution 18]
 place=state [0x1e00 resolution 16-18]
 place=region [0x1e01 resolution 20-22]
+

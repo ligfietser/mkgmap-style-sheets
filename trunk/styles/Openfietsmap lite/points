@@ -1,4 +1,6 @@
 ﻿include 'inc/address';
+boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park).*'  {set boundary=nature_reserve}
+boundary = national_park & mkgmap:line2poi!=true & national_park!=naturreservat & leisure!=nature_reserve & name=* [0x640e resolution 16]
 
 # don't render not relevant mkgmap:line2poi tags
 amenity=* & mkgmap:line2poi=true {delete amenity}
@@ -139,32 +141,15 @@ amenity=university [0x2c05 resolution 24]
 amenity=vending_machine & vending=bicycle_tube [0x2f07 resolution 24 continue]
 amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
 
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-& lit=yes & (shelter=yes | covered=yes)
-{
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:}*${operator|def:}';
-}
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-& (shelter=yes | covered=yes)
-{
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:}+${operator|def:}';
-}
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-& (shelter=no | covered=no)
-{
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:}-${operator|def:}';
-}
-(highway=bus_stop | railway=tram_stop | railway=halt | railway=station )
+
+(highway=bus_stop | railway=tram_stop )
 & (name=*|ref=*|operator=*|route_ref=*)
 {
-  set ref='${ref|def:}(${route_ref})';
-  name '${name|def:} ${ref|def:} ${operator|def:}';
+  set ref='${ref|def:}(${route_ref|not-equal:ref})';
+  name '${name|def:} ${ref|def:}';
 }
 
-#highway=bus_stop [0x1103 resolution 24]
+highway=bus_stop [0x2f08 resolution 24]
 
 
 (incline=up |incline=down | incline=yes | incline=steep) & mkgmap:line2poi!=true
@@ -198,6 +183,7 @@ historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
 historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 23]
 historic=castle [0x2c02 default_name 'Castle' resolution 23]
 historic=ruins | historic=fort [0x2c02 resolution 23]
+historic=* & historic ~ '.*(mine|adit).*'  [0x640c  resolution 23]
 
 historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x2c04  resolution 23 continue]
 historic=archaeological_site & name ~ '.*(unebed|Großsteingrab|Dolmen|Hünen).*' { add site_type=megalith }
@@ -221,6 +207,7 @@ leisure=stadium [0x2d0a resolution 24]
 leisure=track [0x2d0a resolution 24]
 leisure=water_park [0x2d09 resolution 24]
 
+landuse=quarry | man_made ~ '.*(mine|adit|spoil).*'	[0x640c resolution 23 continue]
 
 man_made=windmill  [0x2c00 resolution 23]
 man_made=lighthouse [0x2812 resolution 23]
@@ -250,9 +237,10 @@ natural=wetland & name=* [0x1e03 resolution 24]
 (landuse=forest | natural=wood | leisure=park ) &  name=* [0x1e03 resolution 24]
 
 
-railway=halt [0x1102 resolution 23]
-railway=station [0x2f17 resolution 22]
-railway=tram_stop [0x1103 default_name 'tram' resolution 24]
+railway=halt [0x1102 resolution 22]
+railway=station [0x1102 resolution 20-23 continue]
+railway=station [0x2f17 resolution 24]
+railway=tram_stop [0x2f08 default_name 'tram' resolution 24]
 railway=level_crossing [0x1e02 resolution 24]
 
 shop=bakers | shop=bakery { name '${name} (bakery)' | '(bakery)' } [0x2e02 resolution 24]
@@ -325,7 +313,7 @@ place=locality  [0x1e00 resolution 23]
 # pois from lines
 scenic=yes & mkgmap:line2poitype=mid {delete 'name'} [0x5200 resolution 23]
 (highway=cycleway | bicycle=yes | bicycle=permissive | bicycle=designated) & opening_hours=* & route!=ferry & mkgmap:line2poitype=mid { name 'open (${opening_hours})' } [0x2808 resolution 24]
-highway=cycleway & bicycle=no & moped!=no & mkgmap:line2poitype=inner { name '${note|def:}' } [0x5600 resolution 24]
+highway=cycleway & bicycle=no & moped!=* & mkgmap:line2poitype=inner { name '${note|def:}' } [0x5600 resolution 24]
 highway=cycleway & bicycle!=* & access=no & mkgmap:line2poitype=inner { name '${note|def:}' } [0x5600 resolution 24]
 route=ferry & opening_hours=* & mkgmap:line2poitype=mid {name '${name} (${opening_hours})' | 'operating ${opening_hours}' } [0x6406 resolution 24]
 smoothness=* & smoothness ~ '.*(bad|horrible|impassable)' & mkgmap:line2poitype=mid {delete 'name'} [0x2809 resolution 24]

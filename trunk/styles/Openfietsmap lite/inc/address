@@ -1,4 +1,4 @@
-# first set the country code
+﻿# first set the country code
 mkgmap:country!=* & mkgmap:admin_level2=* { set mkgmap:country='${mkgmap:admin_level2}' }
 mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
 mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' } 
@@ -59,3 +59,6 @@ mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
 mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
 
 mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
+
+mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
+#addr:housenumber=* { set name='${addr:street} ${addr:housenumber}' | '${addr:housenumber}' } [0x2900 resolution 24 continue]

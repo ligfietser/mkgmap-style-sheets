@@ -243,13 +243,13 @@ highway=steps {set mkgmap:unpaved=1; add access = no; add foot = yes} [0x13 road
 
 # cycleroutes
 bicycleroute=yes & (mkgmap:unpaved=1 | unpaved=2) {set motorcar=no; set motorcycle=no}
-#icn_from_relation=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' }  [0x24 resolution 14-15 continue]
-icn_from_relation=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' } [0x23 resolution 16-19 continue]
+highway=* & icn_from_relation=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' }  [0x24 resolution 14-15 continue]
+highway=* & icn_from_relation=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' } [0x23 resolution 16-19 continue]
 icn_from_relation=yes {name '${iref|highway-symbol:hbox} (${iname|not-equal:iref})' | '${iref|highway-symbol:hbox}' } [0x02 resolution 20-21 continue] 
 
-ncn_from_relation=yes  {name '${nref} (${nname|not-equal:nref})' | '${nref}' } [0x00 resolution 16-17 continue]
-ncn_from_relation=yes  {name '${nref} (${nname|not-equal:nref})' | '${nref}' }[0x24 resolution 18-19 continue]
-ncn_from_relation=yes {name '${nref|highway-symbol:oval} (${nname})' } [0x02 resolution 20-21 continue]
+highway=* & ncn_from_relation=yes  {name '${nref} (${nname|not-equal:nref})' | '${nref}' } [0x00 resolution 16-17 continue]
+highway=* & ncn_from_relation=yes  {name '${nref} (${nname|not-equal:nref})' | '${nref}' }[0x24 resolution 18-19 continue]
+ncn_from_relation=yes {name '${nref|highway-symbol:oval} (${nname|not-equal:nref})'| '${nref|highway-symbol:oval}'} [0x02 resolution 20-21 continue]
 rcn_from_relation=yes & ncn_from_relation!=yes & icn_from_relation!=yes {name '${rnote}' | '${rname}'}  [0x00 resolution 18-19 continue]
 bicycleroute=yes & !(ncn_from_relation=yes | icn_from_relation=yes) [0x10119 resolution 20-21 continue]
 

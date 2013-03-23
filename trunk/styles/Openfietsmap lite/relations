@@ -165,5 +165,34 @@ type=route & route=train
 	
 type=associatedStreet { apply role=house { add addr:street='${name}' }}
 
+	
+# Public transportation routes.
+# We could want to sort the matching relations by ref first.
+type=route
+& (route=bus|route=trolleybus|route=ferry|route=subway|route=tram)
+& (ref=* | name=*)
+{
+  add ref='${name}'; # if ref is missing, use name
+  # Append the ref of the route relation to the route_ref attribute of
+  # the member nodes recursively (even to members of subrelations).
+  # Stops can be grouped within subrelations comprising the vehicle
+  # stop node and the passenger wait node.
+  apply { # node role ~ '(start_|end_)stop'
+    add route_ref='$(route_ref|not-equal:ref),${ref}' | '${ref}';
+
+    # In route relations, stops may be defined as relations that group
+    # the passenger wait area and the vehicle stop area.  If such
+    # subrelations exist, copy the ref to them too.
+    set mkgmap:ref='${ref}';
+
+    apply role=passengers {
+      add route_ref='$(route_ref),${mkgmap:ref}' | '${mkgmap:ref}';
+    }
+
+    delete mkgmap:ref;
+  }
+  # We could want to copy the route relation name to unnamed route=ferry ways.
+  # apply way { add name='${name}' }
+}
 
 	
