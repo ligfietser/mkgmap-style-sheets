@@ -1,7 +1,7 @@
 ; 20011.typ
 ; Longueur: modified
-; Fichier TYP compilé     22-02-2013     15:37:11
-; Décompilé le 22-2-2013 à 15:38:43
+; Fichier TYP compilé     20-03-2013     11:29:36
+; Décompilé le 20-3-2013 à 11:29:49
 
 [_id]
 ProductCode=1
@@ -890,9 +890,44 @@ String3=0x02,Land
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 2 0"
-"1 c #D8F7BA"
-"2 c #FFFFD5"
+Xpm="32 32 4 1"
+"! c #D8F7BA"
+"  c none"
+"3 c #FFFFD5"
+"4 c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
 [end]
 
 
@@ -2163,6 +2198,7 @@ CustomColor=Day
 DaycustomColor:#996633
 [end]
 
+
 [_line]
 Type=0x23
 UseOrientation=N
@@ -2773,12 +2809,9 @@ CustomColor=No
 [_line]
 Type=0x1001e
 UseOrientation=N
-Xpm="32 2 2  1"
-"! c #7B0041"
-"  c none"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
+LineWidth=1
+Xpm="0 0 1 0"
+"1 c #7B0041"
 String1=0x04,State border
 String2=0x03,Landsgrens
 String3=0x02,Staatsgrenze
@@ -2792,7 +2825,7 @@ CustomColor=No
 Type=0x1001f
 UseOrientation=N
 LineWidth=1
-BorderWidth=3
+BorderWidth=2
 Xpm="0 0 2 0"
 "1 c #5FBDCB"
 "2 c #7BCAD5"
@@ -3503,30 +3536,51 @@ DayXpm="10 10 9 1"   Colormode=32
 [_point]
 Type=0x011
 SubType=0x02
-String1=0x04,taxi
-String2=0x03,taxi
-String3=0x02,Taxi
+String1=0x04,train station
+String2=0x03,station
+String3=0x02,Bahnhof
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="5 5 2 1"   Colormode=0
-"!	c #FFFF04"
+DayXpm="25 25 3 1"   Colormode=16
+"!	c #FFFFFF"
 "#	c #101010"
-"!!!!!"
-"!###!"
-"!!#!!"
-"!!#!!"
-"!!!!!"
-;12345
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"          ######         "
+"          #!!!!#         "
+"          #!!!!#         "
+"          #!!!!#         "
+"          #!!!!#         "
+"          ######         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+;1234567890123456789012345
 [end]
 
 
 [_point]
 Type=0x011
 SubType=0x03
-String1=0x04,busstop
-String2=0x03,bushalte
-String3=0x02,Bushaltestelle
+String1=0x04,halt
+String2=0x03,halte
+String3=0x02,Haltestelle
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
@@ -3589,9 +3643,9 @@ Type=0x014
 SubType=0x00
 String1=0x04,country
 ExtendedLabels=Y
-FontStyle=NormalFont
+FontStyle=LargeFont
 CustomColor=Day
-DaycustomColor:#525252
+DaycustomColor:#BD95B4
 DayXpm="25 25 2 1"   Colormode=16
 "!	c #FFFFFF"
 "  	c none"
@@ -3629,8 +3683,9 @@ Type=0x015
 SubType=0x00
 String1=0x00,small country
 ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
+FontStyle=NormalFont
+CustomColor=Day
+DaycustomColor:#BD95B4
 DayXpm="16 16 2 1"   Colormode=16
 "!	c #FFFFFF"
 "  	c none"
@@ -3726,9 +3781,9 @@ String3=0x02,Regio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
-DaycustomColor:#626262
+DaycustomColor:#BD95FF
 DayXpm="20 20 2 1"   Colormode=16
-"!	c #000000"
+"!	c #FFFFFF"
 "  	c none"
 "                    "
 "                    "
@@ -3763,9 +3818,9 @@ String3=0x02,Regio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
-DaycustomColor:#7B3000
+DaycustomColor:#BD95FF
 DayXpm="20 20 2 1"   Colormode=16
-"!	c #000000"
+"!	c #FFFFFF"
 "  	c none"
 "                    "
 "                    "
@@ -6048,6 +6103,46 @@ DayXpm="20 20 4 1"   Colormode=16
 
 [_point]
 Type=0x02f
+SubType=0x08
+String1=0x04,bus_stop
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="25 25 3 1"   Colormode=16
+"!	c #626262"
+"#	c #FFFFFF"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"          ####           "
+"          #!!#           "
+"          #!!#           "
+"          ####           "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+;1234567890123456789012345
+[end]
+
+
+[_point]
+Type=0x02f
 SubType=0x09
 String1=0x04,ferry
 String2=0x03,veerpont
@@ -7177,6 +7272,46 @@ DayXpm="11 10 2 1"   Colormode=16
 
 [_point]
 Type=0x064
+SubType=0x0e
+String1=0x04,National Park
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#006500
+DayXpm="25 25 2 1"   Colormode=16
+"!	c #006500"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"            !            "
+"           !!!           "
+"          !!!!!          "
+"          !!!!!          "
+"         !!!!!!!         "
+"         !!!!!!!         "
+"            !            "
+"            !            "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+;1234567890123456789012345
+[end]
+
+
+[_point]
+Type=0x064
 SubType=0x11
 String1=0x04,tower
 String2=0x03,toren
@@ -7399,33 +7534,34 @@ SubType=0x03
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="25 25 1 1"   Colormode=32
-"!	c #000000"  canalalpha=15
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!"
+DayXpm="25 25 2 1"   Colormode=16
+"!	c #FFFFFF"
+"  	c none"
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
+"                         "
 ;1234567890123456789012345
 [end]
 
