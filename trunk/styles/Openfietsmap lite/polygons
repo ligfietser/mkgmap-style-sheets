@@ -86,7 +86,7 @@ landuse=construction [0x0d resolution 21]
 landuse=cemetary | landuse=cemetery | amenity=grave_yard [0x1a resolution 22]
 landuse=retail [0x08 resolution 22]
 landuse=industrial [0x0c resolution 18]
-
+landuse=commercial [0x0c resolution 20]
 
 
 
@@ -122,11 +122,8 @@ waterway=dam  [0x0e default_name="dam" resolution 22]
 highway=* & area=yes [0x0e resolution 24]
 area:highway=* [0x0e resolution 24]
 man_made=pier  [0x0e default_name="pier" resolution 23 continue]
-man_made=reinforced_slope | man_made=groyne [0x27 resolution 24]
-(public_transport=platform | railway=platform) & area=yes [0x0e default_name="perron" resolution 23]
-
-
-
+#man_made=reinforced_slope | man_made=groyne [0x27 resolution 24]
+(public_transport=platform | railway=platform) & area=yes { name '${name}' | '${ref}' } [0x0e default_name="perron" resolution 23]
 
 
 natural=land [0x27 resolution 20]
