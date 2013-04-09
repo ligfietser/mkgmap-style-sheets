@@ -33,7 +33,7 @@ internet_access=* & internet_access!=no & internet_access!=yes { name 'Internet(
   set ref='${ref|def:}-';
 }
 
-include 'inc/name';
+#include 'inc/name';
 
 #aeroway=airport [0x5900 resolution 22]
 aeroway=airport [0x2f04 resolution 22]
@@ -47,7 +47,7 @@ amenity=bank { name '${name} (${operator})' | '${name}' | '${operator}' } [0x2f0
 amenity=bar [0x2d02 resolution 24]
 amenity=biergarten [0x2d02 resolution 24]
 amenity=border_control | barrier=border_control [0x3006 resolution 20]
-amenity=bus_station [0x2f08 resolution 23]
+amenity=bus_station [0x2f08 resolution 23 default_name 'bus station']
 amenity=cafe [0x2a0e resolution 24]
 amenity=car_club [0x2f0d resolution 24]
 amenity=car_rental [0x2f02 resolution 24]
@@ -66,7 +66,7 @@ amenity=drinking_water [0x5000 resolution 24 default_name 'Water']
 amenity=embassy & country=* { set name='${country} ${name|def:}' } [0x3003 resolution 24]
 amenity=embassy & country!=* [0x3003 resolution 24 default_name 'Embassy']
 amenity=emergency_phone [0x2f12 resolution 24 default_name 'Emergency Phone']
-amenity=ferry_terminal [0x2f08 resolution 22]
+amenity=ferry_terminal [0x2f08 resolution 22 default_name 'Ferry']
 amenity=fast_food & cuisine=grill [0x2a03 resolution 24]
 amenity=fast_food & cuisine ~ '.*pizza.*' [0x2a0a resolution 24]
 amenity=fast_food [0x2a07 resolution 24]

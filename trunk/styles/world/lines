@@ -117,7 +117,7 @@ highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
 (tunnel=yes | tunnel=true | tunnel=1) & highway!=proposed & railway!=* & waterway!=* [0x2a resolution 24 continue with_actions]
 
 # Ways sorted roughly by descending order of class
-highway=motorway {add oneway = yes; add bicycle = no; add foot = no } [0x01 road_class=4 road_speed=7 resolution 16]
+highway=motorway {add oneway = yes; add bicycle = no; add foot = no} [0x01 road_class=4 road_speed=7 resolution 16]
 highway=motorway_link {add oneway = yes; add bicycle = no; add foot = no } [0x09 road_class=3 road_speed=2 resolution 20]
 highway=* & motorroad=yes {add bicycle = no; add foot = no}
 highway=trunk [0x02 road_class=4 road_speed=5 resolution 18]
@@ -157,7 +157,7 @@ highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=
 # Mop up any unrecognised highway types
 highway=* & highway!=pedestrian & highway!=proposed [0x07 road_class=0 road_speed=1 resolution 24]
 
-natural=coastline [0x15 resolution 12]
+#natural=coastline [0x15 resolution 12]
 #power=line [0x29 resolution 21]
 
 
@@ -175,9 +175,9 @@ railway=platform {add access = no; add foot = yes} [0x07 road_class=0 road_speed
 route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 24 continue with_actions]
 route=ferry {name '${name} (${opening_hours})' | '${opening_hours}' | '${name}' | '${note}' } [0x10017  resolution 18]
 
-waterway=river & natural!=water [0x18 resolution 20-16 continue]
+waterway=river & natural!=water [0x18 resolution 18-20 continue]
 waterway=river & natural!=water [0x1f resolution 21 continue]
-waterway=canal & natural!=water [0x18 resolution 22-21 continue]
+waterway=canal & natural!=water [0x18 resolution 20-22 continue]
 waterway=canal & natural!=water [0x1f resolution 24 continue]
 waterway=stream & natural!=water [0x18 resolution 24 continue]
 waterway=drain & natural!=water [0x18 resolution 24 continue]
@@ -192,8 +192,9 @@ man_made=cable|(man_made=* & man_made ~ '.*pipe.*')
 # The following boundary styles are after the highway rules because ways
 # are frequently tagged with both and we want the highway to take priority.
 boundary=administrative { name '${mkgmap:boundary_name}' }
-boundary=administrative & admin_level<3 [0x1e resolution 16]
-boundary=administrative & admin_level<5 [0x1d resolution 19]
+boundary=administrative & admin_level<3 [0x1c resolution 16-17 continue]
+boundary=administrative & admin_level<3 [0x1e resolution 18]
+boundary=administrative & admin_level<5 [0x1d resolution 18]
 #boundary=administrative & admin_level<7 [0x1c resolution 21]
 #boundary=administrative & admin_level<9 [0x1c resolution 22]
 #boundary=administrative [0x1c resolution 22]

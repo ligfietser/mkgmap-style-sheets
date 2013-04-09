@@ -109,8 +109,8 @@ highway=* & area=yes [0x0e resolution 24]
 area:highway=* [0x0e resolution 24]
 
 waterway=dam  [0x0e default_name="dam" resolution 22]
-waterway=riverbank [0x46 resolution 20]
-(waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 20] 
+waterway=riverbank [0x46 resolution 18]
+(waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 18] 
 (waterway=drain | waterway=stream)  & natural!=water   [0x3c resolution 22]
 
 historic=museum | historic=memorial [0x1e resolution 22]
@@ -130,6 +130,6 @@ man_made=* & area=yes
 [0x39 resolution 24]
 
 # tags for land & background
-natural=land [0x27 resolution 20]
+natural=land [0x010101 resolution 20]
 natural=background [0x010101 resolution 14]
 natural=sea [0x32 resolution 14]
