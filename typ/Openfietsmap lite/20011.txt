@@ -1,7 +1,7 @@
 ; 20011.typ
-; Longueur: modified
-; Fichier TYP compilé     20-03-2013     11:29:36
-; Décompilé le 20-3-2013 à 11:29:49
+; Longueur:  32 776 Bytes
+; Fichier TYP compilé     29-03-2013     10:15:22
+; Décompilé le 29-3-2013 à 10:20:24
 
 [_id]
 ProductCode=1
@@ -19,6 +19,7 @@ CodePage=1252
 ;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
 [_drawOrder]
 Type=0x032,1
+Type=0x027,2
 Type=0x10100,2
 Type=0x10200,2
 Type=0x001,3
@@ -59,12 +60,11 @@ Type=0x03d,6
 Type=0x04e,6
 Type=0x04f,6
 Type=0x051,6
-Type=0x027,7
-Type=0x005,8
-Type=0x00e,8
-Type=0x006,9
-Type=0x013,9
-Type=0x01b,9
+Type=0x005,7
+Type=0x00e,7
+Type=0x006,8
+Type=0x013,8
+Type=0x01b,8
 [End]
 
 
@@ -884,9 +884,9 @@ Xpm="0 0 1 0"
 
 [_polygon]
 Type=0x27
-String1=0x04,land
-String2=0x03,land
-String3=0x02,Land
+String1=0x04,area
+String2=0x03,gebied
+String3=0x02,Gebiet
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
