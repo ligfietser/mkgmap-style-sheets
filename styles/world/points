@@ -190,6 +190,8 @@ natural=waterfall | waterway=waterfall [0x6508 resolution 24]
 natural=wetland & name=* [0x6513 resolution 24]
 natural=wood & name=* [0x6618 resolution 24]
 
+place=country & population>=250000 [0x1400 resolution 16-18]
+place=country [0x1500 resolution 18-18]
 place=city [0x0400 resolution 16]
 place=town [0x0800 resolution 18]
 place=village [0x0800 resolution 22]
