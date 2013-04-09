@@ -1,5 +1,6 @@
-place=country & population>250000 [0x1400 resolution 14-18]
-place=country [0x1500 resolution 16-18]
+place=country & population>250000 [0x1500 resolution 14-16 continue]
+place=country & population>250000 [0x1400 resolution 17-18]
+place=country [0x1500 resolution 17-18]
 
 # Benelux metropolitan areas
 place=city & name ~ '.*(Amsterdam|Rotterdam|Den Haag|Antwerpen).*' {set population=1000000}
@@ -35,8 +36,8 @@ place=island & name ~ '(Texel|Vlieland|Terschelling|Ameland|Schiermonnikoog|Bork
 place=island & mkgmap:area2poi!=true [0x1e00 resolution 20]
 place=islet & mkgmap:area2poi!=true [0x1e04 resolution 21]
 
-place=sea & name="North Sea" {name '${name:nl}' } [0x01 resolution 16]
-(place=sea | place=ocean) & mkgmap:area2poi!=true & name=* [0x01 resolution 16]
+place=sea & name="North Sea" {name '${name:nl}' } [0x0100 resolution 16]
+(place=sea | place=ocean) & mkgmap:area2poi!=true & name=* [0x0100 resolution 16]
 place=bay & mkgmap:area2poi!=true & name=* [0x1e01 resolution 18]
 place=state [0x1e00 resolution 16-18]
 place=region [0x1e01 resolution 20-22]
