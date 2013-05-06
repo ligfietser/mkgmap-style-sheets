@@ -130,7 +130,7 @@ highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22 continue]
 # bridges, tunnels, dams
 waterway=dam & highway=* [0x2b default_name="dam" resolution 23 continue with_actions]
 waterway=dam & highway!=* [0x08 default_name="dam" resolution 23 continue with_actions]
-bridge=* & bridge!=no & area!=yes [0x2b resolution 23 continue with_actions]
+bridge=* & bridge!=no & bridge!=proposed & area!=yes [0x2b resolution 23 continue with_actions]
 highway=* & (tunnel=yes | tunnel=true | tunnel=1 | covered=yes)  [0x09 road_class=3 road_speed=2 resolution 23]
 waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes) {delete 'waterway'}
 
