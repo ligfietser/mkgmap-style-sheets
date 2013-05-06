@@ -18,6 +18,9 @@ bicycle=no	{set motorcar=no; set motorcycle=no}
 bicycle=yes {set motorcar=yes; set motorcycle=yes; set foot=yes} 
 bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set motorcycle=yes; set foot=yes; set bicycle=yes}
 foot=destination | foot=official | foot=permissive {set foot=yes}
+(highway=pedestrian | highway=footway) & oneway=* {delete oneway}
+highway=* & highway ~ '(fiets|Fiets|mtb|Mtb|bike|Bike|rad|Rad|cycleway;|;cycleway)' {set highway=cycleway}
+highway=* & highway ~ '.*(;).*' {set highway=unclassified}
 
 # set toll and ferry flags
 highway=* & bicycle!=no {add toll=yes}
@@ -127,7 +130,7 @@ highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22 continue]
 # bridges, tunnels, dams
 waterway=dam & highway=* [0x2b default_name="dam" resolution 23 continue with_actions]
 waterway=dam & highway!=* [0x08 default_name="dam" resolution 23 continue with_actions]
-(bridge=yes | bridge=true | bridge=viaduct) & area!=yes [0x2b resolution 23 continue with_actions]
+bridge=* & bridge!=no & area!=yes [0x2b resolution 23 continue with_actions]
 highway=* & (tunnel=yes | tunnel=true | tunnel=1 | covered=yes)  [0x09 road_class=3 road_speed=2 resolution 23]
 waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes) {delete 'waterway'}
 
