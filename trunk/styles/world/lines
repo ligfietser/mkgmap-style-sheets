@@ -113,7 +113,7 @@ highway=* & construction=* & maxspeed!=* { add mkgmap:road-speed = '-1' }
 highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
 
 # bridges & tunnels
-(bridge=yes | bridge=true | bridge=viaduct) & highway!=proposed & railway!=proposed   [0x2b resolution 24 continue with_actions]
+bridge=* & bridge!=no & highway!=proposed & railway!=proposed  [0x2b resolution 24 continue with_actions]
 (tunnel=yes | tunnel=true | tunnel=1) & highway!=proposed & railway!=* & waterway!=* [0x2a resolution 24 continue with_actions]
 
 # Ways sorted roughly by descending order of class
