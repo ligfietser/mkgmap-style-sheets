@@ -16,15 +16,22 @@ mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='
 mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
 
 # Germany = DEU cities
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
-mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level4=Hamburg {set mkgmap:city='${mkgmap:admin_level4}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level4=Berlin {set mkgmap:city='${mkgmap:admin_level4}' }
+mkgmap:country=DEU & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde |subst:Stadt}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7|subst:Gemeinde |subst:Stadt}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6|subst:Gemeinde |subst:Stadt}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9|subst:Gemeinde |subst:Stadt}' }
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10|subst:Gemeinde |subst:Stadt}' }
+
+
+# Austria = AUT
+mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10|subst:Gemeinde |subst:Stadt }' }
+mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde |subst:Stadt }' }
 
 
 # other european countries
-mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=BEL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
@@ -48,9 +55,15 @@ mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='$
 mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
 mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
  
-# Canda
+# Canada
 mkgmap:country=CAN & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
 mkgmap:country=CAN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+
+# Ecuador = ECU
+mkgmap:country=ECU & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
+mkgmap:country=ECU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' }
+mkgmap:country=ECU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
+mkgmap:country=ECU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
  
 # common rules for all the rest of countries
 mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' } 
