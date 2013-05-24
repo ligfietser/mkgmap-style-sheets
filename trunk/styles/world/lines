@@ -44,6 +44,35 @@ highway=* & oneway=yes & (access=private|access=no)
 
 # Set highway names to include the reference if there is one
 highway=motorway {name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}' }
+
+(highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint=true & mkgmap:dest_hint=true
+  { delete mkgmap:display_name; 
+    name '${destination:ref|subst: =>} ${destination|subst:;=> |subst:/=> }' | 
+         '${ref|subst: =>} ${destination|subst:;=> |subst:/=> }' | 
+         '${destination|subst:;=> |subst:/=> }' |
+         'Exit ${mkgmap:exit_hint_ref} ${mkgmap:exit_hint_name}' | 
+         'Exit ${mkgmap:exit_hint_ref} ${mkgmap:exit_hint_exit_to}' | 
+         'Exit ${mkgmap:exit_hint_exit_to}' |
+         'Exit ${mkgmap:exit_hint_name}' |
+         'Exit ${mkgmap:exit_hint_ref}'
+       }
+
+(highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint!=* & mkgmap:dest_hint=true
+  { delete mkgmap:display_name; 
+    name '${destination:ref|subst: =>} ${destination|subst:;=> |subst:/=> }' |
+         '${ref|subst: =>} ${destination|subst:;=> |subst:/=> }' | 
+         '${destination|subst:;=> |subst:/=> }'
+       }
+
+(highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint=true & mkgmap:dest_hint!=*
+  { delete mkgmap:display_name; 
+    name 'Exit ${mkgmap:exit_hint_ref} ${mkgmap:exit_hint_name}' | 
+         'Exit ${mkgmap:exit_hint_ref} ${mkgmap:exit_hint_exit_to}' | 
+         'Exit ${mkgmap:exit_hint_exit_to}' |
+         'Exit ${mkgmap:exit_hint_name}' |
+         'Exit ${mkgmap:exit_hint_ref}'
+       }
+              
 highway=trunk {name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}'; add mkgmap:display_name = '${name} (${ref})' }
 highway=primary {name '${ref|highway-symbol:box} ${name}' | '${ref|highway-symbol:box}' | '${name}'; add mkgmap:display_name = '${name} (${ref})' }
 highway=secondary | highway=tertiary {name '${ref|highway-symbol:oval} ${name}' | '${ref|highway-symbol:oval}' | '${name}'; add mkgmap:display_name = '${name} (${ref})' }
