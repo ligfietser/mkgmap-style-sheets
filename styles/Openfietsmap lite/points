@@ -27,12 +27,17 @@ rcn_ref=* & name!=rvnsh & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resol
 
 include 'inc/place';
 
+
+
 landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
 landuse=residential & name=* & AND_c=* [0x0900 resolution 23]
 (admin_level = 11 & boundary = administrative) [0x0900 resolution 23]
 landuse=industrial & name=* [0x0600 resolution 24]
 
 man_made=tower & tower:type!=communication  [0x6411 resolution 23 continue]
+man_made=windmill  [0x2c00 resolution 23]
+man_made=lighthouse [0x2812 resolution 23]
+
 leisure=bird_hide [0x2c06 resolution 23]
 
 tourism=alpine_hut [0x2b02 resolution 24]
@@ -73,7 +78,7 @@ amenity=bar [0x2d02 resolution 24]
 #amenity=bench [0x2f0c resolution 24]
 amenity=biergarten [0x2d02 resolution 24]
 amenity=border_control | barrier=border_control [0x3006 resolution 24]
-amenity=bus_station [0x1101 resolution 24]
+amenity=bus_station [0x1101 resolution 24 continue]
 
 amenity=cafe & cuisine=ice_cream  [0x2a05 resolution 24]
 amenity=ice_cream | shop=ice_cream [0x2a05 resolution 24]
@@ -142,25 +147,28 @@ amenity=vending_machine & vending=bicycle_tube [0x2f07 resolution 24 continue]
 amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
 
 
-(highway=bus_stop | railway=tram_stop )
-& (name=*|ref=*|operator=*|route_ref=*)
+(highway=bus_stop | railway=tram_stop)
+& (name=*|ref=*)
+& refroute!=no
 {
-  set ref='${ref|def:}(${route_ref|not-equal:ref})';
+  set ref='${ref|def:}(${refroute} ${routerel_ref|not-equal:ref})';
   name '${name|def:} ${ref|def:}';
 }
 
+(highway=bus_stop | railway=tram_stop)
+& (name=*|ref=*)
+& refroute=no
+{
+  set ref='${ref|def:}(${routerel_ref|not-equal:ref})';
+  name '${name|def:} ${ref|def:}';
+}
+
+
+
 highway=bus_stop [0x2f08 resolution 24]
-
-
-(incline=up |incline=down | incline=yes | incline=steep) & mkgmap:line2poi!=true
-	{ 
-		name  '${name}' ;
-		add mkgmap:housenumber='${note|def:}' ;
-		add mkgmap:street='${source|def:}' ;
-	} [0x2f13 resolution 22]
 	
 
-
+incline="0%" {delete incline}
 (highway=incline | highway=incline_steep | incline=*) & mkgmap:line2poi!=true
 	{ 
 		name  '${name} (${incline|subst:-=> })' |  '${name}' | '${incline|subst:-=> }' ;
@@ -176,7 +184,7 @@ highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|high
 #highway=services { name '${ref} ${name}' | '${ref}' | '${name}' }
 #highway=services [0x210f resolution 24]
 
-historic=* & building=bunker {delete historic}
+historic=* & (building=bunker | historic=bomb_crater) {delete historic}
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
@@ -208,9 +216,6 @@ leisure=track [0x2d0a resolution 24]
 leisure=water_park [0x2d09 resolution 24]
 
 landuse=quarry | man_made ~ '.*(mine|adit|spoil).*'	[0x640c resolution 23 continue]
-
-man_made=windmill  [0x2c00 resolution 23]
-man_made=lighthouse [0x2812 resolution 23]
 
 mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 22]
 mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 22]
