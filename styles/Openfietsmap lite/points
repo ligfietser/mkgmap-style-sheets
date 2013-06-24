@@ -166,10 +166,11 @@ amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
 
 
 highway=bus_stop [0x2f08 resolution 24]
-	
+
+highway=steps & tunnel=yes & (bicycle=yes|bicycle=dismount) & mkgmap:line2poitype=mid [0x2810 resolution 24]
 
 incline="0%" {delete incline}
-(highway=incline | highway=incline_steep | incline=*) & mkgmap:line2poi!=true
+(highway=incline | highway=incline_steep | incline=*) & mkgmap:line2poi!=true & incline!=no
 	{ 
 		name  '${name} (${incline|subst:-=> })' |  '${name}' | '${incline|subst:-=> }' ;
 		add mkgmap:housenumber='${note|def:}' ;
@@ -184,7 +185,9 @@ highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|high
 #highway=services { name '${ref} ${name}' | '${ref}' | '${name}' }
 #highway=services [0x210f resolution 24]
 
-historic=* & (building=bunker | historic=bomb_crater) {delete historic}
+highway=elevator [0x5002 resolution 24]
+
+historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=yes | historic=disused) {delete historic}
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
@@ -300,9 +303,9 @@ sport=soccer { name '${name} ${description}' | '${name}' | '${description}' } [0
 tourism=attraction [0x2c01 resolution 24]
 
 # barriers
-barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
+barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
 (barrier=gate | barrier=entrance | barrier=turnstile) [0x3200 resolution 23]
-barrier=* & barrier ~ '(lift_gate | toll_booth | border_control)' [0x3201 resolution 23]
+barrier=* & barrier ~ '(lift_gate | toll_booth | border_control | swing_gate)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]
 barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
 (barrier=bollard | barrier=bus_trap | barrier=block) [0x1108 resolution 23]
