@@ -1,7 +1,7 @@
 ; 2000.typ
 ; Longueur: modified
-; Fichier TYP compilé     26-05-2013     18:01:26
-; Décompilé le 26-5-2013 à 18:01:28
+; Fichier TYP compilé     24-06-2013     09:47:11
+; Décompilé le 24-6-2013 à 9:47:20
 
 [_id]
 ProductCode=6
@@ -19,6 +19,7 @@ CodePage=1252
 ;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
 [_drawOrder]
 Type=0x032,1
+Type=0x027,2
 Type=0x10101,2
 Type=0x002,3
 Type=0x003,3
@@ -69,7 +70,6 @@ Type=0x014,5
 Type=0x019,5
 Type=0x01a,5
 Type=0x025,5
-Type=0x027,5
 Type=0x02c,5
 Type=0x034,5
 Type=0x035,5
