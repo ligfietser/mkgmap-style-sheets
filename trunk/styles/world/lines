@@ -189,6 +189,8 @@ highway=* & highway!=pedestrian & highway!=proposed [0x07 road_class=0 road_spee
 #natural=coastline [0x15 resolution 12]
 #power=line [0x29 resolution 21]
 
+aerialway=cable_car | aerialway=gondola | aerialway=mixed_lift [0x00 resolution 22]
+aerialway=t-bar  | aerialway=chair_lift  [0x00 resolution 24]
 
 railway=rail & !(tunnel=yes) [0x10015 resolution 22-20 continue]
 railway=rail & !(tunnel=yes) [0x10014 resolution 24]
