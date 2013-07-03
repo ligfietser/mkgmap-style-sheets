@@ -84,7 +84,7 @@ military=danger_area [0x04 resolution 22]
 military=range [0x04 resolution 20]
 
 natural=beach | natural=sand [0x2e resolution 20]
-natural=glacier [0x4d resolution 18]
+natural=glacier [0x4d resolution 14]
 natural=marsh [0x51 resolution 20]
 natural=mud [0x51 resolution 20]
 natural=wetland [0x51 resolution 20]
