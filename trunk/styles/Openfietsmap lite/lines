@@ -40,6 +40,7 @@ junction=roundabout [0x0c road_class=1 road_speed=1 resolution 24 continue with_
 junction=roundabout {set access=no}
 
 # Convert highways to most specific
+(highway=tertiary | highway=secondary) & (surface=unpaved | surface=gravel) {set highway=track; add tracktype=grade2}
 (railway=abandoned | railway=disused) & highway!=* & (bicycle=yes | bicycle=designated) { add highway = cycleway }
 highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
 highway=trunk_link { set highway=trunk }
@@ -140,7 +141,7 @@ highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22 continue]
 waterway=dam & highway=* [0x2b default_name="dam" resolution 23 continue with_actions]
 waterway=dam & highway!=* [0x08 default_name="dam" resolution 23 continue with_actions]
 bridge=* & bridge!=no & bridge!=proposed & area!=yes [0x2b resolution 23 continue with_actions]
-highway=* & (tunnel=yes | tunnel=true | tunnel=1 | covered=yes)  [0x09 road_class=3 road_speed=2 resolution 23]
+highway=* & (tunnel=yes | tunnel=true | tunnel=1 | covered=yes | tunnel=building_passage)  [0x09 road_class=3 road_speed=2 resolution 23]
 waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes) {delete 'waterway'}
 
 
