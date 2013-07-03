@@ -106,7 +106,7 @@ man_made = water_tower | man_made=tower [0x13 resolution 24]
 
 natural=sand | surface=sand [0x53 resolution 22 continue]
 natural=beach [0x53 resolution 20]
-natural=glacier [0x4d resolution 16]
+natural=glacier [0x4d resolution 14]
 natural=heath [0x22 resolution 22]
 
 
