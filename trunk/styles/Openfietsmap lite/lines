@@ -235,7 +235,7 @@ highway=pedestrian & bicycle!=yes & bicycleroute!=yes & cycleway!=* {set motorca
 (highway=track | highway=path) & (access=private | access=no) & bicycle!=yes & bicycle!=designated & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes [0x10101 resolution 23]
 (highway=track | highway=path | highway=footway | highway=pedestrian) & bicycleroute=yes [0x1502 resolution 21-20 continue with_actions]
 highway=track & bicycleroute!=yes [0x15 resolution 21-21 continue with_actions]
-highway=track & tracktype=grade2 [0x0f road_class=1 road_speed=1 resolution 22 continue]
+highway=track & (tracktype=grade1 | tracktype=grade2) [0x0f road_class=1 road_speed=1 resolution 22 continue]
 highway=track & (tracktype=grade3 | tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicycleroute=yes {set motorcar=no; set motorcycle=no} [0x0d road_class=1 road_speed=1 resolution 22 continue with_actions]
 highway=track & tracktype=grade3 & (bicycle=yes | mtb_from_relation=yes) & bicycleroute!=yes {set motorcar=no; set motorcycle=no} [0x0d road_class=1 road_speed=1 resolution 22]
 highway=track & tracktype=grade3 & bicycleroute!=yes {set motorcar=no; set motorcycle=no} [0x0f road_class=0 road_speed=0 resolution 22]
