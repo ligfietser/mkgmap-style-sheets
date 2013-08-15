@@ -1,4 +1,4 @@
-﻿include 'inc/address';
+ include 'inc/address';
 name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
 toponym=water & name=IJsselmeer [0x3b resolution 16]
@@ -15,6 +15,7 @@ natural=sand | surface=sand [0x53 resolution 21 continue]
 natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
 natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
 
+natural=bay {set natural=water}
 natural=water & name ~ '(Haringvliet|Grevelingenmeer|Deltageul|Aardappelengat|Veerse Meer|Vuile Gat|Hollandsch Diep|Amer|Nieuwe Merwede|Slaak|Krammer|Noorder Krammer|Zuid Vlije|Volkerak|Zuider Voorhaven|Krabbenkreek|Schelde|Gooimeer|Eemmeer|Nijkerkernauw|Nuldernauw|Wolderwijd|Veluwemeer|Drontermeer|Vossemeer|Ketelmeer|Zwarte Meer)' [0x3e resolution 16-21 continue]
 natural=water & name ~ '(Haringvliet|Grevelingenmeer|Deltageul|Aardappelengat|Veerse Meer|Vuile Gat|Hollandsch Diep|Amer|Nieuwe Merwede|Slaak|Krammer|Noorder Krammer|Zuid Vlije|Volkerak|Zuider Voorhaven|Krabbenkreek|Schelde|Gooimeer|Eemmeer|Nijkerkernauw|Nuldernauw|Wolderwijd|Veluwemeer|Drontermeer|Vossemeer|Ketelmeer|Zwarte Meer)' [0x3c resolution 22]
 natural=water & (name=Bodensee | name:en="Lake Geneva" | name:de=Neuenburgersee | name="Lago di Garda" | name="Lago Maggiore" | name="Lago di Como" | name="Lago di Lugano" | name="Balaton") [0x3e resolution 16-21 continue]
@@ -108,8 +109,6 @@ natural=sand | surface=sand [0x53 resolution 22 continue]
 natural=beach [0x53 resolution 20]
 natural=glacier [0x4d resolution 14]
 natural=heath [0x22 resolution 22]
-
-
 natural=marsh [0x51 resolution 22]
 natural=mud [0x51 resolution 22]
 
