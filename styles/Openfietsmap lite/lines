@@ -8,10 +8,12 @@ motorcycle=*    { delete motorcycle }
 cycleway=no { delete 'cycleway' }
 cycleway=* & bicycle=no { delete 'bicycle' }
 
+
 # access tags
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access}
 access=destination {delete access; add car=no }
+bicycle_road=yes & (car!=yes | vehicle!=destination) {set highway=cycleway}
 bicycle=dismount & highway!=footway & highway!=pedestrian {set bicycle=yes; add bicycle:dismount=yes}
 bicycle=dismount & (highway=footway | highway=pedestrian) {delete bicycle; add bicycle:dismount=yes}
 bicycle=no	{set motorcar=no; set motorcycle=no}
@@ -64,7 +66,9 @@ highway=cycleroad  { set highway=cycleway }
 cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
 cycleway=no { delete 'cycleway' }
 (cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; add motorcycle=yes; delete 'cycleway' }
-cycleway=track & (highway=path | highway=footway | highway=bridleway) {add bicycle=yes; add motorcar=no; add motorcycle=no; delete 'cycleway' }
+cycleway=track & (highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
+cycleway=lane & (highway=track | highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
+
 highway=footway & (bicycle=designated | cycleway=*) { set highway=cycleway }
 highway=path & (bicycle=designated | cycleway=*)  { set highway=cycleway }
 highway=track & (bicycle=designated) { set highway=cycleway; add mkgmap:unpaved=1; set motorcar=no; set motorcycle=no }
@@ -91,7 +95,7 @@ highway=* &  bridge!=* & surface ~ '.*(ash|bad|clay|cob|compact|dirt|earth|erde|
 highway=* &  bridge!=* & surface ~ '.*(cob|compact|gravel).*' { add unpaved=2 }
 highway=* &  bridge!=* & smoothness ~ '.*(very_bad|horrible|impassable).*' { add mkgmap:unpaved=1; set motorcar=no; set motorcycle=no }
 highway=* &  bridge!=* & 
-   (mtb:scale=* |
+   (mtb:scale>0 |
    tracktype ~ 'grade[3-6]' |
    sac_scale ~ '.*(mountain|alpine)_hiking' |
    sport=via_ferrata)
