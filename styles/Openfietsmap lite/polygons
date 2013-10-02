@@ -1,4 +1,4 @@
-space removedinclude 'inc/address';
+include 'inc/address';
 name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
 toponym=water & name=IJsselmeer [0x3b resolution 16]
