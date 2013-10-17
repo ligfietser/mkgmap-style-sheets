@@ -7,6 +7,8 @@ motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
 cycleway=no { delete 'cycleway' }
 cycleway=* & bicycle=no { delete 'bicycle' }
+(highway=motorway | highway=motorway_junction | highway=trunk | highway=footway  | route=ferry) & toll=yes {delete toll}
+highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set tollroad=yes}
 
 
 # access tags
@@ -25,7 +27,7 @@ highway=* & highway ~ '(fiets|Fiets|mtb|Mtb|bike|Bike|rad|Rad|cycleway;|;cyclewa
 highway=* & highway ~ '.*(;).*' {set highway=unclassified}
 
 # set toll and ferry flags
-highway=* & bicycle!=no {add toll=yes}
+highway=* & bicycle!=no {add toll=yes; add tollroad=no}
 route=ferry {add mkgmap:ferry=1}
 (ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes | ncn=yes | rcn=yes | lcn=yes | ncn_ref=* | rcn_ref=* | lcn_ref=* ) 
 	{ add bicycleroute=yes; set toll=no; add bicycle = yes; add foot = yes } 
@@ -131,6 +133,8 @@ bicycle:dismount=yes { add mkgmap:unpaved=1 }
 highway=cycleway & cycleway=* & cycleway!=opposite { delete 'cycleway' }
 highway=cycleway & railway=* {delete 'railway'}
 highway=cycleway & unpaved=2 {set mkgmap:unpaved=0}
+cycleway=share_busway { set cycleway=lane }
+cycleway=opposite_share_busway { set cycleway=opposite_lane }
 
 # ways under construction
 highway=construction | (highway=* & construction=* & construction!=minor) [0x10019 resolution 22]
@@ -346,5 +350,3 @@ boundary2=yes  { name '${boundary2_name}' } [0x1e resolution 21]
 boundary4=yes { name '${boundary4_name}' } [0x1d resolution 18]
 boundary8=yes { name '${boundary8_name}' } [0x1c resolution 24]
 
-
-	
