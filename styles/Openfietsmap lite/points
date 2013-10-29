@@ -1,4 +1,4 @@
- include 'inc/address';
+﻿include 'inc/address';
 boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park).*'  {set boundary=nature_reserve}
 boundary = national_park & mkgmap:line2poi!=true & national_park!=naturreservat & leisure!=nature_reserve & name=* [0x640e resolution 16]
 
@@ -64,7 +64,7 @@ tourism=picnic_site | leisure=picnic_table { add mkgmap:housenumber='fireplace:$
 amenity=bench [0x5001 resolution 24]
 #tourism=picnic_site [0x4a00 resolution 24]
 tourism=resort [0x2b04 resolution 24]
-tourism=theme_park { name '${name} ${description}' | '${name}' | '${description}' } [0x2c01 resolution 23]
+tourism=theme_park { name '${name} ${description}' | '${name}' | '${description}' } [0x2c01 resolution 22]
 tourism=wine_cellar [0x2c0a resolution 24]
 tourism=zoo [0x2c07 resolution 24]
 
@@ -331,4 +331,3 @@ bicycle=dismount & highway!=footway & highway!=pedestrian & highway!=crossing & 
 # Buildings tagged without anything but names
 
 building=* & name=* [0x6405 resolution 24]
-

@@ -1,4 +1,4 @@
-include 'inc/address';
+﻿include 'inc/address';
 name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
 toponym=water & name=IJsselmeer [0x3b resolution 16]
@@ -59,6 +59,8 @@ amenity=university & building=yes [0x13 resolution 24]
 amenity=university [0x0a resolution 20]
 
 admin_level=8 & name ~ '(Liège|Charleroi|Milano|Torino|Praha|Wien|Barcelona|Budapest)' [0x03 resolution 16-18]
+
+landuse=residential & building=yes {delete landuse}
 landuse=residential & area_size() >=500000 [0x03 resolution 14]
 landuse=residential & area_size() >=250000 & area_size() < 500000 [0x03 resolution 16]
 landuse=residential & area_size() >=50000 & area_size() < 250000 [0x03 resolution 18]
@@ -131,4 +133,3 @@ man_made=pier  [0x0e default_name="pier" resolution 23 continue]
 natural=land [0x27 resolution 20]
 natural=background [0x010200 resolution 12]
 natural=sea  [0x32 resolution 14]
-
