@@ -287,6 +287,7 @@ highway=crossing  [0x10 road_class=1 road_speed=1 resolution 23]
 #highway=* & area!=yes [0x06 road_class=0 road_speed=0 resolution 23]
 
 railway=* & covered=yes {add tunnel=yes}
+railway=* & (roller_coaster=track | sport=toboggan | attraction=rollercoaster | attraction=roller_coaster | railway=rollercoaster | railway=roller_coaster | service=rollercoaster | service=roller_coaster) [0x2a default_name="rollercoaster" resolution 22]
 railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="voormalige spoorlijn" resolution 24]
 railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=DEU | mkgmap:country=AUT) [0x15 default_name="stillgelegten Eisenbahnstrecke" resolution 24]
 railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x15 default_name="voie ferree abandonnee" resolution 24]
@@ -300,7 +301,6 @@ railway=rail & tunnel!=yes & (trainroute=yes | highspeed=yes | usage=main) [0x10
 railway=rail & tunnel!=yes & !(trainroute=yes | highspeed=yes | usage=main) [0x2a resolution 22-21 continue with_actions]
 railway=rail & tunnel!=yes & !(trainroute=yes | highspeed=yes | usage=main) [0x10114 resolution 23]
 
-railway=* & (roller_coaster=track | sport=toboggan | attraction=rollercoaster | attraction=roller_coaster | railway=rollercoaster | service=rollercoaster) [0x2a default_name="rollercoaster" resolution 22]
 (railway=subway | railway=light_rail) & (layer>0) [0x10114 resolution 22]
 (railway=subway | railway=light_rail) & (layer<0) [0x10113 resolution 22]
 railway=subway [0x10113 resolution 22]
