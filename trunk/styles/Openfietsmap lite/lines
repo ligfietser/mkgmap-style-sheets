@@ -83,7 +83,7 @@ highway=track & horse=designated & bicycle!=yes  { set highway=bridleway }
 highway=path & foot=designated & bicycle!=yes { set highway=footway }
 highway=bridleway & mkgmap:country=GBR & bicycle!=* {set highway=track}
 leisure=track & sport=cycling { set highway=cycleway }
-leisure=track & sport!=cycling { set highway=service }
+leisure=track & sport!=cycling { set highway=service; add access=no }
 
 
 bicycle=lane { set cycleway=lane }
@@ -148,7 +148,7 @@ highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22 continue]
 # bridges, tunnels, dams
 waterway=dam & highway=* [0x2b default_name="dam" resolution 23 continue with_actions]
 waterway=dam & highway!=* [0x08 default_name="dam" resolution 23 continue with_actions]
-bridge=* & bridge!=no & bridge!=proposed & area!=yes [0x2b resolution 23 continue with_actions]
+(highway=* | railway=*) & bridge=* & bridge!=no & bridge!=proposed & area!=yes [0x2b resolution 23 continue with_actions]
 highway=* & (tunnel=yes | tunnel=true | tunnel=1 | covered=yes | tunnel=building_passage)  [0x09 road_class=3 road_speed=2 resolution 23]
 waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes) {delete 'waterway'}
 
@@ -300,6 +300,7 @@ railway=rail & tunnel!=yes & (trainroute=yes | highspeed=yes | usage=main) [0x10
 railway=rail & tunnel!=yes & !(trainroute=yes | highspeed=yes | usage=main) [0x2a resolution 22-21 continue with_actions]
 railway=rail & tunnel!=yes & !(trainroute=yes | highspeed=yes | usage=main) [0x10114 resolution 23]
 
+railway=* & (roller_coaster=track | sport=toboggan | attraction=rollercoaster | attraction=roller_coaster | railway=rollercoaster | service=rollercoaster) [0x2a default_name="rollercoaster" resolution 22]
 (railway=subway | railway=light_rail) & (layer>0) [0x10114 resolution 22]
 (railway=subway | railway=light_rail) & (layer<0) [0x10113 resolution 22]
 railway=subway [0x10113 resolution 22]
@@ -350,3 +351,5 @@ boundary2=yes  { name '${boundary2_name}' } [0x1e resolution 21]
 boundary4=yes { name '${boundary4_name}' } [0x1d resolution 18]
 boundary8=yes { name '${boundary8_name}' } [0x1c resolution 24]
 
+
+	
