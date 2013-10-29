@@ -131,7 +131,7 @@ building=church & amenity!=place_of_worship { name '${name}' | '${note}' | '${de
 amenity=police [0x3001 resolution 24]
 amenity=post_office [0x2f05 resolution 24]
 amenity=pub [0x2d02 resolution 24]
-amenity=public_building [0x3007 resolution 24]
+amenity=public_building & name=* [0x3007 resolution 24]
 amenity=recycling { name '${name} (${operator})' | '${name}' | '${operator}' } [0x2f15 resolution 24]
 amenity=* & amenity ~ '.*restaurant.*' [0x2a00 resolution 24]
 #amenity=school [0x2c05 resolution 24]
