@@ -1,7 +1,7 @@
 ; 50010.typ
-; Longueur: 33067 octets
-; Fichier TYP compilé     12-10-2013     10:17:09
-; Décompilé le 25-10-2013 à 9:39:44
+; Longueur: 33155 octets
+; Fichier TYP compilé     27-11-2013     11:09:17
+; Décompilé le 27-11-2013 à 11:13:40
 
 [_id]
 ProductCode=1
@@ -1493,9 +1493,8 @@ String3=0x02,Gebiet
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 2 0"
+Xpm="0 0 1 0"
 "1 c #D8F7BA"
-"2 c #FFFFD5"
 [end]
 
 
@@ -1507,11 +1506,9 @@ String3=0x02,Gebiet
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="32 32 4 1"
+Xpm="32 32 2 1"
 "! c #FFFFD5"
 "  c none"
-"3 c #FFFFD5"
-"4 c #FFFFD5"
 "                                "
 "                                "
 "                                "
@@ -6802,6 +6799,43 @@ DayXpm="9 10 5 1"   Colormode=16
 " ####?## "
 "    #    "
 ;123456789
+[end]
+
+
+[_point]
+Type=0x044
+SubType=0x00
+String1=0x03,oplaadpunt
+String2=0x02,Ladeanschluss
+String3=0x04,charging station
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #006500"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"       !!! !!!      "
+"       !#! !#!      "
+"       !#! !#!      "
+"       !#! !#!      "
+"       !!!!!!!      "
+"      !#######!     "
+"      !#######!     "
+"      !#######!     "
+"      !#######!     "
+"       !#####!      "
+"        !###!       "
+"         !#!        "
+"         !#!        "
+"          !         "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
 [end]
 
 
