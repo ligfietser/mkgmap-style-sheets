@@ -1,7 +1,7 @@
 ; 2000.typ
-; Longueur: modified
-; Fichier TYP compilé     24-06-2013     09:47:11
-; Décompilé le 24-6-2013 à 9:47:20
+; Longueur: 13359 octets
+; Fichier TYP compilé     11-12-2013     07:05:12
+; Décompilé le 11-12-2013 à 7:07:19
 
 [_id]
 ProductCode=6
@@ -19,8 +19,8 @@ CodePage=1252
 ;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
 [_drawOrder]
 Type=0x032,1
-Type=0x027,2
 Type=0x10101,2
+Type=0x027,2
 Type=0x002,3
 Type=0x003,3
 Type=0x007,3
@@ -2532,6 +2532,25 @@ Xpm="32 1 2  1"
 "!!!!!!!!        !!!!!!!!        "
 ;12345678901234567890123456789012
 String1=0x00,Ferry
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10115
+UseOrientation=N
+Xpm="32 3 2  1"
+"! c #BD956A"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"               !!!              "
+"                !               "
+;12345678901234567890123456789012
+String1=0x04,cliff
+String2=0x03,klif
+String3=0x02,Klippe
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
