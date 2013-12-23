@@ -10,6 +10,38 @@
 
 include 'inc/address';
 
+#barrier access rules
+barrier=* & bicycle=*    { set mkgmap:bicycle='${bicycle|subst:private=>no}' }
+barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }                  
+barrier=* & hgv=*        { set mkgmap:truck='${hgv|subst:private=>no}' }                  
+barrier=* & motorcar=*   { set mkgmap:car='${motorcar|subst:private=>no}' }
+barrier=* & psv=*        { set mkgmap:bus='${psv|subst:private=>no}' }                  
+barrier=* & taxi=*       { set mkgmap:taxi='${taxi|subst:private=>no}' }                  
+barrier=* & emergency=*  { set mkgmap:emergency='${emergency|subst:private=>no}' }                  
+barrier=* & delivery=*   { set mkgmap:delivery='${delivery|subst:private=>no}' }                  
+barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
+
+barrier=bollard | barrier=cycle_barrier 
+    { add mkgmap:bicycle=yes; 
+      add mkgmap:foot=yes; 
+      addaccess no;
+      set mkgmap:road-speed=1; }
+barrier=bus_trap  
+    { add mkgmap:bus=yes; 
+      add mkgmap:foot=yes; 
+      add mkgmap:bicycle=yes; 
+      addaccess no;
+      set mkgmap:road-speed=1; }
+barrier=gate
+    { add mkgmap:bicycle=yes; 
+      add mkgmap:foot=yes; 
+      addaccess no;
+      set mkgmap:road-speed=0; }
+barrier=kissing_gate | barrier=stile | barrier=block
+    { add mkgmap:foot=yes; 
+      addaccess no;
+      set mkgmap:road-speed=0; }
+
 # don't render not relevant mkgmap:line2poi tags
 amenity=* & mkgmap:line2poi=true {delete amenity}
 barrier=* & mkgmap:line2poi=true {delete barrier}
@@ -289,3 +321,10 @@ barrier=bollard | barrier=bus_trap
     {add access = no; add bicycle = yes; add foot = yes} [0x660f resolution 24]
 barrier=block | barrier=cycle_barrier | barrier=stile | barrier=kissing_gate
     {add access = no; add foot = yes} [0x660f resolution 24]
+barrier=gate 
+    {add access = no; add bicycle = yes; add foot = yes} [0x660f resolution 24]
+	
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+name=* { name '${name}' }
+include 'inc/compat_points';
