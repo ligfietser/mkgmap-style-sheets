@@ -8,8 +8,8 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-include 'inc/address';
-include 'inc/contours';
+# Assign the street name for house number search
+highway=* & name=* { set mkgmap:street='${name}' }
 
 aeroway=runway [0x27 resolution 20]
 aeroway=taxiway [0x27 resolution 24]
@@ -163,7 +163,7 @@ highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
 
 # Some countries allow, others disallow bicycling on pedestrian streets.
 # To allow bicycling, add 'add bicycle=yes'
-highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24 continue]
+highway=pedestrian {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24 continue]
 highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
 highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
@@ -187,6 +187,7 @@ highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=
 highway=* & highway!=pedestrian & highway!=proposed [0x07 road_class=0 road_speed=1 resolution 24]
 
 #natural=coastline [0x15 resolution 12]
+natural=cliff [0x10115 resolution 24]
 #power=line [0x29 resolution 21]
 
 aerialway=cable_car | aerialway=gondola | aerialway=mixed_lift [0x00 resolution 22]
@@ -232,3 +233,7 @@ boundary=administrative & admin_level<5 [0x1d resolution 18]
 #boundary=national [0x1e resolution 17]
 #boundary=political [0x1c resolution 19]
 
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+include 'inc/address';
+include 'inc/compat_lines'; 
