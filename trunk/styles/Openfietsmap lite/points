@@ -1,5 +1,4 @@
-﻿include 'inc/address';
-boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park).*'  {set boundary=nature_reserve}
+﻿boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park).*'  {set boundary=nature_reserve}
 boundary = national_park & mkgmap:line2poi!=true & national_park!=naturreservat & leisure!=nature_reserve & name=* [0x640e resolution 16]
 
 # don't render not relevant mkgmap:line2poi tags
@@ -27,7 +26,9 @@ rcn_ref=* & name!=rvnsh & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resol
 
 include 'inc/place';
 
-
+amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") {name 'oplaadpunt ${name}' | 'oplaadpunt' } [0x4400 resolution 24 continue]
+amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & (mkgmap:country=DEU | mkgmap:country=AUT) {name 'Ladepunkt ${name}' | 'Ladepunkt' } [0x4400 resolution 24 continue]
+amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & mkgmap:country!=NLD & mkgmap:admin_level4!="Vlaanderen" & mkgmap:country!=DEU & mkgmap:country!=AUT [0x4400 resolution 24 continue]
 
 landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
 landuse=residential & name=* & AND_c=* [0x0900 resolution 23]
@@ -110,6 +111,7 @@ amenity=embassy & country!=* [0x3003 default_name 'embassy' resolution 24]
 amenity=fast_food [0x2a07 resolution 24]
 amenity=fire_station [0x3008 resolution 24]
 amenity=food_court [0x2a13 resolution 24]
+
 amenity=fuel & ((shop=* & shop!=no) | kiosk=yes) { name '${brand} (kiosk)' | '${name} (kiosk)' | '${operator} (kiosk)' | 'kiosk'} [0x2f01 resolution 24]
 amenity=fuel { name '${brand}' | '${operator}: ${name}' | '${name}' | '${operator}' } [0x2f01 resolution 24]
 amenity=grave_yard | landuse=cemetary | landuse=cemetery [0x6403 resolution 24]
@@ -146,7 +148,6 @@ amenity=university [0x2c05 resolution 24]
 amenity=vending_machine & vending=bicycle_tube [0x2f07 resolution 24 continue]
 amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
 
-
 (highway=bus_stop | railway=tram_stop)
 & (name=*|ref=*)
 & refroute!=no
@@ -162,8 +163,6 @@ amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
   set ref='${ref|def:}(${routerel_ref|not-equal:ref})';
   name '${name|def:} ${ref|def:}';
 }
-
-
 
 highway=bus_stop [0x2f08 resolution 24]
 
@@ -331,3 +330,9 @@ bicycle=dismount & highway!=footway & highway!=pedestrian & highway!=crossing & 
 # Buildings tagged without anything but names
 
 building=* & name=* [0x6405 resolution 24]
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+include 'inc/address';
+include 'inc/compat_points'; 
+

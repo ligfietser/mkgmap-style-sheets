@@ -133,3 +133,7 @@ man_made=pier  [0x0e default_name="pier" resolution 23 continue]
 natural=land [0x27 resolution 20]
 natural=background [0x010200 resolution 12]
 natural=sea  [0x32 resolution 14]
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+include 'inc/compat_points'; 
