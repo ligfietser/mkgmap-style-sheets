@@ -14,7 +14,7 @@ int_ref=* { addlabel '${int_ref|part:;:1}'; addlabel '${int_ref|part:;:2}'; addl
 nat_ref=* { addlabel '${nat_ref|part:;:1}'; addlabel '${nat_ref|part:;:2}'; addlabel '${nat_ref|part:;:3}' }
 reg_ref=* { addlabel '${reg_ref|part:;:1}'; addlabel '${reg_ref|part:;:2}'; addlabel '${reg_ref|part:;:3}' }
 
-highway=* & mkgmap:label:1!=* & mkgmap:street!=* { add mkgmap:street='${mkgmap:label:1}' }
+highway=* & mkgmap:label:1=* & mkgmap:street!=* { add mkgmap:street='${mkgmap:label:1}' }
 
 toll=* { set mkgmap:toll='${toll}' }
 
