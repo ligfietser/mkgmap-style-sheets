@@ -81,9 +81,9 @@ bicycle=designated { set bicycle=yes; add motorcar=yes }
 highway=path & surface ~ '(paved|paving_stones|concrete|asphalt).*' { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
 highway=footway & surface ~ '(paved|paving_stones|concrete|asphalt).*'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
 highway=steps & area=yes { set highway=pedestrian; add bicycle=no; add motorcar=no; }
-highway=path & horse=designated & bicycle!=yes  { set highway=bridleway }
-highway=track & horse=designated & bicycle!=yes  { set highway=bridleway }
 highway=path & foot=designated & bicycle!=yes { set highway=footway }
+highway=path & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway }
+highway=track & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway }
 highway=bridleway & mkgmap:country=GBR & bicycle!=* {set highway=track}
 leisure=track & sport=cycling { set highway=cycleway }
 leisure=track & sport!=cycling { set highway=service; add access=no }
@@ -158,6 +158,7 @@ waterway=* & layer=-1 {delete 'waterway'}
 
 
 #roads not allowed for cycling
+highway=* & bicycle!=yes & (sac_scale ~ '.*alpine_hiking' | via_ferrata_scale>0) [0x10102 resolution 24]
 
 highway=motorway [0x10000  resolution 18-19 continue with_actions]
 highway=motorway [0x10014 resolution 20-21 continue with_actions]
@@ -174,9 +175,10 @@ highway=unclassified & (access=no|access=private|access=destination) &  bicycle=
 cyclestreet=yes | no_car=yes [0x10116 resolution 23 continue with_actions]
 cycleway=lane & oneway!=yes {add bicycle = yes; add foot = yes; add motorcar=yes } [0x26 resolution 23 continue with_actions]
 (cycleway=track | cycleway=lane) & oneway=yes  [0x10005 resolution 23 continue with_actions]
-cycleway=opposite_lane & oneway=-1 [0x10005 resolution 23 continue with_actions]
 cycleway=right [0x10005 resolution 23 continue with_actions]
+
 cycleway=left | (cycleway=opposite_lane & oneway=yes) [0x10006 resolution 23 continue with_actions]
+cycleway=opposite_lane & oneway=-1 [0x10006 resolution 23 continue with_actions]
 cycleway=track & highway!=track & oneway!=yes [0x10009 resolution 23 continue with_actions]
 
 
@@ -185,10 +187,9 @@ cycleway=track & highway!=track & oneway!=yes [0x10009 resolution 23 continue wi
 
 # display direction arrows
 highway=* & (oneway=yes | bicycle:oneway=yes ) & (cycling!=twoway) & bicycle!=no [0x10007 resolution 24 continue with_actions]
-highway=* & (oneway=yes | bicycle:oneway=yes ) & (cycling=twoway)  [0x10008 resolution 24 continue with_actions]
-
-highway=* & (oneway=-1 | bicycle:oneway=-1 ) & (cycling!=twoway) & bicycle!=no  [0x10010 resolution 24 continue with_actions]
-highway=* & (oneway=-1 | bicycle:oneway=-1 ) & (cycling=twoway) [0x10011 resolution 24 continue with_actions]
+highway=* & cycleway=lane & cycling=twoway  [0x10011 resolution 24 continue with_actions]
+highway=* & (cycleway=opposite_lane | cycleway=opposite | bicycle:oneway=no) & cycling=twoway  [0x10008 resolution 24 continue with_actions]
+highway=* & (oneway=-1 | bicycle:oneway=-1 ) & (cycling!=twoway) & bicycle!=no  [0x10007 resolution 24 continue with_actions]
 
 (cycling=twoway | bicycle:oneway=no | oneway:bicycle=no)   {delete 'oneway'}
 
