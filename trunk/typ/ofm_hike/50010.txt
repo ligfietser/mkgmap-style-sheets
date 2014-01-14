@@ -1,7 +1,7 @@
-; 50010.typ
-; Longueur: 33155 octets
-; Fichier TYP compilé     27-11-2013     11:09:17
-; Décompilé le 27-11-2013 à 11:13:40
+; 50010.txt
+; Longueur: 0 octets
+; Fichier TYP compilé 
+; Décompilé le 14-1-2014 à 11:03:33
 
 [_id]
 ProductCode=1
@@ -2806,6 +2806,21 @@ String2=0x03,pad (niet toegankelijk)
 String3=0x02,Pfad (Benutzung nicht erlaubt)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10102
+UseOrientation=N
+Xpm="32 1 2  1"
+"! c #BD95B4"
+"  c none"
+"!!!!    !!!!    !!!!    !!!!    "
+;12345678901234567890123456789012
+String1=0x04,alpine hiking trail
+ExtendedLabels=Y
+FontStyle=SmallFont
 CustomColor=No
 [end]
 
