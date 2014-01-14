@@ -110,21 +110,16 @@ man_made = water_tower | man_made=tower [0x13 resolution 24]
 
 natural=beach [0x53 resolution 20]
 natural=bedrock | natural=cliff | natural=scree | natural=rock [0x40 resolution 20]
-
 natural=glacier [0x4d resolution 14]
 natural=heath [0x20 resolution 21]
-
 natural=marsh [0x51 resolution 21]
 natural=mud [0x51 resolution 21]
-natural=sea  [0x32 resolution 12]
 natural=fell [0x41 resolution 20]
 
 
-(shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
-
-# Buildings with names
+# Buildings
 building=* & name=* [0x06 resolution 24]
-
+(shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
 
 # squares and plazas
 waterway=dam  [0x0e default_name="dam" resolution 22]
@@ -133,7 +128,6 @@ area:highway=* [0x0e resolution 24]
 man_made=pier  [0x0e default_name="pier" resolution 23 continue]
 #man_made=reinforced_slope | man_made=groyne [0x27 resolution 24]
 (public_transport=platform | railway=platform) & area=yes { name '${name}' | '${ref}' } [0x0e default_name="perron" resolution 23]
-
 
 natural=land [0x27 resolution 20]
 natural=background [0x010200 resolution 12]
