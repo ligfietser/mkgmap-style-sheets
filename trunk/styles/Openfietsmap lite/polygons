@@ -28,6 +28,7 @@ waterway=riverbank & area_size() >=100000 & area_size() < 250000     [0x3e resol
 waterway=riverbank [0x3c resolution 22]
 (waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 22] 
 (waterway=drain | waterway=stream)  & natural!=water   [0x3c resolution 24]
+waterway=wadi [0x40 default_name="wadi/wash" resolution 21]
 
 aeroway=runway & is_closed()=true [0x05 default_name="aeroway" resolution 22]
 aeroway=airport [0x07 resolution 18]
@@ -107,12 +108,16 @@ leisure=stadium [0x19 resolution 24 continue]
 
 man_made = water_tower | man_made=tower [0x13 resolution 24]
 
-natural=sand | surface=sand [0x53 resolution 22 continue]
 natural=beach [0x53 resolution 20]
+natural=bedrock | natural=cliff | natural=scree | natural=rock [0x40 resolution 20]
+
 natural=glacier [0x4d resolution 14]
-natural=heath [0x22 resolution 22]
-natural=marsh [0x51 resolution 22]
-natural=mud [0x51 resolution 22]
+natural=heath [0x20 resolution 21]
+
+natural=marsh [0x51 resolution 21]
+natural=mud [0x51 resolution 21]
+natural=sea  [0x32 resolution 12]
+natural=fell [0x41 resolution 20]
 
 
 (shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
