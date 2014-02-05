@@ -31,6 +31,11 @@ type=multipolygon
   }
 }
 
+boundary=administrative {
+	apply {
+		set member=yes;
+	}
+}
 
 (type=boundary | type=multipolygon) & boundary=administrative & admin_level=2
 { apply
