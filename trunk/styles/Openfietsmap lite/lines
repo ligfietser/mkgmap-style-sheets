@@ -53,7 +53,7 @@ highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
 highway=trunk_link { set highway=trunk }
 (highway=trunk | highway=motorway)  & cycleway=* { set highway=motorway_bike }
 (highway=trunk | highway=motorway)  & bicycle=yes { set highway=motorway_bike }
-(highway=trunk | highway=motorway)  & bicycleroute=yes { set highway=motorway_bike }
+(highway=trunk | highway=motorway)  & bicycleroute=yes { set highway=primary }
 highway=trunk & mkgmap:country ~ '(NLD|BEL|LUX|FRA|DEU|AUT|CHE|DNK|HUN|ROU)' { set highway=motorway }
 highway=trunk & bicycle=no { set highway=motorway }
 highway=trunk { set highway=primary }
@@ -153,8 +153,8 @@ waterway=dam & highway=* [0x2b default_name="dam" resolution 23 continue with_ac
 waterway=dam & highway!=* [0x08 default_name="dam" resolution 23 continue with_actions]
 (highway=* | railway=*) & bridge=* & bridge!=no & bridge!=proposed & area!=yes [0x2b resolution 23 continue with_actions]
 highway=* & (tunnel=yes | tunnel=true | tunnel=1 | covered=yes | tunnel=building_passage)  [0x09 road_class=3 road_speed=2 resolution 23]
-waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes) {delete 'waterway'}
-waterway=* & layer=-1 {delete 'waterway'}
+waterway=* & (tunnel=yes | tunnel=culvert | culvert=yes | covered=yes) {delete 'waterway'}
+#waterway=* & layer=-1 {delete 'waterway'}
 
 
 #roads not allowed for cycling
@@ -341,7 +341,7 @@ waterway=weir [0x15 default_name="weir" resolution 24]
 
 #other line elements
 man_made=wildlife_crossing & natural!=* & landuse!=* & highway!=* & area!=yes [0x15 default_name="ecoduct" resolution 22]
-#natural=coastline [0x10218 resolution 16]
+#natural=coastline [0x25 resolution 18]
 natural=cliff [0x10115  resolution 23]
 barrier=city_wall | barrier=wall  [0x10012 resolution 23 continue]
 
@@ -351,11 +351,11 @@ man_made=pier & (area!=yes | is_closed()=true) [0x08 road_class=0 road_speed=0 r
 # The boundary styles are after the highway rules because ways
 # are frequently tagged with both and we want the highway to take priority.
 
-maritime=yes [0x1001f resolution 14]
-boundary2=yes { name '${boundary2_name}' }  [0x1001e resolution 14-20 continue]
-boundary2=yes  { name '${boundary2_name}' } [0x1e resolution 21]
-boundary4=yes { name '${boundary4_name}' } [0x1d resolution 18]
-boundary8=yes { name '${boundary8_name}' } [0x1c resolution 24]
+boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' }  [0x1001e resolution 14-20 continue]
+boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' } [0x1e resolution 21]
+boundary4=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary4_name}' } [0x1d resolution 18]
+boundary8=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary8_name}' } [0x1c resolution 24]
+
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
