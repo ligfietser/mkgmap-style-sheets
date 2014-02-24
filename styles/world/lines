@@ -119,6 +119,7 @@ junction=roundabout & highway=secondary [0x0c road_class=2 road_speed=2 resoluti
 junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
 junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
 junction=roundabout & !(highway=unclassified|highway=tertiary|highway=secondary|highway=primary| highway=trunk) [0x0c road_class=0 road_speed=1 resolution 22 continue with_actions]
+junction=roundabout {set access=no}
 
 # Ways that may or may not be useable
 
