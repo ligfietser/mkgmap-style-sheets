@@ -285,7 +285,9 @@ shop=outdoor [0x2e01 resolution 24]
 shop=supermarket [0x2e02 resolution 24]
 #shop=tires [0x2f07 resolution 24]
 #shop=tyres [0x2f07 resolution 24]
-shop=* { name '${name} (${shop})' | '${name}' | '${shop}' } [0x2e03 resolution 24]
+shop=* & name!=* {delete shop}
+shop=* & shop=yes { name '${name}' } [0x2e03 resolution 24]
+shop=* { name '${name} (${shop})' } [0x2e03 resolution 24]
 
 #sport=9pin [0x2d07 resolution 24]
 #sport=10pin [0x2d07 resolution 24]
