@@ -94,6 +94,8 @@ highway=*
 & surface!=* & tracktype!=* & smoothness!=* & sac_scale!=*
 { add mkgmap:unpaved=1 }
 
+highway ~  '.*(trunk|primary|secondary|tertiary|unclassified|residential|minor|road).*' & mkgmap:unpaved=1 { add mkgmap:road-speed = '-1' } [0x10002 resolution 21 continue with_actions]
+highway ~  '.*(byway|living_street|service|cycleway).*' & mkgmap:unpaved=1 [0x10002 resolution 23 continue with_actions]
 # Convert generic path to most specific
 highway=footway & snowplowing!=no
 & (bicycle=yes|bicycle=designated|bicycle=permissive|bicycle=official)
@@ -218,16 +220,17 @@ waterway=ditch | barrier=ditch  [0x18 resolution 24]
 waterway=rapids|waterway=waterfall [0x1f resolution 22]
 
 
-man_made=cable|(man_made=* & man_made ~ '.*pipe.*')
+(man_made=cable|(man_made=* & man_made ~ '.*pipe.*')) & area!=yes &
+tunnel!=yes & location != underground
 {name '${name} (${operator})' | '${name}' | '${operator}' }
 [0x28 resolution 23]
 
 # The following boundary styles are after the highway rules because ways
 # are frequently tagged with both and we want the highway to take priority.
 boundary=administrative { name '${mkgmap:boundary_name}' }
-boundary=administrative & admin_level<3 [0x1c resolution 16-17 continue]
-boundary=administrative & admin_level<3 [0x1e resolution 18]
-boundary=administrative & admin_level<5 [0x1d resolution 18]
+boundary=administrative & admin_level<3 & maritime!=yes [0x1c resolution 16-17 continue]
+boundary=administrative & admin_level<3 & maritime!=yes [0x1e resolution 18]
+boundary=administrative & admin_level<5 & maritime!=yes & natural!=coastline [0x1d resolution 18]
 #boundary=administrative & admin_level<7 [0x1c resolution 21]
 #boundary=administrative & admin_level<9 [0x1c resolution 22]
 #boundary=administrative [0x1c resolution 22]
