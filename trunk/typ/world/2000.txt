@@ -2466,6 +2466,30 @@ CustomColor=No
 
 
 [_line]
+Type=0x10002
+UseOrientation=N
+Xpm="32 7 2  1"
+"! c #7B6500"
+"  c none"
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+String1=0x04,unpaved
+String2=0x03,onverhard
+String3=0x02,Unbefestigt
+String4=0x01,sans revêtement
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
 Type=0x10007
 UseOrientation=N
 Xpm="32 4 2  1"
