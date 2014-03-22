@@ -23,6 +23,29 @@
   }
 }
 
+boundary=administrative {
+	apply {
+		set member=yes;
+	}
+}
+
+(type=boundary | type=multipolygon) & boundary=administrative & admin_level=2
+{ apply
+  {
+    set boundary2_name='$(boundary2_name)/${name}' | '${name}';
+	set boundary2=yes;
+  }
+}
+(type=boundary | type=multipolygon) & boundary=administrative & name=* & admin_level=4
+{ apply
+  {
+    set boundary4_name='$(boundary4_name)/${name}' | '${name}';
+	set boundary4=yes;
+  }
+}
+
+
+
 # Public transportation routes.
 # We could want to sort the matching relations by ref first.
 type=route
