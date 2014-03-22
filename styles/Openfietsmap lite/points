@@ -1,4 +1,7 @@
-﻿boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park).*'  {set boundary=nature_reserve}
+﻿include 'inc/address';
+name=* & mkgmap:country ~ '(MAR|TUN|DZA|ESH|MRT|LBY)' {name '${int_name}' | '${name:fr}' |  '${name:en}' |  '${name}' }
+
+boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park).*'  {set boundary=nature_reserve}
 boundary = national_park & mkgmap:line2poi!=true & national_park!=naturreservat & leisure!=nature_reserve & name=* [0x640e resolution 16]
 
 # don't render not relevant mkgmap:line2poi tags
@@ -339,6 +342,5 @@ building=* & name=* [0x6405 resolution 24]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
-include 'inc/address';
 include 'inc/compat_points'; 
 

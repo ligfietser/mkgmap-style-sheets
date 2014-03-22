@@ -1,8 +1,9 @@
 # Assign the street name for house number search
 highway=* & name=* { set mkgmap:street='${name}' }
-
 include 'inc/address';
 include 'inc/contours';
+name=* & mkgmap:country ~ '(MAR|TUN|DZA|ESH|MRT|LBY)' {name '${int_name}' | '${name:fr}' |  '${name:en}' |  '${name}' }
+
 
 # clear tags
 motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
@@ -262,8 +263,6 @@ highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicyclero
 
 (highway=path | highway=footway) & bicycleroute!=yes  [0x15 resolution 22-22 continue with_actions]
 (highway=path | highway=footway) & bicycleroute!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x0a road_class=0 road_speed=0 resolution 23]
-
-#highway=bridleway & bicycle!=yes & bicycle!=designated & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x290a road_class=0 road_speed=0 resolution 23]
 
 highway=bridleway & bicycle!=yes & bicycle!=designated & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x2915 road_class=0 road_speed=0 resolution 23]
 
