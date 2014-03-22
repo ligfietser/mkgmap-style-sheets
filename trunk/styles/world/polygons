@@ -9,6 +9,7 @@
 # for more information.
 
 include 'inc/address';
+name=* & mkgmap:country ~ '(MAR|TUN|DZA|ESH|MRT|LBY)' {name '${int_name}' | '${name:fr}' |  '${name:en}' |  '${name}' }
 
 boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
 boundary = national_park & protect_class > 2 {set boundary=nature_reserve}
