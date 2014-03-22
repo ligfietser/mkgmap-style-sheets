@@ -1,5 +1,5 @@
-﻿landuse=* & CLC:id=FR-246825 {delete landuse}
-include 'inc/address';
+﻿include 'inc/address';
+name=* & mkgmap:country ~ '(MAR|TUN|DZA|ESH|MRT|LBY)' {name '${int_name}' | '${name:fr}' |  '${name:en}' |  '${name}' }
 name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
 toponym=water & name=IJsselmeer [0x3b resolution 16]
