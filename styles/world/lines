@@ -132,10 +132,7 @@ oneway=yes | oneway=1 | oneway=true [0x10000 resolution 24 continue with_actions
 oneway=-1 [0x10001 resolution 24 continue with_actions]
 
 # make opposite cycleways
-highway=* & ( oneway=yes | oneway=1 | oneway=true ) & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set oneway=no; set access=no; set bicycle=yes; set 2cycleway=1} [0x10 road_speed=1 road_class=1 continue with_actions]
-highway=* & oneway=-1 & 2cycleway!=1 & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set oneway=no; set access=no; set bicycle=yes; set 2cycleway=-1} [0x10 road_speed=1 road_class=1 continue with_actions]
-highway=* & 2cycleway=1 {set access=yes; set oneway=1; set bicycle=no}
-highway=* & 2cycleway=-1 {set access=yes; set oneway=-1; set bicycle=no}
+oneway=* & highway ~  '(primary|secondary|tertiary|unclassified|residential|minor|living_street|service)' & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set bicycle=no; set mkgmap:cycleway=yes}
 
 # ways under construction, disused
 highway=construction  {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
@@ -157,20 +154,20 @@ highway=* & motorroad=yes {add bicycle = no; add foot = no}
 highway=trunk [0x02 road_class=4 road_speed=5 resolution 18]
 highway=trunk_link [0x09 road_class=3 road_speed=2 resolution 20]
 highway=* & highway!=proposed & motorroad=yes [0x02 road_class=4 road_speed=4 resolution 18]
-highway=primary [0x03 road_class=3 road_speed=4 resolution 19]
+highway=primary [0x03 road_class=3 road_speed=4 resolution 19 continue with_actions]
 highway=primary_link [0x08 road_class=3 road_speed=1 resolution 21]
-highway=secondary [0x04 road_class=2 road_speed=3 resolution 20]
+highway=secondary [0x04 road_class=2 road_speed=3 resolution 20 continue with_actions]
 highway=secondary_link [0x08 road_class=2 road_speed=1 resolution 22]
-highway=tertiary [0x05 road_class=1 road_speed=3 resolution 20]
+highway=tertiary [0x05 road_class=1 road_speed=3 resolution 20 continue with_actions]
 highway=tertiary_link [0x08 road_class=1 road_speed=1 resolution 22]
-highway=minor [0x06 road_class=1 road_speed=3 resolution 21]
-highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
+highway=minor [0x06 road_class=1 road_speed=3 resolution 21 continue with_actions]
+highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21 continue with_actions]
 
 # Some countries allow, others disallow bicycling on pedestrian streets.
 # To allow bicycling, add 'add bicycle=yes'
 highway=pedestrian {add access = no; add foot = yes} [0x11 road_class=0 road_speed=0 resolution 24 continue]
-highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
-highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
+highway=living_street [0x06 road_class=0 road_speed=1 resolution 22 continue with_actions]
+highway=residential [0x06 road_class=0 road_speed=2 resolution 22 continue with_actions]
 highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
 highway=byway [0x16 road_class=0 road_speed=0 resolution 24]
 
@@ -178,8 +175,11 @@ highway=service & service=parking_aisle
 [0x07 road_class=0 road_speed=1 resolution 24]
 highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
-highway=service [0x07 road_class=0 road_speed=2 resolution 22]
+highway=service [0x07 road_class=0 road_speed=2 resolution 22 continue with_actions]
 
+#cycleways
+mkgmap:cycleway=yes {set access=no; set oneway=no; set bicycle=yes} [0x10 road_speed=1 road_class=1 resolution 24]
+mkgmap:cycleway!=yes & highway ~  '(primary|secondary|tertiary|unclassified|residential|minor|living_street|service)' {delete 'highway'}
 highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x10 road_class=1 road_speed=1 resolution 24]
 
 highway=footway|highway=path {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 24]
