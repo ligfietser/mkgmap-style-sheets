@@ -72,3 +72,6 @@ mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 
 mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
 #addr:housenumber=* { set name='${addr:street} ${addr:housenumber}' | '${addr:housenumber}' } [0x2900 resolution 24 continue]
+
+# use name:fr in N-Africa
+name=* & mkgmap:country ~ '(MAR|TUN|DZA|ESH|MRT|LBY)' {name '${int_name}' | '${name:fr}' |  '${name:en}' |  '${name}' }
