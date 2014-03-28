@@ -92,3 +92,5 @@ mkgmap:phone!=* & contact:phone=* { add mkgmap:phone='${contact:phone}' }
 
 mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 
+# Use name:fr in N-African countries if available
+name=* & mkgmap:country ~ '(MAR|TUN|DZA|ESH|MRT|LBY)' {name '${int_name}' | '${name:fr}' |  '${name:en}' |  '${name}' }
