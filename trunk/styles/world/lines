@@ -11,7 +11,6 @@
 # Assign the street name for house number search
 highway=* & name=* { set mkgmap:street='${name}' }
 include 'inc/address';
-name=* & mkgmap:country ~ '(MAR|TUN|DZA|ESH|MRT|LBY)' {name '${int_name}' | '${name:fr}' |  '${name:en}' |  '${name}' }
 
 aeroway=runway [0x27 resolution 20]
 aeroway=taxiway [0x27 resolution 24]
@@ -233,7 +232,7 @@ boundary=administrative { name '${mkgmap:boundary_name}' }
 boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' }  [0x1c resolution 14-17 continue]
 boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' } [0x1e resolution 18]
 boundary4=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary4_name}' } [0x1d resolution 18]
+
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
-include 'inc/address';
 include 'inc/compat_lines'; 
