@@ -1,7 +1,7 @@
 ; 2000.typ
-; Longueur: 13359 octets
-; Fichier TYP compilé     11-12-2013     07:05:12
-; Décompilé le 11-12-2013 à 7:07:19
+; Longueur: 13429 octets
+; Fichier TYP compilé     06-04-2014     22:09:34
+; Décompilé le 6-4-2014 à 22:09:37
 
 [_id]
 ProductCode=6
@@ -2184,6 +2184,25 @@ Xpm="32 3 4  1"
 String1=0x04,steps
 String2=0x03,trap
 String3=0x02,Treppe
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x14
+UseOrientation=N
+Xpm="32 3 2  1"
+"! c #838383"
+"# c #FFFFFF"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"####!!!!!!!!#########!!!!!!!!###"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x04,railway
+String2=0x03,spoorweg
+String3=0x02,Eisenbahn
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
