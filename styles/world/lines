@@ -204,8 +204,10 @@ natural=cliff [0x10115 resolution 24]
 aerialway=cable_car | aerialway=gondola | aerialway=mixed_lift [0x00 resolution 22]
 aerialway=t-bar  | aerialway=chair_lift  [0x00 resolution 24]
 
-railway=rail & !(tunnel=yes) [0x10015 resolution 22-20 continue]
-railway=rail & !(tunnel=yes) [0x10014 resolution 24]
+railway=rail & tunnel=yes  [0x10113 resolution 20 continue with_actions]
+railway=rail & tunnel!=yes & (trainroute=yes | highspeed=yes | usage=main) [0x10015 resolution 18-21 continue with_actions]
+railway=rail & tunnel!=yes & (trainroute=yes | highspeed=yes | usage=main) [0x10014 resolution 22 continue]
+railway=rail & tunnel!=yes  [0x14 resolution 24]
 
 #railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
 railway=light_rail & !(tunnel=yes) [0x10015 default_name="light rail" resolution 22]
