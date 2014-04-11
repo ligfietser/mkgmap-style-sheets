@@ -1,11 +1,11 @@
 ; 2000.typ
-; Longueur: 13429 octets
-; Fichier TYP compilé     06-04-2014     22:09:34
-; Décompilé le 6-4-2014 à 22:09:37
+; Longueur: 13803 octets
+; Fichier TYP compilé     11-04-2014     23:53:18
+; Décompilé le 11-4-2014 à 23:53:21
 
 [_id]
-ProductCode=6
-FID=2000
+ProductCode=1
+FID=30010
 CodePage=1252
  [End]
 
@@ -2610,7 +2610,7 @@ String1=0x04,Shelter
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="16 16 16 1"   Colormode=16
+DayXpm="16 16 16 1"   Colormode=0
 "!	c #0095D5"
 "#	c #3995D5"
 "%	c #39CAD5"
@@ -2784,7 +2784,7 @@ String1=0x04,parking
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="12 12 16 1"   Colormode=16
+DayXpm="12 12 16 1"   Colormode=0
 "!	c #0393DB"
 "#	c #159BDD"
 "%	c #22A1DF"
@@ -2822,7 +2822,7 @@ Type=0x02f
 SubType=0x0c
 String1=0x04,Tourist Information
 ExtendedLabels=N
-DayXpm="16 16 41 2"   Colormode=16
+DayXpm="16 16 41 2"   Colormode=0
 "!!	c #734A08"
 "!#	c #744B09"
 "!%	c #744B0A"
@@ -2886,11 +2886,47 @@ DayXpm="16 16 41 2"   Colormode=16
 
 [_point]
 Type=0x02f
+SubType=0x11
+String1=0x04,postbox
+String2=0x03,brievenbus
+String3=0x02,Briefkasten
+ExtendedLabels=N
+DayXpm="20 20 4 1"   Colormode=16
+"!	c #FFCA00"
+"#	c #101010"
+"%	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"       %%%%%%%      "
+"       %!!!!!%      "
+"       %!###!%      "
+"       %!!!!!%      "
+"       %!!!!!%      "
+"       %!!!!!%      "
+"       %%%%%%%      "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x02f
 SubType=0x13
 String1=0x04,bicycle shop
 String2=0x03,fietsenmaker
 ExtendedLabels=N
-DayXpm="16 16 16 1"   Colormode=16
+DayXpm="16 16 16 1"   Colormode=0
 "!	c #AE3EAE"
 "#	c #B249B2"
 "%	c #B857B8"
@@ -3013,7 +3049,7 @@ Type=0x02f
 SubType=0x1c
 String1=0x04,Toilet
 ExtendedLabels=N
-DayXpm="20 20 95 2"   Colormode=16
+DayXpm="20 20 95 2"   Colormode=0
 "!!	c #734A08"
 "!#	c #744B09"
 "!%	c #744B0A"
