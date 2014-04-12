@@ -1,7 +1,7 @@
 ; 2000.typ
 ; Longueur: 13803 octets
-; Fichier TYP compilé     11-04-2014     23:53:18
-; Décompilé le 11-4-2014 à 23:53:21
+; Fichier TYP compilé     12-04-2014     09:29:38
+; Décompilé le 12-4-2014 à 9:29:40
 
 [_id]
 ProductCode=1
@@ -2890,7 +2890,9 @@ SubType=0x11
 String1=0x04,postbox
 String2=0x03,brievenbus
 String3=0x02,Briefkasten
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
 DayXpm="20 20 4 1"   Colormode=16
 "!	c #FFCA00"
 "#	c #101010"
@@ -2904,13 +2906,13 @@ DayXpm="20 20 4 1"   Colormode=16
 "                    "
 "                    "
 "                    "
-"       %%%%%%%      "
-"       %!!!!!%      "
-"       %!###!%      "
-"       %!!!!!%      "
-"       %!!!!!%      "
-"       %!!!!!%      "
-"       %%%%%%%      "
+"                    "
+"        !!!!!       "
+"        !###!       "
+"        !!!!!       "
+"        !!!!!       "
+"        !!!!!       "
+"                    "
 "                    "
 "                    "
 "                    "
