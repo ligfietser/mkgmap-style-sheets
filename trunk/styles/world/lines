@@ -126,9 +126,9 @@ junction=roundabout {set access=no}
 
 # Ways that may or may not be useable
 
-# display direction arrows
-oneway=yes | oneway=1 | oneway=true [0x10000 resolution 24 continue with_actions]
-oneway=-1 [0x10001 resolution 24 continue with_actions]
+# display direction arrows on highways
+highway=* & (oneway=yes | oneway=1 | oneway=true) [0x10000 resolution 24 continue with_actions]
+highway=* &  oneway=-1 [0x10001 resolution 24 continue with_actions]
 
 # make opposite cycleways
 oneway=* & highway ~  '(primary|secondary|tertiary|unclassified|residential|minor|living_street|service)' & ( cycleway=opposite | cycleway=opposite_lane | cycleway=opposite_track | oneway:bicycle=no | bicycle:oneway=no ) {set bicycle=no; set mkgmap:cycleway=yes}
