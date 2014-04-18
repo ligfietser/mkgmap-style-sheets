@@ -105,14 +105,14 @@ place=islet & name=* [0x53 resolution 20]
 shop=* [0x08 resolution 22]
 
 # squares and plazas
-highway=pedestrian & area=yes [0x0e resolution 22]
-railway=platform & area=yes [0x0e default_name="platform" resolution 22]
+(public_transport=platform | railway=platform) [0x0e default_name="platform" resolution 22]
+highway=pedestrian [0x0e resolution 22]
 # other highways that have area=yes set must be parking lots
 highway=* & area=yes [0x05 resolution 22]
-highway=* & area=yes [0x0e resolution 24]
 area:highway=* [0x0e resolution 24]
-
 waterway=dam  [0x0e default_name="dam" resolution 22]
+man_made=pier  [0x0e default_name="pier" resolution 23 continue]
+
 #waterway=riverbank [0x46 resolution 18]
 (waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 18] 
 (waterway=drain | waterway=stream)  & natural!=water   [0x3c resolution 22]
