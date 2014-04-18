@@ -89,12 +89,12 @@ highway ~  '.*(byway|living_street|service|cycleway).*' & mkgmap:unpaved=1 [0x10
 # Convert generic path to most specific
 highway=footway & snowplowing!=no
 & (bicycle=yes|bicycle=designated|bicycle=permissive|bicycle=official)
-{set highway=cycleway; set bicycle=yes}
+{set highway=cycleway}
 highway=path & snowplowing!=no
 & (bicycle=designated|bicycle=permissive|bicycle=official)
-{set highway=cycleway; set bicycle=yes}
+{set highway=cycleway}
 highway=path & (horse=designated|horse=permissive|horse=official)
-{set highway=bridleway; set horse=yes}
+{set highway=bridleway}
 
 leisure=track & area!=yes
 {add highway=footway; name '${name} (${sport})' | '${name}'}
