@@ -1,7 +1,7 @@
-; 2000.typ
-; Longueur: 13796 octets
-; Fichier TYP compilé     18-04-2014     12:55:18
-; Décompilé le 18-4-2014 à 12:55:21
+; 2000.txt
+; Longueur: 0 octets
+; Fichier TYP compilé 
+; Décompilé le 25-4-2014 à 22:57:53
 
 [_id]
 ProductCode=6
@@ -3206,6 +3206,41 @@ DayXpm="24 24 3 1"   Colormode=16
 "                        "
 "                        "
 ;123456789012345678901234
+[end]
+
+
+[_point]
+Type=0x064
+SubType=0x11
+String1=0x04,tower
+String2=0x03,toren
+String3=0x02,Turm
+ExtendedLabels=N
+DayXpm="20 20 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"         #          "
+"        #!#         "
+"       #!!!#        "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      #!!!!!#       "
+"      ########      "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
 [end]
 
 
