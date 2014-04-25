@@ -1,11 +1,11 @@
 ; 2000.typ
-; Longueur: 13803 octets
-; Fichier TYP compilé     12-04-2014     09:29:38
-; Décompilé le 12-4-2014 à 9:29:40
+; Longueur: 13796 octets
+; Fichier TYP compilé     18-04-2014     12:55:18
+; Décompilé le 18-4-2014 à 12:55:21
 
 [_id]
-ProductCode=1
-FID=30010
+ProductCode=6
+FID=2000
 CodePage=1252
  [End]
 
@@ -2138,12 +2138,11 @@ CustomColor=No
 [_line]
 Type=0x10
 UseOrientation=N
-Xpm="32 2 2  1"
-"! c #BD0000"
-"  c none"
-"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
-"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
-;12345678901234567890123456789012
+LineWidth=2
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FFFFFF"
+"2 c #7B0000"
 String1=0x04,cycleway
 String2=0x03,Fietspad
 String3=0x02,Radweg
@@ -2156,15 +2155,14 @@ CustomColor=No
 [_line]
 Type=0x11
 UseOrientation=N
-LineWidth=3
-Xpm="0 0 2 0"
+LineWidth=5
+Xpm="0 0 1 0"
 "1 c #BDCAB4"
-"2 c #414141"
 String1=0x04,pedestrian zone
 String2=0x03,Voetgangerszone
 String3=0x02,Fußgängerzone
 ExtendedLabels=Y
-FontStyle=SmallFont
+FontStyle=NormalFont
 CustomColor=No
 [end]
 
@@ -2396,19 +2394,21 @@ CustomColor=No
 [_line]
 Type=0x2b
 UseOrientation=N
-Xpm="32 10 4  1"
+Xpm="32 12 4  1"
 "! c #626262"
-"# c #FFFFFF"
+"  c none"
 "3 c #FFFFFF"
 "4 c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
@@ -2424,11 +2424,10 @@ CustomColor=No
 [_line]
 Type=0x10000
 UseOrientation=N
-Xpm="32 14 4  1"
-"! c #B4B4B4"
+Xpm="32 15 2  1"
+"! c #0065FF"
 "  c none"
-"3 c #FFFF00"
-"4 c none"
+"                                "
 "                                "
 "                                "
 "                                "
@@ -2455,11 +2454,9 @@ CustomColor=No
 [_line]
 Type=0x10001
 UseOrientation=N
-Xpm="32 15 4  1"
-"! c #B4B4B4"
+Xpm="32 15 2  1"
+"! c #0065FF"
 "  c none"
-"3 c #FFFF00"
-"4 c none"
 "                                "
 "                                "
 "                                "
