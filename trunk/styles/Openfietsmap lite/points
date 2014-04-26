@@ -102,7 +102,6 @@ amenity=concert_hall [0x2c09 resolution 24]
 amenity=conference_centre [0x2c09 resolution 24]
 amenity=convention_center [0x2c09 resolution 24]
 amenity=community_centre [0x3005 resolution 24]
-amenity=community_center [0x3005 resolution 24]
 amenity=courthouse [0x3004 resolution 24]
 amenity=customs [0x3006 resolution 22]
 healthcare=hospital | amenity=hospital | amenity=clinic [0x3002 resolution 22]
@@ -341,8 +340,8 @@ smoothness=* & smoothness ~ '.*(bad|horrible|impassable)' & mkgmap:line2poitype=
 bicycle=dismount & highway!=footway & highway!=pedestrian & highway!=crossing & mkgmap:line2poitype=mid {delete 'name'} [0x2810 resolution 24]
 
 # Buildings tagged without anything but names
-
 building=* & name=* [0x6405 resolution 24]
+office=* & name=* [0x3005 resolution 24]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
