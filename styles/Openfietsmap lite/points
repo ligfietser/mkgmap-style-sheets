@@ -341,7 +341,10 @@ bicycle=dismount & highway!=footway & highway!=pedestrian & highway!=crossing & 
 
 # Buildings tagged without anything but names
 building=* & name=* [0x6405 resolution 24]
-office=* & name=* [0x3005 resolution 24]
+office=* & name=* {name '${name} (${office})'} [0x2900 resolution 24]
+craft=* & name=* {name '${name} (${craft})'} [0x2900 resolution 24]
+addr:housenumber=* & name=* [0x2900 resolution 24]
+addr:housename=* [0x2900 resolution 24]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
