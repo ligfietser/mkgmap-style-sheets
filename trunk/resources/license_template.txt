@@ -11,6 +11,9 @@ make the opensource world map even better.
 Map data (c) OpenStreetMap and its contributors
 http://www.openstreetmap.org/copyright
 
+Dutch address data: BAG/Kadaster
+Belgium (Flanders) address data: CRAB/AGIV.BE
+
 Cartography Openfietsmap Lite (c) Openfietsmap.nl
 
 Contourlines (c) SRTM-Data / NASA
