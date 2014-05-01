@@ -14,7 +14,8 @@ http://www.openstreetmap.org/copyright
 Dutch address data: BAG/Kadaster
 Belgium (Flanders) address data: CRAB/AGIV.BE
 
-Cartography Openfietsmap Lite (c) Openfietsmap.nl
+Routable Bicycle (Openfietsmap Lite) (c) licensed under CC-BY-NC-SA, 
+http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 Contourlines (c) SRTM-Data / NASA
 and Jonathan de Ferranti (viewfinderpanoramas.org)
