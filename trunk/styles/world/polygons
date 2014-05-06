@@ -94,7 +94,7 @@ natural=bay [0x3c resolution 18]
 (natural=water | waterway=riverbank) & area_size() >=500000 [0x3c resolution 14]
 (natural=water | waterway=riverbank) & area_size() >=200000 [0x3c resolution 16]
 (natural=water | waterway=riverbank) & area_size() >=50000 [0x3c resolution 18]
-(natural=water | waterway=riverbank) [0x3c resolution 19]
+(natural=water | waterway=riverbank) [0x3f resolution 19]
 natural=waterfall | waterway=waterfall [0x47 resolution 21]
 natural=wood [0x50 resolution 18]
 
