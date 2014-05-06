@@ -1,7 +1,7 @@
-; 2000.txt
-; Longueur: 0 octets
-; Fichier TYP compilé 
-; Décompilé le 25-4-2014 à 22:57:53
+; 2000.typ
+; Longueur: 13872 octets
+; Fichier TYP compilé     06-05-2014     13:10:20
+; Décompilé le 6-5-2014 à 13:10:23
 
 [_id]
 ProductCode=6
@@ -1652,7 +1652,7 @@ String1=0x04,Water
 String2=0x01,Eau
 String3=0x03,water
 ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
+FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#0065FF
 Xpm="32 32 4 1"
