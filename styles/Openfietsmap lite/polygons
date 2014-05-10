@@ -2,7 +2,7 @@
 name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
 toponym=water & name=IJsselmeer [0x3b resolution 16]
-toponym=water & name=* & area_size() > 100000 [0x3b resolution 20]
+toponym=water & name=* & area_size() > 2500000 [0x3b resolution 20]
 #toponym=* & name=*  [0x3b resolution 24 continue]
 
 boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
@@ -16,12 +16,15 @@ natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
 natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
 
 natural=bay {set natural=water}
-natural=water & area_size() >=500000                        [0x3e resolution 14-21 continue]
-natural=water & area_size() >=250000 & area_size() < 500000 [0x3e resolution 16-21 continue]
-natural=water & area_size() >=100000 & area_size() < 250000 [0x3e resolution 18-21 continue]
-natural=water & area_size() >=100000 [0x3c resolution 22]
+natural=water & area_size() >=50000000 [0x3c resolution 14]
+natural=water & area_size() >=1000000 [0x3e resolution 14-16 continue]
+natural=water & area_size() >=1000000 [0x3c resolution 17]
+natural=water & area_size() >=500000 [0x3e resolution 16-18 continue]
+natural=water & area_size() >=500000 [0x3c resolution 19]
+natural=water & area_size() >=50000  [0x3e resolution 18-21 continue]
+natural=water & area_size() >=50000 [0x3c resolution 22]
 natural=water [0x3d resolution 20-21 continue]
-natural=water [0x3c resolution 22]
+natural=water [0x3e resolution 22]
 
 waterway=riverbank & area_size() >=250000                            [0x3e resolution 14-21 continue]
 waterway=riverbank & area_size() >=100000 & area_size() < 250000     [0x3e resolution 18-21 continue]
@@ -38,8 +41,8 @@ aeroway=terminal [0x08 default_name="Terminal" resolution 20]
 tourism=caravan_site & tents=no [0x05 default_name="RV-park" resolution 22]
 tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
 tourism=picnic_site [0x1e resolution 24]
-tourism=chalet  [0x50 default_name="bungalowpark" resolution 22]
-tourism=* & tourism ~ '(hotel|hostel|motel|guest_house|bed_and_breakfast|alpine_hut)'  [0x13 resolution 22]
+tourism=chalet & building!=*  [0x50 default_name="bungalowpark" resolution 22]
+tourism=* & tourism ~ '(hotel|hostel|motel|guest_house|bed_and_breakfast|alpine_hut|chalet)'  [0x13 resolution 22]
 tourism=zoo [0x17 resolution 22]
 building=church | building=chapel | building=cathedral | amenity=place_of_worship [0x06 resolution 23]
 historic=archaeological_site & building!=* [0x17 resolution 22]
@@ -74,7 +77,7 @@ admin_level=11 & boundary=administrative & name=* [0x01 resolution 22]
 (place=town | boundary=town) & name=* [0x01 resolution 22]
 (place=village | boundary=village) & name=* [0x01 resolution 23]
 (place=hamlet | boundary=hamlet)  & name=* [0x01 resolution 23]
-place=island | place=islet [0x010100 resolution 18 continue]
+place=island | place=islet [0x010200 resolution 18 continue]
 
 
 landuse=reservoir | landuse=basin [0x3d resolution 20-18 continue]
@@ -121,6 +124,7 @@ natural=fell [0x41 resolution 20]
 
 
 # Buildings
+building=no {delete building}
 building=* & name=* [0x06 resolution 24]
 (shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
 

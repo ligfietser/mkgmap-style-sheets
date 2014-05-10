@@ -22,6 +22,7 @@ bicycle=dismount & highway!=footway & highway!=pedestrian {set bicycle=yes; add 
 bicycle=dismount & (highway=footway | highway=pedestrian) {delete bicycle; add bicycle:dismount=yes}
 bicycle=no	{set motorcar=no;}
 bicycle=yes {set motorcar=yes; set foot=yes} 
+bicycle:conditional=* {add bicycle=yes; add motorcar=yes; add foot=yes} 
 bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set foot=yes; set bicycle=yes}
 foot=destination | foot=official | foot=permissive {set foot=yes}
 (highway=pedestrian | highway=footway) & oneway=* {delete oneway}
