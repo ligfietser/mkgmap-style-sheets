@@ -197,7 +197,8 @@ railway=tram & !(tunnel=yes) [0x10015 default_name="tram" resolution 24]
 railway=platform  [0x07 road_class=0 road_speed=0 resolution 24 continue]
 
 route=ferry {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 24 continue with_actions]
-route=ferry {name '${name} (${opening_hours})' | '${opening_hours}' | '${name}' | '${note}' } [0x10017  resolution 18]
+route=ferry & seasonal=* {name '${name|def:} seasonal(${seasonal}) ${opening_hours|def:}'} [0x10017  resolution 18]
+route=ferry {name '${name|def:} ${opening_hours|def:}' | '${note}' } [0x10017  resolution 18]
 
 waterway=river & natural!=water [0x18 resolution 18-20 continue]
 waterway=river & natural!=water [0x1f resolution 21 continue]
