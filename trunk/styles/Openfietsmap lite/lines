@@ -328,8 +328,10 @@ railway=preserved | railway=miniature [0x2a default_name="preserved railway" res
 (public_transport=platform | highway=platform | railway=platform) & area!=yes {add access = no; add foot = yes} [0x08 road_class=0 road_speed=0 resolution 23]
 
 route=ferry [0x10017  resolution 23-18 continue]
-route=ferry & seasonal=*  {set access=no; set foot=yes; name '${name} seasonal (${seasonal})' } [0x1b road_class=0 road_speed=0 resolution 24 continue]
-route=ferry & access:conditional=*  {set access=no; set foot=yes; name '${name} access=${access:conditional}' } [0x1b road_class=0 road_speed=0 resolution 24 continue]
+route=ferry & name ~ '(Waterbus)' [0x1b road_class=0 road_speed=0 resolution 24]
+route=ferry & tourism=attraction & bicycleroute!=yes [0x10017  resolution 24]
+route=ferry & seasonal=*  {set bicycle=no; set motorcar=no; add foot=yes; name '${name} seasonal (${seasonal})' } [0x1b road_class=0 road_speed=0 resolution 24 continue]
+route=ferry & access:conditional=*  {set bicycle=no; set motorcar=no; add foot=yes; name '${name} access=${access:conditional}' } [0x1b road_class=0 road_speed=0 resolution 24 continue]
 route=ferry & seasonal!=* [0x1b road_class=3 road_speed=0 resolution 24 continue]
 
 waterway=* & 3dshapes:ggmodelk = 23 { add natural=water }
