@@ -1,0 +1,10 @@
+#BAG translations
+building=house & source=BAG   { add name=woonhuis }
+building=apartments & source=BAG   { add name=apartement }
+building=commercial & source=BAG   { add name=kantoor }
+building=retail & source=BAG   { add name=winkel }
+building=office & source=BAG   { add name=kantoor }
+building=industrial & source=BAG   { add name=industrie }
+building=public & source=BAG   { add name='openbaar gebouw' }
+building=public & source=BAG   { add name='openbaar gebouw' }
+building=* & bag:gebruiksdoel=*  { name '${name}' | '${bag:gebruiksdoel}' } 
