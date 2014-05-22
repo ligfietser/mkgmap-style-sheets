@@ -11,7 +11,8 @@ cycleway=no { delete 'cycleway' }
 cycleway=* & bicycle=no { delete 'bicycle' }
 (highway=motorway | highway=motorway_junction | highway=trunk | highway=footway  | route=ferry) & toll=yes {delete toll}
 highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set tollroad=yes}
-highway=* & public_transport=platform { delete 'platform' }
+highway=* & public_transport=platform {delete platform}
+highway=* & tracktype ~ '[^grade]' {delete tracktype}
 
 # access tags
 bicycle=use_cycleway | bicycle=use_sideway | bicycle=use_sidepath { set bicycle=no; set access=no } 
