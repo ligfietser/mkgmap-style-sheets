@@ -15,7 +15,9 @@ highway=* & public_transport=platform {delete platform}
 highway=* & tracktype ~ '[^grade]' {delete tracktype}
 
 # access tags
-bicycle=use_cycleway | bicycle=use_sideway | bicycle=use_sidepath { set bicycle=no; set access=no } 
+bicycle ~ '(use_).*' { set bicycle=no; set motorcar=no; set access=no }
+bicycle:backward ~ '(use_).*' {set bicycle:backward=no; set motorcar:backward=no}
+bicycle:forward ~ '(use_).*'  {set bicycle:forward=no; set motorcar:forward=no}
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access; add car=no }
 access=destination {delete access; add car=no }
@@ -143,7 +145,7 @@ cycleway=share_busway { set cycleway=lane }
 cycleway=opposite_share_busway { set cycleway=opposite_lane }
 
 # ways under construction
-highway=construction | (highway=* & construction=* & construction!=minor) [0x10019 resolution 22]
+highway=construction [0x10019 resolution 22]
 highway=proposed {delete 'highway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'}
 railway=proposed {delete 'railway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'}
 
@@ -273,7 +275,7 @@ highway=steps & (bicycle=yes | bicycleroute=yes) {set mkgmap:unpaved=1;  set acc
 highway=steps {set mkgmap:unpaved=1; add access = no; add foot = yes; add oneway=yes} [0x13 road_class=0 road_speed=0 resolution 24]
 
 # cycleroutes
-bicycleroute=yes & mkgmap:unpaved=1 {set motorcar=no}
+bicycleroute=yes & bicycle!=no {set motorcar=yes}
 highway=* & icn_from_relation=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' }  [0x00 resolution 15-15 continue]
 highway=* & icn_from_relation=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' }  [0x24 resolution 16-17 continue]
 highway=* & icn_from_relation=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' } [0x23 resolution 18-19 continue]
