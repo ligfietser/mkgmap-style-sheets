@@ -152,7 +152,9 @@ type=route & route=bicycle & network=tcn
 	}
 	} 	
 	
-
+type=route & route=bicycle & state=proposed
+	{apply { set state=proposed }}
+	
 type=route & route=mtb
 	{
 		apply {
@@ -217,3 +219,13 @@ type=route
   # We could want to copy the route relation name to unnamed route=ferry ways.
   # apply way { add name='${name}' }
 }
+
+# remove restrictions for motorcar
+type=restriction:motorcar  {delete type}
+type=restriction & restriction:motorcar=* {delete restriction:motorcar}
+
+#apply bicycle restrictions also for "motorcar"
+type=restriction & restriction:bicycle=* {set restriction:motorcar='${restriction:bicycle}'}
+type=restriction:bicycle {set type=restriction}
+type=restriction & except ~ '.*bicycle'  {set except='${except};motorcar'}
+
