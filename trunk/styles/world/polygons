@@ -19,6 +19,12 @@ leisure=* & sport=* & name!=* { add name='${sport}' }
 
 include 'inc/name';
 
+# dont render underground features
+building=* & (location=underground | parking=underground) {delete building}
+amenity=* & (location=underground | parking=underground) {delete amenity}
+miltary=* & location=underground {delete military}
+shop=* & location=underground {delete shop}
+
 aeroway=airport [0x07 resolution 20]
 aeroway=aerodrome [0x07 resolution 20]
 aeroway=helipad [0x07 resolution 22]
