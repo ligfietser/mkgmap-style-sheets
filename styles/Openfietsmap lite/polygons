@@ -1,8 +1,8 @@
 ﻿include 'inc/address';
 name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
-toponym=water & name=IJsselmeer [0x3b resolution 16]
-toponym=water & name=* & area_size() > 2500000 [0x3b resolution 20]
+toponym=water & area_size() > 200000000 [0x3b resolution 16-22]
+toponym=water & area_size() > 50000000 [0x3b resolution 20-22]
 #toponym=* & name=*  [0x3b resolution 24 continue]
 
 boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
@@ -37,6 +37,12 @@ aeroway=runway & is_closed()=true [0x05 default_name="aeroway" resolution 22]
 aeroway=airport [0x07 resolution 18]
 aeroway=aerodrome [0x07 resolution 20]
 aeroway=terminal [0x08 default_name="Terminal" resolution 20]
+
+# dont render underground features
+building=* & (location=underground | parking=underground) {delete building}
+amenity=* & (location=underground | parking=underground) {delete amenity}
+miltary=* & location=underground {delete military}
+shop=* & location=underground {delete shop}
 
 tourism=caravan_site & tents=no [0x05 default_name="RV-park" resolution 22]
 tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
