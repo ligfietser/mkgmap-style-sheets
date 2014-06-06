@@ -8,7 +8,7 @@ motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
 motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
 cycleway=no { delete 'cycleway' }
-cycleway=* & bicycle=no { delete 'bicycle' }
+#cycleway=* & bicycle=no { delete 'bicycle' }
 (highway=motorway | highway=motorway_junction | highway=trunk | highway=footway  | route=ferry) & toll=yes {delete toll}
 highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set tollroad=yes}
 highway=* & public_transport=platform {delete platform}
@@ -21,10 +21,7 @@ highway=track & tracktype=5 {set mkgmap:check=ok; set tracktype=grade5}
 highway=track & tracktype=* & mkgmap:check!=ok {delete tracktype}
 
 # access tags
-bicycle ~ '(use_).*' { set bicycle=no; set motorcar=no; set access=no;}
-bicycle ~ '(use_).*' & cycleway=* { delete cycleway }
-bicycle ~ '(use_).*' & cycleway:left=* { delete cycleway:left }
-bicycle ~ '(use_).*' & cycleway:right=* { delete cycleway:right }
+bicycle ~ '(use_).*' { set bicycle=no; set motorcar=no; set access=no; delete cycleway; delete cycleway:left; delete cycleway:right }
 bicycle:backward ~ '(use_).*' {set bicycle:backward=no; set motorcar:backward=no}
 bicycle:forward ~ '(use_).*'  {set bicycle:forward=no; set motorcar:forward=no}
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
@@ -85,7 +82,6 @@ highway=unsurfaced { set highway=track }
 highway=track & (tracktype=grade1|surface=asphalt|surface=paved) { set highway=unclassified; delete tracktype }
 highway=cycleroad  { set highway=cycleway }
 cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
-cycleway=no { delete 'cycleway' }
 (cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; delete 'cycleway' }
 cycleway=track & (highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
 cycleway=lane & (highway=track | highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
