@@ -2168,6 +2168,23 @@ CustomColor=No
 
 
 [_line]
+Type=0x12
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #7B0000"
+"# c #FFFFFF"
+"################################"
+"!!!!####!!!!####!!!!####!!!!####"
+"!!!!####!!!!####!!!!####!!!!####"
+"################################"
+;12345678901234567890123456789012
+String1=0x04,bike path/MTB trail (unpaved)
+String2=0x03,MTB/fietspad (onverhard)
+String3=0x02,MTB/Radweg (unbefestigt)
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
 Type=0x13
 UseOrientation=N
 Xpm="32 3 4  1"
