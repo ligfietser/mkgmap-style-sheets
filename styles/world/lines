@@ -84,15 +84,15 @@ highway=*
 { add mkgmap:unpaved=1 }
 
 highway ~  '.*(trunk|primary|secondary|tertiary|unclassified|residential|minor|road).*' & mkgmap:unpaved=1 { add mkgmap:road-speed = '-1' } [0x10002 resolution 21 continue with_actions]
-highway ~  '.*(byway|living_street|service|cycleway).*' & mkgmap:unpaved=1 [0x10002 resolution 23 continue with_actions]
+highway ~  '.*(byway|living_street|service).*' & mkgmap:unpaved=1 [0x10002 resolution 23 continue with_actions]
 
 # Convert generic path to most specific
 highway=footway & snowplowing!=no
-& (bicycle=yes|bicycle=designated|bicycle=permissive|bicycle=official)
-{set highway=cycleway}
+& (bicycle=designated|bicycle=official|mtb=designated)
+{set highway=cycleway; set bicycle=yes}
 highway=path & snowplowing!=no
-& (bicycle=designated|bicycle=permissive|bicycle=official)
-{set highway=cycleway}
+& (bicycle=designated|bicycle=official|mtb=designated)
+{set highway=cycleway; set bicycle=yes}
 highway=path & (horse=designated|horse=permissive|horse=official)
 {set highway=bridleway}
 
@@ -165,6 +165,8 @@ highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
 highway=service [0x07 road_class=0 road_speed=2 resolution 22]
 
+highway=cycleway & mkgmap:unpaved=1 [0x12 road_class=0 road_speed=0 resolution 23]
+highway=track & mtb=designated & mkgmap:unpaved=1 [0x12 road_class=0 road_speed=0 resolution 23]
 highway=cycleway [0x10 road_class=0 road_speed=1 resolution 23]
 
 highway=footway|highway=path [0x16 road_class=0 road_speed=0 resolution 23]
