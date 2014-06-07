@@ -83,3 +83,12 @@ type=route & route=train
 		set trainroute=yes;
 	} 
 	}
+
+type=route & route=mtb
+	{
+		apply {
+		set mtb=designated;
+		set mname='${name}';
+	}
+	} 
+	
