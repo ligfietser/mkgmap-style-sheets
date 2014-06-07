@@ -165,8 +165,8 @@ highway=service & (service=alley|service=driveway)
 [0x07 road_class=0 road_speed=0 resolution 23]
 highway=service [0x07 road_class=0 road_speed=2 resolution 22]
 
-highway=cycleway & mkgmap:unpaved=1 [0x12 road_class=0 road_speed=0 resolution 23]
-highway=track & mtb=designated & mkgmap:unpaved=1 [0x12 road_class=0 road_speed=0 resolution 23]
+highway=cycleway & mkgmap:unpaved=1 { name '${name} (${mname|not-equal:name})' | '${mname}' | '${name}' }  [0x12 road_class=0 road_speed=0 resolution 23]
+highway=track & mtb=designated & mkgmap:unpaved=1 { name '${name} (${mname|not-equal:name})' | '${mname}' | '${name}' }  [0x12 road_class=0 road_speed=0 resolution 23]
 highway=cycleway [0x10 road_class=0 road_speed=1 resolution 23]
 
 highway=footway|highway=path [0x16 road_class=0 road_speed=0 resolution 23]
