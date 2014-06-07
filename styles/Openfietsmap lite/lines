@@ -86,9 +86,9 @@ cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=design
 cycleway=track & (highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
 cycleway=lane & (highway=track | highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
 
-highway=footway & (bicycle=designated | cycleway=*) { set highway=cycleway }
-highway=path & (bicycle=designated | cycleway=*)  { set highway=cycleway }
-highway=track & (bicycle=designated) { set highway=cycleway; add mkgmap:unpaved=1; set motorcar=no;}
+highway=footway & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
+highway=path & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
+highway=track & bicycle=designated & tracktype=grade2 & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
 bicycle=designated { set bicycle=yes; add motorcar=yes }
 highway=path & surface ~ '(paved|paving_stones|concrete|asphalt).*' { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
 highway=footway & surface ~ '(paved|paving_stones|concrete|asphalt).*'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
@@ -99,7 +99,6 @@ highway=track & horse=designated & (surface=sand | tracktype=grade4 | tracktype=
 highway=bridleway & mkgmap:country=GBR & bicycle!=* {set highway=track; add mkgmap:unpaved=1; set motorcar=no;}
 leisure=track & sport=cycling { set highway=cycleway }
 leisure=track & sport!=cycling { set highway=service; add access=no }
-
 
 bicycle=lane { set cycleway=lane }
 bicycleroute=yes & area=yes {set bicycleroute=no}
@@ -256,8 +255,8 @@ highway=pedestrian & (bicycle=yes | bicycleroute=yes | cycleway=*) & area!=yes {
 highway=pedestrian & (bicycle=yes | bicycleroute=yes | cycleway=*) & area=yes {set motorcar=yes} [0x08 road_class=2 road_speed=1 resolution 23 continue with_actions]
 highway=pedestrian & bicycle!=yes & bicycleroute!=yes & cycleway!=* {set motorcar=no; add bicycle = no; add foot = yes; set mkgmap:unpaved=1} [0x08 road_class=0 road_speed=0 resolution 23 continue]
 
-(highway=track | highway=path) & (access=private | access=no) & bicycle!=yes & bicycle!=designated & bicycleroute!=yes & mtb_from_relation!=yes & foot=yes {set highway=footway}
-(highway=track | highway=path) & (access=private | access=no) & bicycle!=yes & bicycle!=designated & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes [0x10101 resolution 23]
+(highway=track | highway=path) & (access=private | access=no) & bicycle!=yes & bicycleroute!=yes & mtb_from_relation!=yes & foot=yes {set highway=footway}
+(highway=track | highway=path) & (access=private | access=no) & bicycle!=yes & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes [0x10101 resolution 23]
 (highway=track | highway=path | highway=footway | highway=pedestrian) & bicycleroute=yes [0x1502 resolution 21-20 continue with_actions]
 highway=track & bicycleroute!=yes [0x15 resolution 21-21 continue with_actions]
 highway=track & (tracktype=grade1 | tracktype=grade2) [0x0f road_class=1 road_speed=1 resolution 22 continue]
@@ -274,7 +273,7 @@ highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicyclero
 (highway=path | highway=footway) & bicycleroute!=yes  [0x15 resolution 22-22 continue with_actions]
 (highway=path | highway=footway) & bicycleroute!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x0a road_class=0 road_speed=0 resolution 23]
 
-highway=bridleway & bicycle!=yes & bicycle!=designated & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x2915 road_class=0 road_speed=0 resolution 23]
+highway=bridleway & bicycle!=yes & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x2915 road_class=0 road_speed=0 resolution 23]
 
 highway=steps  & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") {add name="trap (met fietsgoot)"}
 highway=steps  & (ramp:bicycle=yes | ramp=yes | ramp:wheelchair=yes) {add bicycle = yes; add motorcar=yes} [0x10005 default_name="steps (with ramp)" resolution 24 continue with_actions]
