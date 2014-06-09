@@ -79,7 +79,7 @@ highway=service & (bicycle=yes | bicycle=designated | bicycleroute=yes) { set hi
 highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & bicycleroute=yes { add highway=unclassified }
 highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & mtb_from_relation=yes { add highway=track }
 highway=unsurfaced { set highway=track }
-highway=track & (tracktype=grade1|surface=asphalt|surface=paved) { set highway=unclassified; delete tracktype }
+highway=track & (tracktype=grade1|surface=asphalt|surface=paved) { set highway=unclassified; delete tracktype; set mkgmap:check=ok }
 highway=cycleroad  { set highway=cycleway }
 cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
 (cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; delete 'cycleway' }
@@ -128,7 +128,7 @@ highway=path & surface ~ '(fine_gravel|compacted|shell|shells)' & bicycle=yes { 
 highway=path
 & surface!=* & tracktype!=* & smoothness!=* & sac_scale!=* & bridge!=* & length()>100
 { add mkgmap:unpaved=1; set motorcar=no }
-(highway=unclassified | highway=service) & (mkgmap:unpaved=1) & service!=parking_aisle & !(cycleway=* | cycleway:right=* | cycleway:left=*) { set highway=track; add tracktype=grade2; add motorcar=no; }
+(highway=unclassified | highway=service) & (mkgmap:unpaved=1) & service!=parking_aisle & !(cycleway=* | cycleway:right=* | cycleway:left=*) & mkgmap:check!=ok  { set highway=track; add tracktype=grade2; add motorcar=no; }
 bicycle:dismount=yes { add mkgmap:unpaved=1 }
 
 
@@ -183,7 +183,7 @@ highway=unclassified & (car=no|car=destination|car=private) & bicycle!=no & mkgm
 highway=unclassified & (access=no|access=private|access=destination) &  bicycle=* & bicycle!=no & mkgmap:unpaved!=1 {add no_car=yes}
 
 # cycleways
-cyclestreet=yes | no_car=yes [0x10116 resolution 23 continue with_actions]
+(cyclestreet=yes | no_car=yes) & highway=unclassified [0x10116 resolution 23 continue with_actions]
 cycleway=lane & oneway!=yes {add bicycle = yes; add foot = yes; add motorcar=yes } [0x26 resolution 23 continue with_actions]
 (cycleway=track | cycleway=lane) & oneway=yes  [0x10005 resolution 23 continue with_actions]
 cycleway=right [0x10005 resolution 23 continue with_actions]
