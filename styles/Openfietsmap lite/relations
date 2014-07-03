@@ -221,7 +221,7 @@ type=route
 }
 
 # remove restrictions for motorcar
-type=restriction:motorcar  {delete type}
+type=restriction:motorcar  {delete 'type=restriction:motorcar'}
 type=restriction & restriction:motorcar=* {delete restriction:motorcar}
 
 #apply bicycle restrictions also for "motorcar"
