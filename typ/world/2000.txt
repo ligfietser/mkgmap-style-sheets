@@ -2185,6 +2185,9 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
+
+
+[_line]
 Type=0x13
 UseOrientation=N
 Xpm="32 3 4  1"
