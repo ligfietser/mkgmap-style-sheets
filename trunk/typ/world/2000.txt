@@ -1,7 +1,4 @@
-; 2000.typ
-; Longueur: 13872 octets
-; Fichier TYP compilé     06-05-2014     13:10:20
-; Décompilé le 6-5-2014 à 13:10:23
+
 
 [_id]
 ProductCode=6
@@ -21,6 +18,7 @@ CodePage=1252
 Type=0x032,1
 Type=0x10101,2
 Type=0x027,2
+Type=0x053,2
 Type=0x002,3
 Type=0x003,3
 Type=0x007,3
@@ -37,7 +35,6 @@ Type=0x02a,3
 Type=0x02b,3
 Type=0x02f,3
 Type=0x050,3
-Type=0x053,3
 Type=0x004,4
 Type=0x005,4
 Type=0x006,4
