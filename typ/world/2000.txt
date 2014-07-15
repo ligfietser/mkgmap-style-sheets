@@ -1,4 +1,7 @@
-
+; 2000.typ
+; Longueur: 13985 octets
+; Fichier TYP compilé     15-07-2014     11:18:18
+; Décompilé le 15-7-2014 à 11:18:21
 
 [_id]
 ProductCode=6
@@ -2050,11 +2053,46 @@ Xpm="32 32 4 1"
 Type=0x53
 String1=0x04,Island
 String2=0x03,Eiland
+String3=0x02,Insel
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
-"1 c #FFFFFF"
+Xpm="32 32 2 1"
+"! c #FFFFFF"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
 [end]
 
 
