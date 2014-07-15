@@ -13,7 +13,7 @@ operator=${name} { delete operator; }
 brand=${name} { delete brand; }
 
 # None of operator, brand given
-ref=* & (operator!=* & brand!=*) { name '${ref} ${name}' | '${ref}' }
+#ref=* & (operator!=* & brand!=*) { name '${ref} ${name}' | '${ref}' }
 
 # Both operator and brand given
 operator=* & brand=* {
