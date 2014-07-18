@@ -1,7 +1,7 @@
 ; 2000.typ
-; Longueur: 26801 octets
-; Fichier TYP compilé     08-05-2014     18:09:28
-; Décompilé le 8-5-2014 à 18:10:26
+; Longueur: 27932 octets
+; Fichier TYP compilé     18-07-2014     09:24:47
+; Décompilé le 18-7-2014 à 9:25:00
 
 [_id]
 ProductCode=6
@@ -1709,6 +1709,21 @@ Xpm="0 0 1 0"
 
 
 ;====================== LINES ===========================
+
+
+[_line]
+Type=0x15
+UseOrientation=N
+Xpm="32 1 2  1"
+"! c #000000"
+"  c none"
+"                                "
+;12345678901234567890123456789012
+String1=0x04,coastline
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
 
 
 [_line]
