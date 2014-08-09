@@ -1,4 +1,4 @@
-# -------------------------------------------------------------------
+ï»¿# -------------------------------------------------------------------
 # This is the default mkgmap style file for converting closed OSM ways
 # into Garmin polygons.
 # Any line prefaced with # is a comment and will not be applied.
@@ -9,8 +9,7 @@
 # for more information.
 
 include 'inc/address';
-
-boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
+boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domÃ¤nreservat|Country Park|Regio|regio|RÃ©gio|rÃ©gio).*' {set boundary=nature_reserve}
 boundary = national_park & protect_class > 2 {set boundary=nature_reserve}
 boundary = national_park [0x16 resolution 18 continue]
 leisure=nature_reserve | boundary=protected_area | boundary=nature_reserve [0x16 resolution 20 continue]
