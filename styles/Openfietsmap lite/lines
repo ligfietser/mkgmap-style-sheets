@@ -175,7 +175,7 @@ highway=motorway [0x10000  resolution 18-19 continue with_actions]
 highway=motorway [0x10014 resolution 20-21 continue with_actions]
 highway=motorway {name '${ref|highway-symbol:box}'} [0x10013 resolution 22]
 
-highway=* & access=private & bicycle!=yes & mkgmap:unpaved!=1 & highway!=footway & highway!=path & highway!=track [0x07 road_class=0 road_speed=0 resolution 22]
+highway=* & access=private & bicycle!=yes & mkgmap:unpaved!=1 & area!=yes & highway!=footway & highway!=path & highway!=track [0x07 road_class=0 road_speed=0 resolution 22]
 
 
 # render paved roads without motorcar traffic
@@ -230,7 +230,7 @@ highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=
 highway=service  & bicycle!=no  [0x07 road_class=1 road_speed=2 resolution 23 continue]
 highway=unclassified & bicycle!=no  [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
 highway=unclassified & bicycle=no {add foot=no} [0x10018 resolution 23]
-highway=service & bicycle=no {add foot=no} [0x10018 resolution 23]
+highway=service & bicycle=no & area!=yes {add foot=no} [0x10018 resolution 23]
 
 highway=tertiary [0x10001 resolution 20-22 continue with_actions]
 highway=tertiary & bicycle!=no [0x050 road_class=3 road_speed=2 resolution 23 continue with_actions]

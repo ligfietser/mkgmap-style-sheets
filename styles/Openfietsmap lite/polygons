@@ -34,9 +34,9 @@ waterway=riverbank [0x3c resolution 22]
 waterway=wadi [0x40 default_name="wadi/wash" resolution 21]
 
 aeroway=runway & is_closed()=true [0x05 default_name="aeroway" resolution 22]
-aeroway=airport [0x07 resolution 18]
-aeroway=aerodrome [0x07 resolution 20]
-aeroway=terminal [0x08 default_name="Terminal" resolution 20]
+aeroway=airport [0x07 resolution 18 continue]
+aeroway=aerodrome [0x07 resolution 20 continue ]
+aeroway=terminal  [0x08 default_name="Terminal" resolution 20 continue]
 
 # dont render underground features
 building=* & (location=underground | parking=underground) {delete building}
