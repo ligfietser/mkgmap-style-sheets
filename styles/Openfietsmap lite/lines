@@ -26,7 +26,7 @@ bicycle:backward ~ '(use_).*' {set bicycle:backward=no; set motorcar:backward=no
 bicycle:forward ~ '(use_).*'  {set bicycle:forward=no; set motorcar:forward=no}
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access; add car=no }
-access=destination {delete access; add car=no }
+access=destination {delete access}
 bicycle_road=yes & (car!=yes | vehicle!=destination) {set highway=cycleway}
 bicycle=dismount & highway!=footway & highway!=pedestrian {set bicycle=yes; add bicycle:dismount=yes}
 bicycle=dismount & (highway=footway | highway=pedestrian) {delete bicycle; add bicycle:dismount=yes}
@@ -180,7 +180,7 @@ highway=* & access=private & bicycle!=yes & mkgmap:unpaved!=1 & area!=yes & high
 
 # render paved roads without motorcar traffic
 highway=unclassified & (car=no|car=destination|car=private) & bicycle!=no & mkgmap:unpaved!=1 {add no_car=yes}
-highway=unclassified & (access=no|access=private|access=destination) &  bicycle=* & bicycle!=no & mkgmap:unpaved!=1 {add no_car=yes}
+highway=unclassified & (access=no|access=private) &  bicycle=yes & mkgmap:unpaved!=1 {add no_car=yes}
 
 # cycleways
 (cyclestreet=yes | no_car=yes) & highway=unclassified [0x10116 resolution 23 continue with_actions]
