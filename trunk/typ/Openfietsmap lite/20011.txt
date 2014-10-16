@@ -3380,6 +3380,46 @@ DayXpm="20 20 3 1"   Colormode=16
 
 
 [_point]
+Type=0x007
+SubType=0x00
+String1=0x04,bikeroute node
+String2=0x03,fietsknooppunt
+String3=0x02,Radroute-Knotenpunkt
+ExtendedLabels=Y
+FontStyle=LargeFont
+CustomColor=DayAndNight
+DaycustomColor:#0000FF
+NightcustomColor:#0000FF
+DayXpm="20 20 4 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"%	c #00FFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"        ####        "
+"       #!!!!#       "
+"      #!%%%%!#      "
+"     #!%%%%%%!#     "
+"     #!%%%%%%!#     "
+"     #!%%%%%%!#     "
+"     #!%%%%%%!#     "
+"      #!%%%%!#      "
+"       #!!!!#       "
+"       ######       "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
 Type=0x008
 SubType=0x00
 String1=0x04,place
@@ -3966,6 +4006,46 @@ DayXpm="20 20 2 1"   Colormode=16
 "                    "
 "                    "
 "                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+;12345678901234567890
+[end]
+
+
+[_point]
+Type=0x028
+SubType=0x00
+String1=0x04,bikeroute node
+String2=0x03,fietsknooppunt
+String3=0x02,Radroute-Knotenpunkt
+ExtendedLabels=Y
+FontStyle=LargeFont
+CustomColor=DayAndNight
+DaycustomColor:#0000FF
+NightcustomColor:#0000FF
+DayXpm="20 20 4 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"%	c #00FFFF"
+"  	c none"
+"                    "
+"                    "
+"                    "
+"                    "
+"                    "
+"        ####        "
+"       #!!!!#       "
+"      #!%%%%!#      "
+"     #!%%%%%%!#     "
+"     #!%%%%%%!#     "
+"     #!%%%%%%!#     "
+"     #!%%%%%%!#     "
+"      #!%%%%!#      "
+"       #!!!!#       "
+"       ######       "
 "                    "
 "                    "
 "                    "
@@ -4858,7 +4938,9 @@ SubType=0x03
 String1=0x04,caravan site/RV-park
 String2=0x03,Camperplaats
 String3=0x02,Wohnmobil-Stellplätze
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
 DayXpm="20 20 5 1"   Colormode=16
 "!	c #0092DA"
 "#	c #7EC8EC"
