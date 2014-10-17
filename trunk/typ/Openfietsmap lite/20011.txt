@@ -3310,10 +3310,10 @@ DayXpm="16 16 2 1"   Colormode=16
 [_point]
 Type=0x004
 SubType=0x00
-String1=0x04,place name
+String1=0x04,place
 String2=0x03,plaats
 ExtendedLabels=Y
-FontStyle=LargeFont
+FontStyle=NormalFont
 CustomColor=No
 DayXpm="20 20 3 1"   Colormode=16
 "!	c #FFFFFF"
@@ -3386,10 +3386,8 @@ String1=0x04,bikeroute node
 String2=0x03,fietsknooppunt
 String3=0x02,Radroute-Knotenpunkt
 ExtendedLabels=Y
-FontStyle=LargeFont
-CustomColor=DayAndNight
-DaycustomColor:#0000FF
-NightcustomColor:#0000FF
+FontStyle=NormalFont
+CustomColor=No
 DayXpm="20 20 4 1"   Colormode=16
 "!	c #000000"
 "#	c #FFFFFF"
@@ -4022,10 +4020,8 @@ String1=0x04,bikeroute node
 String2=0x03,fietsknooppunt
 String3=0x02,Radroute-Knotenpunkt
 ExtendedLabels=Y
-FontStyle=LargeFont
-CustomColor=DayAndNight
-DaycustomColor:#0000FF
-NightcustomColor:#0000FF
+FontStyle=NormalFont
+CustomColor=No
 DayXpm="20 20 4 1"   Colormode=16
 "!	c #000000"
 "#	c #FFFFFF"
