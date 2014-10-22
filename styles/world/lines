@@ -198,9 +198,9 @@ railway=subway & !(tunnel=yes) [0x10014 resolution 21]
 railway=tram & !(tunnel=yes) [0x10015 default_name="tram" resolution 24]
 railway=platform  [0x07 road_class=0 road_speed=0 resolution 24 continue]
 
-route=ferry & (access=no | vehicle=no) & foot=yes {add mkgmap:ferry=1; set ferry=no_car} [0x1b road_class=0 road_speed=0 resolution 23 continue with_actions]
-route=ferry & (motorcar=no | motor_vehicle=no) & ferry!=no_car {add mkgmap:ferry=1; set ferry=no_car} [0x1b road_class=0 road_speed=0 resolution 23 continue with_actions]
-route=ferry & ferry!=no_car {add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 24 continue with_actions]
+route=ferry & foot!=no {set foot_ferry=yes} 
+route=ferry  {set foot=no; add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19 continue with_actions]
+route=ferry & foot_ferry=yes {setaccess no; set foot=yes; delete bicycle; delete motorcar} [0x1b road_class=0 road_speed=0 resolution 23 continue with_actions]
 route=ferry & seasonal=* {name '${name|def:} seasonal(${seasonal}) ${opening_hours|def:}'} [0x10017  resolution 18]
 route=ferry {name '${name|def:} ${opening_hours|def:}' | '${note}' } [0x10017  resolution 18]
 
