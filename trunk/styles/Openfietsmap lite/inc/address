@@ -25,7 +25,7 @@ mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='
 mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:Gemeinde |subst:Stadt }' }
 
 # Poland = POL
-mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
+#After recent changes in OSM-Poland we don't use level 10 - all cities and villages are in level 8
 mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
 mkgmap:country=POL & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4|subst:województwo =>}' }
 
@@ -64,14 +64,31 @@ mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='$
  
 # Canada
 mkgmap:country=CAN & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
-mkgmap:country=CAN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=CAN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:City of }' }
+
+# United States
+mkgmap:country=USA & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
+# New York City has different admin levels than the rest of the US.
+# https://wiki.openstreetmap.org/wiki/United_States_admin_level
+mkgmap:country=USA & mkgmap:city!=* & mkgmap:admin_level5='New York City' & mkgmap:admin_level6='New York County' { set mkgmap:city='New York' }
+mkgmap:country=USA & mkgmap:city!=* & mkgmap:admin_level5='New York City' & mkgmap:admin_level6='Bronx County' { set mkgmap:city='The Bronx' }
+mkgmap:country=USA & mkgmap:city!=* & mkgmap:admin_level5='New York City' & mkgmap:admin_level6='Kings County' { set mkgmap:city='Brooklyn' }
+mkgmap:country=USA & mkgmap:city!=* & mkgmap:admin_level5='New York City' & mkgmap:admin_level6='Queens County' { set mkgmap:city='Queens' }
+mkgmap:country=USA & mkgmap:city!=* & mkgmap:admin_level5='New York City' & mkgmap:admin_level6='Richmond County' { set mkgmap:city='Staten Island' }
+mkgmap:country=USA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8|subst:City of }' }
 
 # Ecuador = ECU
 mkgmap:country=ECU & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
 mkgmap:country=ECU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' }
 mkgmap:country=ECU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
 mkgmap:country=ECU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
- 
+
+# South Africa = ZAF
+mkgmap:country=ZAF & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
+mkgmap:country=ZAF & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' }
+mkgmap:country=ZAF & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
+mkgmap:country=ZAF & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+
 # common rules for all the rest of countries
 mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
 mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
