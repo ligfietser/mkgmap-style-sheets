@@ -344,7 +344,7 @@ route=ferry & seasonal=*  {set bicycle=no; set motorcar=no; add foot=yes; name '
 route=ferry & access:conditional=*  {set bicycle=no; set motorcar=no; add foot=yes; name '${name} access=${access:conditional}' } [0x1b road_class=0 road_speed=0 resolution 24 continue]
 route=ferry & seasonal!=* [0x1b road_class=3 road_speed=0 resolution 24 continue]
 
-waterway=* & 3dshapes:ggmodelk = 23 { add natural=water }
+waterway=* & source=3dshapes { add natural=water }
 waterway=river & natural!=water [0x18 resolution 18-19 continue]
 waterway=river & natural!=water [0x1f resolution 20 continue]
 waterway=canal & natural!=water [0x18 resolution 22-21 continue]
