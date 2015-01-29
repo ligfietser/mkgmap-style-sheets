@@ -32,12 +32,14 @@ rcn_ref=* & name!=rvnsh & mkgmap:country!=BEL {name '${rcn_ref}' } [0x0700 resol
 
 include 'inc/place';
 
+shop=bicycle | amenity=bicycle_repair_station [0x2f03 resolution 22]
+
 amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") {name 'oplaadpunt ${name}' | 'oplaadpunt' } [0x4400 resolution 24 continue]
 amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & (mkgmap:country=DEU | mkgmap:country=AUT) {name 'Ladepunkt ${name}' | 'Ladepunkt' } [0x4400 resolution 24 continue]
 amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & mkgmap:country!=NLD & mkgmap:admin_level4!="Vlaanderen" & mkgmap:country!=DEU & mkgmap:country!=AUT [0x4400 resolution 24 continue]
 
-landuse=residential & name=* & AND_c!=* [0x0600 resolution 23]
-landuse=residential & name=* & AND_c=* [0x0900 resolution 23]
+landuse=residential & name=* & source!=AND [0x0600 resolution 23]
+landuse=residential & name=* & source=AND [0x0900 resolution 23]
 (admin_level = 11 & boundary = administrative) [0x0900 resolution 23]
 landuse=industrial & name=* [0x0600 resolution 24]
 
@@ -126,6 +128,7 @@ amenity=nightclub [0x2d02 resolution 24]
 amenity=nursing_home [0x3005 resolution 24]
 amenity=bicycle_parking [0x2f0b resolution 24]
 amenity=bicycle_rental [0x2f03 resolution 24]
+
 amenity=parking [0x2f0a resolution 24]
 amenity=pharmacy [0x2e05 resolution 24]
 
@@ -257,7 +260,6 @@ railway=level_crossing [0x1e02 resolution 24]
 
 shop=bakers | shop=bakery { name '${name} (bakery)' | '(bakery)' } [0x2e02 resolution 24]
 
-shop=bicycle [0x2f03 resolution 22]
 #shop=boat [0x2f09 resolution 24]
 #shop=butcher [0x2e0c resolution 24]
 #shop=car [0x2f07 resolution 24]
