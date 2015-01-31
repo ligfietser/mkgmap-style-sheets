@@ -113,11 +113,9 @@ amenity=embassy & country=* { name '${country} ${name|def:}' } [0x3003 resolutio
 amenity=embassy & country!=* [0x3003 default_name 'embassy' resolution 24]
 #amenity=emergency_phone [0x2f12 default_name 'SOS' resolution 24]
 (amenity=ferry_terminal | amenity=ferry | amenity=cable_ferry) { name '${name} (${opening_hours})' | '${name}' |  '${opening_hours}' | '${operator}' | '${note}' } [0x2f09 resolution 23]
-#amenity=fast_food & cuisine=grill [0x2a03 resolution 24]
-#amenity=fast_food & cuisine ~ '.*pizza.*' [0x2a0a resolution 24]
 amenity=fast_food [0x2a07 resolution 24]
 amenity=fire_station [0x3008 resolution 24]
-amenity=food_court [0x2a13 resolution 24]
+amenity=food_court [0x2a00 resolution 24]
 
 amenity=fuel & ((shop=* & shop!=no) | kiosk=yes) { name '${brand} (kiosk)' | '${name} (kiosk)' | '${operator} (kiosk)' | 'kiosk'} [0x2f01 resolution 24]
 amenity=fuel { name '${brand}' | '${operator}: ${name}' | '${name}' | '${operator}' } [0x2f01 resolution 24]
