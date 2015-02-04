@@ -306,6 +306,7 @@ sport=soccer { name '${name} ${description}' | '${name}' | '${description}' } [0
 (sport=swimming | leisure=swimming_pool | amenity=swimming_pool) & access!=private & mkgmap:area2poi=true & name=* { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
 (sport=swimming | leisure=swimming_pool | amenity=swimming_pool) & mkgmap:area2poi!=true & access!=private { name '${name} ${description}' | '${name}' | '${description}' } [0x2d09 resolution 24]
 
+tourism=attraction & attraction=animal [0x6405 resolution 24]
 tourism=attraction [0x2c01 resolution 24]
 
 # barriers
