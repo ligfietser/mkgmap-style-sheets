@@ -5130,31 +5130,38 @@ String2=0x03,toeristische attractie
 String3=0x02,Touristischer Themenpark
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
-DayXpm="16 16 6 1"   Colormode=16
+CustomColor=DayAndNight
+DaycustomColor:#626262
+NightcustomColor:#626262
+DayXpm="24 24 3 1"   Colormode=16
 "!	c #7C5618"
-"#	c #C2B49B"
-"%	c #EFEFEE"
-"?	c #EFEFEF"
-"$	c #FFFFFF"
+"#	c #FFFFFF"
 "  	c none"
-"                "
-"      ?$$       "
-"      $!!$      "
-"      $!!$      "
-"     $!!!!$     "
-"$$$$$!!!!!!$$$$$"
-"$!!!!!!!!!!!!!!$"
-"$$!!!!!!!!!!!!$$"
-" $$!!!!!!!!!!$$ "
-"  $$!!!!!!!!$   "
-"   $!!!!!!!!$   "
-"   $!!!!!!!!$   "
-"  $$!!!$$!!!$$  "
-"  $!!!$$ $!!!$  "
-" $$!!$$   $!!$  "
-" $$$$$     $$$  "
-;1234567890123456
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"           ##           "
+"          #!!#          "
+"         #!!!!#         "
+"        #!!##!!#        "
+"        #!!##!!#        "
+"         #!!!!#         "
+"          #!!#          "
+"           ##           "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+"                        "
+;123456789012345678901234
 [end]
 
 
