@@ -326,7 +326,7 @@ barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
 barrier=cattle_grid [0x281a resolution 23]
 
 					 
-power_source=wind | man_made=power_wind | generator:source=wind [0x2819 resolution 24]
+power_source=wind | man_made=power_wind | generator:source=wind | man_made=windpump [0x2819 resolution 24]
 
 toponym=water [0x6603 resolution 22] 
 toponym=* [0x1e03 resolution 22]
