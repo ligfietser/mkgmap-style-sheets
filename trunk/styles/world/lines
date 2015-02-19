@@ -112,8 +112,8 @@ junction=roundabout & !(highway=unclassified|highway=tertiary|highway=secondary|
 junction=roundabout {set access=no}
 
 # display direction arrows on highways
-highway=* & (oneway=yes | oneway=1 | oneway=true) [0x10000 resolution 24 continue with_actions]
-highway=* &  oneway=-1 [0x10001 resolution 24 continue with_actions]
+highway=* & (oneway=yes | oneway=1 | oneway=true | oneway=-1) [0x10000 resolution 24 continue with_actions]
+
 
 # ways under construction, disused
 highway=construction  {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
