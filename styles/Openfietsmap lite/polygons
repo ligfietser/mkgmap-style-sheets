@@ -53,7 +53,7 @@ tourism=zoo [0x17 resolution 22]
 building=church | building=chapel | building=cathedral | amenity=place_of_worship [0x06 resolution 23]
 historic=archaeological_site & building!=* [0x17 resolution 22]
 (historic=castle | historic=fort | historic=ruins) & building=* { name '${name}' | '${historic}' } [0x06 resolution 22]
-building=bunker & historic=* {delete historic}
+historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=yes | historic=disused) {delete historic}
 historic=* & building=yes [0x13 resolution 24]
 historic=* & building=* { name '${name}' | '${building}' } [0x13 resolution 24]
 historic=* & building!=* [0x21 resolution 24]

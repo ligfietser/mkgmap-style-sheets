@@ -11,6 +11,7 @@ cycleway=no { delete 'cycleway' }
 #cycleway=* & bicycle=no { delete 'bicycle' }
 (highway=motorway | highway=motorway_junction | highway=trunk | highway=footway  | route=ferry) & toll=yes {delete toll}
 highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set tollroad=yes}
+highway=* & toll=mtb {set toll:bicycle=yes; set tollroad=yes; delete toll}
 highway=* & public_transport=platform {delete platform}
 highway=track & tracktype ~ '(grade[1-5])' {set mkgmap:check=ok}
 highway=track & tracktype=1 {set mkgmap:check=ok; set tracktype=grade1}
@@ -52,7 +53,8 @@ route=ferry {add mkgmap:ferry=1}
 aeroway=runway & is_closed()!=true [0x10117 resolution 20 continue with_actions]
 aeroway=taxiway & is_closed()!=true [0x10117 resolution 23 continue with_actions]
 
-man_made=dyke | man_made=dike | embankment=yes | man_made=embankment [0x10015 resolution 24 continue with_actions]
+(man_made=dyke | man_made=dike | embankment=yes | man_made=embankment) & railway!=* & highway!=* [0x10115 resolution 24 continue with_actions]
+(man_made=dyke | man_made=dike | embankment=yes | man_made=embankment)  & (highway=* | railway=*) [0x10015 resolution 24 continue with_actions]
 cutting=yes  [0x10215 resolution 24 continue with_actions]
 
 # Roundabouts
