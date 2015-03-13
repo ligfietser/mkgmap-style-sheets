@@ -1,4 +1,4 @@
-# -------------------------------------------------------------------
+﻿# -------------------------------------------------------------------
 # This is the default mkgmap style file for applying rules on
 # OSM relations.  Usually you will set tags on the
 # elements that make up the relation, and the tags will be
