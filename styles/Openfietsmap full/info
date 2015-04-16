@@ -1,0 +1,20 @@
+#
+# This file contains information about the style.
+# It is completely optional.
+# 
+
+
+# A short one line description of the style
+#
+summary: Openfietsmap style
+
+# Version of the style itself
+#
+version=1.0
+
+
+Terms of use
+
+You are free to use the styles and typ files for personal use only.
+Copying, distribution or publishing is not allowed without attribution and
+permission of Openfietsmap.nl

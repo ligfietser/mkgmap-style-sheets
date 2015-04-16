@@ -1,0 +1,207 @@
+﻿include 'inc/address';
+name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
+name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
+toponym=water & area_size() > 200000000 [0x3b resolution 16-22]
+toponym=water & area_size() > 50000000 [0x3b resolution 20-22]
+#toponym=* & name=*  [0x3b resolution 24 continue]
+
+boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
+boundary = national_park & protect_class > 2 {set boundary=nature_reserve}
+boundary = national_park [0x1b resolution 16-19 continue]
+boundary = national_park [0x21 resolution 20-23 continue]
+(leisure=nature_reserve | boundary=protected_area | boundary=nature_reserve) [0x21 resolution 20-23 continue]
+
+natural=bay {set natural=water}
+natural=sand | surface=sand [0x53 resolution 21 continue]
+natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
+natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
+
+natural=water & area_size() >=50000000 [0x3c resolution 14]
+natural=water & area_size() >=500000 [0x3e resolution 14-18 continue]
+natural=water & area_size() >=500000 [0x3c resolution 19]
+natural=water & area_size() >=50000  [0x3e resolution 18-21 continue]
+natural=water & area_size() >=50000 [0x3c resolution 22]
+natural=water [0x3d resolution 20-21 continue]
+natural=water [0x3e resolution 22]
+
+waterway=riverbank & area_size() >=250000                            [0x3e resolution 14-21 continue]
+waterway=riverbank & area_size() >=100000 & area_size() < 250000     [0x3e resolution 18-21 continue]
+waterway=riverbank [0x3c resolution 22]
+(waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 22] 
+(waterway=drain | waterway=stream)  & natural!=water   [0x3c resolution 24]
+waterway=wadi [0x40 default_name="wadi/wash" resolution 21]
+
+aeroway=runway & is_closed()=true [0x05 default_name="aeroway" resolution 22]
+aeroway=airport [0x07 resolution 18 continue]
+aeroway=aerodrome [0x07 resolution 20 continue ]
+aeroway=terminal  [0x08 default_name="Terminal" resolution 20 continue]
+
+# dont render underground features
+building=* & (location=underground | parking=underground) {delete building}
+amenity=* & (location=underground | parking=underground) {delete amenity}
+miltary=* & location=underground {delete military}
+shop=* & location=underground {delete shop}
+
+tourism=caravan_site & tents=no [0x17 default_name="RV-park" resolution 22]
+tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
+tourism=picnic_site [0x1e resolution 24]
+tourism=chalet & building!=*  [0x50 default_name="bungalowpark" resolution 22]
+tourism=* & tourism ~ '(hotel|hostel|motel|guest_house|bed_and_breakfast|alpine_hut|chalet)'  [0x13 resolution 22]
+tourism=zoo [0x17 resolution 22]
+
+building=church | building=chapel | building=cathedral | amenity=place_of_worship [0x06 resolution 23]
+historic=mine [0x0c resolution 23]
+historic=archaeological_site & building!=* [0x17 resolution 22]
+(historic=castle | historic=fort | historic=ruins) & building=* { name '${name}' | '${historic}' } [0x06 resolution 22]
+historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=yes | historic=disused) {delete historic}
+historic=* & historic!=yes & building=* { name '${name}' | '${historic}' }[0x06 resolution 24]
+historic=* & building!=* [0x21 resolution 24]
+
+#amenity=kindergarten [0x0a resolution 24]
+amenity=college & building=* [0x13 resolution 24]
+amenity=college [0x0a resolution 22]
+amenity=grave_yard [0x1a resolution 22]
+amenity=hospital [0x0b resolution 22]
+amenity=parking & building!=* [0x05 resolution 23]
+amenity=parking & building=* & (parking!=underground | layer!=-1) [0x13 resolution 24]
+amenity=bicycle_parking & building!=* [0x05 resolution 23]
+amenity=bicycle_parking & building=* [0x13 resolution 24]
+amenity=restaurant [0x13 resolution 24]
+amenity=school & building=* [0x13 resolution 24]
+amenity=school [0x0a resolution 23]
+amenity=supermarket [0x08 resolution 24]
+amenity=university & building=* [0x13 resolution 24]
+amenity=university [0x0a resolution 20]
+
+admin_level=8 & name ~ '(Liège|Charleroi|Milano|Torino|Praha|Wien|Barcelona|Budapest)' [0x03 resolution 16-18]
+
+landuse=residential & building=yes {delete landuse}
+landuse=residential & place=* & name!=* {delete place}
+landuse=residential & area_size() >=500000 [0x03 resolution 14-23 continue]
+landuse=residential & area_size() >=250000 & area_size() < 500000 [0x03 resolution 16-23 continue]
+landuse=residential & area_size() >=50000 & area_size() < 250000 [0x03 resolution 18-23 continue]
+landuse=residential & area_size() < 50000 [0x03 resolution 19-23 continue]
+landuse=residential [0x02 resolution 24]
+
+(place=city | boundary=city) & name=* [0x01 resolution 21]
+admin_level=11 & boundary=administrative & name=* [0x01 resolution 22]
+(place=town | boundary=town) & name=* [0x01 resolution 22]
+(place=village | boundary=village) & name=* [0x01 resolution 23]
+(place=hamlet | boundary=hamlet)  & name=* [0x01 resolution 23]
+place=island | place=islet [0x010100 resolution 18 continue]
+
+landuse=allotments | landuse=orchard | landuse=vineyard | landuse=plant_nursery [0x4e resolution 23]
+(landuse=reservoir | landuse=basin) & basin!=detention & basin!=infiltration [0x3d resolution 21-18 continue]
+(landuse=reservoir | landuse=basin) & basin!=detention & basin!=infiltration [0x3c resolution 24-22 continue]
+(landuse=cemetary | landuse=cemetery) & cemetery!=sea [0x1a resolution 22]
+landuse=commercial & building=* [0x13 resolution 24 continue]
+landuse=commercial  [0x0c resolution 20]
+landuse=construction & construction=building [0x13 resolution 24]
+landuse=construction [0x0d resolution 21]
+landuse=farm | landuse=farmland [0x1f resolution 22]
+landuse=farmyard [0x02 resolution 24]
+
+
+forest_from_relation=yes {name '${fname}'} [0x50 resolution 16-18 continue]
+toponym=forest {name '${name}'} [0x50 resolution 16-18 continue]
+boundary = protected_area & name=Veluwe  [0x50 resolution 14-17 continue]
+
+(landuse=forest | natural=wood) & area_size() > 500000 [0x50 resolution 14-19 continue]
+(landuse=forest | natural=wood) [0x15 resolution 20-22 continue]
+(landuse=forest | natural=wood) & (area_size() < 250000 | source=3dShapes) [0x14 resolution 23 continue]
+(landuse=forest | natural=wood) & area_size() >=250000 & source!=3dShapes  [0x23 resolution 23 continue]
+
+leisure=birdhide [0x13 resolution 23]
+leisure=park [0x17 resolution 20 continue]
+natural=scrub [0x4f resolution 21]
+
+(landuse=grass & source!=3dShapes) | landuse=village_green | landuse=meadow | leisure=garden [0x1e resolution 22]
+landuse=greenfield [0x0d resolution 21]
+
+landuse=greenhouse | landuse=greenhouse_horticulture & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x4e default_name="glastuinbouw" resolution 21]
+landuse=greenhouse | landuse=greenhouse_horticulture & mkgmap:country=DEU [0x4e default_name="Gewächshaus" resolution 21]
+landuse=greenhouse | landuse=greenhouse_horticulture [0x4e default_name="greenhouse" resolution 21]
+landuse=industrial & building=* [0x13 resolution 24 continue]
+landuse=industrial [0x0c resolution 18]
+
+landuse=landfill  & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x0c default_name="vuilstortplaats" resolution 22]
+landuse=landfill  & mkgmap:country=DEU [0x0c default_name="Deponie" resolution 22]
+landuse=landfill  & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x0c default_name="Centre d'enfouissement" resolution 22]
+landuse=landfill   [0x0c default_name="landfill" resolution 22]
+
+landuse=military [0x04 default_name="militair" resolution 21]
+landuse=quarry | man_made=surface_mine [0x0c resolution 21]
+landuse=recreation_ground [0x19 resolution 22]
+
+landuse=retail & building=* [0x13 resolution 23 continue]
+landuse=retail [0x08 resolution 21]
+
+
+landuse=vineyard [0x4e resolution 21]
+
+#leisure=common [0x17 resolution 21]
+leisure=golf_course [0x18 resolution 22]
+leisure=marina [0x09 resolution 23]
+
+leisure=pitch & sport=soccer & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x19 default_name="voetbalveld" resolution 23]
+leisure=pitch & sport=soccer & mkgmap:country=DEU [0x19 default_name="Fussballfeld" resolution 23]
+leisure=pitch & sport=soccer & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x19 default_name="terrain de football" resolution 23]
+leisure=pitch & sport=soccer [0x19 resolution 23]
+
+leisure=pitch & sport=tennis [0x19 default_name="tennis" resolution 23]
+leisure=pitch & sport=hockey [0x19 default_name="hockey" resolution 23]
+leisure=pitch & sport=skateboard [0x0e default_name="skatepark" resolution 23]
+leisure=pitch & sport=basketball [0x0e default_name="basketball" resolution 23]
+leisure=pitch { name '${name} (${sport})' | '${name}' | '${sport}' } [0x19 resolution 23]
+
+
+leisure=playground  [0x19 resolution 24]
+leisure=recreation_ground [0x19 resolution 23 continue]
+leisure=sports_center | leisure=sports_centre | leisure=ice_rink | leisure=water_park [0x19 resolution 23 continue]
+leisure=stadium [0x19 resolution 23 continue]
+leisure=track [0x19 resolution 23]
+sport=swimming | leisure=swimming_pool | amenity=swimming_pool  [0x3d resolution 23 continue]
+man_made=water_tower | man_made=tower [0x13 resolution 24]
+
+
+military=airfield [0x04 resolution 20]
+military=barracks [0x04 resolution 23]
+military=danger_area [0x04 resolution 20]
+military=range [0x04 resolution 20]
+
+natural=beach [0x53 resolution 20]
+natural=bedrock | natural=cliff | natural=scree | natural=rock [0x40 resolution 20]
+natural=glacier [0x4d resolution 14]
+natural=heath [0x20 resolution 21]
+natural=marsh [0x51 resolution 21]
+natural=mud [0x51 resolution 21]
+natural=sea  [0x32 resolution 12]
+natural=fell [0x41 resolution 20]
+
+# shops
+(shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=* [0x13 resolution 22]
+shop=* & building=* [0x13 resolution 23]
+
+# squares, plazas, bridges
+waterway=dam  [0x0e default_name="dam" resolution 22]
+highway=* & area=yes [0x0e resolution 23]
+area:highway=bridge | man_made=bridge | building=bridge [0x0e default_name="bridge" resolution 23]
+area:highway=* [0x0e resolution 23]
+man_made=pier  [0x0e default_name="pier" resolution 23 continue]
+#man_made=reinforced_slope | man_made=groyne [0x27 resolution 23]
+
+(public_transport=platform | railway=platform) & area=yes { name '${name}' | '${ref}' } [0x0e default_name="perron" resolution 23]
+
+
+# building tags
+include 'inc/bag';
+building=no {delete building}
+building=* & building!=yes  { name '${name}' | '${building}' } [0x13 resolution 24]
+building=* [0x13 resolution 24]
+
+natural=land [0x27 resolution 20]
+natural=background [0x010100 resolution 12]
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+include 'inc/compat_polygons'; 
