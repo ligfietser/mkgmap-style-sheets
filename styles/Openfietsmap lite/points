@@ -18,6 +18,13 @@ shop=* & mkgmap:line2poi=true {delete shop}
 sport=* & mkgmap:line2poi=true {delete sport}
 tourism=* & mkgmap:line2poi=true {delete tourism}
 
+# poi search for cycle route names
+iname=* & mkgmap:line2poitype=mid {name '${iref} ${iname}' | '${iref}' | '${iname}' } [0x06500 resolution 24]
+nname=* & mkgmap:line2poitype=mid {name '${nref} ${nname}' | '${nref}' | '${nname}' } [0x06500 resolution 24]
+rname=* & mkgmap:line2poitype=mid {name '${rref} ${rname}' | '${rref}' | '${rname}' } [0x06500 resolution 24]
+lname=* & mkgmap:line2poitype=mid {name '${lref} ${lname}' | '${lref}' | '${lname}' } [0x06500 resolution 24]
+mname=* & mkgmap:line2poitype=mid {name '${mref} ${mname}' | '${mref}' | '${mname}' } [0x06500 resolution 24]
+
 #unclutter bicycle parkings
 amenity=bicycle_parking & capacity!=* & bicycle_parking ~ '(stands|wall_loops|informal|rack|bollard|ground_slots)' {delete amenity}
 amenity=bicycle_parking & capacity<25 {delete amenity}
