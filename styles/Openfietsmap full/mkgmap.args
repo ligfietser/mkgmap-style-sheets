@@ -1,0 +1,35 @@
+family-id: 10010
+product-id: 1
+draw-priority: 20
+series-name: OpenFietsMap (Benelux_v%date%)
+family-name: OpenFietsMap (BNL)
+description: OpenFietsMap (Benelux)
+copyright-message: Map data © openstreetmap.org, Map layout © openfietsmap.nl
+area-name: OFM_BNL
+country-name: Benelux
+country-abbr: BNL
+style-file: Styles
+overview-mapname: 10010000
+#download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
+precomp-sea: sea.zip
+generate-sea: land-tag=natural=background
+#download the latest bounds from http://osm2.pleiades.uni-wuppertal.de/bounds/latest/
+bounds: bounds.zip
+location-autofill: is_in,nearest
+housenumbers
+tdbfile
+latin1
+name-tag-list: name,name:nl,name:fr,name:de,int_name,place_name
+code-page: 1252
+show-profiles: 1
+merge-lines
+add-pois-to-areas
+add-pois-to-lines
+link-pois-to-ways
+min-size-polygon: 4
+polygon-size-limits=17:2, 15:0
+preserve-element-order
+keep-going
+net
+route
+index
