@@ -54,7 +54,7 @@ historic=mine [0x0c resolution 23]
 historic=archaeological_site & building!=* [0x17 resolution 22]
 (historic=castle | historic=fort | historic=ruins) & building=* { name '${name}' | '${historic}' } [0x06 resolution 22]
 historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=yes | historic=disused) {delete historic}
-historic=* & historic!=yes & building=* { name '${name}' | '${historic}' }[0x06 resolution 24]
+historic=* & building=* { name '${name}' | 'historic building' } [0x06 resolution 24]
 historic=* & building!=* [0x21 resolution 24]
 
 #amenity=kindergarten [0x0a resolution 24]

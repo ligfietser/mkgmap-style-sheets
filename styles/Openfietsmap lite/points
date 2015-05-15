@@ -200,7 +200,8 @@ highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|high
 
 highway=elevator [0x5002 resolution 24]
 
-historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=yes | historic=disused) {delete historic}
+historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=disused) {delete historic}
+historic=yes & name!=* {delete historic}
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
@@ -213,7 +214,7 @@ historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x
 historic=archaeological_site & name ~ '.*(unebed|Großsteingrab|Dolmen|Hünen).*' { add site_type=megalith }
 historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 23] 
 historic=archaeological_site & name=* { name '${historic}' } [0x2801 resolution 23]
-historic=monument & name=* { name '${historic}' } [0x2802  resolution 23]
+(historic=monument | historic=building) & name=* [0x2802  resolution 23]
 historic=wayside_cross & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Wegkruis' resolution 23]
 historic=wayside_cross & mkgmap:country=DEU [0x2803 default_name 'Kreuz' resolution 23]
 historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 23]
