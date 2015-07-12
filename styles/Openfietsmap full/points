@@ -2,6 +2,7 @@
 
 boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park).*'  {set boundary=nature_reserve}
 boundary = national_park & mkgmap:line2poi!=true & national_park!=naturreservat & leisure!=nature_reserve & name=* [0x640e resolution 16]
+boundary=estate  [0x0b00 resolution 23]
 
 # don't render not relevant mkgmap:line2poi tags
 amenity=* & mkgmap:line2poi=true {delete amenity}
