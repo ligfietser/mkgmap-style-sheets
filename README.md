@@ -6,8 +6,9 @@ or http://forum.openstreetmap.org/viewtopic.php?id=2625
 
 ## mkgmap parameters for the generic new style
 
-Example of the parameters in the mkgmap.args file.
+Example of the parameters used in the mkgmap.args file.
 For more details http://www.mkgmap.org.uk/doc/index.html
+
 ```
 name-tag-list: name:en,int_name,name,name:nl,name:fr,name:de,place_name
 generate-sea: land-tag=natural=background
@@ -39,7 +40,10 @@ gmapsupp
 copyright-message: Map data © Openstreetmap.org
 ```
 
-## mkgmap parameters for Openfietsmap
+## mkgmap parameters for Openfietsmap (full version)
+
+More info on http://www.openfietsmap.nl/procedure
+
 ```
 generate-sea: land-tag=natural=background
 precomp-sea:  sea_latest.zip
@@ -64,5 +68,3 @@ route
 index
 copyright-message: Map data © openstreetmap.org, Map layout © openfietsmap.nl, SRTM Data © U.S. Geological Survey
 ```
-
-More info on http://www.openfietsmap.nl/procedure
