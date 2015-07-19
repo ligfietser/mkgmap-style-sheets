@@ -201,7 +201,8 @@ highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|high
 
 highway=elevator [0x5002 resolution 24]
 
-historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=yes | historic=disused) {delete historic}
+historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=disused) {delete historic}
+historic=yes & name!=* {delete historic}
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
 historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
@@ -214,7 +215,7 @@ historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x
 historic=archaeological_site & name ~ '.*(unebed|Großsteingrab|Dolmen|Hünen).*' { add site_type=megalith }
 historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 23] 
 historic=archaeological_site & name=* { name '${historic}' } [0x2801 resolution 23]
-historic=monument & name=* { name '${historic}' } [0x2802  resolution 23]
+(historic=monument | historic=building) & name=* [0x2802  resolution 23]
 historic=wayside_cross & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Wegkruis' resolution 23]
 historic=wayside_cross & mkgmap:country=DEU [0x2803 default_name 'Kreuz' resolution 23]
 historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 23]
@@ -343,7 +344,7 @@ place=locality  [0x1e00 resolution 23]
 
 # pois from lines
 bicycle:conditional=* & mkgmap:line2poitype=start { name 'bicycle=${bicycle:conditional}' } [0x1108 resolution 24]
-highway=cycleway & access:conditional=* & mkgmap:line2poitype=start { name 'access=${access:conditional}' } [0x1108 resolution 24]
+access:conditional=* & bicycle!=* { name 'access=${access:conditional}' } [0x1108 resolution 24]
 scenic=yes & mkgmap:line2poitype=mid {delete 'name'} [0x5200 resolution 23]
 (highway=cycleway | bicycle=yes | bicycle=permissive | bicycle=designated) & opening_hours=* & route!=ferry & mkgmap:line2poitype=mid { name 'open (${opening_hours})' } [0x2808 resolution 24]
 highway=* & highway!=motorway & highway!=motorway_link & highway!=trunk & highway!=trunk_link & highway!=footway & bicycle!=no & (toll=yes | toll:bicycle=yes) & toll:bicycle!=no & service!=parking_aisle & mkgmap:line2poitype=mid {delete 'name'; delete 'ref';} [0x2811 resolution 24]
