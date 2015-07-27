@@ -56,6 +56,7 @@ place=* & mkgmap:line2poi=true {delete place}
 shop=* & mkgmap:line2poi=true {delete shop}
 sport=* & mkgmap:line2poi=true {delete sport}
 tourism=* & mkgmap:line2poi=true {delete tourism}
+public_transport=platform & mkgmap:line2poi=true {delete public_transport}
 
 internet_access=yes { name 'Internet ${name}' | 'Internet' } [0x2f12 resolution 24 continue]
 internet_access=* & internet_access!=no & internet_access!=yes { name 'Internet(${internet_access}) ${name|def:}' } [0x2f12 resolution 24 continue]

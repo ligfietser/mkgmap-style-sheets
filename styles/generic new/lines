@@ -100,7 +100,7 @@ leisure=track & area!=yes
 {add highway=footway; name '${name} (${sport})' | '${name}'}
 (man_made=pier | man_made=piste:halfpipe) & area!=yes
 {add highway=pedestrian; name '${ref} ${name}' | '${ref}' | '${name}' }
-railway=platform {add highway=pedestrian}
+#railway=platform {add highway=pedestrian}
 
 # Roundabouts
 junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 18 continue with_actions]
@@ -196,7 +196,7 @@ railway=narrow_gauge & !(tunnel=yes) [0x10014 resolution 22]
 railway=preserved & !(tunnel=yes) [0x10014 resolution 22]
 railway=subway & !(tunnel=yes) [0x10014 resolution 21]
 railway=tram & !(tunnel=yes) [0x10015 default_name="tram" resolution 24]
-railway=platform  [0x07 road_class=0 road_speed=0 resolution 24 continue]
+(railway=platform | public_transport=platform) & is_closed()!=true  [0x11 road_class=0 road_speed=0 default_name="platform" resolution 24]
 
 route=ferry & foot!=no {set foot_ferry=yes} 
 route=ferry  {set foot=no; add mkgmap:ferry=1} [0x1b road_class=3 road_speed=0 resolution 19 continue with_actions]
