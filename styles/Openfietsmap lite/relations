@@ -152,8 +152,15 @@ type=route & route=bicycle & network=tcn
 	}
 	} 	
 	
-type=route & route=bicycle & state=proposed
-	{apply { set state=proposed }}
+network=icn & state=proposed
+	{apply { set state=icn_proposed }}
+network=ncn & state=proposed
+	{apply { set state=ncn_proposed }}	
+network=rcn & state=proposed
+	{apply { set state=rcn_proposed }}	
+network=lcn & state=proposed
+	{apply { set state=lcn_proposed }}		
+
 	
 type=route & route=mtb
 	{
