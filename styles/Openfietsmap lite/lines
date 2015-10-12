@@ -8,7 +8,9 @@ motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
 motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
 cycleway=no { delete 'cycleway' }
-#cycleway=* & bicycle=no { delete 'bicycle' }
+cycleway=track & bicycle=* { delete 'bicycle' }
+cycleway=lane & bicycle=* { delete 'bicycle' }
+
 (highway=motorway | highway=motorway_junction | highway=trunk | highway=footway  | route=ferry) & toll=yes {delete toll}
 highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set tollroad=yes}
 highway=* & toll=mtb {set toll:bicycle=yes; set tollroad=yes; delete toll}
