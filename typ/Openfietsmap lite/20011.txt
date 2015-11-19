@@ -1257,7 +1257,7 @@ Xpm="32 32 4 1"
 [_polygon]
 Type=0x4f
 String1=0x04,scrub
-String2=0x03,bossage
+String2=0x03,bosschage
 String3=0x02,Buschland
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
