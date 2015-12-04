@@ -23,7 +23,16 @@ aeroway=taxiway & is_closed()!=true [0x27 resolution 23 continue with_actions]
 highway=* & (toll=yes|toll=true) { set mkgmap:toll=yes }
 
 # Hide proposed ways
-highway=proposed {delete highway;delete junction}
+(highway=proposed | highway=proposal | highway=planned | highway ~ '.*proposed.*') {delete highway;delete junction}
+# Hide removed ways
+(highway=razed | highway=dismantled) {deletealltags}
+# Hide abandoned ways. Abandoned highways have some evidence of their former existence but are no longer used. These
+# abandoned highways could be useful in topographical maps.
+# https://wiki.openstreetmap.org/wiki/Key:abandoned:
+((abandoned:highway=* & highway!=*) | highway=abandoned) {deletealltags}
+# Hide other non-existent ways
+(highway=unbuilt | highway=neverbuilt | highway=rejected | highway ~ 'x-.*') {delete highway;delete junction}
+
 # Hide unaccessible tunnels
 highway=* & tunnel=yes & (access=private|access=no)
 & foot!=* & bicycle!=* {delete highway;delete junction}
