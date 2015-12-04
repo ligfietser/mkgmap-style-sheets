@@ -48,10 +48,10 @@ healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home [0x0b re
 
 landuse=allotments [0x4e resolution 22]
 landuse=basin [0x3f resolution 20]
-landuse=cemetery|landuse=cemetary [0x1a resolution 21]
+landuse=cemetery | landuse=cemetary [0x1a resolution 21]
 landuse=commercial [0x0c resolution 19]
 landuse=construction [0x0d resolution 21]
-landuse=farm [0x4e resolution 22]
+landuse=farm | landuse=farmland [0x4e resolution 22]
 landuse=farmyard [0x4e resolution 22]
 landuse=forest [0x50 resolution 18]
 landuse=greenfield [0x17 resolution 22]
