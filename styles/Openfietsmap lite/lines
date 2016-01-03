@@ -102,7 +102,7 @@ highway=path & foot=designated & bicycle!=yes { set highway=footway }
 highway=path & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway; add mkgmap:unpaved=1; set motorcar=no; }
 highway=track & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway; add mkgmap:unpaved=1; set motorcar=no; }
 highway=bridleway & mkgmap:country=GBR & bicycle!=* {set highway=track; add mkgmap:unpaved=1; set motorcar=no;}
-leisure=track & sport=cycling { set highway=cycleway }
+leisure=track & sport=cycling & area!=yes & is_closed()=false { set highway=cycleway }
 leisure=track & sport!=cycling { set highway=service; add access=no }
 
 bicycle=lane { set cycleway=lane }
