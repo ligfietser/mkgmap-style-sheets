@@ -109,7 +109,7 @@ bicycle=lane { set cycleway=lane }
 bicycleroute=yes & area=yes {set bicycleroute=no}
 
 # Flag unpaved roads
-highway=cycleway & surface ~ '(fine_gravel|compacted|shell|shells)' {set surface=paved}
+highway=cycleway & surface ~ '(fine_gravel|compacted|shell|shells)' {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
 
 highway=* &  bridge!=* & tracktype ~ '.*;.*' {delete tracktype}
 highway=* &  bridge!=* & surface ~ '.*(ash|bad|clay|cob|compact|dirt|earth|erde|gr|loam|mud|peb|sand|shotter|rock|turf|unpaved).*' { add mkgmap:unpaved=1; set motorcar=no }
