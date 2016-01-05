@@ -127,8 +127,8 @@ highway=* &  bridge!=* &
 { add mkgmap:unpaved=1; set motorcar=no }
 
 highway=track & tracktype=grade2 & surface ~ '(fine_gravel|compacted|shell|shells)' & bicycle!=no { set mkgmap:unpaved=0; set motorcar=yes }
-
 highway=path & surface ~ '(fine_gravel|compacted|shell|shells)' & bicycle=yes { set mkgmap:unpaved=0; set motorcar=no }
+highway=* & bicycleroute=yes & surface ~ '(fine_gravel|compacted|shell|shells)' & bicycle!=no { set mkgmap:unpaved=0; set motorcar=yes }
 
 highway=path
 & surface!=* & tracktype!=* & smoothness!=* & sac_scale!=* & bridge!=* & length()>100
