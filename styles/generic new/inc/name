@@ -2,18 +2,19 @@
 # name, brand, operator, ref
 
 # delete FIXME values (they should be better used in maintenance maps)
-ref=FIXME | ref=fixme { delete ref; }
-operator=FIXME | operator=fixme { delete operator; }
-brand=FIXME | brand=fixme { delete brand; }
-name=FIXME | name=fixme { delete name; }
+ref ~ '(?i)fix[ _]?+me'		{ delete ref; } 
+operator ~ '(?i)fix[ _]?+me'	{ delete operator; }
+brand ~ '(?i)fix[ _]?+me'		{ delete brand; }
+name ~ '(?i)fix[ _]?+me'		{ delete name; }
 
 # delete duplicate names
 operator=${brand} { delete operator; }
-operator=${name} { delete operator; }
-brand=${name} { delete brand; }
+operator=${name}  { delete operator; }
+brand=${name}     { delete brand; }
 
 # None of operator, brand given
-#ref=* & (operator!=* & brand!=*) { name '${ref} ${name}' | '${ref}' }
+ref=* & (operator!=* & brand!=*) & (highway=bus_stop | railway=tram_stop | railway=halt | railway=station) { name '${name} ${ref}' | '${ref}' }
+ref=* & (operator!=* & brand!=*) { name '${ref} ${name}' | '${ref}' }
 
 # Both operator and brand given
 operator=* & brand=* {
@@ -24,6 +25,13 @@ operator=* & brand=* {
 }
 
 # One of operator or brand given
+operator=* & brand!=* & (highway=bus_stop | railway=tram_stop | railway=halt | railway=station) {
+ name '${name} ${ref} ${operator}' |
+      '${name} ${operator}' |
+      '${ref} ${operator}' |
+      '${operator}'
+}
+
 operator=* & brand!=* {
  name '${operator}: ${ref} ${name}' |
       '${operator}: ${name}' |
@@ -33,9 +41,8 @@ operator=* & brand!=* {
 }
 brand=* & operator!=* {
  name '${brand}: ${ref} ${name}' |
-      '${brand}: ${name}' |
+      '${brand}: ${name}' | 
       '${brand}: ${ref}' |
       '${brand}' |
       '${ref}'
 }
-
