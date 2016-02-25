@@ -25,8 +25,8 @@ highway=track & tracktype=* & mkgmap:check!=ok {delete tracktype}
 
 # access tags
 bicycle ~ '(use_).*' { set bicycle=no; set motorcar=no; set access=no; delete cycleway; delete cycleway:left; delete cycleway:right }
-bicycle:backward ~ '(use_).*' {set bicycle:backward=no; set motorcar:backward=no}
-bicycle:forward ~ '(use_).*'  {set bicycle:forward=no; set motorcar:forward=no}
+bicycle:backward=use_sidepath {set bicycle:oneway=yes; set oneway=yes; delete bicycle:backward}
+bicycle:forward=use_sidepath  {set bicycle:oneway=-1; set oneway=-1; delete bicycle:forward}
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access; add car=no }
 access=destination {delete access}
