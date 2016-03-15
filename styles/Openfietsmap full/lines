@@ -349,13 +349,16 @@ route=ferry & access:conditional=*  {set bicycle=no; set motorcar=no; add foot=y
 route=ferry & seasonal!=* [0x1b road_class=3 road_speed=0 resolution 24 continue]
 
 waterway=* & source=3dshapes { add natural=water }
+(waterway=river | waterway=canal) & intermittent=yes [0x10A02 resolution 18]
 waterway=river & natural!=water [0x18 resolution 18-19 continue]
 waterway=river & natural!=water [0x1f resolution 20 continue]
 waterway=canal & natural!=water [0x18 resolution 22-21 continue]
 waterway=canal & natural!=water [0x1f resolution 23 continue]
+waterway=stream & intermittent=yes [0x10A02 resolution 22]
 waterway=stream & natural!=water & name=* [0x18 resolution 22-22 continue]
 waterway=stream & natural!=water & name=* [0x1f resolution 23 continue]
 waterway=stream & natural!=water & name!=* [0x18 resolution 24 continue]
+waterway=drain & intermittent=yes [0x10A02 resolution 24]
 waterway=drain & natural!=water [0x18 resolution 24 continue]
 (waterway=ditch | barrier=ditch) & natural!=water [0x18 resolution 24]
 waterway=weir & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="stuw" resolution 24]

@@ -218,12 +218,14 @@ route=ferry & seasonal=* {name '${name|def:} seasonal(${seasonal}) ${opening_hou
 route=ferry {name '${name|def:} ${opening_hours|def:}' | '${note}' } [0x10017  resolution 18]
 
 waterway=river & natural!=water [0x18 resolution 18-20 continue]
+(waterway=river | waterway=canal) & intermittent=yes & natural!=water [0x26 resolution 21]
 waterway=river & natural!=water [0x1f resolution 21 continue]
 waterway=canal & natural!=water [0x18 resolution 20-22 continue]
 waterway=canal & natural!=water [0x1f resolution 24 continue]
+(waterway=stream | waterway=drain) & intermittent=yes & natural!=water [0x10A02 resolution 24]
 waterway=stream & natural!=water [0x18 resolution 24 continue]
 waterway=drain & natural!=water [0x18 resolution 24 continue]
-waterway=ditch | barrier=ditch  [0x18 resolution 24]
+waterway=ditch | barrier=ditch  [0x10A02 resolution 24]
 waterway=rapids|waterway=waterfall [0x1f resolution 22]
 
 
