@@ -1815,12 +1815,38 @@ DaycustomColor:#0065FF
 
 [_line]
 Type=0x26
-UseOrientation=Y
-LineWidth=2
-Xpm="0 0 1 0"
-"1 c #B5D0D0"
-String1=0x00,Canal
-ExtendedLabels=N
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #7BCAD5"
+"  c none"
+"!!!!    !!!!    !!!!    !!!!    "
+"!!!!    !!!!    !!!!    !!!!    "
+;12345678901234567890123456789012
+String1=0x04,Intermittent river
+String2=0x03,Periodieke rivier
+String3=0x02,Periodischer Fluss
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#0000B4
+[end]
+
+
+[_line]
+Type=0x10a02
+UseOrientation=N
+Xpm="32 1 2  1"
+"! c #7BCAD5"
+"  c none"
+"!!!!    !!!!    !!!!    !!!!    "
+;12345678901234567890123456789012
+String1=0x04,Intermittent stream
+String2=0x03,beek,sloot (periodiek)
+String3=0x02,Bach (periodisch)
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#0000B4
 [end]
 
 
