@@ -204,7 +204,7 @@ cycleway=track & highway!=track & oneway!=yes [0x10009 resolution 23 continue wi
 # display direction arrows
 highway=* & (oneway=yes | bicycle:oneway=yes ) & (cycling!=twoway) & bicycle!=no [0x10007 resolution 24 continue with_actions]
 highway=* & cycleway=lane & cycling=twoway  [0x10011 resolution 24 continue with_actions]
-highway=* & (cycleway=opposite_lane | cycleway=opposite | bicycle:oneway=no) & cycling=twoway  [0x10008 resolution 24 continue with_actions]
+highway=* & (cycleway=opposite_lane | cycleway=opposite | bicycle:oneway=no | oneway:bicycle=no) & cycling=twoway  [0x10008 resolution 24 continue with_actions]
 highway=* & (oneway=-1 | bicycle:oneway=-1 ) & (cycling!=twoway) & bicycle!=no  [0x10007 resolution 24 continue with_actions]
 
 (cycling=twoway | bicycle:oneway=no | oneway:bicycle=no)   {delete 'oneway'}
