@@ -76,7 +76,7 @@ leisure=golf_course [0x18 resolution 21]
 leisure=ice_rink [0x19 resolution 22]
 leisure=marina [0x09 resolution 20]
 
-leisure=park [0x17 resolution 20]
+leisure=park [0x1e resolution 20]
 leisure=pitch { name '${name} (${sport})' | '${name}' } [0x19 resolution 21]
 leisure=playground [0x17 resolution 22]
 leisure=recreation_ground [0x14 resolution 21]
