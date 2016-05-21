@@ -145,15 +145,18 @@ bicycle:dismount=yes { add mkgmap:unpaved=1 }
 (oneway:bicycle=yes | oneway:bicycle=1 | bicycle:oneway=1 | oneway:bicycle=true | bicycle:oneway=true | bicycle:oneway=1) {set bicycle:oneway=yes; set oneway=yes; delete 'oneway:bicycle'}
 (oneway:bicycle=-1 | bicycle:oneway=-1) {set bicycle:oneway=-1; set oneway=-1; delete 'oneway:bicycle'}
 (bicycle=opposite_lane | cycleway=opposite_track) { set cycleway=opposite_lane }
-(cycleway=lane_left | cycleway:left=lane | cycleway=track_left | cycleway:left=path | cycleway:left=yes | cycleway:left=track) { set cycleway=left }
+cycleway=share_busway {set cycleway=lane}
+cycleway:left=share_busway {set cycleway:left=lane}
+cycleway:right=share_busway {set cycleway:right=lane}
+cycleway=opposite_share_busway { set cycleway=opposite_lane }
+(cycleway=lane_left | cycleway:left=lane | cycleway=track_left | cycleway:left=path | cycleway:left=yes | cycleway:left=track ) { set cycleway=left }
 (cycleway=right | cycleway=track_right | cycleway:right=path | cycleway:right=track | cycleway:right=yes | cycleway=lane_right | cycleway:right=lane) { set cycleway=right }
 (cycleway=path | cycleway=yes | cycleway=both | cycleway=segregated | bicycle=track) { add bicycle=yes; delete 'cycleway' }
 (cycleway=track | cycleway=left | cycleway=right) & highway=track { set highway=cycleway; add track=yes; set mkgmap:unpaved=0; delete 'cycleway'}
 highway=cycleway & cycleway=* & cycleway!=opposite { delete 'cycleway' }
 highway=cycleway & railway=* {delete 'railway'}
 highway=cycleway & unpaved=2 {set mkgmap:unpaved=0}
-cycleway=share_busway { set cycleway=lane }
-cycleway=opposite_share_busway { set cycleway=opposite_lane }
+
 
 # ways under construction
 highway=construction [0x10019 resolution 22]
