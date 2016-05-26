@@ -3273,6 +3273,25 @@ CustomColor=No
 [end]
 
 
+[_line]
+Type=0x10a02
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #7BCAD5"
+"  c none"
+"!!!!!   !!!!!   !!!!!   !!!!!   "
+"!!!!!   !!!!!   !!!!!   !!!!!   "
+;12345678901234567890123456789012
+String1=0x04,intermittent waterway
+String2=0x03,periodieke stroom
+String3=0x02,periodische Gewässer
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=DayAndNight
+DaycustomColor:#0000D5
+NightcustomColor:#0000D5
+[end]
+
 ;====================== POINTS ==========================
 
 
