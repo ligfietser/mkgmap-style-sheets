@@ -317,7 +317,7 @@ railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=DEU | mkgmap:coun
 railway=abandoned & tunnel!=yes & highway!=* & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x15 default_name="voie ferree abandonnee" resolution 24]
 railway=abandoned & tunnel!=yes & highway!=* [0x15 default_name="abandoned railway" resolution 23]
 railway=disused | (railway=* & disused=yes) & tunnel!=yes [0x10112 resolution 23]
-railway=rail & (service=* | usage=industrial) & tunnel!=yes [0x10112 resolution 23]
+railway=rail & (service=* | usage=industrial | usage=tourism) & tunnel!=yes [0x10112 resolution 23]
 
 railway=rail & tunnel=yes  [0x10113 resolution 20 continue with_actions]
 railway=rail & tunnel!=yes & (trainroute=yes | highspeed=yes | usage=main) [0x2a resolution 18-19 continue with_actions]
