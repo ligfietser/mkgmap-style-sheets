@@ -304,7 +304,7 @@ bicycleroute=yes & !(ncn_from_relation=yes | icn_from_relation=yes) [0x10119 res
 (ncn_from_relation=yes | lcn_from_relation=yes | ncn_ref=* | lcn_ref=*) & state!=ncn_proposed {name '${nref|highway-symbol:oval}'| '${ncn_ref|highway-symbol:oval}' | '${lcn_ref|highway-symbol:oval}' | '${lref|highway-symbol:oval}' }  [0x28 resolution 22 continue] 
 rcn_from_relation=yes & state!=rcn_proposed  {name '${rnote}' | '${rname}'} [0x19 resolution 22 continue]
 lcn_from_relation=yes  & state!=rcn_proposed {name '${lname}'} [0x27 resolution 22 continue]
-bicycleroute=yes [0x02 road_class=3 road_speed=3 resolution 22 continue]
+bicycleroute=yes & junction!=roundabout [0x02 road_class=3 road_speed=3 resolution 22 continue]
 
 # Mop up any unrecognised highway types
 highway=crossing  [0x10 road_class=1 road_speed=1 resolution 23]
