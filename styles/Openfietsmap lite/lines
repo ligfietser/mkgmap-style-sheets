@@ -30,7 +30,7 @@ bicycle:forward=use_sidepath  {set bicycle:oneway=-1; set oneway=-1; delete bicy
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access; add car=no }
 access=destination {delete access}
-vehicle=no | vehicle=private {add bicycle=no} 
+vehicle=no | vehicle=private {add bicycle=no; add car=no} 
 bicycle_road=yes & (car!=yes | vehicle!=destination) {set highway=cycleway}
 bicycle=dismount & highway!=footway & highway!=pedestrian {set bicycle=yes; add bicycle:dismount=yes}
 bicycle=dismount & (highway=footway | highway=pedestrian) {delete bicycle; add bicycle:dismount=yes}
@@ -237,7 +237,7 @@ highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=
 highway=service & bicycle!=no [0x07 road_class=1 road_speed=2 resolution 23 continue]
 highway=service & bicycle=no & foot!=no [0x07 road_class=0 road_speed=0 resolution 23 continue]
 highway=unclassified & bicycle!=no [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
-highway=unclassified & bicycle=no & foot!=no [0x060 road_class=0 road_speed=0 resolution 23]
+highway=unclassified & bicycle=no & car=no & foot!=no [0x08 road_class=0 road_speed=0 resolution 23]
 highway=unclassified & bicycle=no [0x10018 resolution 23]
 highway=service & bicycle=no & area!=yes [0x10018 resolution 23]
 
