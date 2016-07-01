@@ -231,14 +231,15 @@ highway=cycleway & mkgmap:unpaved=1 & unpaved!=2 {set motorcar=no} [0x0b road_cl
 highway=cycleway & unpaved=2 [0x0e road_class=2 road_speed=2 resolution 23 continue with_actions]
 highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=3 road_speed=3 resolution 23 continue with_actions]
 
-
 (highway=unclassified | highway=service) & service!=* [0x10000 resolution 20-21 continue with_actions]
 (highway=unclassified | highway=service) & service!=* [0x10 resolution 22-22 continue with_actions]
 
-highway=service  & bicycle!=no  [0x07 road_class=1 road_speed=2 resolution 23 continue]
-highway=unclassified & bicycle!=no  [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
-highway=unclassified & bicycle=no {add foot=no} [0x10018 resolution 23]
-highway=service & bicycle=no & area!=yes {add foot=no} [0x10018 resolution 23]
+highway=service & bicycle!=no [0x07 road_class=1 road_speed=2 resolution 23 continue]
+highway=service & bicycle=no & foot!=no [0x07 road_class=0 road_speed=0 resolution 23 continue]
+highway=unclassified & bicycle!=no [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
+highway=unclassified & bicycle=no & foot!=no [0x060 road_class=0 road_speed=0 resolution 23]
+highway=unclassified & bicycle=no [0x10018 resolution 23]
+highway=service & bicycle=no & area!=yes [0x10018 resolution 23]
 
 highway=tertiary [0x10001 resolution 20-22 continue with_actions]
 highway=tertiary & bicycle!=no [0x050 road_class=3 road_speed=2 resolution 23 continue with_actions]
