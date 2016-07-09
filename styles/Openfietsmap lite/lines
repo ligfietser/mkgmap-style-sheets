@@ -226,6 +226,7 @@ highway=cycleway [0x11 resolution 20-22 continue with_actions]
 highway=cycleway & (moped=yes | moped=designated) [0x10612 resolution 23 continue with_actions]
 highway=cycleway & (moped=yes | moped=designated) & bicycle=no [0x10018 resolution 23]
 highway=cycleway & (mofa=no | traffic_sign="NL:G13") {set toll=no} [0x10613 resolution 23 continue with_actions]
+highway=cycleway & junction=roundabout [0x16 resolution 23]
 highway=cycleway & track=yes {set motorcar=no} [0x1602 road_class=2 road_speed=2 resolution 23 continue with_actions]
 highway=cycleway & mkgmap:unpaved=1 & unpaved!=2 {set motorcar=no} [0x0b road_class=1 road_speed=1 resolution 23 continue with_actions]
 highway=cycleway & unpaved=2 [0x0e road_class=2 road_speed=2 resolution 23 continue with_actions]
@@ -236,22 +237,25 @@ highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=
 
 highway=service & bicycle!=no [0x07 road_class=1 road_speed=2 resolution 23 continue]
 highway=service & bicycle=no & foot!=no [0x07 road_class=0 road_speed=0 resolution 23 continue]
+(highway=unclassified | highway=service) & bicycle!=no & junction=roundabout [0x060 resolution 23]
 highway=unclassified & bicycle!=no [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
 highway=unclassified & bicycle=no & car=no & foot!=no [0x08 road_class=0 road_speed=0 resolution 23]
 highway=unclassified & bicycle=no [0x10018 resolution 23]
 highway=service & bicycle=no & area!=yes [0x10018 resolution 23]
 
 highway=tertiary [0x10001 resolution 20-22 continue with_actions]
+highway=tertiary & bicycle!=no & junction=roundabout [0x050 resolution 23]
 highway=tertiary & bicycle!=no [0x050 road_class=3 road_speed=2 resolution 23 continue with_actions]
 highway=tertiary & bicycle=no {add foot=no} [0x10004 resolution 23]
-
  
 highway=secondary [0x12 resolution 20-21 continue with_actions]
+highway=secondary & bicycle!=no & junction=roundabout [0x040 resolution 22]
 highway=secondary & bicycle!=no [0x040 road_class=2 road_speed=2 resolution 22 continue with_actions]
 highway=secondary & bicycle=no  {add foot=no} [0x10003 resolution 22]
 
 highway=primary [0x10000 resolution 18-19 continue with_actions]
 highway=primary [0x10014 resolution 20-21 continue with_actions]
+highway=primary & bicycle!=no & junction=roundabout [0x030 resolution 22]
 highway=primary & bicycle!=no [0x030 road_class=1 road_speed=2 resolution 22 continue with_actions]
 highway=primary & bicycle=no {add foot=no} [0x10002 resolution 22]
 
