@@ -46,9 +46,9 @@ highway=* & highway ~ '.*(;).*' {set highway=unclassified}
 # set toll and ferry flags
 highway=* & bicycle!=no {add toll=yes; add tollroad=no}
 route=ferry {add mkgmap:ferry=1}
-(ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes | ncn=yes | rcn=yes | lcn=yes | ncn_ref=* | rcn_ref=* | lcn_ref=* ) & state!=proposed
+(ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes) & state!=proposed
 	{ add bicycleroute=yes; set toll=no; add bicycle = yes; add foot = yes } 
-(ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes | ncn=yes | rcn=yes | lcn=yes | ncn_ref=* | rcn_ref=* | lcn_ref=* ) & state=proposed { name '${rref} (planned)' | '${nref} (planned)'} [0x10119 resolution 23 continue with_actions]
+(ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes) & state=proposed { name '${rref} (planned)' | '${nref} (planned)'} [0x10119 resolution 23 continue with_actions]
 	
 (access=no | access=private) & bicycle!=* & bicycleroute!=yes & cycleway!=* & mtb!=yes {set bicycle=no; set motorcar=no;}
 
