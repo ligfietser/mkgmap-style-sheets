@@ -42,7 +42,8 @@ amenity=* & (location=underground | parking=underground) {delete amenity}
 miltary=* & location=underground {delete military}
 shop=* & location=underground {delete shop}
 
-tourism=caravan_site & tents=no [0x17 default_name="RV-park" resolution 22]
+tourism=caravan_site & tents!=yes [0x17 default_name="RV-park" resolution 22]
+tourism=camp_site & tents=no [0x17 default_name="RV-park" resolution 22]
 tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
 tourism=picnic_site [0x1e resolution 24]
 tourism=chalet & building!=*  [0x50 default_name="bungalowpark" resolution 22]
