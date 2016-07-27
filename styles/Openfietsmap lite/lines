@@ -65,7 +65,7 @@ junction=roundabout {set access=no}
 
 # Convert highways to most specific
 (highway=tertiary | highway=secondary) & (surface=unpaved | surface=gravel) {set highway=track; add tracktype=grade2}
-(railway=abandoned | railway=disused) & highway!=* & (bicycle=yes | bicycle=designated) { add highway = cycleway }
+(railway=abandoned | railway=disused) & highway!=* & (bicycle=yes | bicycle=designated) & !(state ~ '.*(proposed)') { add highway = cycleway }
 highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
 highway=trunk_link { set highway=trunk }
 (highway=trunk | highway=motorway)  & bicycleroute=yes { set highway=primary }
