@@ -13,6 +13,8 @@ mkgmap:synthesised=yes & bicycle=yes { set mkgmap:highest-resolution-only = true
 
 # Assign the street name for house number search
 highway=* & name=* { set mkgmap:street='${name}' }
+tunnel=* & tunnel:name=* & name!=$tunnel:name {name '${name} (${tunnel:name})' | '${tunnel:name} (${ref})' | '${tunnel:name}'} 
+bridge=* & bridge:name=* & name!=$bridge:name  {name '${name} (${bridge:name})' |  '${bridge:name} (${ref})' | '${bridge:name}'}
 include 'inc/address';
 
 # Aeroways
@@ -138,7 +140,7 @@ highway=* & construction=* & maxspeed!=* { add mkgmap:road-speed = '-1' }
 highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
 
 # bridges & tunnels
-bridge=* & bridge!=no & highway!=proposed & bridge!=proposed & railway!=proposed  [0x2b resolution 24 continue with_actions]
+bridge=* & bridge!=no & highway!=proposed & bridge!=proposed & railway!=proposed [0x2b resolution 24 continue with_actions]
 (tunnel=yes | tunnel=true | tunnel=1) & highway!=proposed & railway!=* & waterway!=* [0x2a resolution 24 continue with_actions]
 
 # Ways sorted roughly by descending order of class

@@ -1,5 +1,7 @@
 # Assign the street name for house number search
 highway=* & name=* { set mkgmap:street='${name}' }
+tunnel=* & tunnel:name=* & name!=$tunnel:name {name '${name} (${tunnel:name})' | '${tunnel:name} (${ref})' | '${tunnel:name}'} 
+bridge=* & bridge:name=* & name!=$bridge:name  {name '${name} (${bridge:name})' |  '${bridge:name} (${ref})' | '${bridge:name}'}
 include 'inc/address';
 include 'inc/contours';
 
