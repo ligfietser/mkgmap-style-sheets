@@ -40,7 +40,7 @@ bicycle=no	{set motorcar=no;}
 bicycle=yes {set motorcar=yes; set foot=yes} 
 bicycle:conditional=* {add bicycle=yes; add motorcar=yes; add foot=yes} 
 bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set foot=yes; set bicycle=yes}
-foot=destination | foot=official | foot=permissive {set foot=yes}
+foot=destination | foot=official | foot=permissive | foot=designated {set foot=yes}
 (highway=pedestrian | highway=footway) & oneway=* {delete oneway}
 highway=* & highway ~ '(fiets|Fiets|mtb|Mtb|bike|Bike|rad|Rad|cycleway;|;cycleway)' {set highway=cycleway}
 highway=* & highway ~ '.*(;).*' {set highway=unclassified}
