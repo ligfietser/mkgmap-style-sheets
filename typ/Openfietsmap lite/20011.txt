@@ -1213,11 +1213,9 @@ String3=0x02,Obstplantage
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="32 32 4 1"
-"! c #FFFFFF"
+Xpm="32 32 2 1"
+"! c #FFFFD5"
 "# c #009500"
-"3 c #FFFFD5"
-"4 c #009500"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!#!!!!!!!!!!!!!!!!!!!!!!!!!!"
