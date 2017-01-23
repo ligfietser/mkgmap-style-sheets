@@ -44,6 +44,7 @@ foot=destination | foot=official | foot=permissive | foot=designated {set foot=y
 (highway=pedestrian | highway=footway) & oneway=* {delete oneway}
 highway=* & highway ~ '(fiets|Fiets|mtb|Mtb|bike|Bike|rad|Rad|cycleway;|;cycleway)' {set highway=cycleway}
 highway=* & highway ~ '.*(;).*' {set highway=unclassified}
+highway=* & ice_road=yes {name '${name} (ice road)' | '(ice road)'} [0x10102 resolution 22]
 
 # set toll and ferry flags
 highway=* & bicycle!=no {add toll=yes; add tollroad=no}
