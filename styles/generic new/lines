@@ -98,8 +98,10 @@ highway=*
 & surface!=* & tracktype!=* & smoothness!=* & sac_scale!=*
 { add mkgmap:unpaved=1 }
 
-highway ~  '.*(trunk|primary|secondary|tertiary|unclassified|residential|minor|road).*' & mkgmap:unpaved=1 { add mkgmap:road-speed = '-1' } [0x10002 resolution 21 continue with_actions]
+highway ~  '.*(trunk|primary|secondary|tertiary|unclassified|residential|minor|road).*' & mkgmap:unpaved=1 { add mkgmap:road-speed = '-1' ; addlabel 'unpaved' } [0x10002 resolution 21 continue with_actions]
 highway ~  '.*(byway|living_street|service).*' & mkgmap:unpaved=1 [0x10002 resolution 23 continue with_actions]
+
+highway=* & ice_road=yes { addlabel 'ice road' }  [0x10002 resolution 24]
 
 # Convert generic path to most specific
 highway=footway & snowplowing!=no
