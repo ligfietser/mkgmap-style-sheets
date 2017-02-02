@@ -90,7 +90,7 @@ highway=*
    surface=pebblestone | surface=sand | surface=unpaved |
    mtb:scale=* |
    tracktype ~ 'grade[2-6]' |
-   smoothness ~ '.*(bad|horrible|impassable)' |
+   smoothness ~ '.*(very_bad|horrible|impassable)' |
    sac_scale ~ '.*(mountain|alpine)_hiking' |
    sport=via_ferrata)
 { add mkgmap:unpaved=1 }
@@ -136,10 +136,10 @@ highway=* & (oneway=yes | oneway=1 | oneway=true | oneway=-1) [0x10000 resolutio
 highway=construction  {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x10007 road_class=0 road_speed=1 resolution 23]
 highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=1 resolution 24]
 
-# Lower the road speed of ways under some construction.
+# Lower the road speed of certain ways
 highway=* & construction=* & maxspeed!=* { add mkgmap:road-speed = '-1' }
-# Lower the road speed of disused ways.
 highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
+highway=* & mkgmap:unpaved=0 & smoothness ~ '.*(bad|horrible|impassable)'  { add mkgmap:road-speed = '-2' } 
 
 # bridges & tunnels
 bridge=* & bridge!=no & highway!=proposed & bridge!=proposed & railway!=proposed [0x2b resolution 24 continue with_actions]
