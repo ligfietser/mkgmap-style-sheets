@@ -2175,10 +2175,7 @@ Xpm="32 4 4  1"
 "################################"
 "!!!!!!##!!!!!!##!!!!!!##!!!!!!##"
 ;12345678901234567890123456789012
-String1=0x04,unpaved road
-String2=0x03,onverharde weg
-String3=0x02,Unbefestigter Weg
-String4=0x01,Piste sans revêtement
+String1=0x04,track
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
