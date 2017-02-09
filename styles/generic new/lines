@@ -139,7 +139,7 @@ highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=
 # Lower the road speed of certain ways
 highway=* & construction=* & maxspeed!=* { add mkgmap:road-speed = '-1' }
 highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
-highway=* & mkgmap:unpaved=0 & smoothness ~ '.*(bad|horrible|impassable)'  { add mkgmap:road-speed = '-2' } 
+highway=* & mkgmap:unpaved!=1 & smoothness ~ '.*(bad|horrible|impassable)'  { add mkgmap:road-speed = '-2' } 
 
 # bridges & tunnels
 bridge=* & bridge!=no & highway!=proposed & bridge!=proposed & railway!=proposed [0x2b resolution 24 continue with_actions]
