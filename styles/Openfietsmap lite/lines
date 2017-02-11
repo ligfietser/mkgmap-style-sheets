@@ -87,7 +87,7 @@ highway=service & (bicycle=yes | bicycle=designated | bicycleroute=yes) { set hi
 highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & bicycleroute=yes { add highway=unclassified }
 highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & mtb_from_relation=yes { add highway=track }
 highway=unsurfaced { set highway=track }
-highway=track & (tracktype=grade1 | surface ~ '.*(paved|asphalt|sett|concrete|paving_stones)*.') { set highway=unclassified; delete tracktype; set mkgmap:check=ok }
+highway=track & (tracktype=grade1 | surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)') { set highway=unclassified; delete tracktype; set mkgmap:check=ok }
 highway=cycleroad  { set highway=cycleway }
 cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
 (cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; delete 'cycleway' }
@@ -98,8 +98,8 @@ highway=footway & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycl
 highway=path & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
 highway=track & bicycle=designated & tracktype=grade2 & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
 bicycle=designated { set bicycle=yes; add motorcar=yes }
-highway=path & surface ~ '(paved|paving_stones|concrete|asphalt).*' { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
-highway=footway & surface ~ '(paved|paving_stones|concrete|asphalt).*'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
+highway=path & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)' { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
+highway=footway & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
 highway=steps & area=yes { set highway=pedestrian; add bicycle=no; add motorcar=no; }
 highway=path & foot=designated & bicycle!=yes { set highway=footway }
 highway=path & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway; add mkgmap:unpaved=1; set motorcar=no; }
