@@ -82,22 +82,29 @@ highway=primary {name '${ref|highway-symbol:box} ${name}' | '${ref|highway-symbo
 highway=secondary | highway=tertiary {name '${ref|highway-symbol:oval} ${name}' | '${ref|highway-symbol:oval}' | '${name}'; addlabel '${name} (${ref})' }
 highway=* {name '${name}' | '${ref}' }
 
-# Flag unpaved roads.
-highway=*
-& (surface=cobblestone | surface=compacted | surface=dirt |
-   surface=earth | surface=grass | surface=grass_paver |
-   surface=gravel | surface=grit | surface=ground | surface=mud |
-   surface=pebblestone | surface=sand | surface=unpaved |
-   mtb:scale=* |
-   tracktype ~ 'grade[2-6]' |
-   smoothness ~ '.*(very_bad|horrible|impassable)' |
-   sac_scale ~ '.*(mountain|alpine)_hiking' |
-   sport=via_ferrata)
-{ add mkgmap:unpaved=1 }
-(highway=bridleway | highway=path | highway=track | highway=unsurfaced)
-& surface!=* & tracktype!=* & smoothness!=* & sac_scale!=*
-{ add mkgmap:unpaved=1 }
+# Flag paved roads
+highway=* & (surface=asphalt | surface=paved | surface=sett | 
+    surface=concrete | surface=concrete:lanes | surface=concrete:plates | 
+    surface=paving_stones  | surface=cobblestone  | 
+        surface=cobblestone:flattened  | surface=metal  | surface=wood) 
+{ set mkgmap:unpaved=0 }
+highway=* & tracktype=grade1 & surface!=* { set mkgmap:unpaved=0 }
 
+# Flag unpaved roads.
+highway=* & mkgmap:unpaved!=0 & (  
+    surface=* |
+        mtb:scale=* | 
+    tracktype ~ 'grade[2-6]')
+{ add mkgmap:unpaved=1 }
+highway=* & (
+    mtb:scale ~ '[2-6].' |
+    sac_scale ~ '.*(mountain|alpine)_hiking' |
+    sport=via_ferrata)
+{ set mkgmap:unpaved=1 }
+(highway=bridleway | highway=path | highway=track) & mkgmap:unpaved!=0 { add mkgmap:unpaved=1 }
+(highway=unsurfaced | highway=via_ferrata) { set mkgmap:unpaved=1 }
+highway=* & mkgmap:unpaved=1 {echotags "u"}
+highway=* & mkgmap:unpaved!=1 & smoothness ~ '.*(bad|horrible|impassable)' { add mkgmap:road-speed = '-2' } 
 highway ~  '.*(trunk|primary|secondary|tertiary|unclassified|residential|minor|road).*' & mkgmap:unpaved=1 { add mkgmap:road-speed = '-1' ; addlabel 'unpaved' } [0x10002 resolution 21 continue with_actions]
 highway ~  '.*(byway|living_street|service).*' & mkgmap:unpaved=1 [0x10002 resolution 23 continue with_actions]
 
@@ -139,7 +146,6 @@ highway=* & disused=yes [0x10007 default_name="disused" road_class=0 road_speed=
 # Lower the road speed of certain ways
 highway=* & construction=* & maxspeed!=* { add mkgmap:road-speed = '-1' }
 highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
-highway=* & mkgmap:unpaved!=1 & smoothness ~ '.*(bad|horrible|impassable)'  { add mkgmap:road-speed = '-2' } 
 
 # bridges & tunnels
 bridge=* & bridge!=no & highway!=proposed & bridge!=proposed & railway!=proposed [0x2b resolution 24 continue with_actions]
