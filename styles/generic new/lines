@@ -103,7 +103,6 @@ highway=* & (
 { set mkgmap:unpaved=1 }
 (highway=bridleway | highway=path | highway=track) & mkgmap:unpaved!=0 { add mkgmap:unpaved=1 }
 (highway=unsurfaced | highway=via_ferrata) { set mkgmap:unpaved=1 }
-highway=* & mkgmap:unpaved=1 {echotags "u"}
 highway=* & mkgmap:unpaved!=1 & smoothness ~ '.*(bad|horrible|impassable)' { add mkgmap:road-speed = '-2' } 
 highway ~  '.*(trunk|primary|secondary|tertiary|unclassified|residential|minor|road).*' & mkgmap:unpaved=1 { add mkgmap:road-speed = '-1' ; addlabel 'unpaved' } [0x10002 resolution 21 continue with_actions]
 highway ~  '.*(byway|living_street|service).*' & mkgmap:unpaved=1 [0x10002 resolution 23 continue with_actions]
