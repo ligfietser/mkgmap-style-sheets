@@ -14,8 +14,8 @@ cycleway=track & bicycle=* { delete 'bicycle' }
 cycleway=lane & bicycle=* { delete 'bicycle' }
 
 (highway=motorway | highway=motorway_junction | highway=trunk | highway=footway  | route=ferry) & toll=yes {delete toll}
-highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set tollroad=yes}
-highway=* & toll=mtb {set toll:bicycle=yes; set tollroad=yes; delete toll}
+highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set toll:bicycle=yes}
+highway=* & toll=mtb {set toll:bicycle=yes; delete toll}
 highway=* & public_transport=platform {delete platform}
 highway=track & tracktype ~ '(grade[1-5])' {set mkgmap:check=ok}
 highway=track & tracktype=1 {set mkgmap:check=ok; set tracktype=grade1}
@@ -32,11 +32,12 @@ bicycle:forward=use_sidepath  {set bicycle:oneway=-1; set oneway=-1; delete bicy
 access=yes | access=permissive | access=official | access=unknown | access=designated {delete access}
 access=no & (bicycle=yes | bicycle=designated | bicycle=official | bicycle=permissive) {delete access; add car=no }
 access=destination {delete access}
-vehicle=no | vehicle=private {add bicycle=no; add car=no} 
+bicycle=private {set bicycle=no; set motorcar=no}
+vehicle=no | vehicle=private {add bicycle=no; add car=no}
+car=private {set car=no}
 bicycle_road=yes & (car!=yes | vehicle!=destination) {set highway=cycleway}
 bicycle=dismount & highway!=footway & highway!=pedestrian {set bicycle=yes; add bicycle:dismount=yes}
 bicycle=dismount & (highway=footway | highway=pedestrian) {delete bicycle; add bicycle:dismount=yes}
-bicycle=no	{set motorcar=no;}
 bicycle=yes {set motorcar=yes; set foot=yes} 
 bicycle:conditional=* {add bicycle=yes; add motorcar=yes; add foot=yes} 
 bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set foot=yes; set bicycle=yes}
@@ -47,7 +48,7 @@ highway=* & highway ~ '.*(;).*' {set highway=unclassified}
 highway=* & ice_road=yes {name '${name} (ice road)' | '(ice road)'} [0x10102 resolution 22]
 
 # set toll and ferry flags
-highway=* & bicycle!=no {add toll=yes; add tollroad=no}
+highway=* & bicycle!=no {add toll=yes}
 route=ferry {add mkgmap:ferry=1}
 (ncn_from_relation=yes | rcn_from_relation=yes | icn_from_relation=yes | lcn_from_relation=yes | tcn_from_relation=yes) & state!=proposed
 	{ add bicycleroute=yes; set toll=no; add bicycle = yes; add foot = yes } 
@@ -244,7 +245,7 @@ highway=service & bicycle!=no [0x07 road_class=1 road_speed=2 resolution 23 cont
 highway=service & bicycle=no & foot!=no [0x07 road_class=0 road_speed=0 resolution 23 continue]
 (highway=unclassified | highway=service) & bicycle!=no & junction=roundabout [0x060 resolution 23]
 highway=unclassified & bicycle!=no [0x060 road_class=3 road_speed=2 resolution 23  continue with_actions]
-highway=unclassified & bicycle=no & car=no & foot!=no [0x08 road_class=0 road_speed=0 resolution 23]
+(highway=unclassified | highway=service) & bicycle=no & car=no & foot!=no [0x08 road_class=0 road_speed=0 resolution 23]
 highway=unclassified & bicycle=no [0x10018 resolution 23]
 highway=service & bicycle=no & area!=yes [0x10018 resolution 23]
 
