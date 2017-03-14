@@ -210,7 +210,7 @@ historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:
 historic=castle [0x2c02 default_name 'Castle' resolution 23]
 historic=ruins | historic=fort [0x2c02 resolution 23]
 historic=* & historic ~ '.*(mine|adit).*'  [0x640c  resolution 23]
-
+historic=stone [0x6614 resolution 24]
 historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x2c04  resolution 23 continue]
 historic=archaeological_site & name ~ '.*(unebed|Großsteingrab|Dolmen|Hünen).*' { add site_type=megalith }
 historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 23] 
