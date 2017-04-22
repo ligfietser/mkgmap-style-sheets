@@ -17,6 +17,7 @@ generate-sea: land-tag=natural=background
 bounds: bounds.zip
 location-autofill: is_in,nearest
 housenumbers
+x-split-name-index
 tdbfile
 latin1
 name-tag-list: name,name:nl,name:fr,name:de,int_name,place_name
