@@ -37,9 +37,9 @@ place=suburb & name!=* {delete place}
 place=suburb & mkgmap:area2poi!=true [0x0a00 resolution 22-22 continue]
 place=suburb & mkgmap:area2poi!=true [0x0800 resolution 23]
 
-(place=neighbourhood | place=hamlet | place=isolated_dwelling) & name!=* {delete place}
-(place=neighbourhood | place=hamlet | place=isolated_dwelling) & mkgmap:area2poi!=true [0x0b00 resolution 22-22 continue]
-(place=neighbourhood | place=hamlet | place=isolated_dwelling) & mkgmap:area2poi!=true [0x0800 resolution 23]
+(place=neighbourhood | place=hamlet | place=isolated_dwelling | place=quarter) & name!=* {delete place}
+(place=neighbourhood | place=hamlet | place=isolated_dwelling | place=quarter) & mkgmap:area2poi!=true [0x0b00 resolution 22-22 continue]
+(place=neighbourhood | place=hamlet | place=isolated_dwelling | place=quarter) & mkgmap:area2poi!=true [0x0800 resolution 23]
 
 place=island & name ~ '(Texel|Vlieland|Terschelling|Ameland|Schiermonnikoog|Borkum|Juist|Norderney|Langeoog|Spiekeroog)' [0x1e00 resolution 16]
 place=island & mkgmap:area2poi!=true [0x1e00 resolution 20]
