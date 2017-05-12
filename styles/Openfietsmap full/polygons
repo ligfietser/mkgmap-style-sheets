@@ -157,7 +157,7 @@ leisure=pitch { name '${name} (${sport})' | '${name}' | '${sport}' } [0x19 resol
 
 
 leisure=playground  [0x19 resolution 24]
-leisure=recreation_ground [0x19 resolution 23 continue]
+leisure=recreation_ground | leisure=summer_camp [0x19 resolution 23 continue]
 leisure=sports_center | leisure=sports_centre | leisure=ice_rink | leisure=water_park [0x19 resolution 23 continue]
 leisure=stadium [0x19 resolution 23 continue]
 leisure=track [0x19 resolution 23]
