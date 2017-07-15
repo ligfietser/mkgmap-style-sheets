@@ -392,7 +392,7 @@ man_made=pier & (area!=yes | is_closed()=true) [0x08 road_class=0 road_speed=0 r
 
 boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' }  [0x1001e resolution 14-20 continue]
 boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' } [0x1e resolution 21]
-boundary4=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary4_name}' } [0x1d resolution 18]
+boundary4=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary4_name}' } [0x1d resolution 16]
 boundary8=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary8_name}' } [0x1c resolution 24]
 
 

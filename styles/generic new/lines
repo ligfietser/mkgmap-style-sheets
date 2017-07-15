@@ -248,7 +248,7 @@ tunnel!=yes & location != underground
 boundary=administrative { name '${mkgmap:boundary_name}' }
 boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' }  [0x1c resolution 14-17 continue]
 boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' } [0x1e resolution 18]
-boundary4=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary4_name}' } [0x1d resolution 18]
+boundary4=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary4_name}' } [0x1d resolution 16]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
