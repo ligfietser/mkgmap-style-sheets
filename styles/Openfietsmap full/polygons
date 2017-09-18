@@ -3,6 +3,7 @@ name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${nam
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
 toponym=water & area_size() > 200000000 [0x3b resolution 16-22]
 toponym=water & area_size() > 50000000 [0x3b resolution 20-22]
+waterway=dock {add natural=water}
 #toponym=* & name=*  [0x3b resolution 24 continue]
 
 boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
