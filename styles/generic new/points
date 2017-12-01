@@ -322,9 +322,9 @@ tourism=zoo [0x2c07 resolution 24]
 
 barrier=bollard | barrier=bus_trap
     {add access = no; add bicycle = yes; add foot = yes} [0x660f resolution 24]
-barrier=block | barrier=cycle_barrier | barrier=stile | barrier=kissing_gate
+barrier=block | barrier=cycle_barrier | barrier=stile | barrier=kissing_gate 
     {add access = no; add foot = yes} [0x660f resolution 24]
-barrier=gate 
+barrier=gate | barrier=bump_gate
     {add access = no; add bicycle = yes; add foot = yes} [0x660f resolution 24]
 	
 <finalize>
