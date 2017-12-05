@@ -37,7 +37,7 @@ barrier=gate
       add mkgmap:foot=yes; 
       addaccess no;
       set mkgmap:road-speed=0; }
-barrier=kissing_gate | barrier=stile | barrier=block
+barrier=kissing_gate | barrier=stile | barrier=block | barrier=turnstile | barrier=full-height_turnstile
     { add mkgmap:foot=yes; 
       addaccess no;
       set mkgmap:road-speed=0; }

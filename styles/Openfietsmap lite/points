@@ -324,10 +324,10 @@ tourism=attraction [0x2c01 resolution 24]
 barrier=* & bicycle=*    { set mkgmap:bicycle='${bicycle|subst:private=>no}'; set mkgmap:car='${bicycle|subst:private=>no}' }
 barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }    
 barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
-barrier=stile 			 { add mkgmap:foot=yes; addaccess no; }
+barrier=stile | barrier=turnstile | barrier=full-height_turnstile  { add mkgmap:foot=yes; addaccess no; }
 
-barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
-(barrier=gate | barrier=entrance | barrier=turnstile | barrier=bump_gate) [0x3200 resolution 23]
+barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|full-height_turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
+(barrier=gate | barrier=entrance | barrier=turnstile | barrier=full-height_turnstile | barrier=bump_gate) [0x3200 resolution 23]
 barrier=* & barrier ~ '(lift_gate | toll_booth | border_control | swing_gate | log)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]
 barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
