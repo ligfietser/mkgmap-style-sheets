@@ -328,7 +328,7 @@ barrier=stile | barrier=turnstile | barrier=full-height_turnstile  { add mkgmap:
 
 barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|full-height_turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
 (barrier=gate | barrier=entrance | barrier=turnstile | barrier=full-height_turnstile | barrier=bump_gate) [0x3200 resolution 23]
-barrier=* & barrier ~ '(lift_gate | toll_booth | border_control | swing_gate | log)' [0x3201 resolution 23]
+barrier=* & barrier ~ '(lift_gate|toll_booth|border_control|swing_gate|log)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]
 barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
 (barrier=bollard | barrier=bus_trap | barrier=block) [0x1108 resolution 23]
