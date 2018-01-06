@@ -340,7 +340,6 @@ power_source=wind | man_made=power_wind | generator:source=wind | man_made=windp
 
 toponym=water [0x6603 resolution 22] 
 toponym=* [0x1e03 resolution 22]
-place=locality  [0x1e00 resolution 23]
 
 # pois from lines
 bicycle:conditional=* & mkgmap:line2poitype=start { name 'bicycle=${bicycle:conditional}' } [0x1108 resolution 24]
