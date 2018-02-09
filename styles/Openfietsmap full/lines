@@ -237,7 +237,7 @@ highway=cycleway & junction=roundabout [0x16 resolution 23]
 highway=cycleway & track=yes {set motorcar=no} [0x1602 road_class=2 road_speed=2 resolution 23 continue with_actions]
 highway=cycleway & mkgmap:unpaved=1 & unpaved!=2 {set motorcar=no} [0x0b road_class=1 road_speed=1 resolution 23 continue with_actions]
 highway=cycleway & unpaved=2 [0x0e road_class=2 road_speed=2 resolution 23 continue with_actions]
-highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=3 road_speed=3 resolution 23 continue with_actions]
+highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=3 road_speed=2 resolution 23 continue with_actions]
 
 (highway=unclassified | highway=service) & service!=* [0x10000 resolution 20-21 continue with_actions]
 (highway=unclassified | highway=service) & service!=* [0x10 resolution 22-22 continue with_actions]
@@ -316,7 +316,7 @@ bicycleroute=yes & !(ncn_from_relation=yes | icn_from_relation=yes) [0x10119 res
 (ncn_from_relation=yes | lcn_from_relation=yes | ncn_ref=* | lcn_ref=*) & state!=ncn_proposed {name '${nref|highway-symbol:oval}'| '${ncn_ref|highway-symbol:oval}' | '${lcn_ref|highway-symbol:oval}' | '${lref|highway-symbol:oval}' }  [0x28 resolution 22 continue] 
 rcn_from_relation=yes & state!=rcn_proposed  {name '${rnote}' | '${rname}'} [0x19 resolution 22 continue]
 lcn_from_relation=yes  & state!=rcn_proposed {name '${lname}'} [0x27 resolution 22 continue]
-bicycleroute=yes & junction!=roundabout [0x02 road_class=3 road_speed=3 resolution 22 continue]
+bicycleroute=yes & junction!=roundabout [0x02 road_class=3 road_speed=2 resolution 22 continue]
 
 # Mop up any unrecognised highway types
 highway=crossing  [0x10 road_class=1 road_speed=1 resolution 23]
