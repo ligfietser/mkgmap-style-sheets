@@ -16,7 +16,7 @@ natural=sand | surface=sand [0x53 resolution 21 continue]
 natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
 natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
 
-natural=bay {set natural=water}
+natural=bay {set natural=sea}
 natural=water & area_size() >=50000000 [0x3c resolution 14]
 natural=water & area_size() >=1000000 [0x3e resolution 14-16 continue]
 natural=water & area_size() >=1000000 [0x3c resolution 17]

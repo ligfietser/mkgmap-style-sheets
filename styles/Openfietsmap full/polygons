@@ -12,7 +12,7 @@ boundary = national_park [0x1b resolution 16-19 continue]
 boundary = national_park [0x21 resolution 20-23 continue]
 (leisure=nature_reserve | boundary=protected_area | boundary=nature_reserve) [0x21 resolution 20-23 continue]
 
-natural=bay {set natural=water}
+natural=bay {set natural=sea}
 natural=sand | surface=sand [0x53 resolution 21 continue]
 natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
 natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
