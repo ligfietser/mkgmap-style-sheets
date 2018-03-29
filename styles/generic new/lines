@@ -250,6 +250,8 @@ boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters &
 boundary2=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary2_name}' } [0x1e resolution 18]
 boundary4=yes & member=yes & maritime!=yes & boundary_type!=territorial_waters & natural!=coastline { name '${boundary4_name}' } [0x1d resolution 16]
 
+include 'inc/contours';
+
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
 
