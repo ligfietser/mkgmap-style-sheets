@@ -243,9 +243,9 @@ natural=cave_entrance [0x6601 resolution 24]
 natural=cliff & name=* [0x6607 resolution 24]
 natural=glacier [0x650a resolution 22]
 
-natural=peak & altitude=number    {name '${name|def:} (${ele|def:}m)'} [0x6616 resolution 21]
-natural=peak & altitude=no_number {name '${name|def:} (${ele|def:})'} [0x6616 resolution 21]
-natural=peak & ele!=* {name '${name|def:}' } [0x6616 resolution 21]
+(natural=peak | natural=volcano) & altitude=number    {name '${name|def:} (${ele|def:}m)'} [0x6616 resolution 21]
+(natural=peak | natural=volcano) & altitude=no_number {name '${name|def:} (${ele|def:})'} [0x6616 resolution 21]
+(natural=peak | natural=volcano) & ele!=* {name '${name|def:}' } [0x6616 resolution 21]
 
 (natural=rock | natural=stone | geological=*) & mkgmap:area2poi!=true {name '${name}' | 'natural=${natural}'| 'geological=${geological}'} [0x6614 resolution 24]
 natural=spring [0x6511 resolution 24]
