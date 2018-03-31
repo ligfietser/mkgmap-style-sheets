@@ -1,8 +1,10 @@
 ﻿include 'inc/address';
 name:nl=* & mkgmap:region=Friesland {set name='${name:nl|not-equal:name} / ${name}' | '${name}'}
 name:fy=* & mkgmap:region=Friesland {set name='${name|not-equal:name:fy} / ${name:fy}'| '${name}'}
-toponym=water & area_size() > 200000000 [0x3b resolution 16-22]
-toponym=water & area_size() > 50000000 [0x3b resolution 20-22]
+natural=bay {set toponym=water}
+toponym=water & area_size() > 200000000 [0x3b resolution 16]
+toponym=water & area_size() > 50000000 [0x3b resolution 20]
+toponym=water & area_size() < 50000000 [0x3b resolution 22]
 waterway=dock {add natural=water}
 #toponym=* & name=*  [0x3b resolution 24 continue]
 
@@ -16,7 +18,6 @@ natural=sand | surface=sand [0x53 resolution 21 continue]
 natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
 natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
 
-natural=bay {set natural=sea}
 natural=water & area_size() >=50000000 [0x3c resolution 14]
 natural=water & area_size() >=1000000 [0x3e resolution 14-16 continue]
 natural=water & area_size() >=1000000 [0x3c resolution 17]

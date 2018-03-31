@@ -922,9 +922,9 @@ Xpm="0 0 1 0"
 Type=0x3b
 String1=0x04,toponym
 ExtendedLabels=Y
-FontStyle=NormalFont
+FontStyle=SmallFont
 CustomColor=Day
-DaycustomColor:#0000FF
+DaycustomColor:#0095B4
 Xpm="32 32 2 1"
 "! c #7BCAD5"
 "  c none"
@@ -3289,6 +3289,7 @@ CustomColor=DayAndNight
 DaycustomColor:#0000D5
 NightcustomColor:#0000D5
 [end]
+
 
 ;====================== POINTS ==========================
 
