@@ -22,6 +22,9 @@ tdbfile
 latin1
 name-tag-list: name,name:nl,name:fr,name:de,int_name,place_name
 code-page: 1252
+dem: map_with_dem_files
+dem-dists: 9942,9942,9942,13248,44176
+overview-dem-dist=88368
 show-profiles: 1
 merge-lines
 add-pois-to-areas
@@ -34,3 +37,4 @@ keep-going
 net
 route
 index
+
