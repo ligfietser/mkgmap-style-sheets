@@ -240,6 +240,7 @@ mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 22]
 
 natural=beach & name=* [0x1e01 resolution 24]
 natural=cave_entrance [0x6601 resolution 24]
+natural=cape [0x6606 resolution 24]
 natural=cliff & name=* [0x6607 resolution 24]
 natural=glacier [0x650a resolution 22]
 
