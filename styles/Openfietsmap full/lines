@@ -145,10 +145,11 @@ bicycle:dismount=yes { add mkgmap:unpaved=1 }
 
 
 #oneway rules
+(oneway=yes | oneway=-1) & (cycleway=opposite | cycleway=opposite_lane  | bicycle:oneway=no | oneway:bicycle=no | bicycle:backward=*) {set cycling=twoway; delete 'oneway'}
 (oneway=1 | oneway=true) { set oneway=yes }
 (oneway=no) { delete 'oneway' }
-(oneway=yes & bicycle:backward=yes) {set cycling=twoway}
-(oneway=-1 | vehicle:forward=no) & bicycle:forward=yes {set cycling=twoway}
+(oneway=yes & bicycle:backward=yes) {set cycling=twoway; delete 'oneway'}
+(oneway=-1 | vehicle:forward=no) & bicycle:forward=yes {set cycling=twoway; delete 'oneway'}
 (oneway:bicycle=yes | oneway:bicycle=1 | bicycle:oneway=1 | oneway:bicycle=true | bicycle:oneway=true | bicycle:oneway=1) {set bicycle:oneway=yes; set oneway=yes; delete 'oneway:bicycle'}
 (oneway:bicycle=-1 | bicycle:oneway=-1) {set bicycle:oneway=-1; set oneway=-1; delete 'oneway:bicycle'}
 (bicycle=opposite_lane | cycleway=opposite_track) { set cycleway=opposite_lane }
@@ -163,7 +164,6 @@ cycleway=opposite_share_busway { set cycleway=opposite_lane }
 highway=cycleway & cycleway=* & cycleway!=opposite { delete 'cycleway' }
 highway=cycleway & railway=* {delete 'railway'}
 highway=cycleway & unpaved=2 {set mkgmap:unpaved=0}
-
 
 # ways under construction
 highway=construction [0x10019 resolution 22]
@@ -208,17 +208,11 @@ cycleway=opposite_lane & oneway=-1 [0x10006 resolution 23 continue with_actions]
 cycleway=track & highway!=track & oneway!=yes [0x10009 resolution 23 continue with_actions]
 
 
-# Oneways street with cycleway=opposite flagged are not oneway for us
-(oneway=yes | oneway=-1) & (cycleway=opposite | cycleway=opposite_lane  | bicycle:oneway=no | oneway:bicycle=no | bicycle:backward=*) {set cycling=twoway}
-
 # display direction arrows
 highway=* & (oneway=yes | bicycle:oneway=yes ) & (cycling!=twoway) & bicycle!=no [0x10007 resolution 24 continue with_actions]
 highway=* & cycleway=lane & cycling=twoway  [0x10011 resolution 24 continue with_actions]
 highway=* & (cycleway=opposite_lane | cycleway=opposite | bicycle:oneway=no | oneway:bicycle=no) & cycling=twoway  [0x10008 resolution 24 continue with_actions]
 highway=* & (oneway=-1 | bicycle:oneway=-1 ) & (cycling!=twoway) & bicycle!=no  [0x10007 resolution 24 continue with_actions]
-
-(cycling=twoway | bicycle:oneway=no | oneway:bicycle=no)   {delete 'oneway'}
-
 
 
 # Display name / ref
