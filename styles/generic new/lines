@@ -109,6 +109,11 @@ highway ~  '.*(byway|living_street|service).*' & mkgmap:unpaved=1 [0x10002 resol
 
 highway=* & ice_road=yes { addlabel 'ice road' }  [0x10002 resolution 24]
 
+# Good ways without relation
+highway=* & mkgmap:fast_road!=* & (int_ref=* | network=e-road | network=AH | network=TAH | network=US:I | network=US:US) {add mkgmap:fast_road=yes}
+# Not best for car routing
+highway=* & (access=hov | hov=designated | oneway=reversible) {set mkgmap:road-class=-2; set mkgmap:road-speed=-2; delete mkgmap:fast_road}
+
 # Convert generic path to most specific
 highway=footway & snowplowing!=no
 & (bicycle=designated|bicycle=official|mtb=designated)
@@ -127,8 +132,10 @@ leisure=track & area!=yes
 
 # Roundabouts
 junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 18 continue with_actions]
-junction=roundabout & highway=primary [0x0c road_class=3 road_speed=2 resolution 19 continue with_actions] 
-junction=roundabout & highway=secondary [0x0c road_class=2 road_speed=2 resolution 20 continue with_actions]
+junction=roundabout & (highway=primary | highway=primary_link) & mkgmap:fast_road=yes [0x0c road_class=4 road_speed=2 resolution 24 continue with_actions]
+junction=roundabout & highway=primary & mkgmap:fast_road!=yes [0x0c road_class=3 road_speed=2 resolution 19 continue with_actions]
+junction=roundabout & (highway=secondary | highway=secondary_link) & mkgmap:fast_road=yes [0x0c road_class=3 road_speed=2 resolution 24 continue with_actions] 
+junction=roundabout & highway=secondary & mkgmap:fast_road!=yes [0x0c road_class=2 road_speed=2 resolution 20 continue with_actions]
 junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
 junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21 continue with_actions]
 junction=roundabout & !(highway=unclassified|highway=tertiary|highway=secondary|highway=primary| highway=trunk) [0x0c road_class=0 road_speed=1 resolution 22 continue with_actions]
@@ -151,22 +158,25 @@ bridge=* & bridge!=no & highway!=proposed & bridge!=proposed & railway!=proposed
 (tunnel=yes | tunnel=true | tunnel=1) & highway!=proposed & railway!=* & waterway!=* [0x2a resolution 24 continue with_actions]
 
 # Ways sorted roughly by descending order of class
-highway=motorway & network=e-road [0x01 resolution 14-14 continue]
-highway=motorway  [0x01 road_class=4 road_speed=7 resolution 15]
-highway=motorway_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=true) [0x06 road_class=3 road_speed=2 resolution 20]
-highway=motorway_link [0x09 road_class=3 road_speed=2 resolution 20]
-highway=* & motorroad=yes {add bicycle = no; add foot = no}
-
-highway=trunk & ( network=e-road | int_ref=* ) [0x02 resolution 15-17 continue]
+highway=motorway & mkgmap:fast_road=yes [0x01 road_class=4 road_speed=7 resolution 14]
+highway=motorway [0x01 road_class=4 road_speed=7 resolution 15]
+highway=motorway_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x06 road_class=4 road_speed=2 resolution 20]
+highway=motorway_link [0x09 road_class=4 road_speed=2 resolution 20]
+highway=trunk & mkgmap:fast_road=yes [0x02 road_class=4 road_speed=5 resolution 15]
 highway=trunk [0x02 road_class=4 road_speed=5 resolution 18]
-highway=trunk_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=true) [0x06 road_class=3 road_speed=2 resolution 20]
-highway=trunk_link [0x09 road_class=3 road_speed=2 resolution 20]
+highway=trunk_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x06 road_class=4 road_speed=2 resolution 20]
+highway=trunk_link [0x09 road_class=4 road_speed=2 resolution 20]
 highway=* & highway!=proposed & motorroad=yes [0x02 road_class=4 road_speed=4 resolution 18]
-highway=primary & ( network=e-road | int_ref=* ) [0x03 resolution 17-18 continue]
+highway=* & motorroad=yes {add bicycle = no; add foot = no}
+highway=primary & mkgmap:fast_road=yes [0x03 road_class=4 road_speed=4 resolution 17]
 highway=primary [0x03 road_class=3 road_speed=4 resolution 19]
+highway=primary_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) & mkgmap:fast_road=yes [0x06 road_class=4 road_speed=1 resolution 21]
+highway=primary_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x06 road_class=3 road_speed=1 resolution 21]
+highway=primary_link & mkgmap:fast_road=yes [0x08 road_class=4 road_speed=1 resolution 21]
 highway=primary_link [0x08 road_class=3 road_speed=1 resolution 21]
-highway=secondary & ( network=e-road | int_ref=* ) [0x04 resolution 18-19 continue]
+highway=secondary & mkgmap:fast_road=yes [0x04 road_class=3 road_speed=3 resolution 18]
 highway=secondary [0x04 road_class=2 road_speed=3 resolution 20]
+highway=secondary_link & mkgmap:fast_road=yes [0x08 road_class=3 road_speed=1 resolution 22]
 highway=secondary_link [0x08 road_class=2 road_speed=1 resolution 22]
 highway=tertiary [0x05 road_class=1 road_speed=3 resolution 20]
 highway=tertiary_link [0x08 road_class=1 road_speed=1 resolution 22]
