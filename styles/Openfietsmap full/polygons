@@ -163,7 +163,7 @@ leisure=recreation_ground | leisure=summer_camp [0x19 resolution 23 continue]
 leisure=sports_center | leisure=sports_centre | leisure=ice_rink | leisure=water_park [0x19 resolution 23 continue]
 leisure=stadium [0x19 resolution 23 continue]
 leisure=track [0x19 resolution 23]
-sport=swimming | leisure=swimming_pool | amenity=swimming_pool  [0x3d resolution 23 continue]
+leisure=swimming_pool | amenity=swimming_pool  [0x3d resolution 23 continue]
 man_made=water_tower | man_made=tower [0x13 resolution 24]
 
 
