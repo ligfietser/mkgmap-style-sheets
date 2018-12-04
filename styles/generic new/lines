@@ -208,7 +208,7 @@ highway=unsurfaced [0x0a road_class=0 road_speed=1 resolution 22]
 highway=road { add mkgmap:dead-end-check = false} [0x06 road_class=0 road_speed=1 resolution 22]
 
 # Mop up any unrecognised highway types
-highway=* & highway!=proposed & area!=yes & highway!=pedestrian [0x07 road_class=0 road_speed=0 resolution 23] 
+highway=* & highway!=proposed & area!=yes & highway!=pedestrian & highway!=services [0x07 road_class=0 road_speed=0 resolution 23] 
 
 #natural=coastline [0x15 resolution 12]
 natural=cliff [0x10115 resolution 24]
