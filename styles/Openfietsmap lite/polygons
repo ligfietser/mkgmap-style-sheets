@@ -139,6 +139,8 @@ building=* & name=* [0x06 resolution 24]
 
 # squares and plazas
 waterway=dam  [0x0e default_name="dam" resolution 22]
+highway=rest_area [0x19 resolution 23]
+highway=services [0x18 resolution 23]
 highway=* & (area=yes | mkgmap:mp_created=true) [0x0e resolution 24]
 area:highway=* [0x0e resolution 24]
 man_made=pier  [0x0e default_name="pier" resolution 23 continue]
