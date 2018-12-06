@@ -187,6 +187,8 @@ shop=* & building=* [0x13 resolution 23]
 
 # squares, plazas, bridges
 waterway=dam  [0x0e default_name="dam" resolution 22]
+highway=rest_area [0x19 resolution 23]
+highway=services [0x18 resolution 23]
 highway=* & (area=yes | mkgmap:mp_created=true) [0x0e resolution 23]
 area:highway=bridge | man_made=bridge | building=bridge [0x0e default_name="bridge" resolution 23]
 area:highway=* [0x0e resolution 23]
