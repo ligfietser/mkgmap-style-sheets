@@ -167,7 +167,7 @@ amenity=school [0x2c05 resolution 24]
 # amenity=shelter is ambiguous; when possible, consider using other tags:
 #  tourism=lean_to or tourism=picnic_site
 #  shelter=yes on highway=bus_stop or highway=tram_stop or railway=halt
-amenity=shelter [0x2b06 resolution 24 default_name 'Shelter']
+amenity=shelter & shelter_type!=public_transport [0x2b06 resolution 24 default_name 'Shelter']
 # amenity=supermarket is superceded by shop=supermarket
 amenity=supermarket [0x2e02 resolution 24]
 amenity=taxi [0x2f17 resolution 24]
@@ -252,7 +252,7 @@ place=island [0x650c resolution 20]
 
 railway=station [0x2f08 resolution 22]
 ( public_transport=platform & rail=yes ) | railway=halt [0x2f08 resolution 23]
-public_transport=platform | highway=bus_stop | railway=tram_stop [0x2f17 resolution 24]
+public_transport=platform | highway=bus_stop | railway=tram_stop | amenity=shelter & shelter_type=public_transport [0x2f17 resolution 24]
 
 shop=bakers [0x2e02 resolution 24]
 shop=bakery [0x2e02 resolution 24]

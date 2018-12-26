@@ -151,7 +151,7 @@ amenity=public_building & name=* [0x3007 resolution 24]
 amenity=recycling { name '${name} (${operator})' | '${name}' | '${operator}' } [0x2f15 resolution 24]
 amenity=* & amenity ~ '.*restaurant.*' [0x2a00 resolution 24]
 #amenity=school [0x2c05 resolution 24]
-amenity=shelter [0x6402 resolution 24]
+amenity=shelter & shelter_type!=public_transport [0x6402 resolution 24]
 amenity=supermarket [0x2e02 resolution 24]
 #amenity=taxi [0x1102 resolution 24]
 #amenity=telephone [0x2f12 resolution 24]
@@ -178,7 +178,7 @@ amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
   name '${name|def:} ${ref|def:}';
 }
 
-highway=bus_stop [0x2f08 resolution 24]
+public_transport=platform | highway=bus_stop | amenity=shelter & shelter_type=public_transport [0x2f08 resolution 24]
 
 highway=steps & tunnel=yes & (bicycle=yes|bicycle=dismount) & mkgmap:line2poitype=mid [0x2810 resolution 24]
 
