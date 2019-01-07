@@ -75,6 +75,7 @@ admin_level=8 & name ~ '(Liège|Charleroi|Milano|Torino|Praha|Wien|Barcelona|Bud
 
 landuse=residential & building=yes {delete landuse}
 landuse=residential & place=* & name!=* {delete place}
+landuse=residential {add name='${mkgmap:city}'}
 landuse=residential & building=yes {delete landuse}
 landuse=residential & area_size() >=500000 [0x03 resolution 14]
 landuse=residential & area_size() >=250000 & area_size() < 500000 [0x03 resolution 16]
