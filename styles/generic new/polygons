@@ -64,7 +64,7 @@ landuse=recreation_ground [0x14 resolution 19]
 landuse=reservoir [0x3f resolution 19]
 # on resolution 24, display building=* instead of related landuse=*
 landuse=industrial [0x0c resolution 22-19]
-landuse=residential [0x10 resolution 18-22]
+landuse=residential {add name='${mkgmap:city}'} [0x10 resolution 18-22]
 landuse=retail | highway=services [0x08 resolution 22-20]
 landuse=village_green [0x17 resolution 22]
 landuse=vineyard [0x4e resolution 20]
