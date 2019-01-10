@@ -64,7 +64,9 @@ landuse=recreation_ground [0x14 resolution 19]
 landuse=reservoir [0x3f resolution 19]
 # on resolution 24, display building=* instead of related landuse=*
 landuse=industrial [0x0c resolution 22-19]
-landuse=residential {add name='${mkgmap:city}'} [0x10 resolution 18-22]
+landuse=residential {add name='${is_in:hamlet}' | '${is_in:locality}' | '${is_in:neigbourhood}' | '${is_in:quarter}' | '${is_in:village}' | '${is_in:town}' | '${is_in:suburb}' | '${is_in:city}'}
+landuse=residential {add name='${mkgmap:admin_level11}' | '${mkgmap:admin_level10}' | '${mkgmap:admin_level9}' | '${mkgmap:admin_level8}' | '${mkgmap:admin_level7}' | '${mkgmap:admin_level6}'}
+landuse=residential [0x10 resolution 18-22]
 landuse=retail | highway=services [0x08 resolution 22-20]
 landuse=village_green [0x17 resolution 22]
 landuse=vineyard [0x4e resolution 20]
