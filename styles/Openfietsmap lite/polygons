@@ -109,7 +109,7 @@ landuse=forest | natural=wood | leisure=park | natural=scrub | (leisure=garden &
 
 landuse=cemetary | landuse=cemetery | amenity=grave_yard [0x1a resolution 22]
 landuse=retail [0x08 resolution 22]
-landuse=industrial [0x0c resolution 18]
+landuse=industrial | power=plant | power=generator [0x0c resolution 18]
 landuse=commercial [0x0c resolution 20]
 
 
