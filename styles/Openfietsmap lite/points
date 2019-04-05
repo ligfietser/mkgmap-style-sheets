@@ -151,7 +151,7 @@ amenity=public_building & name=* [0x3007 resolution 24]
 amenity=recycling { name '${name} (${operator})' | '${name}' | '${operator}' } [0x2f15 resolution 24]
 amenity=* & amenity ~ '.*restaurant.*' [0x2a00 resolution 24]
 #amenity=school [0x2c05 resolution 24]
-amenity=shelter & shelter_type!=public_transport [0x6402 resolution 24]
+amenity=shelter [0x6402 resolution 24]
 amenity=supermarket [0x2e02 resolution 24]
 #amenity=taxi [0x1102 resolution 24]
 #amenity=telephone [0x2f12 resolution 24]
@@ -178,7 +178,7 @@ amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
   name '${name|def:} ${ref|def:}';
 }
 
-public_transport=platform | highway=bus_stop | amenity=shelter & shelter_type=public_transport [0x2f08 resolution 24]
+public_transport=platform | highway=bus_stop [0x2f08 resolution 24]
 
 highway=steps & tunnel=yes & (bicycle=yes|bicycle=dismount) & mkgmap:line2poitype=mid [0x2810 resolution 24]
 
@@ -329,7 +329,7 @@ barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }
 barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
 barrier=stile | barrier=turnstile  { add mkgmap:foot=yes; addaccess no; }
 
-barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
+barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle:conditional}' ; add mkgmap:street='bicycle:${bicycle}' ;  add mkgmap:postal_code='access:${access:conditional}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
 (barrier=gate | barrier=entrance | barrier=turnstile | barrier=bump_gate) [0x3200 resolution 23]
 barrier=* & barrier ~ '(lift_gate|toll_booth|border_control|swing_gate|log)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]

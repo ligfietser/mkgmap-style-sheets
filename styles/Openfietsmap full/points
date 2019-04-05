@@ -329,7 +329,7 @@ barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }
 barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
 barrier=stile | barrier=turnstile  { add mkgmap:foot=yes; addaccess no; }
 
-barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
+barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle:conditional}' ; add mkgmap:street='bicycle:${bicycle}' ;  add mkgmap:postal_code='access:${access:conditional}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
 (barrier=gate | barrier=entrance | barrier=turnstile | barrier=bump_gate) [0x3200 resolution 23]
 barrier=* & barrier ~ '(lift_gate|toll_booth|border_control|swing_gate|log)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]
