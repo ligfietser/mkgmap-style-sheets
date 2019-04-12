@@ -329,7 +329,7 @@ barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }
 barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
 barrier=stile | barrier=turnstile  { add mkgmap:foot=yes; addaccess no; }
 
-barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle:conditional}' ; add mkgmap:street='bicycle:${bicycle}' ;  add mkgmap:postal_code='access:${access:conditional}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
+barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle:conditional}' ; add mkgmap:street='bicycle:${bicycle}' ;  add mkgmap:street='access:${access:conditional}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
 (barrier=gate | barrier=entrance | barrier=turnstile | barrier=bump_gate) [0x3200 resolution 23]
 barrier=* & barrier ~ '(lift_gate|toll_booth|border_control|swing_gate|log)' [0x3201 resolution 23]
 barrier=stile [0x3202 resolution 23]
@@ -344,8 +344,11 @@ toponym=water [0x6603 resolution 22]
 toponym=* [0x1e03 resolution 22]
 
 # pois from lines
-bicycle:conditional=* & mkgmap:line2poitype=start { name 'bicycle=${bicycle:conditional}' } [0x1108 resolution 24]
-access:conditional=* & bicycle!=* { name 'access=${access:conditional}' } [0x1108 resolution 24]
+mkgmap:line2poitype=start & (bridge=* | tunnel=*) & mkgmap:way-length>20 & bicycle!=no & vehicle!=no & (bicycle:conditional=* | access:conditional=* | vehicle:conditional=*)  { name 'bicycle=${bicycle:conditional}' | 'access=${access:conditional}'|  'vehicle=${vehicle:conditional}'} [0x2809 resolution 22]
+mkgmap:line2poitype=end & (bridge=* | tunnel=*) & mkgmap:way-length>15 & bicycle!=no & vehicle!=no & (bicycle:conditional=* | access:conditional=* | vehicle:conditional=*)  { name 'bicycle=${bicycle:conditional}' | 'access=${access:conditional}'|  'vehicle=${vehicle:conditional}'} [0x2809 resolution 22]
+access:conditional=* & access:conditional ~ '!(sunset|sunrise|destination)' & bicycle!=no & vehicle!=no { name 'access=${access:conditional}' } [0x1108 resolution 24]
+bicycle:conditional=* & bicycle:conditional ~ '!(sunset|sunrise|destination)' { name 'bicycle=${bicycle:conditional}' } [0x1108 resolution 24]
+vehicle:conditional=* & vehicle:conditional ~ '!(sunset|sunrise|destination)' { name 'vehicle=${vehicle:conditional}' } [0x1108 resolution 24]
 scenic=yes & mkgmap:line2poitype=mid {delete 'name'} [0x5200 resolution 23]
 (highway=cycleway | bicycle=yes | bicycle=permissive | bicycle=designated) & opening_hours=* & route!=ferry & mkgmap:line2poitype=mid { name 'open (${opening_hours})' } [0x2808 resolution 24]
 highway=* & highway!=motorway & highway!=motorway_link & highway!=trunk & highway!=trunk_link & highway!=footway & bicycle!=no & (toll=yes | toll:bicycle=yes) & toll:bicycle!=no & service!=parking_aisle & mkgmap:line2poitype=mid {delete 'name'; delete 'ref';} [0x2811 resolution 24]
