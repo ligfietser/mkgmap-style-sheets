@@ -344,9 +344,9 @@ toponym=water [0x6603 resolution 22]
 toponym=* [0x1e03 resolution 22]
 
 # pois from lines
-mkgmap:line2poitype=start & (bridge=* | tunnel=*) & mkgmap:way-length>20 & bicycle!=no & vehicle!=no & (bicycle:conditional=* | access:conditional=* | vehicle:conditional=*)  { name 'bicycle=${bicycle:conditional}' | 'access=${access:conditional}'|  'vehicle=${vehicle:conditional}'} [0x2809 resolution 22]
-mkgmap:line2poitype=end & (bridge=* | tunnel=*) & mkgmap:way-length>15 & bicycle!=no & vehicle!=no & (bicycle:conditional=* | access:conditional=* | vehicle:conditional=*)  { name 'bicycle=${bicycle:conditional}' | 'access=${access:conditional}'|  'vehicle=${vehicle:conditional}'} [0x2809 resolution 22]
-access:conditional=* & access:conditional ~ '!(sunset|sunrise|destination)' & bicycle!=no & vehicle!=no { name 'access=${access:conditional}' } [0x1108 resolution 24]
+mkgmap:line2poitype=start & (bridge=* | tunnel=*) & mkgmap:way-length>20 & bicycle!=no & bicycle!=permissive & vehicle!=no & (bicycle:conditional=* | access:conditional=* | vehicle:conditional=*)  { name 'bicycle=${bicycle:conditional}' | 'access=${access:conditional}'|  'vehicle=${vehicle:conditional}'} [0x2809 resolution 22]
+mkgmap:line2poitype=end & (bridge=* | tunnel=*) & mkgmap:way-length>15 & bicycle!=no & bicycle!=permissive & vehicle!=no & (bicycle:conditional=* | access:conditional=* | vehicle:conditional=*)  { name 'bicycle=${bicycle:conditional}' | 'access=${access:conditional}'|  'vehicle=${vehicle:conditional}'} [0x2809 resolution 22]
+access:conditional=* & access:conditional ~ '!(sunset|sunrise|destination)' & bicycle!=no & bicycle!=permissive & vehicle!=no { name 'access=${access:conditional}' } [0x1108 resolution 24]
 bicycle:conditional=* & bicycle:conditional ~ '!(sunset|sunrise|destination)' { name 'bicycle=${bicycle:conditional}' } [0x1108 resolution 24]
 vehicle:conditional=* & vehicle:conditional ~ '!(sunset|sunrise|destination)' { name 'vehicle=${vehicle:conditional}' } [0x1108 resolution 24]
 scenic=yes & mkgmap:line2poitype=mid {delete 'name'} [0x5200 resolution 23]
