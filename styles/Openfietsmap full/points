@@ -48,7 +48,6 @@ amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & mkgmap:
 landuse=residential & name=* & source!=AND [0x0600 resolution 23]
 landuse=residential & name=* & source=AND [0x0900 resolution 23]
 (admin_level = 11 & boundary = administrative) [0x0900 resolution 23]
-landuse=industrial & name=* [0x0600 resolution 24]
 
 man_made=tower & tower:type!=communication  [0x6411 resolution 23 continue]
 man_made=windmill  [0x2c00 resolution 23]
