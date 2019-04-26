@@ -335,7 +335,7 @@ barrier=stile [0x3202 resolution 23]
 barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
 (barrier=bollard | barrier=bus_trap | barrier=block) [0x1108 resolution 23]
 barrier=cattle_grid [0x281a resolution 23]
-
+mkgmap:line2poitype=mid & ford=* { name 'ford=${ford}' } [0x2809 resolution 24]
 					 
 power_source=wind | man_made=power_wind | generator:source=wind | man_made=windpump [0x2819 resolution 24]
 
