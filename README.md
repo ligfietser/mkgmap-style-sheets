@@ -66,5 +66,6 @@ keep-going
 net
 route
 index
+split-name-index
 copyright-message: Map data © openstreetmap.org, Map layout © openfietsmap.nl, SRTM Data © U.S. Geological Survey
 ```
