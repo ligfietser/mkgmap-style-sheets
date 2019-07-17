@@ -12,6 +12,7 @@ include 'inc/address';
 boundary = national_park & name ~ '.*(Naturschutzgebiet|NSG|Naturreservat|NR|domänreservat|Country Park|Regio|regio|Régio|régio).*' {set boundary=nature_reserve}
 boundary = national_park & protect_class > 2 {set boundary=nature_reserve}
 boundary = national_park [0x16 resolution 18 continue]
+boundary=protected_area & protect_class>=21 & protect_class<=29 {delete boundary}
 leisure=nature_reserve | boundary=protected_area | boundary=nature_reserve [0x16 resolution 20 continue]
 leisure=* & sport=* & name=* { set name='${name} (${sport})' }
 leisure=* & sport=* & name!=* { add name='${sport}' }
