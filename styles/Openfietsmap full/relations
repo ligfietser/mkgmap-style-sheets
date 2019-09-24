@@ -174,8 +174,7 @@ type=route & (route=foot | route=hiking)
 	{
 		apply {
 		set hiking_from_relation=yes;
-		add foot=yes;
-	}
+		}
 	} 	
 	
 #train routes
