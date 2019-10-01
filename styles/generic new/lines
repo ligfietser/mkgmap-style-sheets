@@ -39,9 +39,6 @@ highway=traffic_signals | highway=junction | highway=island | highway=centre_lin
 highway=piste | highway=ski {delete highway}
 highway=no | highway=none {delete highway}
 
-# Hide unaccessible tunnels
-highway=* & tunnel=yes & (access=private|access=no)
-& foot!=* & bicycle!=* {delete highway;delete junction}
 # Disable dead-end-checks for unaccessible oneways
 highway=* & oneway=yes & (access=private|access=no)
 {add mkgmap:dead-end-check=false}
