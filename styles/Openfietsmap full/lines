@@ -142,7 +142,7 @@ highway=path
 & surface!=* & tracktype!=* & smoothness!=* & sac_scale!=* & bridge!=* & length()>100
 { add mkgmap:unpaved=1; set motorcar=no }
 (highway=unclassified | highway=service) & (mkgmap:unpaved=1) & service!=parking_aisle & !(cycleway=* | cycleway:right=* | cycleway:left=*) & mkgmap:check!=ok  { set highway=track; add tracktype=grade2; add motorcar=no; }
-bicycle:dismount=yes & bridge!=* & man_made!=pier { add mkgmap:unpaved=1 }
+bicycle:dismount=yes & bridge!=* & man_made!=pier & public_transport!=platform { add mkgmap:unpaved=1 }
 
 
 #oneway rules
