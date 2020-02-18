@@ -41,7 +41,8 @@ bicycle=dismount & (highway=footway | highway=pedestrian) {delete bicycle; add b
 bicycle=yes {set motorcar=yes; set foot=yes} 
 bicycle:conditional=* {add bicycle=yes; add motorcar=yes; add foot=yes} 
 bicycle=destination | bicycle=official | bicycle=permissive {set motorcar=yes; set foot=yes; set bicycle=yes}
-foot=destination | foot=official | foot=permissive | foot=designated {set foot=yes}
+foot=designated {set foot=yes; add foot:designated=yes}
+foot=destination | foot=official | foot=permissive {set foot=yes}
 (highway=pedestrian | highway=footway) & oneway=* {delete oneway}
 highway=* & highway ~ '(fiets|Fiets|mtb|Mtb|bike|Bike|rad|Rad|cycleway;|;cycleway)' {set highway=cycleway}
 highway=* & highway ~ '.*(;).*' {set highway=unclassified}
@@ -97,8 +98,8 @@ cycleway=track & (highway=path | highway=footway | highway=bridleway) {add bicyc
 cycleway=lane & (highway=track | highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
 
 highway=footway & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
-highway=path & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
-highway=track & bicycle=designated & tracktype=grade2 & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
+highway=path & bicycle=designated & foot:designated=yes { set highway=cycleway }
+highway=path & bicycle=designated & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)' { set highway=cycleway }
 bicycle=designated { set bicycle=yes; add motorcar=yes }
 highway=path & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)' & access!=no & access!=private & vehicle!=no { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
 highway=footway & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
