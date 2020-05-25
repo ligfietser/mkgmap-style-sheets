@@ -123,6 +123,7 @@ type=route & route=bicycle & network=rcn & note ~ '[^a-zA-Z].*'
 		set rcn_from_relation=yes;
 		set rnote='${note}';
 		set rref='${note}';
+		add rnote='${ref}'
 	} 
 	}	
 	
@@ -131,6 +132,7 @@ type=route & route=bicycle & network=rcn
 		apply { 
 		set rcn_from_relation=yes;
 		set rname='${name}';
+		add rnote='${ref}'		
 		add rref='${ref}';
 	} 
 	}	

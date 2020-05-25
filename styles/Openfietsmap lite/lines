@@ -307,11 +307,11 @@ icn_from_relation=yes & state!=icn_proposed & railway!=rail {name '${iref|highwa
 highway=* & ncn_from_relation=yes & state!=ncn_proposed  {name '${nref} (${nname|not-equal:nref})' | '${nref}' } [0x00 resolution 16-17 continue]
 highway=* & ncn_from_relation=yes & state!=ncn_proposed  {name '${nref} (${nname|not-equal:nref})' | '${nref}' }[0x24 resolution 18-19 continue]
 ncn_from_relation=yes & state!=ncn_proposed & railway!=rail {name '${nref|highway-symbol:oval} (${nname|not-equal:nref})'| '${nref|highway-symbol:oval}'} [0x02 resolution 20-21 continue]
-rcn_from_relation=yes & ncn_from_relation!=yes & icn_from_relation!=yes & state!=rcn_proposed {name '${rnote}' | '${rname}'}  [0x00 resolution 18-19 continue]
+rcn_from_relation=yes & ncn_from_relation!=yes & icn_from_relation!=yes & state!=rcn_proposed {name '${rnote}' | '${rref}' | '${rname}'}  [0x00 resolution 18-19 continue]
 bicycleroute=yes & !(ncn_from_relation=yes | icn_from_relation=yes) [0x10119 resolution 20-21 continue]
 
 (ncn_from_relation=yes | lcn_from_relation=yes | ncn_ref=* | lcn_ref=*) & state!=ncn_proposed {name '${nref|highway-symbol:oval}'| '${ncn_ref|highway-symbol:oval}' | '${lcn_ref|highway-symbol:oval}' | '${lref|highway-symbol:oval}' }  [0x28 resolution 22 continue] 
-rcn_from_relation=yes & state!=rcn_proposed  {name '${rnote}' | '${rname}'} [0x19 resolution 22 continue]
+rcn_from_relation=yes & state!=rcn_proposed  {name '${rnote}' | '${rref}' | '${rname}'} [0x19 resolution 22 continue]
 lcn_from_relation=yes  & state!=rcn_proposed {name '${lname}'} [0x27 resolution 22 continue]
 bicycleroute=yes & junction!=roundabout & railway!=rail [0x02 road_class=3 road_speed=2 resolution 22 continue]
 
