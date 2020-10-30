@@ -199,7 +199,7 @@ highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|high
 
 highway=elevator [0x5002 resolution 24]
 
-historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=disused) {delete historic}
+historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=disused | historic=charcoal_pile) {delete historic}
 historic=yes & name!=* {delete historic}
 historic=museum [0x2c02 default_name 'museum' resolution 23]
 historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
