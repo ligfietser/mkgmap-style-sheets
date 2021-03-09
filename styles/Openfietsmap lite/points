@@ -39,7 +39,10 @@ rcn_ref=* {name '${rcn_ref}' } [0x0700 resolution 22 continue]
 
 include 'inc/place';
 
-shop=bicycle | amenity=bicycle_repair_station [0x2f03 resolution 22]
+shop=bicycle  [0x2f03 resolution 22]
+amenity=bicycle_repair_station & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") {name '${name}' | 'Fietsreparatie station' } [0x2f03 resolution 22]
+amenity=bicycle_repair_station & (mkgmap:country=DEU | mkgmap:country=AUT) {name '${name}' | 'Fahrrad-Reparaturstation' } [0x2f03 resolution 22]
+amenity=bicycle_repair_station  {name '${name}' | 'Bicycle repair station' } [0x2f03 resolution 22]
 
 amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") {name 'oplaadpunt ${name}' | 'oplaadpunt' } [0x4400 resolution 24 continue]
 amenity=charging_station & (bicycle=yes | bike=yes | charging=pedelec) & (mkgmap:country=DEU | mkgmap:country=AUT) {name 'Ladepunkt ${name}' | 'Ladepunkt' } [0x4400 resolution 24 continue]
