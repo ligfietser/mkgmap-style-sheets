@@ -65,6 +65,8 @@ aeroway=taxiway & is_closed()!=true [0x10117 resolution 23 continue with_actions
 cutting=yes  [0x10215 resolution 24 continue with_actions]
 
 # Roundabouts
+junction=roundabout { add oneway=yes }
+highway=cycleway & junction=roundabout { delete junction }
 junction=roundabout [0x0c road_class=1 road_speed=1 resolution 24 continue with_actions]
 junction=roundabout {set access=no}
 
