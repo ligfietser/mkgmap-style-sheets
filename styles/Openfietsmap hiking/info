@@ -1,0 +1,18 @@
+#
+# This file contains information about the style.
+# It is completely optional.
+#
+
+
+# A short one line description of the style
+#
+summary: A style for pedestrian routes
+
+# Version of the style itself
+#
+version=1.0
+
+description {
+This style is useful for highlighting pedestrian or hiking routes on a
+separate map layer.
+}

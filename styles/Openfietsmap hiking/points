@@ -1,0 +1,17 @@
+# trailhead
+(network=rwn | network=lwn | network= nwn | nwn_from_relation=yes | rwn_from_relation=yes | lwn_from_relation=yes) & starting=yes [0x6412 resolution 22 continue]
+
+# knooppunten
+nwn_ref=* {name '${nwn_ref}' } [0x4c00 resolution 22]
+rwn_ref=* {name '${rwn_ref}' } [0x4c00 resolution 23]
+lwn_ref=* {name '${lwn_ref}' } [0x4c00 resolution 24]
+
+# pois from lines for hiking symbols
+nwn_from_relation=yes & nref ~ 'LAW.*' & mkgmap:line2poitype=mid [0x1610 resolution 24]
+nwn_from_relation=yes & nref ~ 'GR.*' & mkgmap:line2poitype=mid [0x1610 resolution 24]
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+include 'inc/address';
+include 'inc/compat_points'; 
+

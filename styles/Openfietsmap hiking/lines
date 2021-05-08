@@ -1,0 +1,15 @@
+iwn_from_relation=yes {name '${iref|highway-symbol:hbox} (${iname})' | '${iname}' | '${iref|highway-symbol:hbox}'}   [0x10601 resolution 18 continue]
+nwn_from_relation=yes {name '${nref|highway-symbol:box} (${nname})' | '${nname}' | '${nref|highway-symbol:box}'} [0x10602 resolution 18 continue]
+rwn_from_relation=yes {name '${rref} (${rname})' | '${rname}' | '${rref}'}   [0x10603 resolution 20 continue]
+lwn_from_relation=yes {name '${lref} (${lname})' | '${lname}' | '${lref}'}   [0x10604 resolution 21 ]
+
+maritime=yes [0x1001f resolution 14]
+boundary2=yes { name '${boundary2_name}' }  [0x1001e resolution 14-20 continue]
+boundary2=yes  { name '${boundary2_name}' } [0x1e resolution 21]
+boundary4=yes { name '${boundary4_name}' } [0x1d resolution 18]
+boundary8=yes { name '${boundary8_name}' } [0x1c resolution 24]
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+include 'inc/compat_lines'; 
+

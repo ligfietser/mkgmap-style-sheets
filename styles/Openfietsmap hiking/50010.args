@@ -1,0 +1,26 @@
+family-id: 50010
+product-id: 1
+draw-priority: 31
+country-name: Benelux
+country-abbr: BNL
+style-file: hiking
+license-file: g:\mkgmap\Openfietsmap\versions\bnl\licentie.txt
+copyright-message: Map data © openstreetmap.org, Map layout © openfietsmap.nl
+generate-sea: land-tag=natural=background
+precomp-sea:  G:\mkgmap\Boundaries\sea_latest.zip
+bounds:  G:\mkgmap\Boundaries\bounds_latest.zip
+location-autofill: is_in,nearest
+housenumbers
+split-name-index
+name-tag-list: name,name:nl,name:fr,name:de,int_name,place_name
+tdbfile
+latin1
+code-page: 1252
+#remove-short-arcs
+add-pois-to-lines
+link-pois-to-ways
+merge-lines
+index
+nsis
+gmapsupp
+#remove-ovm-work-files: true

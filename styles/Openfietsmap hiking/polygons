@@ -1,0 +1,6 @@
+natural=sea  [0x32 resolution 14]
+natural=background [0x10200 resolution 14]
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+include 'inc/compat_polygons'; 

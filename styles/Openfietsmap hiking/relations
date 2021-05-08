@@ -1,0 +1,54 @@
+(type=boundary | type=multipolygon) & boundary=administrative & name=* & admin_level=2
+{ apply
+  {
+    set boundary2_name='$(boundary2_name)/${name}' | '${name}';
+	set boundary2=yes;
+  }
+}
+
+(type=boundary | type=multipolygon) & boundary=administrative & name=* & admin_level=4
+{ apply
+  {
+    set boundary4_name='$(boundary4_name)/${name}' | '${name}';
+	set boundary4=yes;
+  }
+}
+
+type=route & network=iwn
+	{
+		apply { 
+		set iwn_from_relation=yes;
+		set iname='${name}';
+		set iref='$(iref)/${ref}' | '${ref}';
+	} 
+	}	
+
+
+type=route & network=nwn
+	{
+		apply { 
+		set nwn_from_relation=yes;
+		set nname='${name}';
+		set nref='$(nref)/${ref}' | '${ref}';
+	} 
+	}	
+
+type=route & network=rwn
+	{
+		apply { 
+		set rwn_from_relation=yes;
+		set rname='${name}';
+		set rref='$(rref)/${ref}' | '${ref}';
+	} 
+	}	
+	
+type=route & network=lwn
+	{
+		apply { 
+		set lwn_from_relation=yes;
+		set lname='${name}';
+		set lref='$(lref)/${ref}' | '${ref}';
+	} 
+	}	
+		
+	
