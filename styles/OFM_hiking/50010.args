@@ -3,7 +3,7 @@ product-id: 1
 draw-priority: 31
 country-name: Benelux
 country-abbr: BNL
-style-file: hiking
+style-file: OFM_hiking
 license-file: g:\mkgmap\Openfietsmap\versions\bnl\licentie.txt
 copyright-message: Map data © openstreetmap.org, Map layout © openfietsmap.nl
 generate-sea: land-tag=natural=background
