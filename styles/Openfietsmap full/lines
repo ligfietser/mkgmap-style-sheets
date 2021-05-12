@@ -6,6 +6,7 @@ include 'inc/address';
 include 'inc/contours';
 
 # clear tags
+highway=proposed {delete 'highway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'; delete 'ncn_from_relation'; delete 'rcn_from_relation'; delete 'icn_from_relation' delete 'lcn_from_relation'; delete 'tcn_from_relation'; delete 'mtb_from_relation' }
 motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
 motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
@@ -171,8 +172,6 @@ highway=cycleway & unpaved=2 {set mkgmap:unpaved=0}
 
 # ways under construction
 highway=construction [0x10019 resolution 22]
-highway=proposed {delete 'highway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'}
-railway=proposed {delete 'railway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'}
 
 # Treat disused ways as highway=service, but at lower road_speed.
 highway=* & disused=yes [0x07 road_class=0 road_speed=1 resolution 22 continue]
