@@ -350,7 +350,7 @@ railway=tram [0x2a default_name="tram" resolution 24]
 railway=preserved | railway=miniature [0x2a default_name="preserved railway" resolution 23]
 
 (railway=funicular | railway=narrow_gauge | railway=monorail) {name '${name}' | '${note}' | '${description}' | '${railway}' | '${aerialway}' } [0x2a resolution 22]
-(aerialway=cable_car | aerialway=gondola | highway=elevator)  {name '${name}' | '${note}' | '${description}' | '${aerialway}' | '${highway}' } [0x2a resolution 24]
+(aerialway=cable_car | aerialway=gondola |  aerialway=chair_lift | highway=elevator)  {name '${name}' | '${note}' | '${description}' | '${aerialway}' | '${highway}' } [0x2a resolution 24]
 
 (public_transport=platform | highway=platform | railway=platform) & area!=yes {add access = no; add foot = yes} [0x08 road_class=0 road_speed=0 resolution 23]
 
