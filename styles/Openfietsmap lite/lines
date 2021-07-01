@@ -90,8 +90,8 @@ highway=tertiary_link { set highway=tertiary }
 highway=byway | highway=minor | highway=living_street | highway=residential | highway=road { set highway=unclassified }
 highway=bus_guideway  { set highway=service }
 highway=service & (bicycle=yes | bicycle=designated | bicycleroute=yes) { set highway=unclassified }
-highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & bicycleroute=yes { add highway=unclassified }
-highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & mtb_from_relation=yes { add highway=track }
+#highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & bicycleroute=yes { add highway=unclassified }
+#highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & mtb_from_relation=yes { add highway=track }
 highway=unsurfaced { set highway=track }
 highway=track & (tracktype=grade1 | surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)') { set highway=unclassified; delete tracktype; set mkgmap:check=ok }
 highway=cycleroad  { set highway=cycleway }
