@@ -68,7 +68,7 @@ tourism=viewpoint & altitude=number {name '${name|def:} (${ele|def:}m)'} [0x2814
 tourism=viewpoint [0x2814 resolution 23]
 
 tourism=aquarium [0x2c07 resolution 24]
-tourism=camp_site & backcountry=* { name '${name} (backcountry)' | '${designation}(backcountry)' } [0x2b05 resolution 23]
+tourism=camp_site & backcountry=* & backcountry!=no { name '${name} (backcountry)' | '${designation}(backcountry)' } [0x2b05 resolution 23]
 (tourism=camp_site & tents!=no) | (tourism=caravan_site & tents=yes) { name '${name}' | '${designation}' } [0x2b05 resolution 23]
 tourism=chalet [0x2b04 default_name 'bungalowpark' resolution 23]
 tourism=caravan_site | (tourism=camp_site & tents=no) [0x2b03 resolution 23]
