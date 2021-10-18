@@ -50,6 +50,7 @@ tourism=camp_site & tents=no [0x17 default_name="RV-park" resolution 22]
 tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
 tourism=picnic_site [0x1e resolution 24]
 tourism=chalet & building!=*  [0x50 default_name="bungalowpark" resolution 22]
+tourism=chalet & building=* {delete tourism}
 tourism=* & tourism ~ '(hotel|hostel|motel|guest_house|bed_and_breakfast|alpine_hut|chalet)'  [0x13 resolution 22]
 tourism=zoo [0x17 resolution 22]
 
