@@ -123,7 +123,7 @@ leisure=garden & (garden:type=arboretum | garden:type=botanical) {set leisure=pa
 leisure=park [0x17 resolution 20 continue]
 natural=scrub [0x4f resolution 21]
 
-(landuse=grass & source!=3dShapes) | landuse=village_green | landuse=meadow | landcover=grass [0x1e resolution 22]
+(landuse=grass & source!=3dShapes) | landuse=village_green | landuse=meadow | landcover=grass | leisure=garden [0x1e resolution 22]
 landuse=greenfield [0x0d resolution 21]
 
 landuse=greenhouse | landuse=greenhouse_horticulture & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x4e default_name="glastuinbouw" resolution 21]
