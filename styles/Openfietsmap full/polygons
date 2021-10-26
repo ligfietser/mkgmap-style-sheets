@@ -119,10 +119,11 @@ boundary = protected_area & name=Veluwe  [0x50 resolution 14-17 continue]
 (landuse=forest | natural=wood) & area_size() >=250000 & source!=3dShapes  [0x23 resolution 23 continue]
 
 leisure=birdhide [0x13 resolution 23]
-leisure=park | (leisure=garden & garden:type=botanical)[0x17 resolution 20 continue]
+leisure=garden & (garden:type=arboretum | garden:type=botanical) {set leisure=park}
+leisure=park [0x17 resolution 20 continue]
 natural=scrub [0x4f resolution 21]
 
-(landuse=grass & source!=3dShapes) | landuse=village_green | landuse=meadow | (leisure=garden & garden:type!=botanical) | landcover=grass [0x1e resolution 22]
+(landuse=grass & source!=3dShapes) | landuse=village_green | landuse=meadow | landcover=grass [0x1e resolution 22]
 landuse=greenfield [0x0d resolution 21]
 
 landuse=greenhouse | landuse=greenhouse_horticulture & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x4e default_name="glastuinbouw" resolution 21]

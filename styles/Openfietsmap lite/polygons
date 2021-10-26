@@ -106,8 +106,8 @@ landuse=construction [0x0d resolution 21]
 
 
 
-
-landuse=forest | natural=wood | leisure=park | natural=scrub | (leisure=garden & garden:type!=botanical) [0x16 resolution 20 continue]
+leisure=garden & (garden:type=botanical | garden:type=arboretum) {set leisure=park}
+landuse=forest | natural=wood | leisure=park | natural=scrub [0x16 resolution 20 continue]
 
 landuse=cemetary | landuse=cemetery | amenity=grave_yard [0x1a resolution 22]
 landuse=retail [0x08 resolution 22]
