@@ -128,7 +128,7 @@ leisure=stadium [0x19 resolution 24 continue]
 man_made = water_tower | man_made=tower [0x13 resolution 24]
 
 natural=beach [0x53 resolution 20]
-natural=bedrock | natural=cliff | natural=scree | natural=rock [0x40 resolution 20]
+natural=bedrock | natural=cliff | natural=scree | natural=rock | natural=bare_rock |  geological=volcanic_lava_field [0x40 resolution 20]
 natural=glacier [0x4d resolution 14]
 natural=heath [0x20 resolution 21]
 natural=marsh [0x51 resolution 21]

@@ -178,7 +178,7 @@ military=danger_area [0x04 resolution 20]
 military=range [0x04 resolution 20]
 
 natural=beach [0x53 resolution 20]
-natural=bedrock | natural=cliff | natural=scree | natural=rock [0x40 resolution 20]
+natural=bedrock | natural=cliff | natural=scree | natural=rock | natural=bare_rock |  geological=volcanic_lava_field [0x40 resolution 20]
 natural=glacier [0x4d resolution 14]
 natural=heath [0x20 resolution 21]
 natural=marsh [0x51 resolution 21]
