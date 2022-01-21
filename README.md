@@ -42,7 +42,7 @@ copyright-message: Map data © Openstreetmap.org
 
 ## mkgmap parameters for Openfietsmap (full version)
 
-More info on http://www.openfietsmap.nl/procedure
+More info on https://www.openfietsmap.nl/tips-tricks/procedure
 
 ```
 generate-sea: land-tag=natural=background
