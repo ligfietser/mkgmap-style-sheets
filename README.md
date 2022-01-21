@@ -1,5 +1,5 @@
 # mkgmap-style-sheets
-This project aims to improve the vector maps for Garmin GPS created with the mkgmap compiler from http://OpenStreetMap.org data for the world routable maps at http://garmin.openstreetmap.nl and the routable bicycle map from http://www.openfietsmap.nl
+This project aims to improve the vector maps for Garmin GPS created with the mkgmap compiler from http://OpenStreetMap.org data for the world routable maps at http://garmin.openstreetmap.nl and the routable bicycle map from https://www.openfietsmap.nl
 
 Please report issues at the OSM forum: http://forum.openstreetmap.org/viewtopic.php?id=13257
 or http://forum.openstreetmap.org/viewtopic.php?id=2625
