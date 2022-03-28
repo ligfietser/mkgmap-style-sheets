@@ -381,7 +381,7 @@ waterway=weir [0x15 default_name="weir" resolution 24]
 #other line elements
 man_made=wildlife_crossing & natural!=* & landuse!=* & highway!=* & area!=yes [0x15 default_name="ecoduct" resolution 22]
 #natural=coastline [0x25 resolution 18]
-natural=cliff | geological=volcanic_caldera_rim [0x10115  resolution 23]
+natural=cliff | geological=volcanic_caldera_rim [0x10115  resolution 23 continue]
 barrier=city_wall | barrier=wall  [0x10012 resolution 23 continue]
 
 #man_made=pier & area!=yes {name '${name}'} [0x08 default_name="pier" road_class=0 road_speed=0 resolution 24 continue with_actions]
