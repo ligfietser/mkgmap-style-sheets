@@ -13,7 +13,7 @@ motorcycle=*    { delete motorcycle }
 cycleway=no { delete 'cycleway' }
 cycleway=track & (bicycle=no|bicycle=use_sidepath) { delete 'bicycle' }
 cycleway=lane & (bicycle=no|bicycle=use_sidepath) { delete 'bicycle' }
-highway=busway { set highway=service }
+highway=busway { set highway=service; add access=no }
 
 (highway=motorway | highway=motorway_junction | highway=trunk | highway=footway  | route=ferry) & toll=yes {delete toll}
 highway=* & toll=yes & bicycle!=no & service!=parking_aisle & toll:bicycle!=no {set toll:bicycle=yes}
