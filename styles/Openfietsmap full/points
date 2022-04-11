@@ -53,7 +53,7 @@ landuse=residential & name=* & source!=AND [0x0600 resolution 23]
 landuse=residential & name=* & source=AND [0x0900 resolution 23]
 (admin_level = 11 & boundary = administrative) [0x0900 resolution 23]
 
-man_made=communications_tower | (man_made=tower & tower:type!=communication)  [0x6411 resolution 23 continue]
+man_made=communications_tower | (man_made=tower & tower:type!=communication) | man_made=observatory [0x6411 resolution 23 continue]
 man_made=windmill  [0x2c00 resolution 23]
 man_made=lighthouse [0x2812 resolution 23]
 
