@@ -169,7 +169,7 @@ leisure=sports_center | leisure=sports_centre | leisure=ice_rink | leisure=water
 leisure=stadium [0x19 resolution 23 continue]
 leisure=track [0x19 resolution 23]
 leisure=swimming_pool | amenity=swimming_pool  [0x3d resolution 23 continue]
-man_made=water_tower | man_made=tower [0x13 resolution 24]
+man_made=water_tower | man_made=tower | man_made=telescope [0x13 resolution 24]
 
 
 military=airfield [0x04 resolution 20]
