@@ -141,6 +141,15 @@ route=bicycle & ref="LF4" & name!="Midden-Nederlandroute - 08 - Borculo - Ensche
 		set iname="Hoofdstedenroute";
 		set iref="EV2";
 	} 
+	}
+
+route=bicycle & ref="R1;D3"
+	{
+		apply {
+		set icn_from_relation=yes;
+		set iname="Hauptstadt-Route";
+		set iref="EV2";
+	} 
 	}	
 network=icn
 	{
