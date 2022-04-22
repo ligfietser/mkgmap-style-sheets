@@ -99,6 +99,49 @@ type=route & name ~ '(EuroVelo 12).*' {set name="North Sea Cycle Route"}
 type=route & name ~ '(EuroVelo 13).*' {set name="Iron Curtain Trail"}
 type=route & name ~ '(EuroVelo 15).*' {set name="Rhine Route"}
 
+route=bicycle & ref="LF-K"
+	{
+		apply {
+		set icn_from_relation=yes;
+		set iname="Noordzeefietsroute";
+		set iref="EV12";
+	} 
+	}
+
+route=bicycle & ref="LF-M"
+	{
+		apply {
+		set icn_from_relation=yes;
+		set iname="Maasfietsroute";
+		set iref="EV19";
+	} 
+	}
+
+route=bicycle & ref="Rijn"
+	{
+		apply {
+		set icn_from_relation=yes;
+		set iname="Rijnfietsroute";
+		set iref="EV15";
+	} 
+	}
+	
+	route=bicycle & ref="LF13"
+	{
+		apply {
+		set icn_from_relation=yes;
+		set iname="Centraal Europe Route";
+		set iref="EV4";
+	} 
+	}
+route=bicycle & ref="LF4" & name!="Midden-Nederlandroute - 08 - Borculo - Enschede"
+	{
+		apply {
+		set icn_from_relation=yes;
+		set iname="Hoofdstedenroute";
+		set iref="EV2";
+	} 
+	}	
 network=icn
 	{
 		apply { 
