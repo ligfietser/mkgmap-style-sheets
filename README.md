@@ -58,6 +58,7 @@ show-profiles: 1
 min-size-polygon: 4
 polygon-size-limits=17:2, 15:0
 merge-lines
+ignore-turn-restrictions
 add-pois-to-areas
 add-pois-to-lines
 link-pois-to-ways
