@@ -62,8 +62,8 @@ route=ferry {add mkgmap:ferry=1}
 aeroway=runway & is_closed()!=true [0x10117 resolution 20 continue with_actions]
 aeroway=taxiway & is_closed()!=true [0x10117 resolution 23 continue with_actions]
 
-(man_made=dyke | man_made=dike | embankment=yes | man_made=embankment) & railway!=* & highway!=* [0x10115 resolution 24 continue with_actions]
-(man_made=dyke | man_made=dike | embankment=yes | man_made=embankment)  & (highway=* | railway=*) [0x10015 resolution 24 continue with_actions]
+(man_made=dyke | man_made=dike | embankment=dyke | embankment=yes | man_made=embankment) & railway!=* & highway!=* [0x10115 resolution 24 continue with_actions]
+(man_made=dyke | man_made=dike | embankment=dyke | embankment=yes | man_made=embankment)  & (highway=* | railway=*) [0x10015 resolution 24 continue with_actions]
 cutting=yes  [0x10215 resolution 24 continue with_actions]
 
 # Roundabouts
