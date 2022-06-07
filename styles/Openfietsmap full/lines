@@ -121,6 +121,7 @@ bicycle=lane { set cycleway=lane }
 bicycleroute=yes & area=yes {set bicycleroute=no}
 
 # Flag unpaved roads
+highway=* & surface=metal_grid { delete surface }
 highway=cycleway & surface ~ '(fine_gravel|compacted|shell|shells)' {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
 (surface=cobblestone | surface=unhewn_cobblestone) & (smoothness=intermediate | smoothness=good | smoothness=excellent | "cycleway:smoothness"=intermediate | "cycleway:smoothness"=good | "cycleway:smoothness"=very_good | "cycleway:smoothness"=excellent) {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
 (surface=cobblestone | surface=unhewn_cobblestone) & "cycleway:surface" ~ '.*(paved|paving|asphalt|concrete|sett).*' {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
