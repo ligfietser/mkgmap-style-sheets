@@ -10,10 +10,10 @@ country-name: Benelux
 country-abbr: BNL
 style-file: Styles
 overview-mapname: 10010000
-#download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
+#download the latest sea files from from https://www.mkgmap.org.uk/download/mkgmap.html
 precomp-sea: sea.zip
 generate-sea: land-tag=natural=background
-#download the latest bounds from http://osm2.pleiades.uni-wuppertal.de/bounds/latest/
+#download the latest bounds from https://www.mkgmap.org.uk/download/mkgmap.html
 bounds: bounds.zip
 location-autofill: is_in,nearest
 housenumbers
@@ -27,6 +27,7 @@ dem-dists: 9942,9942,9942,13248,44176
 overview-dem-dist=88368
 show-profiles: 1
 merge-lines
+ignore-turn-restrictions
 add-pois-to-areas
 add-pois-to-lines
 link-pois-to-ways
