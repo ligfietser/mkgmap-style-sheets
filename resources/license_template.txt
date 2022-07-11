@@ -1,30 +1,59 @@
-Welcome to the Free worldwide maps for Garmin brand GPS devices
-http://garmin.openstreetmap.nl
+© OpenFietsMap.nl
+Een routerende fietskaart
+voor Garmin Mapsource/Basecamp
 
-The goal of these maps is to advance the OpenStreetMap
-project by providing free worldwide Garmin maps based 
-upon OpenStreetMap data. I hope that people who appreciate
-this website will choose to contribute to the OpenStreetMap
-project to improve their own experience and 
-make the opensource world map even better. 
+Website:
+https://www.openfietsmap.nl
 
-Map data (c) OpenStreetMap and its contributors
-http://www.openstreetmap.org/copyright
-
-Dutch address data: BAG/Kadaster
-Belgium (Flanders) address data: CRAB/AGIV.BE
-
-Routable Bicycle (Openfietsmap Lite) (c) licensed under CC-BY-NC-SA, 
-http://creativecommons.org/licenses/by-nc-sa/3.0/
-
-Contourlines (c) SRTM-Data / NASA
-and Jonathan de Ferranti (viewfinderpanoramas.org)
-
-Map compiled with Splitter and Mkgmap
-http://www.mkgmap.org.uk/
-This software is licensed under the GPL version 2.
+E-mail:
+info@openfietsmap.nl
 
 Disclaimer:
+Het is niet toegestaan om deze kaart verder
+te verspreiden of commercieel te verhandelen 
+zonder uitdrukkelijke toestemming van Openfietsmap.nl
+Deze software is experimenteel, gebruik het op eigen risico!
+De makers van Openfietsmap aanvaarden dan ook geen enkele aansprakelijkheid voor enige schade
+die direct of indirect ontstaat als gevolg van het gebruik van het programma.
+
+Kaartdata is afkomstig van Openstreetmap:
+© OpenStreetMap contributors https://www.openstreetmap.org/
+© Openfietsmap kartografie is gelicenseerd onder de licentie 
+CC-BY-NC-SA: https://creativecommons.org/licenses/by-nc-sa/3.0/
+De Openfietsmap is vrij te gebruiken voor eigen gebruik. 
+
+Deze kaart is gemaakt mbv de volgende software: 
+mkgmap (revisie nr. zie onder) / Srtm2Osm  / splitter
+Windows installer: NSIS (Nullsoft Scriptable Install System)
+Gmaptool (gmt.exe) door Andrzej Popowski, https://www.gmaptool.eu
+
+---------------------------------------------------------------------------------------------
+
+© OpenFietsMap.nl
+A routable cycling map
+for Garmin Mapsource/Basecamp
+
+Website:
+http://www.openfietsmap.nl
+
+E-mail:
+info@openfietsmap.nl
+
+Disclaimer:
+This Openfietsmap can be used freely for any personal use.
+Further distribution or commercial use is not allowed 
+without attribution and permission from Openfietsmap.nl
 Please note that the software is experimental and
 provided "as is," and you use the software at your own risk.
+
+Map data is provided by Openstreetmap
+© OpenStreetMap contributors https://www.openstreetmap.org/
+© Openfietsmap Cartography is licensed under CC-BY-NC-SA, 
+https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+This map is created with mkgmap  / Srtm2Osm  / splitter 
+Installer created with NSIS (Nullsoft Scriptable Install System)
+Some map icons are from Maki icon set (BSD license: https://mapbox.com/bsd-license)
+gmaptool (gmt.exe) is developed by Andrzej Popowski, https://www.gmaptool.eu
+
 
