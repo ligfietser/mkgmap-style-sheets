@@ -94,7 +94,7 @@ highway=service & (bicycle=yes | bicycle=designated | bicycleroute=yes) { set hi
 #highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & bicycleroute=yes { add highway=unclassified }
 #highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & mtb_from_relation=yes { add highway=track }
 highway=unsurfaced { set highway=track }
-highway=track & (tracktype=grade1 | surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)') { set highway=unclassified; delete tracktype; set mkgmap:check=ok }
+highway=track & (tracktype=grade1 | surface ~ '(paved|asphalt|sett|concrete|concrete:plates|concrete:lanes|paving_stones)') { set highway=unclassified; delete tracktype; set mkgmap:check=ok }
 highway=cycleroad  { set highway=cycleway }
 cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
 (cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; delete 'cycleway' }
@@ -103,10 +103,10 @@ cycleway=lane & (highway=track | highway=path | highway=footway | highway=bridle
 
 highway=footway & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
 highway=path & bicycle=designated & foot:designated=yes { set highway=cycleway }
-highway=path & bicycle=designated & surface ~ '.*(paved|asphalt|sett|concrete|paving_stones).*' { set highway=cycleway }
+highway=path & bicycle=designated & surface ~ '(paved|asphalt|sett|concrete|concrete:plates|concrete:lanes|paving_stones)' { set highway=cycleway }
 bicycle=designated { set bicycle=yes; add motorcar=yes }
-highway=path & surface ~ '.*(paved|asphalt|sett|concrete|paving_stones).*' & access!=no & access!=private & vehicle!=no { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
-highway=footway & surface ~ '.*(paved|asphalt|sett|concrete|paving_stones).*'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
+highway=path & surface ~ '(paved|asphalt|sett|concrete|concrete:plates|concrete:lanes|paving_stones)' & access!=no & access!=private & vehicle!=no { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
+highway=footway & surface ~ '(paved|asphalt|sett|concrete|concrete:plates|concrete:lanes|paving_stones)'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
 highway=steps & area=yes { set highway=pedestrian; add bicycle=no; add motorcar=no; }
 highway=path & foot=designated & bicycle!=yes { set highway=footway }
 highway=path & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway; add mkgmap:unpaved=1; set motorcar=no; }
@@ -124,7 +124,7 @@ bicycleroute=yes & area=yes {set bicycleroute=no}
 highway=* & surface=metal_grid { delete surface }
 highway=cycleway & surface ~ '(fine_gravel|compacted|shell|shells)' {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
 (surface=cobblestone | surface=unhewn_cobblestone) & (smoothness=intermediate | smoothness=good | smoothness=excellent | "cycleway:smoothness"=intermediate | "cycleway:smoothness"=good | "cycleway:smoothness"=very_good | "cycleway:smoothness"=excellent) {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
-(surface=cobblestone | surface=unhewn_cobblestone) & "cycleway:surface" ~ '.*(paved|paving|asphalt|concrete|sett).*' {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
+(surface=cobblestone | surface=unhewn_cobblestone) & "cycleway:surface" ~ '(paved|asphalt|sett|concrete|concrete:plates|concrete:lanes|paving_stones)' {set surface=paved; set mkgmap:unpaved=0; set motorcar=yes}
 highway=* &  bridge!=* & tracktype ~ '.*;.*' {delete tracktype}
 highway=* &  bridge!=* & surface ~ '.*(ash|bad|clay|cob|compact|dirt|earth|erde|gr|loam|mud|peb|sand|soil|shotter|rock|turf|unpaved).*' { add mkgmap:unpaved=1; set motorcar=no }
 highway=* &  bridge!=* & surface ~ '.*(cob|compact|gravel).*' { add unpaved=2 }
