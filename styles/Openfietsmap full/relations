@@ -205,13 +205,14 @@ type=route & route=bicycle & network=tcn
 	} 	
 	
 network=icn & state=proposed
-	{apply { set state=icn_proposed }}
+	{apply { set icn_from_relation=no }}
 network=ncn & state=proposed
-	{apply { set state=ncn_proposed }}	
+	{apply { set ncn_from_relation=no }}	
 network=rcn & state=proposed
-	{apply { set state=rcn_proposed }}	
+	{apply { set rcn_from_relation=no }}	
 network=lcn & state=proposed
-	{apply { set state=lcn_proposed }}		
+	{apply { set lcn_from_relation=no }}
+			
 
 	
 type=route & route=mtb
