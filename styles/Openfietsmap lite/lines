@@ -315,7 +315,7 @@ ncn_from_relation=yes & railway!=rail {name '${nref|highway-symbol:oval} (${nnam
 rcn_from_relation=yes & ncn_from_relation!=yes & icn_from_relation!=yes {name '${rnote}' | '${rref}' | '${rname}'}  [0x00 resolution 18-19 continue]
 bicycleroute=yes & !(ncn_from_relation=yes | icn_from_relation=yes) [0x10119 resolution 20-21 continue]
 
-(ncn_from_relation=yes | lcn_from_relation=yes | ncn_ref=* | lcn_ref=*) {name '${nref|highway-symbol:oval}'| '${ncn_ref|highway-symbol:oval}' | '${lcn_ref|highway-symbol:oval}' | '${lref|highway-symbol:oval}' }  [0x28 resolution 22 continue] 
+(ncn_from_relation=yes | lcn_from_relation=yes | ncn_ref=* | rcn_ref=* | lcn_ref=*) {name '${nref|highway-symbol:oval}'| '${ncn_ref|highway-symbol:oval}' | '${rcn_ref|highway-symbol:oval}' | '${lcn_ref|highway-symbol:oval}' | '${lref|highway-symbol:oval}' }  [0x28 resolution 22 continue]
 rcn_from_relation=yes {name '${rnote}' | '${rref}' | '${rname}'} [0x19 resolution 22 continue]
 lcn_from_relation=yes {name '${lname}'} [0x27 resolution 22 continue]
 bicycleroute=yes & junction!=roundabout & railway!=rail [0x02 road_class=3 road_speed=2 resolution 22 continue]

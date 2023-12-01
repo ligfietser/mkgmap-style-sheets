@@ -185,8 +185,15 @@ type=route & route=bicycle & network=rcn
 		set rname='${name}';
 		set rref='$(rref)/${ref}' | '${ref}';
 	} 
-	}	
-
+	}
+	
+type=route & route=bicycle & network=rcn & network:type!=node_network
+	{
+		apply { 
+		set rcn_ref='$(rcn_ref)/${ref}' | '${ref}';
+	} 
+	}
+	
 type=route & route=bicycle & network=lcn
 	{
 		apply { 
