@@ -15,7 +15,7 @@ boundary = national_park [0x21 resolution 20-23 continue]
 boundary=protected_area & protect_class>=21 & protect_class<=29 {delete boundary}
 (leisure=nature_reserve | boundary=protected_area | boundary=nature_reserve) [0x21 resolution 20-23 continue]
 
-natural=sand | surface=sand [0x53 resolution 21 continue]
+natural=sand | surface=sand | surface=crushed_shells [0x53 resolution 21 continue]
 natural=wetland & wetland=tidalflat [0x3d resolution 22 continue]
 natural=wetland & wetland!=tidalflat [0x51 resolution 22 continue]
 
