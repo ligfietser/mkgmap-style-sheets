@@ -81,7 +81,7 @@ highway=raceway {set highway=service}
 highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
 highway=trunk_link { set highway=trunk }
 (highway=trunk | highway=motorway)  & bicycleroute=yes { set highway=primary }
-(highway=trunk | highway=motorway)  & cycleway=* { set highway=motorway_bike }
+(highway=trunk | highway=motorway)  & (cycleway:right=* | cycleway:left=* | cycleway=*) { set highway=motorway_bike }
 (highway=trunk | highway=motorway)  & bicycle=yes { set highway=motorway_bike }
 
 highway=trunk & mkgmap:country ~ '(NLD|BEL|LUX|FRA|DEU|AUT|CHE|DNK|HUN|ROU)' { set highway=motorway }
