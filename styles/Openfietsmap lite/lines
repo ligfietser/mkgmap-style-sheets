@@ -6,7 +6,7 @@ include 'inc/address';
 include 'inc/contours';
 
 # clear tags
-highway=proposed {delete 'highway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'; delete 'ncn_from_relation'; delete 'rcn_from_relation'; delete 'icn_from_relation' delete 'lcn_from_relation'; delete 'tcn_from_relation'; delete 'mtb_from_relation' }
+highway=proposed {delete 'highway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'; delete 'ncn_from_relation'; delete 'rcn_from_relation'; delete 'icn_from_relation' delete 'lcn_from_relation'; delete 'tcn_from_relation'; delete 'mtb_from_relation'; delete 'junction' }
 motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
 motorcar=*      { add car='${motorcar}' ; delete motorcar }
 motorcycle=*    { delete motorcycle }
