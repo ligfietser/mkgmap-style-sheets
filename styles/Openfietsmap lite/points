@@ -182,7 +182,8 @@ amenity=zoo [0x2c07 default_name 'zoo' resolution 24]
   name '${name|def:} ${ref|def:}';
 }
 
-public_transport=platform | highway=bus_stop [0x2f08 resolution 24]
+(public_transport=platform | highway=bus_stop) & mkgmap:line2poitype=start [0x2f08 resolution 24]
+(public_transport=platform | highway=bus_stop) & mkgmap:line2poi!=true [0x2f08 resolution 24]
 
 highway=steps & tunnel=yes & (bicycle=yes|bicycle=dismount) & mkgmap:line2poitype=mid [0x2810 resolution 24]
 
