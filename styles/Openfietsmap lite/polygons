@@ -74,6 +74,8 @@ amenity=university & building=yes [0x13 resolution 24]
 amenity=university [0x0a resolution 20]
 
 admin_level=8 & name ~ '(Liège|Charleroi|Milano|Torino|Praha|Wien|Barcelona|Budapest)' [0x03 resolution 16-18]
+admin_level=4 & name="Berlin" [0x03 resolution 14-18]
+admin_level=6 & name="München" [0x03 resolution 14-18]
 
 landuse=residential & building=yes {delete landuse}
 landuse=residential & place=* & name!=* {delete place}
